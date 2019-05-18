@@ -1,0 +1,22 @@
+div.contents li {
+	/*display: inline-block;*/
+	/*list-style-type: none;*/
+	font-size: 16px;
+	margin-bottom: 0;
+}
+
+.return-to-top {
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+div.timeline ul,
+div.timeline li {
+	font-size: 16px;
+	margin-bottom: 0;
+	line-height: 24px;
+}
+
+hr {
+	background: none;
+}
