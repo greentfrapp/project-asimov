@@ -5,6 +5,13 @@ div.contents li {
 	margin-bottom: 0;
 }
 
+div.notes-main li {
+	/*display: inline-block;*/
+	/*list-style-type: none;*/
+	font-size: 16px;
+	margin-bottom: 0;
+}
+
 .return-to-top {
 	font-size: 14px;
 	text-transform: uppercase;
