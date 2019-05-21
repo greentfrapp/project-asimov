@@ -16,7 +16,7 @@ The algorithm should allow humans (decision makers and recipients) to understand
 
 The algorithm should be predictable by the humans that they govern.
 
-> The job of the legal system is not necessarily to optimize society,but to provide a predictable environment within which citizens can optimize their own lives.
+> The job of the legal system is not necessarily to optimize society, but to provide a predictable environment within which citizens can optimize their own lives.
 
 **Robustness**
 
@@ -24,4 +24,4 @@ The algorithm should not be susceptible to any manipulation that compromises the
 
 **Accountability**
 
-The algorithm should hold an entity accountable to poor decisions. The authors mention an example of an AI system with a user override. A human might be disinclined to make use of the override - if the override goes wrong, the human is responsible, whereas if the original decision was wrong, the AI is responsible.
+The algorithm should hold an entity accountable to poor decisions. The authors mention an example of an AI system with a user override. A human might be disinclined to make use of the override — if the override goes wrong, the human is responsible, whereas if the original decision was wrong, the AI is responsible.
