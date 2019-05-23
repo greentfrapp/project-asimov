@@ -3,6 +3,7 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <script src="distill.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
 <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">  -->
 <link rel="stylesheet" href="https://greentfrapp.github.io/assets/main.css">
 <link href="main.css" rel="stylesheet" type="text/css">
@@ -54,41 +55,7 @@
   </p>
   <div class="return-to-top"><a href="#title">[Return to top]</a></div>
   <hr/>
-  <h3 id="timeline">Timeline</h3>
-  <div class="timeline">
-    <h4>Weeks 1 to 2 - Groundwork</h4>
-    <ul>
-      <li>Literature review</li>
-      <ul>
-        <li>AI ethics</li>
-        <li>Technology adoption</li>
-        <li>Technology design</li>
-        <li>Explainers, playbooks and primers</li>
-      </ul>
-      <li>Scoping out deliverable</li>
-     <ul>
-        <li>Outline contents for guides</li>
-        <li>How do we want the target audience to use the materials?</li>
-        <li>What specific lessons do we want them to take away?</li>
-      </ul>
-    </ul>
-    &nbsp;
-    <h4>Weeks 3 to 7 - Part I</h4>
-    <ul>
-      <li>Iterate guide for practitioners</li>
-      <li>Complete draft by Week 6 (28 June 2019)</li>
-      <li>Review guidebook with target audience</li>
-    </ul>
-    &nbsp;
-    <h4>Weeks 8 to 12 - Part II</h4>
-    <ul>
-      <li>Iterate guide for public</li>
-      <li>Complete draft by Week 11 (2 August 2019)</li>
-      <li>Review guidebook with target audience</li>
-    </ul>
-    &nbsp;
-    <h4>Weeks 13 to 14 - Buffer</h4>
-  </div>
+  <div class="timeline" id="timeline" w3-include-html="timeline.md"></div>
   <div class="return-to-top"><a href="#title">[Return to top]</a></div>
 </dt-article>
 
@@ -104,7 +71,7 @@
   <d-citation-list id="references"></d-citation-list>
   <div class="return-to-top"><a href="#title">[Return to top]</a></div>
 </dt-appendix>
-
+<script src="./include_md.js"></script>
 <script type="text/bibliography">
   @misc{alcine_2015, title={Google Photos, y'all fucked up. My friend's not a gorilla. pic.twitter.com/SMkMCsNVX4}, url={https://twitter.com/jackyalcine/status/615329515909156865}, journal={Twitter}, publisher={Twitter}, author={Alciné, Jacky}, year={2015}, month={Jun}}
   @misc{andrew_chien_papernot, title={TensorFlow Privacy}, url={https://github.com/tensorflow/privacy}, journal={TensorFlow Privacy}, publisher={Google}, author={Andrew, Galen and Chien, Steve and Papernot, Nicolas}}
@@ -147,4 +114,3 @@
   @misc{ibm_2019, title={AI Fairness 360 Open Source Toolkit}, url={https://aif360.mybluemix.net/}, journal={IBM Research Trusted AI}, publisher={IBM}, author={IBM}}
   @misc{chowdhury_2018, title={Tackling the challenge of ethics in AI}, url={https://www.accenture.com/gb-en/blogs/blogs-cogx-tackling-challenge-ethics-ai}, journal={Accenture Blog}, publisher={Accenture}, author={Chowdhury, Rumman}, year={2018}, month={Jun}}
 </script>
-

@@ -20,8 +20,13 @@ div.notes-main li {
 div.timeline ul,
 div.timeline li {
 	font-size: 16px;
-	margin-bottom: 0;
 	line-height: 24px;
+}
+
+div.timeline li li {
+	font-size: 14px;
+	line-height: 20px;
+	margin-bottom: 0px;
 }
 
 hr {
