@@ -1,0 +1,29 @@
+# How China Uses High-Tech Surveillance to Subdue Minorities
+
+[Link to article](https://www.nytimes.com/2019/05/22/world/asia/china-surveillance-xinjiang.html)
+
+[See ChinAI #47 for a Chinese take](https://chinai.substack.com/p/chinai-47-the-sensenet-data-leak)
+
+[Chinese blog post on Wang Peng Da, China Electronics Technology Corporation (CETC) Engineer](https://www.sohu.com/a/249485931_757363) *There is a line at the end of paragraph 4 about applying military technology to a civilian context.*
+
+[Human Rights Watch article on the Xinjiang surveillance](https://www.hrw.org/news/2018/02/26/china-big-data-fuels-crackdown-minority-region)
+
+This is a somewhat belated article on the Xinjiang surveillance concern. But a rather comprehensive one, albeit from a Western perspective.
+
+The entire issue is an amalgam of social issues exacerbated by a range of technical developments and problems - could be very useful as a case study.
+
+> Identification cards are also needed to buy knives, gasoline, phones, computers and even sugar. The purchases are entered into a police database used to flag suspicious behavior or individuals, according to a 2017 dissertation by a researcher at the Chinese Academy of Sciences that features screenshots of the system in Kashgar.
+
+> Not everyone has to endure the inconvenience. At many checkpoints, privileged groups — Han Chinese, Uighur officials with passes, and foreign visitors — are waved through “green channels.” In this way, the authorities have created separate yet overlapping worlds on the same streets — and in the online police databases — one for Muslim minorities, the other for Han Chinese.
+
+On top of civil rights concerns, there is also the weak security of databases that contains personal details, one of which was found to be accessible by the public, discovered by Victor Gevers, white-hat hacker and co-founder of GDI Foundation.
+
+The article also highlights the lesser-known inefficiencies of an AI-enabled surveillance system.
+
+> The technology has some way to go. Dust and bad lighting can hobble facial recognition on security cameras, which struggle to track large numbers of people simultaneously. Even the best systems can be accurate in less than 20 percent of cases, according to one study published by a journal linked to the Ministry of Public Security.
+
+> A technician who until recently installed and maintained computers for the authorities in Xinjiang said police surveillance centers relied on hundreds of workers to monitor cameras, an expensive and inefficient undertaking.
+
+> And outside urban centers, police officers often do not have the skills to operate the sophisticated systems, said the technician, who spoke on the condition of anonymity, fearing repercussions for speaking to a journalist.
+
+> The spending spree on security in Xinjiang has left local governments across the region with staggering bills, raising questions about how the authorities can keep the systems running.

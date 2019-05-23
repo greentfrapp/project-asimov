@@ -1,0 +1,33 @@
+# Amazon heads off facial recognition rebellion
+
+[Link to article](https://www.bbc.com/news/technology-48339142)
+
+[ACLU tweet](https://twitter.com/ACLU/status/1131228523186802688)
+
+[Related article on Oregon using Rekognition](https://www.washingtonpost.com/technology/2019/04/30/amazons-facial-recognition-technology-is-supercharging-local-police/) *This is a pretty comprehensive article and deserves a detailed look.*
+
+[Amazon blogpost on facial recognition legislation](https://aws.amazon.com/blogs/machine-learning/some-thoughts-on-facial-recognition-legislation/)
+
+This article describes the aftermath of a shareholder vote on two proposals - Amazon to stop offering Rekognition to government agencies and Amazon to commission an independent study on whether the technology threatens civil rights. Both proposals were rejected but the fact that the proposals were raised illustrates a public that is more aware of these issues.
+
+The article also revises some important points.
+
+> Amazon [recommends that law enforcement agents](https://aws.amazon.com/blogs/machine-learning/some-thoughts-on-facial-recognition-legislation/) should only use the facility if there is a 99% or higher confidence rating of a match and says they should be transparent about its usage.
+
+> But a study published in January by researchers at Massachusetts Institute of Technology and the University of Toronto suggested Amazon's algorithms suffered greater gender and racial bias than four competing products.
+
+> [It said that Rekognition](http://www.aies-conference.com/wp-content/uploads/2019/01/AIES-19_paper_223.pdf) had a 0% error rate at classifying lighter-skinned males as such within a test, but a 31.4% error rate at categorising darker-skinned females.
+
+> Amazon [has disputed the findings](https://aws.amazon.com/blogs/machine-learning/thoughts-on-recent-research-paper-and-associated-article-on-amazon-rekognition/) saying that the researchers had used "an outdated version" of its tool and that its own checks had found "no difference" in gender-classification across ethnicities.
+
+> Even so, opposition to Rekognition has also been [voiced by civil liberties groups](https://www.eff.org/deeplinks/2018/05/amazon-stop-powering-government-surveillance) and [hundreds of Amazon's own workers](https://medium.com/s/powertrip/im-an-amazon-employee-my-company-shouldn-t-sell-facial-recognition-tech-to-police-36b5fde934ac).
+
+The article also quotes a great line from Ian Massingham, Director of Developer Technology & Evangelism at Amazon Web Services.
+
+> "The right organisations to handle the issue are policymakers in government," Ian Massingham explained.
+
+> "The one thing I would say about deep learning technology generally is that much of the technology is based on publicly available academic research, so you can't really put the genie back in the bottle.
+
+> "Once the research is published, it's kind of hard to 'uninvent' something.
+
+> "So, our focus is on making sure the right governance and legislative controls are in place."
