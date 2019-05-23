@@ -1,0 +1,28 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:description" content="Posts about Urban Planning and AI - in isolation as well as how they relate to each other." />
+  <meta property="og:image" content="{{ "/assets/logo_large.jpg" | relative_url }}" />
+  <link rel="shortcut icon" href="{{ "/assets/favicon.ico" | relative_url }}" type="image/x-icon">
+  <link rel="icon" href="https://greentfrapp.github.io/assets/favicon.ico" type="image/x-icon">
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
+  <script src="{{ "/assets/distill.js" | relative_url }}"></script>
+  <script type="text/front-matter">
+    title: "Project Asimov (Working Draft)"
+    description: "A guide to pressing ethical matters in artificial intelligence technologies."
+    authors:
+    - Lim Swee Kiat: https://headlesselephant.com
+    affiliations:
+    - Singapore University of Technology and Design: https://urbanscience.sutd.edu.sg/
+  </script>
+  {%- feed_meta -%}
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+    {%- include google-analytics.html -%}
+  {%- endif -%}
+  {%- if site.tags != "" -%}
+  	{%- include collecttags.html -%}
+  {%- endif -%}
+</head>

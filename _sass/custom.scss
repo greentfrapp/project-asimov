@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Open+Sans:400,600|Ubuntu+Mono|Lato|Cambo|Libre+Baskerville');
+
+div.tags a {
+	border: none;
+}
+
+.return-to-top {
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+div.timeline ul,
+div.timeline li {
+	font-size: 16px;
+	line-height: 24px;
+}
+
+div.timeline li li {
+	font-size: 14px;
+	line-height: 20px;
+	margin-bottom: 0px;
+}
+
+header div.wrapper {
+	max-width: calc(800px - (40px * 2));
+}
+
+.frontmatter {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	display: grid;
+	grid-template-areas:
+		'title'
+		'title-image';
+	grid-gap: 10px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.content {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	@include relative-font-size(1.2);
+}
+
+.content h1 {
+	@include relative-font-size(3);
+	font-family: 'Playfair Display', 'Open Sans', sans-serif;
+}
+
+.frontmatter .wrapper h1 {
+	font-weight: 600;
+	@include relative-font-size(4);
+	font-family: 'Playfair Display', 'Open Sans', sans-serif;
+}
+
+.frontmatter .wrapper img#logo {
+	width: 100%;
+	vertical-align: top;
+	display: block;
+	margin: 0 20px;
+	@include media-query($on-laptop) {
+		width: 25%;
+		margin: auto;
+		display: block;
+	}
+	@include media-query($on-palm) {
+		width: 50%;
+	}
+}
+
+.fm-content {
+	display: inline-block;
+	width: 70%;
+	padding-bottom: 0;
+	@include media-query($on-laptop) {
+		width: 100%;
+	}
+}
+
+//hr {
+	//width: whatever;
+	//margin: 10px auto;
+	//height: 32px;
+	//background: #fff url(./hr.svg) no-repeat scroll center;
+	//border: 0;
+//}
+
+li {
+	margin-top: 10px;
+}
+
+.tags {
+	font-family: 'Ubuntu Mono';
+}
+
+div.note p {
+	z-index: -100;
+}
+
+div.note {
+	z-index: 100;
+}
+
+.note-left {
+	height: 0px;
+	margin-left: -30%;
+	width: 20%;
+	overflow: visible;
+	border-top: 3px solid $brand-color;
+	padding-top: 5px;
+	color: lighten($text-color, 25%);
+	font-size: $small-font-size;
+	@include media-query($not-full) {
+		cursor: pointer;
+		width: 100%;
+		height: initial;
+		margin: 10px 0;
+		padding: 10px;
+		width: initial;
+		border: 1px solid $brand-color;
+		border-radius: 3px;
+		overflow: hidden;
+	}
+}
+
+.note-right {
+	height: 0px;
+	margin-left: 110%;
+	width: 20%;
+	overflow: visible;
+	border-top: 3px solid $brand-color;
+	padding-top: 5px;
+	color: lighten($text-color, 25%);
+	font-size: $small-font-size;
+	@include media-query($not-full) {
+		cursor: pointer;
+		width: 100%;
+		height: initial;
+		margin: 10px 0;
+		padding: 10px;
+		width: initial;
+		border: 1px solid $brand-color;
+		border-radius: 3px;
+		overflow: hidden;
+	}
+}
+
+span.math {
+	@include relative-font-size(1.2);
+	font-family: Libre-Baskerville, serif;
+}
+
+.social-media-list {
+	//margin-bottom: 0px;
+}
