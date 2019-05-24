@@ -45,7 +45,7 @@ header div.wrapper {
 	@include relative-font-size(1.2);
 }
 
-.content h1 {
+dt-article h1 {
 	@include relative-font-size(3);
 	font-family: 'Playfair Display', 'Open Sans', sans-serif;
 }

@@ -9,7 +9,7 @@ layout: default
 	<h4>Contents</h4>
 	<div class="contents">
 		<ul>
-		{% for post in site.posts | sort: 'date' | reverse %}
+		{% for post in site.posts %}
 			{% if post.notes %}
 			<li>
 				<a href="#{{ post.ref }}">{{ post.title | escape }}</a>
@@ -19,7 +19,7 @@ layout: default
 		{% endfor %}
 		</ul>
 	</div>
-	{% for post in site.posts | sort: 'date' %}
+	{% for post in site.posts %}
 		{% if post.notes %}
 		<hr/>
 		<div class="notes-main" id="{{ post.ref }}">
