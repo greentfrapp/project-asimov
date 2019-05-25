@@ -1,5 +1,5 @@
 ---
 layout: notes
-title: posts.
+title: notes. \| Project Asimov
 permalink: /notes/
 ---
