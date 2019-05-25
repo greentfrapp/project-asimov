@@ -2,17 +2,25 @@
 layout: default
 ---
 
+<div id="main">
 <dt-article>
 	<h1 id="title">Notes</h1>
 	<h2>General thoughts, notes and reflections related to Project Asimov.</h2>
 	<dt-byline></dt-byline>
-	<h4>Contents</h4>
 	<div class="contents">
-		<ul>
+		<div class="ui transparent left icon input filter">
+			<input v-model="searchTerm" type="text" placeholder="Search..."/>
+			<i class="search icon"></i>
+		</div>
+		<div class="ui small slider checkbox filter">
+		  <input type="checkbox" name="doHighlight" v-model="doHighlight">
+		  <label>Highlight</label>
+		</div>
+		<ul style="margin-top: 1em;">
 		{% for post in site.posts %}
 			{% if post.notes %}
-			<li>
-				<a href="#{{ post.ref }}">{{ post.title | escape }}</a>
+			<li v-if="search(`{{ post.ref }}` + `{{ post.title | escape }}` + `{{ post.content | escape }}`)">
+				<a @click="selectPost('{{ post.ref }}')">{{ post.title | escape }}</a>
 				<!-- <div class="tags">{% for tag in post.tags %}{% capture tag_name %}{{ tag }}{% endcapture %}<a href="/tag/{{ tag_name }}">&middot;<nobr>{{ tag_name }}</nobr>&nbsp;</a>{% endfor %}</div> -->
 			</li>
 			{% endif %}
@@ -21,17 +29,61 @@ layout: default
 	</div>
 	{% for post in site.posts %}
 		{% if post.notes %}
-		<hr/>
-		<div class="notes-main" id="{{ post.ref }}">
-			{{ post.content }}
+		<!-- <div v-if="selectedPost === '{{ post.ref }}'"> -->
+		<hr/ v-if="selectedPost === '{{ post.ref }}'">
+		<div class="notes-main" id="{{ post.ref }}" v-if="selectedPost === '{{ post.ref }}'">
+			<div v-html="highlightedContent(`{{ post.content | escape }}`)"></div>
 		</div>
-		<div class="return-to-top"><a href="#title">[Return to top]</a></div>
+		<div class="return-to-top" v-if="selectedPost === '{{ post.ref }}'"><a href="#title">[Return to top]</a></div>
+		<!-- </div> -->
 		{% endif %}
 	{% endfor %}
 </dt-article>
+</div>
 <dt-appendix>
   <p>
     This is a final research project for the <a href="https://urbanscience.sutd.edu.sg/">MSc. Urban Science, Policy and Planning (MUSPP) degree</a> at the <a href="https://www.sutd.edu.sg/">Singapore University of Technology and Design (SUTD)</a>.
   </p>
   <div class="return-to-top"><a href="#title">[Return to top]</a></div>
 </dt-appendix>
+<script>
+var app = new Vue({
+	el: "#main",
+	data: {
+		searchTerm: "",
+		selectedPost: "",
+		doHighlight: true
+	}, 
+	computed: {
+
+	},
+	methods: {
+		search: function(term) {
+			if (term.indexOf(this.searchTerm) !== -1) {
+				return true;
+			} else {
+				return false;
+			}
+		},
+		selectPost: function(postId) {
+			this.selectedPost = postId;
+		},
+		test: function(content) {
+			return "TEST"
+		},
+		highlightedContent: function(content) {
+			if (this.searchTerm.length === 0) {
+				return content
+			}
+			if (this.doHighlight) {
+				return content.replace(new RegExp(this.searchTerm, "gi"), this.highlighter)
+			} else {
+				return content
+			}
+		},
+		highlighter: function(match, offset, string) {
+			return "<mark>" + match + "</mark>"
+		}
+	}
+})
+</script>

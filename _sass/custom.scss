@@ -1,10 +1,38 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Open+Sans:400,600|Ubuntu+Mono|Lato|Cambo|Libre+Baskerville');
 
+.notes-main h1 {
+	margin-bottom: 1em;
+}
+
+mark {
+	background-color: #D43900;
+	color: #FFF;
+}
+
+.ui.input input {
+	color: #D43900;
+}
+
+.ui.input,
+.ui.input input,
+.ui.input input:focus {
+	color: #ad461f;
+}
+
+a:hover {
+	cursor: pointer;	
+}
+
+.filter {
+	font-family: 'Open Sans', sans-serif;
+}
+
 div.tags a {
 	border: none;
 }
 
 .return-to-top {
+	margin-top: 1em;
 	font-size: 14px;
 	text-transform: uppercase;
 }
