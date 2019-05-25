@@ -17,11 +17,12 @@ layout: default
 		  <input type="checkbox" name="doHighlight" v-model="doHighlight">
 		  <label>Highlight</label>
 		</div>
-		<ul style="margin-top: 1em;">
+		<div v-html="showMessage" @click="showResults = !showResults"></div>
+		<ul style="margin-top: 1em;" v-if="showResults">
 		{% for post in site.posts %}
 			{% if post.notes %}
 			<li v-if="search(`{{ post.ref }}` + `{{ post.title | escape }}` + `{{ post.content | escape }}`)">
-				<a @click="selectPost('{{ post.ref }}')">{{ post.title | escape }}</a>
+				<a href="#notes-main" @click="selectPost('{{ post.ref }}')">{{ post.title | escape }}</a>
 				<!-- <div class="tags">{% for tag in post.tags %}{% capture tag_name %}{{ tag }}{% endcapture %}<a href="/tag/{{ tag_name }}">&middot;<nobr>{{ tag_name }}</nobr>&nbsp;</a>{% endfor %}</div> -->
 			</li>
 			{% endif %}
@@ -32,7 +33,7 @@ layout: default
 		{% if post.notes %}
 		<!-- <div v-if="selectedPost === '{{ post.ref }}'"> -->
 		<hr/ v-if="selectedPost === '{{ post.ref }}'">
-		<div class="notes-main" id="{{ post.ref }}" v-if="selectedPost === '{{ post.ref }}'">
+		<div class="notes-main" id="notes-main" v-if="selectedPost === '{{ post.ref }}'">
 			<div v-html="highlightedContent(`{{ post.content | escape }}`)"></div>
 		</div>
 		<div class="return-to-top" v-if="selectedPost === '{{ post.ref }}'"><a href="#title">[Return to top]</a></div>
@@ -53,14 +54,17 @@ var app = new Vue({
 	data: {
 		searchTerm: "",
 		selectedPost: "",
-		doHighlight: true
+		doHighlight: true,
+		showResults: true
 	}, 
 	computed: {
-
+		showMessage: function() {
+			return (this.showResults ? "<h4 id='showMessage'>Hide Results</h4>" : "<h4 id='showMessage'>Show Results</h4>")
+		}
 	},
 	methods: {
 		search: function(term) {
-			if (term.indexOf(this.searchTerm) !== -1) {
+			if (term.search(new RegExp(this.searchTerm, "gi")) !== -1) {
 				return true;
 			} else {
 				return false;

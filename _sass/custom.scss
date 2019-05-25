@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Open+Sans:400,600|Ubuntu+Mono|Lato|Cambo|Libre+Baskerville');
 
+#showMessage,
+#showMessage:hover {
+	cursor: pointer;
+	margin-top: 1em;
+}
+
 .notes-main h1 {
 	margin-bottom: 1em;
 }
