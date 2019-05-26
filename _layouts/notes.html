@@ -59,7 +59,7 @@ var app = new Vue({
 	}, 
 	computed: {
 		showMessage: function() {
-			return (this.showResults ? "<h4 id='showMessage'>Hide Results</h4>" : "<h4 id='showMessage'>Show Results</h4>")
+			return (this.showResults ? "<h4 id='showMessage'>Hide Results</h4>" : "<h4 id='showMessage'>Show Results</h4>");
 		}
 	},
 	methods: {
@@ -74,25 +74,28 @@ var app = new Vue({
 			this.selectedPost = postId;
 		},
 		test: function(content) {
-			return "TEST"
+			return "TEST";
 		},
 		highlightedContent: function(content) {
 			if (this.searchTerm.length === 0) {
-				return content
+				return content;
 			}
 			if (this.doHighlight) {
-				return content.replace(new RegExp("(>.*?)(" + this.searchTerm + ")(.*?<)", "gi"), this.highlighter)
+				return this.highlight(content.split(new RegExp("(?=<.*?)|>")), this.searchTerm);
 			} else {
-				return content
+				return content;
 			}
 		},
-		highlighter: function(match, p1, p2, p3, offset, string) {
-			console.log(match)
-			if (p1.indexOf("<") !== -1 || p2.indexOf("<") !== -1) {
-				return match
+		highlight: function(contents, searchTerm) {
+			for (let i=0;i<contents.length;i++) {
+				if (contents[i].indexOf("<") !== -1) {
+					contents[i] = contents[i] + ">";
+				} else {
+					contents[i] = contents[i].replace(new RegExp(this.searchTerm, "gi"), match => "<mark>" + match + "</mark>");
+				}
 			}
-			return p1 + "<mark>" + p2 + "</mark>" + p3
+			return contents.join("");
 		}
 	}
-})
+});
 </script>
