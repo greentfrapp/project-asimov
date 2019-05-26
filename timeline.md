@@ -11,6 +11,7 @@
 	- Outline contents for guides
 	- How do we want the target audience to use the materials?
 	- What specific lessons do we want them to take away?
+- **29 May** - Research project description
 
 #### Weeks 3 to 7 - Part I
 
