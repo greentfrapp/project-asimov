@@ -1,12 +1,12 @@
 ---
 layout: default
 ---
-
+<base target="_blank">
 <div id="main">
 <dt-article>
 	<h1 id="title">Notes</h1>
 	<h2>General thoughts, notes and reflections related to Project Asimov.</h2>
-	<h4><a href="https://greentfrapp.github.io/project-asimov/">Project Asimov</a></h4>
+	<h4><a href="https://greentfrapp.github.io/project-asimov/" target="_self">Project Asimov</a></h4>
 	<dt-byline></dt-byline>
 	<div class="contents">
 		<div class="ui transparent left icon input filter">
@@ -22,7 +22,7 @@ layout: default
 		{% for post in site.posts %}
 			{% if post.notes %}
 			<li v-if="search(`{{ post.ref }}` + `{{ post.title | escape }}` + `{{ post.content | escape }}`)">
-				<a href="#notes-main" @click="selectPost('{{ post.ref }}')">{{ post.title | escape }}</a>
+				<a href="#notes-main"  target="_self" @click="selectPost('{{ post.ref }}')">{{ post.title | escape }}</a>
 				<!-- <div class="tags">{% for tag in post.tags %}{% capture tag_name %}{{ tag }}{% endcapture %}<a href="/tag/{{ tag_name }}">&middot;<nobr>{{ tag_name }}</nobr>&nbsp;</a>{% endfor %}</div> -->
 			</li>
 			{% endif %}
@@ -36,7 +36,7 @@ layout: default
 		<div class="notes-main" id="notes-main" v-if="selectedPost === '{{ post.ref }}'">
 			<div v-html="highlightedContent(`{{ post.content | escape }}`)"></div>
 		</div>
-		<div class="return-to-top" v-if="selectedPost === '{{ post.ref }}'"><a href="#title">[Return to top]</a></div>
+		<div class="return-to-top" v-if="selectedPost === '{{ post.ref }}'"><a href="#title"  target="_self">[Return to top]</a></div>
 		<!-- </div> -->
 		{% endif %}
 	{% endfor %}
@@ -46,7 +46,7 @@ layout: default
   <p>
     This is a final research project for the <a href="https://urbanscience.sutd.edu.sg/">MSc. Urban Science, Policy and Planning (MUSPP) degree</a> at the <a href="https://www.sutd.edu.sg/">Singapore University of Technology and Design (SUTD)</a>.
   </p>
-  <div class="return-to-top"><a href="#title">[Return to top]</a></div>
+  <div class="return-to-top"><a href="#title" target="_self">[Return to top]</a></div>
 </dt-appendix>
 <script>
 var app = new Vue({
@@ -54,7 +54,7 @@ var app = new Vue({
 	data: {
 		searchTerm: "",
 		selectedPost: "",
-		doHighlight: false,
+		doHighlight: true,
 		showResults: true
 	}, 
 	computed: {
@@ -81,13 +81,17 @@ var app = new Vue({
 				return content
 			}
 			if (this.doHighlight) {
-				return content.replace(new RegExp(this.searchTerm, "gi"), this.highlighter)
+				return content.replace(new RegExp("(>.*?)(" + this.searchTerm + ")(.*?<)", "gi"), this.highlighter)
 			} else {
 				return content
 			}
 		},
-		highlighter: function(match, offset, string) {
-			return "<mark>" + match + "</mark>"
+		highlighter: function(match, p1, p2, p3, offset, string) {
+			console.log(match)
+			if (p1.indexOf("<") !== -1 || p2.indexOf("<") !== -1) {
+				return match
+			}
+			return p1 + "<mark>" + p2 + "</mark>" + p3
 		}
 	}
 })

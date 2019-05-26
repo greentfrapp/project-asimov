@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Open+Sans:400,600|Ubuntu+Mono|Lato|Cambo|Libre+Baskerville');
+@import url('https://fonts.googleapis.com/css?family=Overpass+Mono|Playfair+Display|Open+Sans:400,600|Ubuntu+Mono|Lato|Cambo|Libre+Baskerville');
 
 #showMessage,
 #showMessage:hover {
@@ -15,14 +15,11 @@ mark {
 	color: #FFF;
 }
 
-.ui.input input {
-	color: #D43900;
-}
-
 .ui.input,
 .ui.input input,
 .ui.input input:focus {
 	color: #ad461f;
+	font-family: 'Overpass Mono', monospace;
 }
 
 a:hover {
