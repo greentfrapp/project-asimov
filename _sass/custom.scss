@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Overpass+Mono|Playfair+Display|Open+Sans:400,600|Ubuntu+Mono|Lato|Cambo|Libre+Baskerville');
 
+dt-article blockquote {
+	margin-left: calc(50% - 984px / 2);
+	width: 648px;
+}
+
 #showMessage,
 #showMessage:hover {
 	cursor: pointer;
