@@ -1,12 +1,12 @@
 ---
 layout: outline
-title: outline. \| Project Asimov
-permalink: /outline/
+title: outline 1. \| Project Asimov
+permalink: /outline_part1/
 ---
 
-# Outline
+# Outline 1
 
-## Draft outline for deliverable to Part I.
+## Draft outline for deliverable to Part I, targetting programmers and AI practitioners.
 
 #### [Project Asimov](https://greentfrapp.github.io/project-asimov/)
 
@@ -45,6 +45,10 @@ This is (hopefully!) the first of a series of posts on my lectures and experienc
 ## Definitions
 
 #### Artificial Intelligence (AI)
+
+> The best policy research on AI should use the word artificial intelligence in an abstract sense as few times as possible. AI has become too prone to hype and it’s too broad of a concept to be analytically coherent or useful, encompassing anything from subfields of fuzzy mathematics to research on decentralized drone warfare. Analysts should rigorously force themselves to specify what claims they are making about “AI” in terms of the domain and technological layer they are talking about.
+
+*ChinAI #50 ([link](https://chinai.substack.com/p/chinai-50-ft-follow-up-chinese-americans))*
 
 > “Artificial Intelligence (AI)” refers to a set of technologies that seek to simulate human traits such as knowledge, reasoning, problem solving, perception, learning and planning. AI technologies rely on AI algorithms to generate models. The most appropriate model(s) is/are selected and deployed in a production system. 
 
