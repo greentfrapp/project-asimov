@@ -29,6 +29,19 @@ permalink: /outline/
 
 Highlight the pressing need for relatable primers to artificial intelligence and its problems. Focus on short-term problems.
 
+<div class='note note-left'>
+	<p>
+	This is (hopefully!) the first of a series of posts on my lectures and experiences from my MSc in Urban Science, Policy and Planning.
+	</p>
+</div>
+<div class='note note-right'>
+	<p>
+	This is (hopefully!) the first of a series of posts on my lectures and experiences from my MSc in Urban Science, Policy and Planning.
+	</p>
+</div>
+
+This is (hopefully!) the first of a series of posts on my lectures and experiences from my MSc in Urban Science, Policy and Planning.
+
 ## Definitions
 
 #### Artificial Intelligence (AI)
