@@ -97,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $base-font-weight;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   @include relative-font-size(2.5);
   color: $header-color;

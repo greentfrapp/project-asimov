@@ -136,38 +136,49 @@ div.note {
 	border: 1px solid $brand-color;
 	border-radius: 3px;
 	overflow: hidden;
-	color: lighten($text-color, 25%);
+	color: lighten($text-color, 10%);
 	font-size: $small-font-size;
 	box-sizing: inherit;
+	background-color: #FFFBFA;
 	@media(min-width: 768px) {
 		margin: 10px 72px;
 	}
 	@media(min-width: 1080px) {
-		height: 0px;
+		position: absolute;
+		//height: 0px;
+		height: auto;
 		margin: 0 20px;
-		padding: 0;
-		padding-top: 10px;
+		padding: 10px 0;
 		width: calc(50% - 50px - 720px / 2);
 		max-width: 200px;
 		overflow: visible;
 		border: none;
 		border-radius: 0px;
 		border-top: 3px solid $brand-color;
+		height: 25px;
+		overflow: hidden;
 	}
 }
 
 .note-left {
-	@media(min-width: 1210px) {
-		margin-left: calc(50% - (200px + 30px) - 720px / 2);
+	@media(min-width: 1080px) {
+		left: 0px;
+		float: left;
+	}
+	@media(min-width: 1220px) {
+		//margin-left: calc(50% - (200px + 30px) - 720px / 2);
+		left: calc(50% - (200px + 50px) - 720px / 2);
 	}
 }
 
 .note-right {
 	@media(min-width: 1080px) {
+		right: 0px;
 		float: right;
 	}
-	@media(min-width: 1210px) {
-		margin-right: calc(50% - (200px + 30px) - 720px / 2);
+	@media(min-width: 1220px) {
+		//margin-right: calc(50% - (200px + 30px) - 720px / 2);
+		right: calc(50% - (200px + 50px) - 720px / 2);
 	}
 }
 
