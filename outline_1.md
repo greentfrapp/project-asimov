@@ -17,7 +17,17 @@ permalink: /outline_part1/
 - [Introduction](#introduction)
 - [Definitions](#definitions)
 - [What's Up with AI?](#whats-up-with-ai)
+	- [Illusion of Omnipotence](#illusion-of-omnipotence)
+	- [Speed and Scale](#speed-and-scale)
+	- [Complexity and Opacity](#complexity-and-opacity)
+	- [Trust(?)](#trust)
 - [Bias - A Pressing Problem](#bias-a-pressing-problem)
+	- [The Illusion of Neutrality](#the-illusion-of-neutrality)
+	- [Types of Bias](#types-of-bias)
+	- [Hidden Bias](#hidden-bias-correlations)
+	- [Feedback Loops / No Correction](#feedback-loops--no-correction)
+	- [When is Bias Not Bias?](#when-is-bias-not-bias)
+	- [Transparency vs Explainability](#transparency-vs-explainability-and-what-these-concepts-mean-for-bias)
 - [Useful Tools](#useful-tools)
 - [Other Short-term Issues](#other-short-term-issues)
 - [Long-term Considerations](#long-term-considerations)
@@ -87,6 +97,16 @@ See Article 2 of the Universal Declaration of Human Rights (below).
 
 <div class="return-to-top"><a href="#title">[Return to top]</a></div>
 
+### Accuracy and Other Metrics
+
+#### Accuracy
+
+#### False Positives and False Negatives
+
+#### Recall and Precision
+
+### Algorithm vs Model
+
 ---
 
 ## What's Up with AI?
@@ -123,11 +143,11 @@ Dense mathematics making it difficult for non-practitioners to understand what i
 
 ## Bias - A Pressing Problem
 
-Each subsection here probably deserves a separate section of its own.
+Dedicated to understanding the nature of algorithmic bias. Each subsection here probably deserves a separate section of its own.
 
 #### The Illusion of Neutrality
 
-Highlight that algorithms inherit the biases of the human designers and the human-collected data. Unlike with mathematical equations, there is often no provably correct solution in the real world.
+Highlight that algorithms inherit the biases of the human designers and the human-collected data. Unlike with mathematical equations, there is often no provably correct solution in the real world. In fact, in some cases, all solutions are "wrong" and we have to decide what type of wrong do we want (see second point in **Types of Bias**)
 
 #### Types of Bias
 
@@ -135,26 +155,64 @@ Highlight that algorithms inherit the biases of the human designers and the huma
 	- Amazon's Prime Free Same-Day Delivery service was only offered to certain districts - often the richer and whiter ones ([link](https://www.bloomberg.com/graphics/2016-amazon-same-day/))
 - The technology working better for certain demographics
 	- *In this case, the accuracy (or other related measure) of the algorithm differs depending on the demographic*
-	- Facial recognition algorithms are notorious for working better on certain skin colors and genders - see Joy Buolamwini's [Gender Shades project](http://gendershades.org/overview.html)
-	- Sometimes, this is inevitable and a tradeoff must be considered - see this [ProPublica piece](https://www.propublica.org/article/bias-in-criminal-risk-scores-is-mathematically-inevitable-researchers-say)
+	- Facial recognition algorithms are notorious for working better on certain skin colors and genders - see Joy Buolamwini's [Gender Shades project](http://gendershades.org/overview.html) **[Possible Demo]**
+	- Sometimes, this is inevitable and a tradeoff is required - see this [ProPublica piece](https://www.propublica.org/article/bias-in-criminal-risk-scores-is-mathematically-inevitable-researchers-say) **[Possible Demo]**
 - The technology (dis)advantaging certain demographics
 	- *In this case, the algorithm might be "accurate" but causes harm to certain demographics*
 	- See [this piece](https://www.wired.com/story/ideas-joi-ito-insurance-algorithms/) by Joi Ito
 	- Examples include the use of algorithms for [predicting recividism](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing), [credit scoring](https://www.demos.org/research/discredited-how-employment-credit-checks-keep-qualified-workers-out-job) and [hiring](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G)
 
-#### Hidden bias (correlations)
-#### Feedback loops
-#### No corrective samples
-#### Favoring / harming / works better / worse for certain demographics
-#### Only available to certain demographics
+#### Hidden Bias (correlations)
+
+**[Possible Demo]**
+
+This refers to when certain sensitive features (e.g. race) are removed from training data, but the resulting model still shows bias. For instance, the districts with Amazon's Prime Free Same-Day Delivery were apparently chosen without considering racial composition. However, the chosen districts showed obvious racial differences.
+
+This happens primarily because other features in the dataset are correlated with the sensitive features or share confounding factors. This needs to be highlighted because naively removing sensitive features might give practitioners a false sense of security about fairness.
+
+In fact, in some cases, sensitive features *should* be included in the dataset so that it is easier to spot when the algorithm is biased. See [this paper](https://arxiv.org/abs/1104.3913) by Dwork et al. (2011) for more details.
+
+#### Feedback Loops / No Correction
+
+**[Possible Demo]**
+
+This refers to when the algorithms perpetuate feedback loops. 
+
+For example, suppose the police uses a model to predict high-crime areas to patrol. The police then increases patrols at these areas. Because there are more patrols, more crime is reported and recorded. These reports are submitted and confirm and reinforce the algorithm's predictions.
+
+But suppose the model was wrong in the first place and it missed out a certain high-crime area? This area gets less attention and there are less arrests, which again reinforces the model's predictions.
+
+In other words, sometimes, the system is set up such that it does not matter whether the model is correct or wrong - the model will be apparently correct. In such cases, irrational biases may appear to be statistically significant.
+
 #### When is bias not bias?
-#### Explainability vs transparency and what these concepts mean for bias
+
+**[Possible Demo]**
+
+In an era of social justice warriors and South Park's PC Bros, it has become difficult to distinguish bias from legit correlation and causation.
+
+In Chapter 6 of Cathy O'Neill's *Weapons of Math Destruction*, the author describes how employers might discriminate against certain demographics (along aspects of race, gender, age, health) via a variety of mechanisms. The author also raises the possibility of a future where employers have access to an individual's predisposition to certain illnesses and estimated mortality and avoid hiring individuals who might be racking up on sick leaves and healthcare expenditures.
+
+But this is a tricky issue. In most cases, more confident and outspoken candidates stand a better chance of getting a job. Should we consider this as discriminating individuals who are less confident and afraid of speaking up? What is the difference between *level of confidence* and *race*? Why is it okay to use one factor as a job criteria but taboo to use the other?
+
+We don’t say that the Olympics are biased against physically unfit people. So when does a legitimate factor become a cause for bias?
+
+#### Transparency vs Explainability and What These Concepts Mean for Bias
+
+**[Possible Demo]**
+
+In essence, a neural network can be made *transparent* by simply making the weights publicly available. However, this does not make the neural network's decisions anymore *explainable* in human terms.
+
+In the context of bias, lack of transparency and explainability of algorithms result in hidden biases, which could be mistakenly justified.
+
+But also consider the possibility of the algorithms being *gamed* if they are made completely transparent and explainable. There's a reason why exam papers and interview questions are kept confidential.
 
 <div class="return-to-top"><a href="#title">[Return to top]</a></div>
 
 ---
 
 ## Useful Tools
+
+Tools for mitigating and catching algorithm bias and how to use them.
 
 <div class="return-to-top"><a href="#title">[Return to top]</a></div>
 
