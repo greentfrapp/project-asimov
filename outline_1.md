@@ -1,5 +1,5 @@
 ---
-layout: outline
+layout: general
 title: outline 1. \| Project Asimov
 permalink: /outline_part1/
 ---
@@ -65,7 +65,7 @@ Some references to official definitions here - but we should go with a more layp
 
 > An AI system is a machine-based system that can, for a given set of human-defined objectives, make predictions, recommendations, or decisions influencing real or virtual environments. AI systems are designed to operate with varying levels of autonomy.
 
-*OECD's Recommendation of the Council on Artificial Intelligence ([OECD, 2019](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449#_ga=2.226001754.1981916758.1559405727-1571659269.1558615432))*
+*OECD's Recommendation of the Council on Artificial Intelligence ([OECD, 2019](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449))*
 
 ### Bias
 

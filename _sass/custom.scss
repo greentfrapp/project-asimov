@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Overpass+Mono|Playfair+Display|Open+Sans:400,600|Ubuntu+Mono|Lato|Cambo|Libre+Baskerville');
+@import url('https://fonts.googleapis.com/css?family=Lora|Overpass+Mono|Playfair+Display|Open+Sans:400,600|Ubuntu+Mono|Lato|Cambo|Libre+Baskerville');
 
 #showMessage,
 #showMessage:hover {
@@ -195,4 +195,8 @@ div.note {
 span.math {
 	@include relative-font-size(1.2);
 	font-family: Libre-Baskerville, serif;
+}
+
+p {
+	line-height: 36px;
 }
