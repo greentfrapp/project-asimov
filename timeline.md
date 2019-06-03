@@ -15,7 +15,7 @@
 
 #### Weeks 3 to 7 - Part I
 
-- Iterate guide-1 for practitioners
+- Iterate guide_1 for practitioners
 - **10 June** - IRP proposal (3-4 pages double-spaced)
 	- Research background
 	- Research angle
@@ -25,18 +25,18 @@
 - **12/19 June** - Class presentation (10min max)
 	- Refer to above outline
 - **28 June** - Complete draft guide-1 by Week 6
-- Review guide-1 with target audience
+- Review guide_1 with target audience
 - **5 July** - Literature review (for peer review)
 
 #### Weeks 8 to 12 - Part II
 
-- Iterate guide-2 for public
+- Iterate guide_2 for public
 - **12 July** - Summary of findings (for peer review)
 - **19 July** - Summary of contributions (for peer review)
 - **26 July** - Report introduction (for peer review)
 - **2 August** - Complete draft guide-2 by Week 11
 - **2/9 August** - Report conclusion (for peer review)
-- Review guide-2 with target audience
+- Review guide_2 with target audience
 
 #### Weeks 13 to 14 Buffer
 
