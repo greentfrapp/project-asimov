@@ -11,3 +11,7 @@ Payne is a MIT Media Lab research assistant who proposed an AI Ethics course at 
 ## [A.E. Jaques](http://www.aejaques.org/)
 
 > I'm the PI for the Ethics of AI project in MIT's Quest for Intelligence, a co-organizer of MIT's Computational Cultures initiative, and a Research Fellow in Digital Ethics at the Jain Family Institute. And I'm the lead on several curriculum projects aimed at reinventing how we teach ethics to engineers.
+
+## [Madeleine Clare Elish](https://datasociety.net/people/elish-madeleine-clare/)
+
+> M.C. Elish is a cultural anthropologist whose work examines the social impacts of AI and automation on society. As Research Lead and co-founder of the AI on the Ground Initiative at Data & Society, she works to inform the ethical design, use, and governance of AI systems through the application of social science research and human-centered ethnographic perspectives. Her recent research has focused on how AI technologies affect understandings of equity, values and ethical norms and how professional work lives change in response. 
