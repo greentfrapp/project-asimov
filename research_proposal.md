@@ -19,6 +19,8 @@ permalink: /research_proposal/
 - [Research Design](#research-design)
 - [Potential Challenges](#potential-challenges)
 - [Timeline](#timeline)
+- [tl;dr](#tldr)
+- [Appendix - List of possible case studies](#appendix---list-of-possible-case-studies)
 
 ---
 
@@ -55,45 +57,6 @@ These case studies are meant to help craft the guide by:
 
 ## Research Design
 
-#### Case Studies of Algorithmic Bias and Proposed Solutions
-
-- *Weapons of Math Destruction* (O'Neil, 2016)
-- *Artificial Unintelligence* (Broussard, 2018)
-- *Automating Inequality* (Eubanks, 2018)
-- Possible examples
-	- Recidivism prediction
-	- Facial recognition
-	- Disease prediction
-	- Credit scoring
-
-#### Case Studies of Frameworks
-
-**International**
-
-- European Commission's *Ethics Guidelines for Trustworthy AI* ([2019](https://ec.europa.eu/digital-single-market/en/news/ethics-guidelines-trustworthy-ai))
-- OECD's *Recommendation of the Council on Artificial Intelligence* ([2019](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449))
-- WEF's *AI Governance: A Holistic Approach to Implement Ethics into AI* ([2019](https://www.weforum.org/whitepapers/ai-governance-a-holistic-approach-to-implement-ethics-into-ai))
-
-**National**
-
-- Canada's *Algorithmic Impact Assessment questionnaire* ([2019](https://canada-ca.github.io/aia-eia-js/))
-- USA's *Algorithmic Accountability Act of 2019* ([2019](https://www.wyden.senate.gov/imo/media/doc/Algorithmic%20Accountability%20Act%20of%202019%20Bill%20Text.pdf))
-- UK's *Select Committee on Artificial Intelligence Report 2017-19* ([2018](https://publications.parliament.uk/pa/ld201719/ldselect/ldai/100/100.pdf))
-- Beijing AI Principles (人工智能北京共识) ([2019](https://www.baai.ac.cn/blog/beijing-ai-principles))
-- Singapore's *AI Governance Framework* ([PDPC, 2019](https://www.pdpc.gov.sg/-/media/Files/PDPC/PDF-Files/Resource-for-Organisation/AI/A-Proposed-Model-AI-Governance-Framework-January-2019.pdf))
-
-**Commercial**
-
-- Google's [principles on AI](https://www.blog.google/technology/ai/ai-principles/)
-- Microsoft's [AI Principles](https://www.microsoft.com/en-us/ai/our-approach-to-ai)
-- Tencent's [ARCC](https://mp.weixin.qq.com/s/_CbBsrjrTbRkKjUNdmhuqQ)
-- Sony's [AI Ethics Guidelines](https://www.sony.net/SonyInfo/csr_report/humanrights/hkrfmg0000007rtj-att/AI_Engagement_within_Sony_Group.pdf)
-
-**Non-state Non-commercial**
-
-- [Montréal Declaration for a Responsible Development of Artificial Intelligence](https://www.montrealdeclaration-responsibleai.com/)
-- FHI and Oxford University's [Standards for AI Governance](https://www.fhi.ox.ac.uk/standards-technical-report/)
-- ERLC's [Artificial Intelligence: An Evangelical Statement of Principles](https://erlc.com/resource-library/statements/artificial-intelligence-an-evangelical-statement-of-principles)
 
 
 <div class="return-to-top"><a href="#title">[Return to top]</a></div>
@@ -104,9 +67,21 @@ These case studies are meant to help craft the guide by:
 
 #### Catching up and Staying Up-to-date
 
+AI ethics is the topic of the moment, with legislative bills, formal frameworks and ethics boards being announced every other day, as well as intermittent disclosures of yet another company misusing AI or data and frequent announcements of new breakthroughs by AI researchers. This poses a challenge for any researcher interested in characterizing the phenomenon, due to the flood of news everyday.
+
+*Mitigation -* I will be making use of my collection of AI-related newsletters, that I have curated in my course as an AI researcher, to highlight pertinent AI-related stories across different fields. I will also be constraining my focus to a select number of cases, to prevent being overwhelmed.
+
 #### Subjectivity of Ethical Concepts
 
+The concept of ethics is notoriously debatable, with opinions ranging from the nihilistic to the extremely conservative. In my focus on algorithmic bias, I see the main conundrum as the differing definitions of *bias*, especially in the recent era of fake news, political correctness and *social justice warriors*.
+
+*Mitigation -* I will be relying primarily on the formal definitions stated in reports by official bodies such as the UN, the European Commission, the OECD or national governments. I will attempt to integrate the multiple definitions from these sources and identify common ground to build from.
+
 #### Keeping Things Relatable
+
+Part of the problem of AI ethics stems from the complexity of the technology and its resulting issues. The technical nature of the technology discourages the layperson from understanding further. Furthermore, AI practitioners themselves are often more comfortable with formulas and codes and less adept at the social ramifications of their work. This is a problem of communication and of transcending boundaries.
+
+*Mitigation -* This challenge is also the main motivation of my work - I seek to make the social problems known and relatable to AI practitioners. I will be working from my prior experience as an AI researcher and my experience from the MUSPP program. I will also be seeking feedback from friends from multiple disciplines.
 
 <div class="return-to-top"><a href="#title">[Return to top]</a></div>
 
@@ -150,5 +125,61 @@ These case studies are meant to help craft the guide by:
 
 - **14 August** - Class presentation
 - **18 August** - Final submission
+
+<div class="return-to-top"><a href="#title">[Return to top]</a></div>
+
+---
+
+## TL;DR
+
+In short, AI technologies are complicated and cause complicated problems that are not obvious. This project is an attempt at demystifying one of these complicated problems - algorithmic bias.
+
+<div class="return-to-top"><a href="#title">[Return to top]</a></div>
+
+---
+
+## Appendix - List of Possible Case Studies
+
+#### Case Studies of Algorithmic Bias and Proposed Solutions
+
+- *Weapons of Math Destruction* (O'Neil, 2016)
+- *Artificial Unintelligence* (Broussard, 2018)
+- *Automating Inequality* (Eubanks, 2018)
+- Possible examples
+	- Recidivism prediction
+	- Facial recognition
+	- Disease prediction
+	- Credit scoring
+
+#### Case Studies of Frameworks
+
+**International**
+
+- European Commission's *Ethics Guidelines for Trustworthy AI* ([2019](https://ec.europa.eu/digital-single-market/en/news/ethics-guidelines-trustworthy-ai))
+- OECD's *Recommendation of the Council on Artificial Intelligence* ([2019](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449))
+- WEF's *AI Governance: A Holistic Approach to Implement Ethics into AI* ([2019](https://www.weforum.org/whitepapers/ai-governance-a-holistic-approach-to-implement-ethics-into-ai))
+
+**National**
+
+- Canada's *Algorithmic Impact Assessment questionnaire* ([2019](https://canada-ca.github.io/aia-eia-js/))
+- USA's *Algorithmic Accountability Act of 2019* ([2019](https://www.wyden.senate.gov/imo/media/doc/Algorithmic%20Accountability%20Act%20of%202019%20Bill%20Text.pdf))
+- UK's *Select Committee on Artificial Intelligence Report 2017-19* ([2018](https://publications.parliament.uk/pa/ld201719/ldselect/ldai/100/100.pdf))
+- France's AI for Humanity ([2018](https://www.aiforhumanity.fr/en/))
+- Australia's AI Ethics Framework ([2019](https://consult.industry.gov.au/strategic-policy/artificial-intelligence-ethics-framework/))
+- Beijing AI Principles (人工智能北京共识) ([2019](https://www.baai.ac.cn/blog/beijing-ai-principles))
+- Singapore's *AI Governance Framework* ([PDPC, 2019](https://www.pdpc.gov.sg/-/media/Files/PDPC/PDF-Files/Resource-for-Organisation/AI/A-Proposed-Model-AI-Governance-Framework-January-2019.pdf))
+
+**Commercial**
+
+- Google's [principles on AI](https://www.blog.google/technology/ai/ai-principles/)
+- Microsoft's [AI Principles](https://www.microsoft.com/en-us/ai/our-approach-to-ai)
+- Tencent's [ARCC](https://mp.weixin.qq.com/s/_CbBsrjrTbRkKjUNdmhuqQ)
+- Sony's [AI Ethics Guidelines](https://www.sony.net/SonyInfo/csr_report/humanrights/hkrfmg0000007rtj-att/AI_Engagement_within_Sony_Group.pdf)
+
+**Non-governmental Non-commercial**
+
+- [Montréal Declaration for a Responsible Development of Artificial Intelligence](https://www.montrealdeclaration-responsibleai.com/)
+- FHI and Oxford University's [Standards for AI Governance](https://www.fhi.ox.ac.uk/standards-technical-report/)
+- ERLC's [Artificial Intelligence: An Evangelical Statement of Principles](https://erlc.com/resource-library/statements/artificial-intelligence-an-evangelical-statement-of-principles)
 
 <div class="return-to-top"><a href="#title">[Return to top]</a></div>
