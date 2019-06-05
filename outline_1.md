@@ -10,6 +10,8 @@ permalink: /outline_part1/
 
 <a href="https://greentfrapp.github.io/project-asimov/" target="_self">Project Asimov</a>
 
+<img src="https://greentfrapp.github.io/project-asimov/assets/frontispiece.png" style="width: 100%; max-width: 500px; margin: 25px;">
+
 <dt-byline></dt-byline>
 
 #### Contents
@@ -153,10 +155,14 @@ Highlight that algorithms inherit the biases of the human designers and the huma
 
 - The technology being unavailable to certain demographics
 	- Amazon's Prime Free Same-Day Delivery service was only offered to certain districts - often the richer and whiter ones ([link](https://www.bloomberg.com/graphics/2016-amazon-same-day/))
+	- While many algorithms are open-source, the data and computing resources required to use these algorithms effectively are prohibitively expensive, restricting access to richer companies and institutions - this is worsened by the talent flight to well-paying companies; top tech companies have 
 - The technology working better for certain demographics
 	- *In this case, the accuracy (or other related measure) of the algorithm differs depending on the demographic*
 	- Facial recognition algorithms are notorious for working better on certain skin colors and genders - see Joy Buolamwini's [Gender Shades project](http://gendershades.org/overview.html) **[Possible Demo]**
-	- Sometimes, this is inevitable and a tradeoff is required - see this [ProPublica piece](https://www.propublica.org/article/bias-in-criminal-risk-scores-is-mathematically-inevitable-researchers-say) **[Possible Demo]**
+	- Sometimes, this is inevitable and a tradeoff is required between different definitions of *fairness* - see this [ProPublica piece](https://www.propublica.org/article/bias-in-criminal-risk-scores-is-mathematically-inevitable-researchers-say) **[Possible Demo]**
+		- One definition of fairness says that the algorithm should be equally accurate for all demographics
+		- Another definition of fairness considers the specific types of errors - false positives and false negatives - and says that the rates for each type should be equal across all demographics
+		- In some cases, it is impossible to fulfill both definitions of fairness
 - The technology (dis)advantaging certain demographics
 	- *In this case, the algorithm might be "accurate" but causes harm to certain demographics*
 	- See [this piece](https://www.wired.com/story/ideas-joi-ito-insurance-algorithms/) by Joi Ito
@@ -202,7 +208,7 @@ We don’t say that the Olympics are biased against physically unfit people. So 
 
 In essence, a neural network can be made *transparent* by simply making the weights publicly available. However, this does not make the neural network's decisions anymore *explainable* in human terms.
 
-In the context of bias, lack of transparency and explainability of algorithms result in hidden biases, which could be mistakenly justified.
+In the context of bias, lack of transparency and explainability of algorithms might result in hidden biases or cause a misplaced trust in the neutrality of these algorithms.
 
 But also consider the possibility of the algorithms being *gamed* if they are made completely transparent and explainable. There's a reason why exam papers and interview questions are kept confidential.
 
@@ -213,6 +219,12 @@ But also consider the possibility of the algorithms being *gamed* if they are ma
 ## Useful Tools
 
 Tools for mitigating and catching algorithm bias and how to use them.
+
+- Tensorboard's [What If](https://pair-code.github.io/what-if-tool/index.html)
+- Microsoft's [InterpretML](https://github.com/microsoft/interpret)
+- IBM's [AI Fairness 360](https://github.com/IBM/AIF360)
+- [FairML](https://github.com/adebayoj/fairml)
+- [Comparison of Fairness-aware Algorithms](https://github.com/algofairness/fairness-comparison)
 
 <div class="return-to-top"><a href="#title">[Return to top]</a></div>
 

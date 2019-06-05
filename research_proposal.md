@@ -57,8 +57,6 @@ These case studies are meant to help craft the guide by:
 
 ## Research Design
 
-
-
 <div class="return-to-top"><a href="#title">[Return to top]</a></div>
 
 ---
