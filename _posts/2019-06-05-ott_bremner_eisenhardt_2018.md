@@ -22,3 +22,13 @@ The authors continue to justify several details of their approach, including the
 > A key strength of our study is its combination of field and archival cases, combining depth and breadth, respectively. For the field cases, we selected early-stage ventures (i.e., Seed or Series A financing) which helps to ensure that the ventures had a promising opportunity, but still lacked a well-formed strategy. Second, we selected firms in several sectors to add to the generalizability of our theory. Each addresses a distinct sector (i.e., culinary experiences, home services, and parking). Third, we include relatively high-performing firms in order to observe a sufficiently long history of strategy formation (including reaching accelerated growth). Yet, they all had failures and mistakes, bringing useful contrast to our theory-building.
 
 > Complementing the field cases, we studied five archival cases. We chose these ventures because they have rich publicly available data and participate in a variety of sectors, adding to the generalizability of our theory. They are Airbnb (home-sharing), OpenTable (dining), Udacity (education), Lyft (ride-sharing), and Etsy (crafts). Although these firms may be longer lived and more successful than many, a sufficient history was necessary to understand the temporal flow of the strategy formation process. This requirement outweighed any advantage of a random sample, especially for a process-focused, theory-building study. Yet, each exhibited errors such as failed actions and major mistakes that bring useful insights to our theory building study.
+
+#### Structure
+
+To present their research, the authors first begin with a very general description of their framework under the Emergent Framework section.
+
+They then discuss how they observe certain patterns in the case studies, which they discuss in great detail in the following sections. Here they go through the case studies in detail as well.
+
+Thereafter, the authors elaborate on their framework, using supporting references from the case studies detailed in the earlier sections.
+
+The authors then describe how their work can be used in different contexts and how it adds to existing literature, before ending with the conclusion.
