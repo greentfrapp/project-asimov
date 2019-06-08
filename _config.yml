@@ -23,6 +23,9 @@ twitter_username:
 github_username:  greentfrapp
 linkedin_username: sweekiat
 
+timezone: "Asia/Singapore"
+livereload: true
+
 # Build settings
 markdown: kramdown
 theme: minima
