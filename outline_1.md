@@ -69,6 +69,10 @@ Some references to official definitions here - but we should go with a more layp
 
 *OECD's Recommendation of the Council on Artificial Intelligence ([OECD, 2019](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449))*
 
+> Artificial intelligence (AI) refers to the series of techniques which allow a machine to simulate human learning, namely to learn, predict, make decisions and perceive its surroundings. In the case of a computing system, artificial intelligence is applied to digital data.
+
+*Montréal Declaration for a Responsible Development of Artificial Intelligence ([Montréal Declaration, 2018](https://www.montrealdeclaration-responsibleai.com/))*
+
 ### Bias
 
 See Article 2 of the Universal Declaration of Human Rights (below).

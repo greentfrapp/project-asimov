@@ -156,13 +156,19 @@ In short, AI technologies are complicated and cause complicated problems that ar
 - European Commission's *Ethics Guidelines for Trustworthy AI* ([2019](https://ec.europa.eu/digital-single-market/en/news/ethics-guidelines-trustworthy-ai))
 - OECD's *Recommendation of the Council on Artificial Intelligence* ([2019](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449))
 - WEF's *AI Governance: A Holistic Approach to Implement Ethics into AI* ([2019](https://www.weforum.org/whitepapers/ai-governance-a-holistic-approach-to-implement-ethics-into-ai))
+- UNU's *The New Geopolitics of Converging Risks* ([2019](https://cpr.unu.edu/the-new-geopolitics-of-converging-risks-the-un-and-prevention-in-the-era-of-ai.html))
+- ICDPPC's Declaration on Ethics and Data Protection in Artificial Intelligence ([2018](https://icdppc.org/public-consultation-ethics-and-data-protection-in-artificial-intelligence-continuing-the-debate/))
+- EU's *Report with recommendations to the Commission on Civil Law Rules on Robotics* ([2016](http://www.europarl.europa.eu/doceo/document/A-8-2017-0005_EN.pdf))
 
 **National**
 
 - Canada's *Algorithmic Impact Assessment questionnaire* ([2019](https://canada-ca.github.io/aia-eia-js/))
 - USA's *Algorithmic Accountability Act of 2019* ([2019](https://www.wyden.senate.gov/imo/media/doc/Algorithmic%20Accountability%20Act%20of%202019%20Bill%20Text.pdf))
-- UK's *Select Committee on Artificial Intelligence Report 2017-19* ([2018](https://publications.parliament.uk/pa/ld201719/ldselect/ldai/100/100.pdf))
+- USA's *Preparing for the Future of Artificial Intelligence* ([2016](https://obamawhitehouse.archives.gov/sites/default/files/whitehouse_files/microsites/ostp/NSTC/preparing_for_the_future_of_ai.pdf))
+- UK's *Ready, Willing and Able? - Select Committee on Artificial Intelligence Report 2017-19* ([2018](https://publications.parliament.uk/pa/ld201719/ldselect/ldai/100/100.pdf))
+- UK's House of Commons report on robotics and artificial intelligence ([2016](https://publications.parliament.uk/pa/cm201617/cmselect/cmsctech/145/145.pdf))
 - France's AI for Humanity ([2018](https://www.aiforhumanity.fr/en/))
+- France's CNIL Report ([2017](https://www.cnil.fr/sites/default/files/atoms/files/cnil_rapport_ai_gb_web.pdf))
 - Australia's AI Ethics Framework ([2019](https://consult.industry.gov.au/strategic-policy/artificial-intelligence-ethics-framework/))
 - Beijing AI Principles (人工智能北京共识) ([2019](https://www.baai.ac.cn/blog/beijing-ai-principles))
 - Singapore's *AI Governance Framework* ([PDPC, 2019](https://www.pdpc.gov.sg/-/media/Files/PDPC/PDF-Files/Resource-for-Organisation/AI/A-Proposed-Model-AI-Governance-Framework-January-2019.pdf))
@@ -177,7 +183,14 @@ In short, AI technologies are complicated and cause complicated problems that ar
 **Non-governmental Non-commercial**
 
 - [Montréal Declaration for a Responsible Development of Artificial Intelligence](https://www.montrealdeclaration-responsibleai.com/)
-- FHI and Oxford University's [Standards for AI Governance](https://www.fhi.ox.ac.uk/standards-technical-report/)
+- FLI's [Asilomar AI Principles](https://futureoflife.org/ai-principles/)
 - ERLC's [Artificial Intelligence: An Evangelical Statement of Principles](https://erlc.com/resource-library/statements/artificial-intelligence-an-evangelical-statement-of-principles)
+- [Berkman Klein Center's report on Artificial Intelligence & Human Rights](https://cyber.harvard.edu/publication/2018/artificial-intelligence-human-rights)
+- [AccessNow's Human Rights in the Age of Artificial Intelligence](https://www.accessnow.org/cms/assets/uploads/2018/11/AI-and-Human-Rights.pdf)
+- [AINow 2017 Report](https://ainowinstitute.org/AI_Now_2017_Report.pdf)
+- [AINow 2018 Report](https://ainowinstitute.org/AI_Now_2018_Report.pdf)
+- [IEEE Ethically Aligned Design](https://ethicsinaction.ieee.org)
+- [SIIA's Ethical Principles for Artificial Intelligence and Data Analytics](https://www.siia.net/Portals/0/pdf/Policy/Ethical%20Principles%20for%20Artificial%20Intelligence%20and%20Data%20Analytics%20SIIA%20Issue%20Brief.pdf?ver=2017-11-06-160346-990)
+- [FATML's Principles for Accountable Algorithms and a Social Impact Statement for Algorithms](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 <div class="return-to-top"><a href="#title">[Return to top]</a></div>
