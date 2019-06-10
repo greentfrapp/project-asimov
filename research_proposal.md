@@ -27,11 +27,9 @@ permalink: /research_proposal/
 
 ## Research Background
 
-Several artificial intelligence (AI) ethics guidelines and frameworks have been published recently, amidst concerns over misuse of the technology and neglect of potentially adverse consequences. Examples include the European Commission’s [Ethics Guidelines for Trustworthy AI](https://ec.europa.eu/digital-single-market/en/news/ethics-guidelines-trustworthy-ai) (European Commission, 2019), the Organisation for Economic Co-operation and Development's (OECD) [Recommendation of the Council on Artificial Intelligence](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449) (OECD, 2019), USA's [Preparing for the Future of Artificial Intelligence](https://obamawhitehouse.archives.gov/sites/default/files/whitehouse_files/microsites/ostp/NSTC/preparing_for_the_future_of_ai.pdf) (NSTC, 2016), China's [*Beijing AI Principles (人工智能北京共识)*](https://www.baai.ac.cn/blog/beijing-ai-principles) (BAAI, 2019) and Singapore's [AI Governance Framework](https://www.pdpc.gov.sg/-/media/Files/PDPC/PDF-Files/Resource-for-Organisation/AI/A-Proposed-Model-AI-Governance-Framework-January-2019.pdf) (PDPC, 2019).
+Several artificial intelligence (AI) ethics guidelines and frameworks have been published recently, amidst concerns over misuse of the technology and neglect of potentially adverse consequences. Examples include the European Commission’s [Ethics Guidelines for Trustworthy AI](https://ec.europa.eu/digital-single-market/en/news/ethics-guidelines-trustworthy-ai) (European Commission, 2019), the Organisation for Economic Co-operation and Development's (OECD) [Recommendation of the Council on Artificial Intelligence](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449) (OECD, 2019), USA's [Preparing for the Future of Artificial Intelligence](https://obamawhitehouse.archives.gov/sites/default/files/whitehouse_files/microsites/ostp/NSTC/preparing_for_the_future_of_ai.pdf) (NSTC, 2016), China's [Beijing AI Principles (人工智能北京共识)](https://www.baai.ac.cn/blog/beijing-ai-principles) (BAAI, 2019) and Singapore's [AI Governance Framework](https://www.pdpc.gov.sg/-/media/Files/PDPC/PDF-Files/Resource-for-Organisation/AI/A-Proposed-Model-AI-Governance-Framework-January-2019.pdf) (PDPC, 2019).
 
 These documents establish the foundations for future legislative actions. However, they are often dry and frequently lack illustrative examples. Policymakers may be used to the nature of such formal texts, but they are unrelatable for many AI practitioners and general consumers. Unfortunately, given the pervasive nature of AI technologies, it is critical for both AI practitioners and general users to be aware of related ethical problems. As such, there is a need for a layperson guide to AI and its ethical pitfalls, which translates the formal guidelines into simple relatable terms.
-
-**This research project aims to craft a relatable guide to AI ethics, targeted at AI practitioners and in the Singapore context.**
 
 <div class="return-to-top"><a href="#title">[Return to top]</a></div>
 
@@ -39,11 +37,9 @@ These documents establish the foundations for future legislative actions. Howeve
 
 ## Research Angle
 
-Technology and social science are often perceived as mutually exclusive fields. This poses a challenge in the case of AI ethics, where the two fields are deeply entwined. The technical nature of the technology discourages social scientists from understanding further. On the other hand, AI researchers and engineers are often more comfortable with understanding formulas and codes than the social ramifications of their work.
+Technology and social science are often perceived as mutually exclusive fields. This poses a challenge in the case of AI ethics, where the two fields are deeply entwined. The technical nature of the technology discourages social scientists from understanding further. On the other hand, AI researchers and engineers are often more comfortable with understanding formulas and codes than the social ramifications of their work. **As such, this research project aims to bridge this gap by crafting a relatable guide to AI ethics, targeted at AI practitioners and in the Singapore context.**
 
-This project seeks to tackle this challenge with the guide to AI ethics targeted at AI practitioners, by drawing on my previous experiences as an AI researcher and as a student in the MUSPP program.
-
-The work will build from two main categories of literature.
+This project will draw on my previous experiences as an AI researcher and build from two main categories of literature.
 
 1. **Popular non-fiction written about AI ethics** This includes books such as Cathy O' Neil's Weapons of Math Destruction (2016) and Virginia Eubanks's Automating Inequality (2018). It also encompasses popular articles such as ProPublica's Machine Bias (Angwin et al., 2016). *The popularity of these works are important as it attests to the relatability of their writing.*
 2. **Formal guidelines for ethical AI** This includes the guidelines published by international organizations and governments (see Research Background), as well as by commercial and non-governmental entities, such as Google, Microsoft, the Future of Life Institute and the AI Now Institute. *Reference to these official publications helps to ground the project and ensures alignment and compliance with existing values, guidelines and laws.*
@@ -71,7 +67,7 @@ The research methodology of this project will be primarily based on the multiple
 2. Attempted solutions for these problems, and
 3. Formal guidelines (international, national, commercial, non-governmental) related to AI ethics.
 
-The specific list of case studies remain a work-in-progress but here are a few main ones.
+The specific list of case studies remains a work-in-progress but here are some main themes.
 
 - Use of facial recognition technology in law enforcement
   - [Gender Shades](http://gendershades.org/) (Buolamwini, 2018), [notflawless.ai](https://www.notflawless.ai/) (Algorithmic Justice League, 2018), [America Under Watch](https://www.americaunderwatch.com/) (Garvie and Moy, 2019), [Garbage In Garbage Out](https://www.flawedfacedata.com/) (Garvie, 2019), [Google's Inclusive Images](https://ai.googleblog.com/2018/09/introducing-inclusive-images-competition.html) (Doshi, 2018)
