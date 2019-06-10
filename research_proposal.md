@@ -20,7 +20,8 @@ permalink: /research_proposal/
 - [Potential Challenges](#potential-challenges)
 - [Timeline](#timeline)
 - [tl;dr](#tldr)
-- [Appendix - List of possible case studies](#appendix---list-of-possible-case-studies)
+- [Appendix - List of possible case studies](#appendix---working-bibliography)
+- [References](#references)
 
 ---
 
