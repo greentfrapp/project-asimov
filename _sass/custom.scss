@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Lora|Overpass+Mono|Playfair+Display|Open+Sans:400,600|Ubuntu+Mono|Lato|Cambo|Libre+Baskerville');
 
+#framework-diagram {
+	width: 80%;
+	height: 400px;
+}
+
+#framework-diagram circle:hover {
+	cursor: pointer;
+}
+
 #showMessage,
 #showMessage:hover {
 	cursor: pointer;

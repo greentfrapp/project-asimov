@@ -2,13 +2,20 @@
 layout: default
 ---
 <base target="_blank">
-<div id="main">
 <dt-article>
 	<h1 id="title">FrameworkNotes</h1>
 	<h2>Notes on several AI Ethics Frameworks.</h2>
 	<h4><a href="https://greentfrapp.github.io/project-asimov/" target="_self">Project Asimov</a></h4>
 	<dt-byline></dt-byline>
+	<hr/>
 	<div class="contents">
+		<h2>Integration (WIP)</h2>
+		<svg id="framework-diagram"></svg>
+	</div>
+	<hr/>
+	<div id="main">
+	<div class="contents">
+		<h2>Detailed Notes</h2>
 		<div class="ui transparent left icon input filter">
 			<input v-model="searchTerm" type="text" placeholder="Search..."/>
 			<i class="search icon"></i>
@@ -40,14 +47,16 @@ layout: default
 		<!-- </div> -->
 		{% endif %}
 	{% endfor %}
-</dt-article>
 </div>
+</dt-article>
 <dt-appendix>
   <p>
     This is a final research project for the <a href="https://urbanscience.sutd.edu.sg/">MSc. Urban Science, Policy and Planning (MUSPP) degree</a> at the <a href="https://www.sutd.edu.sg/">Singapore University of Technology and Design (SUTD)</a>.
   </p>
   <div class="return-to-top"><a href="#title" target="_self">[Return to top]</a></div>
 </dt-appendix>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+<script src="{{ "/assets/framework_diagram.js" | relative_url }}"></script>
 <script>
 var app = new Vue({
 	el: "#main",
