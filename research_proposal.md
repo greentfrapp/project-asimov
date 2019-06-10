@@ -176,6 +176,7 @@ In short, AI technologies are complicated and cause complicated problems that ar
 **Commercial**
 
 - Google's [principles on AI](https://www.blog.google/technology/ai/ai-principles/)
+- YouTube's [statement](https://youtube.googleblog.com/2019/06/our-ongoing-work-to-tackle-hate.html) and [policies](https://www.youtube.com/yt/about/policies/)
 - Microsoft's [AI Principles](https://www.microsoft.com/en-us/ai/our-approach-to-ai)
 - Tencent's [ARCC](https://mp.weixin.qq.com/s/_CbBsrjrTbRkKjUNdmhuqQ)
 - Sony's [AI Ethics Guidelines](https://www.sony.net/SonyInfo/csr_report/humanrights/hkrfmg0000007rtj-att/AI_Engagement_within_Sony_Group.pdf)
