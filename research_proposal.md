@@ -223,65 +223,65 @@ In short, AI technologies can cause complicated and dangerous ethical problems t
 
 ## References
 
-Access Now. (2018). Human Rights in the Age of Artificial Intelligence. Retrieved from https://www.accessnow.org/cms/assets/uploads/2018/11/AI-and-Human-Rights.pdf
+Access Now. (2018). Human Rights in the Age of Artificial Intelligence. Retrieved from [https://www.accessnow.org/cms/assets/uploads/2018/11/AI-and-Human-Rights.pdf](https://www.accessnow.org/cms/assets/uploads/2018/11/AI-and-Human-Rights.pdf)
 
-Algorithmic Justice League. (2018). notflawless.ai. Retrieved from https://www.notflawless.ai/
+Algorithmic Justice League. (2018). notflawless.ai. Retrieved from [https://www.notflawless.ai/](https://www.notflawless.ai/)
 
-Angwin, J., Larson, J., Mattu, S., & Kirchner, L. (2016). Machine bias. ProPublica. Retrieved from https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+Angwin, J., Larson, J., Mattu, S., & Kirchner, L. (2016). Machine bias. ProPublica. Retrieved from [https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
 
-Beijing Academy of Artificial Intelligence (BAAI). (2019). Beijing AI Principles (人工智能北京共识). Retrieved from https://www.baai.ac.cn/blog/beijing-ai-principles
+Beijing Academy of Artificial Intelligence (BAAI). (2019). Beijing AI Principles (人工智能北京共识). Retrieved from [https://www.baai.ac.cn/blog/beijing-ai-principles](https://www.baai.ac.cn/blog/beijing-ai-principles)
 
 Broussard, M. (2018). *Artificial unintelligence: How computers misunderstand the world*. MIT Press.
 
-Buolamwini, J. (2018). Gender Shades. Retrieved from http://gendershades.org/
+Buolamwini, J. (2018). Gender Shades. Retrieved from [http://gendershades.org/](http://gendershades.org/)
 
-Doshi, T. (2018). Introducing the Inclusive Images Competition. Google AI Blog. Retrieved from https://ai.googleblog.com/2018/09/introducing-inclusive-images-competition.html
+Doshi, T. (2018). Introducing the Inclusive Images Competition. Google AI Blog. Retrieved from [https://ai.googleblog.com/2018/09/introducing-inclusive-images-competition.html](https://ai.googleblog.com/2018/09/introducing-inclusive-images-competition.html)
 
 Eisenhardt, K. M., & Graebner, M. E. (2007). Theory building from cases: Opportunities and challenges. *Academy of management journal*, *50*(1), 25-32.
 
-Ethics & Religious Liberty Commission (ERLC). (2019). Artificial Intelligence: An Evangelical Statement of Principles. Retrieved from https://erlc.com/resource-library/statements/artificial-intelligence-an-evangelical-statement-of-principles
+Ethics & Religious Liberty Commission (ERLC). (2019). Artificial Intelligence: An Evangelical Statement of Principles. Retrieved from [https://erlc.com/resource-library/statements/artificial-intelligence-an-evangelical-statement-of-principles](https://erlc.com/resource-library/statements/artificial-intelligence-an-evangelical-statement-of-principles)
 
 Eubanks, V. (2018). *Automating inequality: How high-tech tools profile, police, and punish the poor*. St. Martin's Press.
 
-European Commission. (2019). Ethics Guidelines for Trustworthy AI. Retrieved from https://ec.europa.eu/digital-single-market/en/news/ethics-guidelines-trustworthy-ai
+European Commission. (2019). Ethics Guidelines for Trustworthy AI. Retrieved from [https://ec.europa.eu/digital-single-market/en/news/ethics-guidelines-trustworthy-ai](https://ec.europa.eu/digital-single-market/en/news/ethics-guidelines-trustworthy-ai)
 
-Future of Life Institute (FLI). (2017). Asilomar AI Principles. Retrieved from https://futureoflife.org/ai-principles/ 
+Future of Life Institute (FLI). (2017). Asilomar AI Principles. Retrieved from [https://futureoflife.org/ai-principles/](https://futureoflife.org/ai-principles/)
 
-Garvie, C. & Moy, L. M. (2019). America Under Watch. Georgetown Law Center on Privacy & Technology. Retrieved from https://www.americaunderwatch.com/
+Garvie, C. & Moy, L. M. (2019). America Under Watch. Georgetown Law Center on Privacy & Technology. Retrieved from [https://www.americaunderwatch.com/](https://www.americaunderwatch.com/)
 
-Garvie, C. (2019). Garbage In, Garbage Out. Georgetown Law Center on Privacy & Technology. Retrieved from https://www.flawedfacedata.com/
+Garvie, C. (2019). Garbage In, Garbage Out. Georgetown Law Center on Privacy & Technology. Retrieved from [https://www.flawedfacedata.com/](https://www.flawedfacedata.com/)
 
-Government of Canada. (2019). Algorithmic Impact Assessment. Retrieved from https://canada-ca.github.io/aia-eia-js/
+Government of Canada. (2019). Algorithmic Impact Assessment. Retrieved from [https://canada-ca.github.io/aia-eia-js/](https://canada-ca.github.io/aia-eia-js/)
 
-House of Lords. (2018). AI in the UK: ready, willing and able?. The Authority of the House of Lords. Retrieved from https://publications.parliament.uk/pa/ld201719/ldselect/ldai/100/100.pdf
+House of Lords. (2018). AI in the UK: ready, willing and able?. The Authority of the House of Lords. Retrieved from [https://publications.parliament.uk/pa/ld201719/ldselect/ldai/100/100.pdf](https://publications.parliament.uk/pa/ld201719/ldselect/ldai/100/100.pdf)
 
-Microsoft. (2018). The Future Computed: Artificial Intelligence and its role in society. Retrieved from https://news.microsoft.com/uploads/2018/01/The-Future-Computed.pdf
+Microsoft. (2018). The Future Computed: Artificial Intelligence and its role in society. Retrieved from [https://news.microsoft.com/uploads/2018/01/The-Future-Computed.pdf](https://news.microsoft.com/uploads/2018/01/The-Future-Computed.pdf)
 
-Montréal Declaration. (2018). Montréal Declaration for a Responsible Development of Artificial Intelligence. Retrieved from https://www.montrealdeclaration-responsibleai.com/
+Montréal Declaration. (2018). Montréal Declaration for a Responsible Development of Artificial Intelligence. Retrieved from [https://www.montrealdeclaration-responsibleai.com/](https://www.montrealdeclaration-responsibleai.com/)
 
-National Science and Technology Council (NSTC). (2016). Preparing for the Future of Artificial Intelligence. Retrieved from https://obamawhitehouse.archives.gov/sites/default/files/whitehouse_files/microsites/ostp/NSTC/preparing_for_the_future_of_ai.pdf
+National Science and Technology Council (NSTC). (2016). Preparing for the Future of Artificial Intelligence. Retrieved from [https://obamawhitehouse.archives.gov/sites/default/files/whitehouse_files/microsites/ostp/NSTC/preparing_for_the_future_of_ai.pdf](https://obamawhitehouse.archives.gov/sites/default/files/whitehouse_files/microsites/ostp/NSTC/preparing_for_the_future_of_ai.pdf)
 
 Noble, S. U. (2018). *Algorithms of oppression: How search engines reinforce racism*. nyu Press.
 
 O'Neil, C. (2016). *Weapons of math destruction: How big data increases inequality and threatens democracy*. Broadway Books.
 
-Organisation for Economic Co-operation and Development (OECD). (2019). Recommendation of the Council on Artificial Intelligence. Retrieved from https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449
+Organisation for Economic Co-operation and Development (OECD). (2019). Recommendation of the Council on Artificial Intelligence. Retrieved from [https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449)
 
-Pauwels, E. (2019). The New Geopolitics of Converging Risks: The UN and Prevention in the Era of AI. United Nations University Centre for Policy Research. Retrieved from https://i.unu.edu/media/cpr.unu.edu/attachment/3472/PauwelsAIGeopolitics.pdf
+Pauwels, E. (2019). The New Geopolitics of Converging Risks: The UN and Prevention in the Era of AI. United Nations University Centre for Policy Research. Retrieved from [https://i.unu.edu/media/cpr.unu.edu/attachment/3472/PauwelsAIGeopolitics.pdf](https://i.unu.edu/media/cpr.unu.edu/attachment/3472/PauwelsAIGeopolitics.pdf)
 
-Personal Data Protection Commission (PDPC). (2019). A Proposed Model Artificial Intelligence Governance Framework. Retrieved from https://www.pdpc.gov.sg/-/media/Files/PDPC/PDF-Files/Resource-for-Organisation/AI/A-Proposed-Model-AI-Governance-Framework-January-2019.pdf
+Personal Data Protection Commission (PDPC). (2019). A Proposed Model Artificial Intelligence Governance Framework. Retrieved from [https://www.pdpc.gov.sg/-/media/Files/PDPC/PDF-Files/Resource-for-Organisation/AI/A-Proposed-Model-AI-Governance-Framework-January-2019.pdf](https://www.pdpc.gov.sg/-/media/Files/PDPC/PDF-Files/Resource-for-Organisation/AI/A-Proposed-Model-AI-Governance-Framework-January-2019.pdf)
 
-Pichai, S. (2018). AI at Google: our principles. Google Blog. Retrieved from https://www.blog.google/technology/ai/ai-principles/
+Pichai, S. (2018). AI at Google: our principles. Google Blog. Retrieved from [https://www.blog.google/technology/ai/ai-principles/](https://www.blog.google/technology/ai/ai-principles/)
 
-Raso, F., Hilligoss, H., Krishnamurthy, V., Bavitz, C. & Kim, L. (2018). Artificial Intelligence & Human Rights: Opportunities and Risks. Berkman Klein Center. Retrieved from https://cyber.harvard.edu/publication/2018/artificial-intelligence-human-rights
+Raso, F., Hilligoss, H., Krishnamurthy, V., Bavitz, C. & Kim, L. (2018). Artificial Intelligence & Human Rights: Opportunities and Risks. Berkman Klein Center. Retrieved from [https://cyber.harvard.edu/publication/2018/artificial-intelligence-human-rights](https://cyber.harvard.edu/publication/2018/artificial-intelligence-human-rights)
 
-Si, J. (2018). Towards and Ethical Framework for Artificial Intelligence. Retrieved from https://mp.weixin.qq.com/s/_CbBsrjrTbRkKjUNdmhuqQ
+Si, J. (2018). Towards and Ethical Framework for Artificial Intelligence. Retrieved from [https://mp.weixin.qq.com/s/_CbBsrjrTbRkKjUNdmhuqQ](https://mp.weixin.qq.com/s/_CbBsrjrTbRkKjUNdmhuqQ)
 
-Victor, B. (2011). Explorable Explanations. Retrieved from http://worrydream.com/ExplorableExplanations/
+Victor, B. (2011). Explorable Explanations. Retrieved from [http://worrydream.com/ExplorableExplanations/](http://worrydream.com/ExplorableExplanations/)
 
-Villani, C., Schoenauer, M., Bonnet, Y., Berthet, C., Cornut, A. C., Levin, F., Rondepierre, B., Biabiany-Rosier, S. (2018). For a Meaningful Artificial Intelligence. The Villani Mission. Retrieved from https://www.aiforhumanity.fr/en/
+Villani, C., Schoenauer, M., Bonnet, Y., Berthet, C., Cornut, A. C., Levin, F., Rondepierre, B., Biabiany-Rosier, S. (2018). For a Meaningful Artificial Intelligence. The Villani Mission. Retrieved from [https://www.aiforhumanity.fr/en/](https://www.aiforhumanity.fr/en/)
 
-Whittaker, M., Crawford, K., Dobbe, R., Fried, G., Kaziunas, E., Mathur, V., West, S. M., Richardson, R., Schultz, J. & Schwartz, O. (2018). AI Now Report 2018. AI Now Institute. Retrieved from https://ainowinstitute.org/AI_Now_2018_Report.pdf
+Whittaker, M., Crawford, K., Dobbe, R., Fried, G., Kaziunas, E., Mathur, V., West, S. M., Richardson, R., Schultz, J. & Schwartz, O. (2018). AI Now Report 2018. AI Now Institute. Retrieved from [https://ainowinstitute.org/AI_Now_2018_Report.pdf](https://ainowinstitute.org/AI_Now_2018_Report.pdf)
 
-World Economic Forum (WEF). (2019). AI Governance: A Holistic Approach to Implement Ethics into AI. Retrieved from https://weforum.my.salesforce.com/sfc/p/#b0000000GycE/a/0X000000cPl1/i.8ZWL2HIR_kAnvckyqVA.nVVgrWIS4LCM1ueGy.gBc
+World Economic Forum (WEF). (2019). AI Governance: A Holistic Approach to Implement Ethics into AI. Retrieved from [https://weforum.my.salesforce.com/sfc/p/#b0000000GycE/a/0X000000cPl1/i.8ZWL2HIR_kAnvckyqVA.nVVgrWIS4LCM1ueGy.gBc](https://weforum.my.salesforce.com/sfc/p/#b0000000GycE/a/0X000000cPl1/i.8ZWL2HIR_kAnvckyqVA.nVVgrWIS4LCM1ueGy.gBc)
 
