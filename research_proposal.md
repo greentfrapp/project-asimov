@@ -16,7 +16,7 @@ permalink: /research_proposal/
 
 - [Research Background](#research-background)
 - [Research Angle](#research-angle)
-- [Research Design](#research-design)
+- [Research Design](#research-design---case-studies)
 - [Potential Challenges](#potential-challenges)
 - [Timeline](#timeline)
 - [tl;dr](#tldr)
