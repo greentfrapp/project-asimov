@@ -138,11 +138,10 @@ The concept of ethics is notoriously debatable, with opinions ranging from the n
 #### Weeks 5 to 8
 
 - **5 July** - Literature review (for peer review)
-
 - Complete key definitions (with input from framework review)
 - Writing up case studies and building of demos on a per subtopic basis
 
-#### Weeks 8 to 12 - Part II
+#### Weeks 8 to 12
 
 - **12 July** - Summary of findings (for peer review)
 - **19 July** - Summary of contributions (for peer review)
@@ -152,7 +151,7 @@ The concept of ethics is notoriously debatable, with opinions ranging from the n
 - Review of present tools, datasets and resources
 - Iterate draft guide with AI practitioners
 
-#### Weeks 13 to 14 Buffer
+#### Weeks 13 to 14
 
 - **14 August** - Class presentation
 - **18 August** - Final submission

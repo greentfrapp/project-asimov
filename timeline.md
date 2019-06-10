@@ -2,6 +2,7 @@
 
 #### Weeks 1 to 2 - Groundwork
 
+- **29 May** - Research project description
 - Literature review
 	- AI ethics
 	- Technology adoption
@@ -11,32 +12,34 @@
 	- Outline contents for guides
 	- How do we want the target audience to use the materials?
 	- What specific lessons do we want them to take away?
-- **29 May** - Research project description
 
 #### Weeks 3 to 7 - Part I
 
-- Iterate guide_1 for practitioners
 - **10 June** - IRP proposal (3-4 pages double-spaced)
-	- Research background
-	- Research angle
-	- Research design
-	- Potential challenges
-	- Timeline
-- **12/19 June** - Class presentation (10min max)
-	- Refer to above outline
-- **28 June** - Complete draft guide-1 by Week 6
-- Review guide_1 with target audience
+- **12 June** - Class presentation (10min max)
+- **14 June** - Comparisons of frameworks for definitions, key guidelines and recommendations
+- Draft outline of guide including
+  - Key definitions
+  - Case studies to use
+  - Demos to build
+  - Tools, datasets and resources
+- Refine timeline after more detailed outline is complete
+
+#### Weeks 5 to 8 - Part II
+
 - **5 July** - Literature review (for peer review)
+- Complete key definitions (with input from framework review)
+- Writing up case studies and building of demos on a per subtopic basis
 
-#### Weeks 8 to 12 - Part II
+#### Weeks 8 to 12 - Part III
 
-- Iterate guide_2 for public
 - **12 July** - Summary of findings (for peer review)
 - **19 July** - Summary of contributions (for peer review)
 - **26 July** - Report introduction (for peer review)
-- **2 August** - Complete draft guide-2 by Week 11
 - **2/9 August** - Report conclusion (for peer review)
-- Review guide_2 with target audience
+- Complete case studies and demos
+- Review of present tools, datasets and resources
+- Iterate draft guide with AI practitioners
 
 #### Weeks 13 to 14 Buffer
 
