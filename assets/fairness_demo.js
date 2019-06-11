@@ -17,9 +17,9 @@ let svg = d3.select('svg#fairnessdemo'),
 text = d3.select('p#explain'),
 centerX = 300,
 centerY = 200,
-baseXCat = 50,
-baseXDog = 200,
-baseY = 350,
+baseXCat = 5,
+baseXDog = 305,
+baseY = 300,
 colors = {
 	good: "#3498db",
 	bad: "#e74c3c",
@@ -27,18 +27,15 @@ colors = {
 	badStroke: "#c0392b"
 },
 texts = [
-	"Suppose for a moment that there's a new disease going around infecting our beloved pets, called the Bloody Angry Disease (BAD). As per its name, it causes our pets to get really angry and aggressive. Turns out that it affects 40% of cats and 60% of dogs and these are called BAD cats and BAD dogs.",
-	"Fortunately, a company develops an AI system to diagnose if a pet has gotten BAD, by tracking its temperature, weight and appetite. Pets diagnosed with BAD are then sent for treatment, which involves lots of cold baths and cones of shame boohoo.",
-	"The company states that its system is fair to both cats and dogs, because its predictions are 80% accurate, regardless of species. Specifically, when a pet is diagnosed to be BAD, there is 80% chance it is actually BAD and 20% chance it isn't. Likewise when a pet is diagnosed to be not BAD.",
+	"Suppose for a moment that certain pets tend to be fatter than other pets, and that dogs are more likely to be fat, as compared to cats. In fact, cats only have a 40% chance of being fat, while dogs have a 60% chance of being fat.",
+	"Fortunately, a company develops an AI system to diagnose if a pet is fat! Pets diagnosed as fat are then sent on a diet, which means less food and no treats boohoo.",
+	"The company states that its system is fair to both cats and dogs! Because its predictions are 80% accurate, regardless of species. Specifically, when a pet is diagnosed to be fat, there is 80% chance it is actually fat. Likewise, when a no-fat diagnosis is made, there is 80% chance the pet is not fat.",
 	"Here we see 100 dogs and 100 cats being diagnosed by this system.",
-	"And we see that the company's claim seems to hold true, approximately.",
-	"Let's just consider the case for cats only. The results seem reasonable. Although we do have a few sad cats that got wrongly diagnosed and a few that slipped pass the system. After all, the system isn't perfect.",
-	"Next let's take a look at the results for dogs. This seems alright as well. The system does seem to label more dogs as BAD but that seems fair given that dogs are more likely to be BAD.",
-	"So... everything is good right?",
-	"Hmm... what if we look at things from the point of view from a cat that is not BAD.",
-	"What about a dog that is not BAD?",
-	"Cats that are BAD",
-	"Dogs that are BAD"
+	"And we see that the company's claim seems to hold true, approximately. In all cases, the accuracy seems to be similar regardless of whether we are looking at cats or dogs. This seems fair enough.",
+	"But what if we look at fairness another way?",
+	"Consider if we actually have a fat pet, does it make a difference if our pet is a cat or a dog? Which is more likely to escape the prying eyes of the AI?",
+	"Next let's assume we actually have a thin pet. It will be pretty sad for a thin pet to be wrongly punished because of a misdiagnosis. Does it matter if it is a cat or a dog?",
+	""
 ];
 
 // Frame 1
@@ -58,8 +55,8 @@ var app = new Vue({
 	},
 	computed: {
 		frames: function() {
-			return [this.frame0, this.frame1, this.frame2, this.frame3, this.frame4, this.frame5, this.frame6, this.frame7, this.frame8, this.frame9, this.frame10, this.frame11];
-			// return [this.frame3]
+			return [this.frame0, this.frame1, this.frame2, this.frame3, this.frame4, this.frame5, this.frame6, this.frame7, this.frame8];
+			// return [this.frame0, this.frame1, this.frame2, this.frame3, this.frame4, this.frame5]
 		},
 		diagnosis: function() {
 			return this.diagnose();
@@ -126,6 +123,121 @@ var app = new Vue({
 			this.frames[this.step](svg);
 		},
 		frame0: function(svg) {
+			let size = 29;
+			let pets = svg.selectAll('.pets')
+				.data(this.pets, function(d) { return d.name; }).enter()
+				.append('g')
+				.attr('class', (d, i) => this.diagnosis[i].diagnosis ? "pets diagnoseBad" : "pets diagnoseGood")
+
+			pets.append('image')
+				.attr('xlink:href', (d, i) => {
+					if (i < 100) {
+						return '../assets/imagenet_cats/' +imagenet_cats_dict[i]
+					} else {
+						return '../assets/imagenet_dogs/' +imagenet_dogs_dict[i - 100]
+					}
+				})
+				.attr('x', (d, i) => (d.species == "cat") ? baseXCat + size * (Math.floor(i / 10)) + 13 : baseXDog + size * (Math.floor((i - 100) / 10)) + 39)
+				.attr('y', (d, i) => baseY - size * (i % 10))
+				.attr('width', size)
+      			.attr('height', size)
+      			.attr('preserveAspectRatio', 'xMidYMin slice')
+      			.attr('opacity', 0.8)
+      			.style('filter', d => d.bad ? 'url("../assets/filters.svg#red")' : 'url("../assets/filters.svg#blue")')
+				.on('mouseover.expand', expand)
+				.on('mouseover.respond', d => respond(d.bad, d.species))
+				.on('mouseout', contract);
+
+			pets.append('rect')
+				.attr('x', (d, i) => (d.species == "cat") ? baseXCat + size * (Math.floor(i / 10)) + 14 : baseXDog + size * (Math.floor((i - 100) / 10)) + 40)
+				.attr('y', (d, i) => baseY - size * (i % 10))
+				.attr('width', size)
+  				.attr('height', size)
+  				.attr('fill-opacity', 0)
+  				.attr('stroke', d => d.bad ? colors.bad : colors.good)
+  				.attr('stroke-width', 10)
+  				.attr('stroke-opacity', 0)
+
+			function expand() {
+				let size = 100;
+
+				d3.select(this.parentNode)
+					.raise()
+
+				d3.select(this.parentNode)
+					.select('rect')
+					.attr('width', size)
+					.attr('height', size)
+					.attr('stroke-opacity', 1)
+      			
+      			d3.select(this)
+					.attr('width', size)
+					.attr('height', size)
+					.attr('opacity', 1)
+      				.style('filter', undefined)
+      				
+			}
+			function contract() {
+				d3.select(this)
+					.attr('width', size)
+					.attr('height', size)
+					.attr('opacity', 0.8)
+					.style('filter', d => d.bad ? 'url("../assets/filters.svg#red")' : 'url("../assets/filters.svg#blue")')
+				d3.select(this.parentNode)
+					.select('rect')
+					.attr('width', size)
+					.attr('height', size)
+					.attr('stroke-opacity', 0)
+				d3.select('#response')
+					.text('')
+      			
+			}
+			function respond(bad, species) {
+				d3.select('#response')
+					.text(bad ? "Fat " + species + "!" : "Thin " + species + "!");
+			}
+
+			svg.append('text')
+				.attr('class', 'f0')
+				.text('CATS')
+				.attr('x', 160)
+				.attr('y', 27)
+				.attr('font-size', 28)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
+			svg.append('text')
+				.attr('class', 'f0')
+				.text('DOGS')
+				.attr('x', 490)
+				.attr('y', 27)
+				.attr('font-size', 28)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
+			svg.append('text')
+				.attr('id', 'response')
+				.attr('class', 'f8')
+				.text('')
+				.attr('x', 320)
+				.attr('y', 370)
+				.attr('font-size', 24)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+		},
+		frameNA: function(svg) {
 			svg.selectAll('circle.pets')
 				.data(this.pets).enter()
 				.append('circle')
@@ -134,25 +246,231 @@ var app = new Vue({
 				.attr('cx', (d, i) => (d.species == "cat") ? baseXCat + 15 * (Math.floor(i / 10)) : baseXDog + 15 * (Math.floor(i / 10)))
 				.attr('cy', (d, i) => baseY - 15 * (i % 10))
 				.attr('fill', d => d.bad ? colors.bad : colors.good)
-				.attr('fill-opacity', 0.8);
+				.attr('fill-opacity', 0.8)
 		},
 		frame1: function(svg) {
-			svg.selectAll('circle.pets')
+			svg.selectAll('.f0')
+				.data([]).exit().remove()
+
+			svg.selectAll('.pets')
 				// .transition()
 				// .duration(this.timeIn)
-				.attr('opacity', 0);
-			svg.selectAll('circle.diagnosis')
+				.attr('opacity', 0)
+				.select('image')
+				.on('mouseover.expand', undefined)
+				.on('mouseover.respond', undefined)
+				.on('mouseout', undefined);
+			svg.selectAll('.diagnosis')
 				.data([{"diagnosis":true},{"diagnosis":false}]).enter()
 				.append('circle')
 				.attr('class', 'diagnosis')
-				.attr('r', 50)
-				.attr('cx', centerX)
-				.attr('cy', d => d.diagnosis ? centerY - 100 : centerY + 100)
+				.attr('r', 140)
+				.attr('cx', d => d.diagnosis ? centerX - 150 + 13 : centerX + 150 + 39)
+				.attr('cy', centerY - 10)
 				.attr('fill', "#FFF")
 				.attr('stroke', d => d.diagnosis ? colors.badStroke : colors.goodStroke)
 				.attr('stroke-width', 5)
+
+			let samplesData = Array.from({length: 20})
+				.map((x, i) => {
+					let diagnosis = (i < 10),
+					bad = diagnosis,
+					image = '../assets/imagenet_cats/' + imagenet_cats_dict[i];
+					if (i < 2 || (i >= 10 && i < 12)) {
+						bad = !bad;
+					}
+
+					let text = ""
+					if (diagnosis !== bad) {
+						text += "WRONG! "
+						if (bad) {
+							text += "This fat pet got away!"
+						} else {
+							text += "This thin pet got punished for nothing!"
+						}
+					} else {
+						text += "CORRECT! "
+						if (bad) {
+							text += "This fat pet goes on a diet!"
+						} else {
+							text += "This thin pet gets snacks!"
+						}
+					}
+					return {
+						bad: bad,
+						diagnosis: diagnosis,
+						image: image,
+						text: text
+					}
+				})
+
+			let size = 50;
+
+			let samples = svg.selectAll('.samples')
+				.data(samplesData, function(d) { return d.name; }).enter()
+				.append('g')
+				.attr('class', 'samples')
+
+			samples.append('image')
+				.attr('xlink:href', d => d.image)
+				.attr('x', centerX)
+				.attr('y', centerY - 30)
+				.attr('width', size)
+      			.attr('height', size)
+      			.attr('preserveAspectRatio', 'xMidYMin slice');
+
+      		let simulation = d3.forceSimulation(samplesData)
+				.force('center', d3.forceCenter(centerX - 0.5 * size + 23, centerY - 10 - 0.5 * size))
+				.force('x', d3.forceX().x(d => d.diagnosis ? centerX - 150 + 13 : centerX + 150 + 39))
+				.force('y', d3.forceY().y(centerY - 10))
+				.force('collision', d3.forceCollide().radius(35))
+				.on('tick', ticked);
+
+			function ticked() {
+				svg.selectAll('.samples')
+					.select('image')
+					.attr('x', d => d.x)
+					.attr('y', d => d.y)
+			}
+
+			svg.append('text')
+				.attr('class', 'f2')
+				.text('Diagnosed Fat')
+				.attr('x', 160)
+				.attr('y', 30)
+				.attr('font-size', 28)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f1')
+				.text("These pets get less food")
+				.attr('x', 160)
+				.attr('y', 358)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f1')
+				.text("and no more treats.")
+				.attr('x', 160)
+				.attr('y', 378)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
+			svg.append('text')
+				.attr('class', 'f2')
+				.text('Diagnosed Thin')
+				.attr('x', 490)
+				.attr('y', 30)
+				.attr('font-size', 28)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f1')
+				.text("These pets get to chill")
+				.attr('x', 490)
+				.attr('y', 358)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f1')
+				.text("and eat more treats!")
+				.attr('x', 490)
+				.attr('y', 378)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
 		},
 		frame2: function(svg) {
+			svg.selectAll('.f1')
+				.data([]).exit().remove()
+
+			svg.append('text')
+				.attr('id', 'explainer2')
+				.attr('x', 320)
+				.attr('y', 395)
+				.attr('font-size', 20)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle');
+				
+			svg.selectAll('.samples')
+				.select('image')
+				.style('filter', d => d.bad ? 'url("../assets/filters.svg#red")' : 'url("../assets/filters.svg#blue")')
+				.on('mouseover.image', expand)
+				.on('mouseover.caption', d => showCaption(d.text))
+				.on('mouseout', hideCaption);
+
+			function expand() {
+				d3.select(this.parentNode)
+					.raise();
+				d3.select(this)
+					.attr('width', 60)
+					.attr('height', 60);
+			}
+
+			function showCaption(t) {
+				svg.select('text#explainer2')
+					.text(t)
+			}
+
+			function hideCaption() {
+				svg.select('text#explainer2')
+					.text('')
+				d3.select(this)
+					.attr('width', 50)
+					.attr('height', 50)
+			}
+
+			svg.append('text')
+				.attr('class', 'f2')
+				.text("Certified 80% Correct")
+				.attr('x', 160)
+				.attr('y', 358)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
+			svg.append('text')
+				.attr('class', 'f2')
+				.text("Certified 80% Correct")
+				.attr('x', 490)
+				.attr('y', 358)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
+		},
+		frame2a: function(svg) {
 			let actualData = Array.from({length: 20})
 				.map((x,i) => {
 					let diagnosis = (i < 10),
@@ -189,9 +507,65 @@ var app = new Vue({
 				svg.selectAll('circle.actual')
 					.attr('cx', d => d.x)
 					.attr('cy', d => d.y)
-			}		
+			}
 		},
 		frame3: function(svg) {
+			svg.selectAll('.f2')
+				.data([]).exit().remove()
+
+			svg.selectAll('.diagnosis')
+				.data([]).exit().remove()
+			svg.selectAll('.samples')
+				.data([]).exit().remove()
+			svg.selectAll('.pets')
+				.transition()
+				.duration(this.timeIn)
+				.attr('opacity', 1)
+			svg.selectAll('.pets')
+				.select('image')
+				.style('filter', undefined)
+				.on('mouseover', undefined)
+				.on('mouseout', undefined)
+
+			let size = 29;
+			svg.selectAll('.pets')
+				.select('rect')
+				// .raise()
+				.attr('x', (d, i) => (d.species == "cat") ? baseXCat + size * (Math.floor(i / 10)) + 14 : baseXDog + size * (Math.floor((i - 100) / 10)) + 40)
+				.attr('y', (d, i) => baseY - size * (i % 10))
+				.attr('width', 28)
+				.attr('height', 28)
+				.attr('stroke', (d, i) => this.diagnosis[i].diagnosis ? colors.badStroke : colors.goodStroke)
+				.attr('stroke-opacity', 1)
+				.attr('stroke-width', 2)
+
+			svg.append('text')
+				.attr('class', 'f3')
+				.text('CATS')
+				.attr('x', 160)
+				.attr('y', 27)
+				.attr('font-size', 28)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
+			svg.append('text')
+				.attr('class', 'f3')
+				.text('DOGS')
+				.attr('x', 490)
+				.attr('y', 27)
+				.attr('font-size', 28)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+		},
+		frame3a: function(svg) {
 			svg.selectAll('circle.diagnosis').attr('opacity', 0)
 			svg.selectAll('circle.actual').attr('opacity', 0)
 			svg.selectAll('circle.pets')
@@ -201,8 +575,199 @@ var app = new Vue({
 				.attr('stroke-width', 3)
 		},
 		frame4: function(svg) {
+			svg.selectAll('.f3')
+				.data([]).exit().remove()
+
+			let size = 24,
+			duration = 1000;
+			svg.selectAll('.pets')
+				.select('image')
+				.transition().duration(duration)
+				.attr('width', size)
+				.attr('height', size)
+				.attr('x', (d, i) => {
+					if (this.diagnosis[i].diagnosis) {
+						if (d.species === 'cat') {
+							return 12 + size * (this.diagnosis[i].idx % 6)
+						} else {
+							return 170 + size * (this.diagnosis[i].idx % 6)
+						}
+					} else {
+						if (d.species === 'cat') {
+							return 340 + size * (this.diagnosis[i].idx % 6)
+						} else {
+							return 496 + size * (this.diagnosis[i].idx % 6)
+						}
+					}
+				})
+				.attr('y', (d, i) => baseY + 7 - size * Math.floor(this.diagnosis[i].idx / 6))
+				// .attr('x', (d, i) => this.diagnosis[i].diagnosis ? baseXCat + size * (Math.floor(this.diagnosis[i].idx / 10)) : baseXDog + 27 + size * (Math.floor(this.diagnosis[i].idx / 10)))
+				// .attr('y', (d, i) => baseY - size * (this.diagnosis[i].idx % 10))
+				.style('filter', d => d.bad ? 'url("../assets/filters.svg#red")' : 'url("../assets/filters.svg#blue")')
+			
+			svg.selectAll('.pets')
+				.select('rect')
+				.on('mouseover', (d, i) => respond(d.bad, this.diagnosis[i].diagnosis, d.species))
+				.on('mouseout', clear)
+				
+			svg.selectAll('.pets')
+				.select('rect')
+				.transition().duration(duration)
+				// .attr('x', (d, i) => this.diagnosis[i].diagnosis ? baseXCat + size * (Math.floor(this.diagnosis[i].idx / 10)) + 1 : baseXDog + 27 + size * (Math.floor(this.diagnosis[i].idx / 10)) + 1)
+				// .attr('y', (d, i) => baseY - size * (this.diagnosis[i].idx % 10))
+				.attr('width', size)
+				.attr('height', size)
+				.attr('x', (d, i) => {
+					if (this.diagnosis[i].diagnosis) {
+						if (d.species === 'cat') {
+							return 12 + size * (this.diagnosis[i].idx % 6)
+						} else {
+							return 170 + size * (this.diagnosis[i].idx % 6)
+						}
+					} else {
+						if (d.species === 'cat') {
+							return 340 + size * (this.diagnosis[i].idx % 6)
+						} else {
+							return 496 + size * (this.diagnosis[i].idx % 6)
+						}
+					}
+				})
+				.attr('y', (d, i) => baseY + 7 - size * Math.floor(this.diagnosis[i].idx / 6))
+
+			svg.append('text')
+				.attr('class', 'f4')
+				.text('Diagnosed Fat')
+				.attr('x', 160)
+				.attr('y', 20)
+				.attr('font-size', 18)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '600')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(duration)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f4')
+				.text('Diagnosed Thin')
+				.attr('x', 490)
+				.attr('y', 20)
+				.attr('font-size', 18)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '600')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(duration)
+				.attr('opacity', 1)
+
+			svg.append('text')
+				.attr('class', 'f4')
+				.text((100 * this.stats.cat.TP / (this.stats.cat.TP + this.stats.cat.FP)).toFixed(1) +"% Correct")
+				.attr('x', 85)
+				.attr('y', 353)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(duration)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f4')
+				.text((100 * this.stats.dog.TP / (this.stats.dog.TP + this.stats.dog.FP)).toFixed(1) +"% Correct")
+				.attr('x', 243)
+				.attr('y', 353)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(duration)
+				.attr('opacity', 1)
+
+			svg.append('rect')
+				.lower()
+				.attr('class', 'f4')
+				.attr('x', 2)
+				.attr('y', 0)
+				.attr('width', 323)
+				.attr('height', 363)
+				.attr('fill', colors.bad)
+				.attr('opacity', 0)
+				.transition().duration(duration)
+				.attr('opacity', 0.2)
+
+			svg.append('text')
+				.attr('class', 'f4')
+				.text((100 * this.stats.cat.TN / (this.stats.cat.TN + this.stats.cat.FN)).toFixed(1) +"% Correct")
+				.attr('x', 413)
+				.attr('y', 353)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(duration)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f4')
+				.text((100 * this.stats.dog.TN / (this.stats.dog.TN + this.stats.dog.FN)).toFixed(1) +"% Correct")
+				.attr('x', 568)
+				.attr('y', 353)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(duration)
+				.attr('opacity', 1)
+
+			svg.append('rect')
+				.lower()
+				.attr('class', 'f4')
+				.attr('x', 330)
+				.attr('y', 0)
+				.attr('width', 323)
+				.attr('height', 363)
+				.attr('fill', colors.good)
+				.attr('opacity', 0)
+				.transition().duration(duration)
+				.attr('opacity', 0.2)
+
+			svg.append('text')
+				.attr('class', 'f4')
+				.attr('id', 'explainer4')
+				.text('')
+				.attr('x', 320)
+				.attr('y', 393)
+				.attr('font-size', 24)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 1)
+
+			function respond(bad, diagnosis, species) {
+				let msg = ""
+				if (bad) {
+					msg += "This bad " + species
+					if (diagnosis) {
+						msg += " was diagnosed correctly!";
+					} else {
+						msg += " was diagnosed wrongly!";
+					}
+				} else {
+					msg += "This good " + species
+					if (diagnosis) {
+						msg += " was diagnosed wrongly!";
+					} else {
+						msg += " was diagnosed correctly!";
+					}
+				}
+				d3.select('#explainer4').text(msg);
+			}
+
+			function clear() {
+				d3.select('#explainer4').text('');
+			}
+		},
+		frame4a: function(svg) {
 			svg.selectAll('circle.pets')
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('cx', (d, i) => centerX - 50 + 15 * (this.diagnosis[i].idx % 10))
 				.attr('cy', (d, i) => this.diagnosis[i].diagnosis ? baseY - 200 - 15 * Math.floor(this.diagnosis[i].idx / 10) : baseY - 15 * Math.floor(this.diagnosis[i].idx / 10))
 				.attr('fill-opacity', 0.8)
@@ -212,7 +777,7 @@ var app = new Vue({
 				.attr('y', 100)
 				.text((this.stats.total.TP / (this.stats.total.TP + this.stats.total.FP)).toString())
 				.attr('opacity', 0)
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('opacity', 1)
 			svg.append('text')
 				.attr('id', 'accuracyGood')
@@ -220,31 +785,347 @@ var app = new Vue({
 				.attr('y', 200)
 				.text((this.stats.total.TN / (this.stats.total.TN + this.stats.total.FN)).toString())
 				.attr('opacity', 0)
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('opacity', 1)
 		},
 		frame5: function(svg) {
-			svg.select('text#accuracyBad').transition().duration(1000).attr('opacity', 0);
-			svg.select('text#accuracyGood').transition().duration(1000).attr('opacity', 0);
-			svg.selectAll('circle.pets')
+			svg.selectAll('.f4')
+				.data([]).exit().remove()
+
+			let size = 29;
+
+			svg.selectAll('.pets')
+				.select('image')
 				.transition().duration(1000)
+				.attr('width', size)
+				.attr('height', size)
+				.attr('x', (d, i) => (d.species == "cat") ? baseXCat + size * (Math.floor(i / 10)) + 13 : baseXDog + size * (Math.floor((i - 100) / 10)) + 39)
+				.attr('y', (d, i) => baseY - size * (i % 10))
+
+			svg.selectAll('.pets')
+				.select('rect')
+				.transition().duration(1000)
+				.attr('width', size)
+				.attr('height', size)
+				.attr('x', (d, i) => (d.species == "cat") ? baseXCat + size * (Math.floor(i / 10)) + 14 : baseXDog + size * (Math.floor((i - 100) / 10)) + 40)
+				.attr('y', (d, i) => baseY - size * (i % 10))
+
+			svg.append('text')
+				.attr('class', 'f5')
+				.text('CATS')
+				.attr('x', 160)
+				.attr('y', 27)
+				.attr('font-size', 28)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(1000)
+				.attr('opacity', 1)
+
+			svg.append('text')
+				.attr('class', 'f5')
+				.text('DOGS')
+				.attr('x', 490)
+				.attr('y', 27)
+				.attr('font-size', 28)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(1000)
+				.attr('opacity', 1)
+		},
+		frame5a: function(svg) {
+			svg.select('text#accuracyBad').transition().duration(500).attr('opacity', 0);
+			svg.select('text#accuracyGood').transition().duration(500).attr('opacity', 0);
+			svg.selectAll('circle.pets')
+				.transition().duration(500)
 				.attr('opacity', d => d.species === 'cat' ? 1 : 0)
 		},
 		frame6: function(svg) {
+			svg.selectAll('.f5')
+				.data([]).exit().remove()
+
+			svg.selectAll('.pets')
+				.select('image')
+				.transition().duration(500)
+				.attr('opacity', d => d.bad ? 0.6 : 0.2)
+			svg.selectAll('.pets')
+				.select('rect')
+				.transition().duration(500)
+				.attr('opacity', d => d.bad ? 1 : 0)
+				.attr('stroke-opacity', (d, i) => this.diagnosis[i].diagnosis ? 0 : 1)
+				.attr('stroke-width', 3)
+			// svg.selectAll('.diagnoseBad')
+			// 	.lower()
+			// svg.selectAll('.diagnoseGood')
+			// 	.raise()
+
+			svg.append('text')
+				.attr('class', 'f6')
+				.text('If you are a fat cat...')
+				.attr('x', 160)
+				.attr('y', 27)
+				.attr('font-size', 24)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '600')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f6')
+				.text("You have a " + (100 * this.stats.cat.FN / (this.stats.cat.TP + this.stats.cat.FN)).toFixed(1) + "% chance of being")
+				.attr('x', 160)
+				.attr('y', 353)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f6')
+				.text("diagnosed wrongly and escaping.")
+				.attr('x', 160)
+				.attr('y', 383)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
+			svg.append('text')
+				.attr('class', 'f6')
+				.text('If you are a fat dog...')
+				.attr('font-size', 24)
+				.attr('x', 490)
+				.attr('y', 27)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '600')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f6')
+				.text("You have a " + (100 * this.stats.dog.FN / (this.stats.dog.TP + this.stats.dog.FN)).toFixed(1) + "% chance of being")
+				.attr('x', 490)
+				.attr('y', 353)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f6')
+				.text("diagnosed wrongly and escaping.")
+				.attr('x', 490)
+				.attr('y', 383)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+		},
+		frame6a: function(svg) {
 			svg.selectAll('circle.pets')
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('opacity', d => d.species === 'dog' ? 1 : 0)
 		},
 		frame7: function(svg) {
+			svg.selectAll('.f6')
+				.data([]).exit().remove()
+
+			svg.selectAll('.pets')
+				.select('image')
+				.transition().duration(500)
+				.attr('opacity', d => !d.bad ? 0.6 : 0.2)
+			svg.selectAll('.pets')
+				.select('rect')
+				.transition().duration(500)
+				.attr('opacity', d => !d.bad ? 1 : 0)
+				.attr('stroke-opacity', (d, i) => !this.diagnosis[i].diagnosis ? 0 : 1)
+			// svg.selectAll('.diagnoseGood')
+			// 	.lower()
+			// svg.selectAll('.diagnoseBad')
+			// 	.raise()
+
+			svg.append('text')
+				.attr('class', 'f7')
+				.text('If you are a thin cat...')
+				.attr('font-size', 24)
+				.attr('x', 160)
+				.attr('y', 27)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '600')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f7')
+				.text("You have a " + (100 * this.stats.cat.FP / (this.stats.cat.TN + this.stats.cat.FP)).toFixed(1) + "% chance of being")
+				.attr('x', 160)
+				.attr('y', 353)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f7')
+				.text("wrongly punished.")
+				.attr('x', 160)
+				.attr('y', 383)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
+			svg.append('text')
+				.attr('class', 'f7')
+				.text('If you are a thin dog...')
+				.attr('font-size', 24)
+				.attr('x', 490)
+				.attr('y', 27)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '600')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f7')
+				.text("You have a " + (100 * this.stats.dog.FP / (this.stats.dog.TN + this.stats.dog.FP)).toFixed(1) + "% chance of being")
+				.attr('x', 490)
+				.attr('y', 353)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f7')
+				.text("wrongly punished.")
+				.attr('x', 490)
+				.attr('y', 383)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '300')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+		},
+		frame7a: function(svg) {
 			svg.selectAll('circle.pets')
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('opacity', 1)
 				.attr('cx', (d, i) => (d.species == "cat") ? baseXCat + 15 * (Math.floor(i / 10)) : baseXDog + 15 * (Math.floor(i / 10)))
 				.attr('cy', (d, i) => baseY - 15 * (i % 10))
 		},
 		frame8: function(svg) {
+			svg.selectAll('.f7')
+				.data([]).exit().remove()
+
+			svg.selectAll('.pets')
+				.select('image')
+				.transition().duration(500)
+				.attr('opacity', 0.1)
+			svg.selectAll('.pets')
+				.select('rect')
+				.transition().duration(500)
+				.attr('opacity', 0.1)
+				.attr('stroke-opacity', 0.5)
+
+			svg.append('text')
+				.attr('class', 'f8')
+				.text('In other words...')
+				.attr('x', 320)
+				.attr('y', 27)
+				.attr('font-size', 20)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '600')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
+			svg.append('text')
+				.attr('class', 'f8')
+				.text('Fat cats are far more likely to escape')
+				.attr('x', 320)
+				.attr('y', 117)
+				.attr('font-size', 20)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '600')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f8')
+				.text('as compared to fat dogs.')
+				.attr('x', 320)
+				.attr('y', 142)
+				.attr('font-size', 20)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '600')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
+			svg.append('text')
+				.attr('class', 'f8')
+				.text('And thin dogs are far more likely to be wrongly')
+				.attr('x', 320)
+				.attr('y', 187)
+				.attr('font-size', 20)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '600')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+			svg.append('text')
+				.attr('class', 'f8')
+				.text('punished as compared to thin cats.')
+				.attr('x', 320)
+				.attr('y', 212)
+				.attr('font-size', 20)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '600')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
+			svg.append('text')
+				.attr('class', 'f8')
+				.text('Is that fair?')
+				.attr('x', 320)
+				.attr('y', 287)
+				.attr('font-size', 24)
+				.attr('font-family', 'Open Sans')
+				.attr('font-weight', '600')
+				.attr('text-anchor', 'middle')
+				.attr('opacity', 0)
+				.transition().duration(500)
+				.attr('opacity', 1)
+
+		},
+		frame8a: function(svg) {
 			svg.selectAll('circle.pets')
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('opacity', d => d.species === 'cat' && !d.bad ? 1 : 0.2);
 			svg.append('text')
 				.attr('id', 'goodCat')
@@ -252,13 +1133,13 @@ var app = new Vue({
 				.attr('y', 100)
 				.text("Chance of diagnosing BAD: " + (100 * this.stats.cat.FP / (this.stats.cat.TN + this.stats.cat.FP)).toFixed(0) +"%")
 				.attr('opacity', 0)
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('opacity', 1)
 		},
 		frame9: function(svg) {
-			svg.select('text#goodCat').transition().duration(1000).attr('opacity', 0);
+			svg.select('text#goodCat').transition().duration(500).attr('opacity', 0);
 			svg.selectAll('circle.pets')
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('opacity', d => d.species === 'dog' && !d.bad ? 1 : 0.2);
 			svg.append('text')
 				.attr('id', 'goodDog')
@@ -266,13 +1147,13 @@ var app = new Vue({
 				.attr('y', 100)
 				.text("Chance of diagnosing BAD: " + (100 * this.stats.dog.FP / (this.stats.dog.TN + this.stats.dog.FP)).toFixed(0) +"%")
 				.attr('opacity', 0)
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('opacity', 1)
 		},
 		frame10: function(svg) {
-			svg.select('text#goodDog').transition().duration(1000).attr('opacity', 0);
+			svg.select('text#goodDog').transition().duration(500).attr('opacity', 0);
 			svg.selectAll('circle.pets')
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('opacity', d => d.species === 'cat' && d.bad ? 1 : 0.2);
 			svg.append('text')
 				.attr('id', 'badCat')
@@ -280,13 +1161,13 @@ var app = new Vue({
 				.attr('y', 100)
 				.text("Chance of diagnosing BAD: " + (100 * this.stats.cat.TP / (this.stats.cat.TP + this.stats.cat.FN)).toFixed(0) +"%")
 				.attr('opacity', 0)
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('opacity', 1)
 		},
 		frame11: function(svg) {
-			svg.select('text#badCat').transition().duration(1000).attr('opacity', 0);
+			svg.select('text#badCat').transition().duration(500).attr('opacity', 0);
 			svg.selectAll('circle.pets')
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('opacity', d => d.species === 'dog' && d.bad ? 1 : 0.2);
 			svg.append('text')
 				.attr('id', 'badDog')
@@ -294,15 +1175,17 @@ var app = new Vue({
 				.attr('y', 100)
 				.text("Chance of diagnosing BAD: " + (100 * this.stats.dog.TP / (this.stats.dog.TP + this.stats.dog.FN)).toFixed(0) +"%")
 				.attr('opacity', 0)
-				.transition().duration(1000)
+				.transition().duration(500)
 				.attr('opacity', 1)
 		},
 		diagnose: function() {
 			// randomly select pets to match 80% diagnosis
 			// calculated with Bayes theorem
 			let diagnosis = [],
-			trueCount = 0,
-			falseCount = 0;
+			trueCountCat = 0,
+			trueCountDog = 0,
+			falseCountCat = 0,
+			falseCountDog = 0;
 			for (let i=0; i<200; i++) {
 				let dice = false;
 				if (i < 100) {
@@ -319,17 +1202,33 @@ var app = new Vue({
 					}
 				}
 				if (dice) {
-					diagnosis.push({
-						diagnosis: dice,
-						idx: trueCount
-					});
-					trueCount += 1;
+					if (i < 100) {
+						diagnosis.push({
+							diagnosis: dice,
+							idx: trueCountCat
+						});
+						trueCountCat += 1;
+					} else {
+						diagnosis.push({
+							diagnosis: dice,
+							idx: trueCountDog
+						});
+						trueCountDog += 1;
+					}
 				} else {
-					diagnosis.push({
-						diagnosis: dice,
-						idx: falseCount
-					});
-					falseCount += 1;
+					if (i < 100) {
+						diagnosis.push({
+							diagnosis: dice,
+							idx: falseCountCat
+						});
+						falseCountCat += 1;
+					} else {
+						diagnosis.push({
+							diagnosis: dice,
+							idx: falseCountDog
+						});
+						falseCountDog += 1;
+					}
 				}
 			}
 			return diagnosis

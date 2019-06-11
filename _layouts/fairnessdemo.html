@@ -20,12 +20,9 @@ layout: default
 	-->
 	<div id="main">
 		<h2>Cats and Dogs</h2>
-		<p>
-			There's a new disease going around infecting our beloved pets! But have no fear, for algorithms come to the rescue...?
-		</p>
-		<svg id="fairnessdemo" class="fairness-demo" @click="transitText">
+		<svg id="fairnessdemo" class="fairness-demo">
 		</svg>
-		<p id="explain">
+		<p id="explain" @click="transitText">
 		</p>
 	</div>
 	<!-- <div id="main">
@@ -57,6 +54,8 @@ layout: default
 	<div class="return-to-top"><a href="#title" target="_self">[Return to top]</a></div>
 </dt-appendix>
 </div>
-<link href="https://fonts.googleapis.com/css?family=Reenie+Beanie|Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Reenie+Beanie|Open+Sans:600|Open+Sans+Condensed:300&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+<script src="{{ "/assets/imagenet_cats_dict.js" | relative_url }}"></script>
+<script src="{{ "/assets/imagenet_dogs_dict.js" | relative_url }}"></script>
 <script src="{{ "/assets/fairness_demo.js" | relative_url }}"></script>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink"  
+     width="960px" 
+     height="560px" 
+     viewBox="0 0 960px 560px">
+
+<filter id="red">
+  <feColorMatrix
+    type="matrix"
+    values="1   0   0   0   0
+            0   0.3 0   0   0
+            0   0   0.3 0   0
+            0   0   0   1   0 "/>
+</filter>
+
+<filter id="blue">
+  <feColorMatrix
+    type="matrix"
+    values="0.3 0   0   0   0
+            0   0.3 0   0   0
+            0   0   1   0   0
+            0   0   0   1   0 "/>
+</filter>
+
+</svg>

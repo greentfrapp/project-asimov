@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lora|Overpass+Mono|Playfair+Display|Open+Sans:400,600|Ubuntu+Mono|Lato|Cambo|Libre+Baskerville');
 
 svg.fairness-demo {
-	width: 600px;
+	width: 650px;
 	height: 400px;
-	border: 1px solid black;
+	border: 0px solid #bbb;
 }
 
 svg.fairness-demo:hover {
@@ -12,6 +12,7 @@ svg.fairness-demo:hover {
 
 p#explain {
 	height: 200px;
+	cursor: pointer;
 }
 
 #framework-diagram {
