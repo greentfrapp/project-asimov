@@ -63,9 +63,8 @@ I intend to begin with the AI ethics subtopic known as *algorithmic bias* and de
 
 The research methodology of this project will be primarily based on the multiple inductive case study method (Eisenhardt and Graebner, 2007). I will analyze case studies of:
 
-1. AI technologies that have demonstrated algorithmic bias, 
-2. Attempted solutions for these problems, and
-3. Formal guidelines (international, national, commercial, non-governmental) related to AI ethics.
+1. AI technologies that have demonstrated algorithmic bias and their attempted solutions, 
+2. Formal guidelines (international, national, commercial, NGO) related to AI ethics.
 
 The specific list of case studies remains a work-in-progress but here are some main themes.
 
