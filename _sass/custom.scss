@@ -10,9 +10,17 @@ svg.fairness-demo:hover {
 	cursor: pointer;
 }
 
-p#explain {
-	height: 200px;
+div#clicker {
 	cursor: pointer;
+}
+
+p#explain {
+	height: 170px;
+	cursor: pointer;
+}
+
+p#clicktocont {
+	font-family: 'Ubuntu Mono';
 }
 
 #framework-diagram {

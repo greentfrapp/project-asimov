@@ -144,9 +144,6 @@ var app = new Vue({
       			.attr('preserveAspectRatio', 'xMidYMin slice')
       			.attr('opacity', 0.8)
       			.style('filter', d => d.bad ? 'url("../assets/filters.svg#red")' : 'url("../assets/filters.svg#blue")')
-				.on('mouseover.expand', expand)
-				.on('mouseover.respond', d => respond(d.bad, d.species))
-				.on('mouseout', contract);
 
 			pets.append('rect')
 				.attr('x', (d, i) => (d.species == "cat") ? baseXCat + size * (Math.floor(i / 10)) + 14 : baseXDog + size * (Math.floor((i - 100) / 10)) + 40)
@@ -155,8 +152,11 @@ var app = new Vue({
   				.attr('height', size)
   				.attr('fill-opacity', 0)
   				.attr('stroke', d => d.bad ? colors.bad : colors.good)
-  				.attr('stroke-width', 10)
+  				.attr('stroke-width', 5)
   				.attr('stroke-opacity', 0)
+				.on('mouseover.expand', expand)
+				.on('mouseover.respond', d => respond(d.bad, d.species))
+				.on('mouseout', contract);
 
 			function expand() {
 				let size = 100;
@@ -165,26 +165,26 @@ var app = new Vue({
 					.raise()
 
 				d3.select(this.parentNode)
-					.select('rect')
-					.attr('width', size)
-					.attr('height', size)
-					.attr('stroke-opacity', 1)
-      			
-      			d3.select(this)
+					.select('image')
 					.attr('width', size)
 					.attr('height', size)
 					.attr('opacity', 1)
       				.style('filter', undefined)
+      			
+      			d3.select(this)
+					.attr('width', size)
+					.attr('height', size)
+					.attr('stroke-opacity', 1)
       				
 			}
 			function contract() {
-				d3.select(this)
+				d3.select(this.parentNode)
+					.select('image')
 					.attr('width', size)
 					.attr('height', size)
 					.attr('opacity', 0.8)
 					.style('filter', d => d.bad ? 'url("../assets/filters.svg#red")' : 'url("../assets/filters.svg#blue")')
-				d3.select(this.parentNode)
-					.select('rect')
+				d3.select(this)
 					.attr('width', size)
 					.attr('height', size)
 					.attr('stroke-opacity', 0)
@@ -225,7 +225,7 @@ var app = new Vue({
 
 			svg.append('text')
 				.attr('id', 'response')
-				.attr('class', 'f8')
+				.attr('class', 'f0')
 				.text('')
 				.attr('x', 320)
 				.attr('y', 370)
@@ -256,7 +256,7 @@ var app = new Vue({
 				// .transition()
 				// .duration(this.timeIn)
 				.attr('opacity', 0)
-				.select('image')
+				.select('rect')
 				.on('mouseover.expand', undefined)
 				.on('mouseover.respond', undefined)
 				.on('mouseout', undefined);
