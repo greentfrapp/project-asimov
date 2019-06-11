@@ -6,6 +6,14 @@ svg.fairness-demo {
 	border: 1px solid black;
 }
 
+svg.fairness-demo:hover {
+	cursor: pointer;
+}
+
+p#explain {
+	height: 200px;
+}
+
 #framework-diagram {
 	width: 80%;
 	height: 400px;

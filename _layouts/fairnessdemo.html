@@ -8,29 +8,47 @@ layout: default
 	<h2>In some cases, notions of fairness are mutually exclusive.</h2>
 	<h4><a href="https://greentfrapp.github.io/project-asimov/" target="_self">Project Asimov</a></h4>
 	<dt-byline></dt-byline>
+	<!-- 
+		Storyboarding 
+		- Proportion of cats and dogs
+		- What accuracy means (without species)
+		- Diagnose a sample of 200 pets (random)
+		- Show that the accuracy holds
+		- Show cats false positive and false negative
+		- Show dogs false positive and false negative
+		- Playground
+	-->
 	<div id="main">
 		<h2>Cats and Dogs</h2>
 		<p>
-			Suppose for a moment that there's a new disease going around infecting our beloved pets, called the Bloody Angry Disease (BAD). As per its name, it causes our pets to get really angry and aggressive. Turns out that it affects 40% of cats and 60% of dogs.
+			There's a new disease going around infecting our beloved pets! But have no fear, for algorithms come to the rescue...?
+		</p>
+		<svg id="fairnessdemo" class="fairness-demo" @click="transitText">
+		</svg>
+		<p id="explain">
+		</p>
+	</div>
+	<!-- <div id="main">
+		<h2>Cats and Dogs</h2>
+		<p>
+			Suppose for a moment that there's a new disease going around infecting our beloved pets, called the Bloody Angry Disease (BAD). As per its name, it causes our pets to get really angry and aggressive. Turns out that it affects 40% of cats and 60% of dogs and these are called BAD cats and BAD dogs.
 		</p>
 		<svg id="fairnessdemo1" class="fairness-demo"></svg>
 		<h2>AI to the Rescue</h2>
 		<p>
-			Imagine that a company develops an AI system to diagnose if a pet has gotten BAD, by tracking its temperature, weight and appetite. Pets diagnosed with BAD are then sent for treatment, which involves lots of cold baths boohoo.
-
-			The company states that its system is fair to both cats and dogs, because when a pet is diagnosed as BAD, there is a 80% chance it is actually BAD, regardless of species.
+			Fortunately, a company develops an AI system to diagnose if a pet has gotten BAD, by tracking its temperature, weight and appetite. Pets diagnosed with BAD are then sent for treatment, which involves lots of cold baths and cones of shame boohoo.
+		</p>
+		<p>
+			The company states that its system is fair to both cats and dogs, because its predictions are 80% accurate, regardless of species. Specifically, when a pet is diagnosed to be BAD, there is 80% chance it is actually BAD and 20% chance it isn't. Likewise when a pet is diagnosed to be not BAD.
 		</p>
 		<svg id="fairnessdemo2" class="fairness-demo"></svg>
-		<p>
-			Out of the pets diagnosed BAD, we do get about 80% of them being actually BAD.
-		</p>
 		<h2>What Wrong Means</h2>
 		<p>
 			
 		</p>
 		<svg id="fairnessdemo3" class="fairness-demo"></svg>
 		
-	</div>
+	</div> -->
 </dt-article>
 <dt-appendix>
 	<p>
@@ -39,5 +57,6 @@ layout: default
 	<div class="return-to-top"><a href="#title" target="_self">[Return to top]</a></div>
 </dt-appendix>
 </div>
+<link href="https://fonts.googleapis.com/css?family=Reenie+Beanie|Open+Sans+Condensed:300&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
 <script src="{{ "/assets/fairness_demo.js" | relative_url }}"></script>
