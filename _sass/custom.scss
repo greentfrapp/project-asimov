@@ -12,6 +12,15 @@ svg.fairness-demo:hover {
 
 div#clicker {
 	cursor: pointer;
+	padding: 10px;
+}
+
+div#clicker:hover {
+	background-color: #EEE;
+}
+
+div#clicker:hover p#clicktocont {
+	font-weight: 600;
 }
 
 p#explain {
@@ -20,7 +29,7 @@ p#explain {
 }
 
 p#clicktocont {
-	font-family: 'Ubuntu Mono';
+	//font-family: 'Ubuntu Mono';
 }
 
 #framework-diagram {

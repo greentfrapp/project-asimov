@@ -4,7 +4,7 @@ layout: default
 
 <div class="contents">
 <dt-article>
-	<h1 id="title">Fairness Trade-off Demo</h1>
+	<h1 id="title">Fairness Trade-off Demo (Draft)</h1>
 	<h2>In some cases, notions of fairness are mutually exclusive.</h2>
 	<h4><a href="https://greentfrapp.github.io/project-asimov/" target="_self">Project Asimov</a></h4>
 	<dt-byline></dt-byline>
@@ -20,9 +20,11 @@ layout: default
 	-->
 	<div id="main">
 		<h2>Towards Fair Detection of Fat Pets</h2>
+		<br/>
 		<svg id="fairnessdemo" class="fairness-demo">
 		</svg>
-		<div id="clicker" @click="transitText">
+		<br/>
+		<div id="clicker" @click="transitText"  v-if="step < texts.length - 1">
 			<p id="explain" >
 			</p>
 			<p id="clicktocont">
