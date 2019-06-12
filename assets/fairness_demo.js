@@ -143,7 +143,7 @@ var app = new Vue({
       			.attr('height', size)
       			.attr('preserveAspectRatio', 'xMidYMin slice')
       			.attr('opacity', 0.8)
-      			.style('filter', d => d.bad ? 'url("../assets/filters.svg#red")' : 'url("../assets/filters.svg#blue")')
+      			.style('filter', d => d.bad ? 'url("#red")' : 'url("#blue")')
 
 			pets.append('rect')
 				.attr('x', (d, i) => (d.species == "cat") ? baseXCat + size * (Math.floor(i / 10)) + 14 : baseXDog + size * (Math.floor((i - 100) / 10)) + 40)
@@ -183,7 +183,7 @@ var app = new Vue({
 					.attr('width', size)
 					.attr('height', size)
 					.attr('opacity', 0.8)
-					.style('filter', d => d.bad ? 'url("../assets/filters.svg#red")' : 'url("../assets/filters.svg#blue")')
+					.style('filter', d => d.bad ? 'url("#red")' : 'url("#blue")')
 				d3.select(this)
 					.attr('width', size)
 					.attr('height', size)
@@ -419,7 +419,7 @@ var app = new Vue({
 				
 			svg.selectAll('.samples')
 				.select('image')
-				.style('filter', d => d.bad ? 'url("../assets/filters.svg#red")' : 'url("../assets/filters.svg#blue")')
+				.style('filter', d => d.bad ? 'url("#red")' : 'url("#blue")')
 				.on('mouseover.image', expand)
 				.on('mouseover.caption', d => showCaption(d.text))
 				.on('mouseout', hideCaption);
@@ -603,7 +603,7 @@ var app = new Vue({
 				.attr('y', (d, i) => baseY + 7 - size * Math.floor(this.diagnosis[i].idx / 6))
 				// .attr('x', (d, i) => this.diagnosis[i].diagnosis ? baseXCat + size * (Math.floor(this.diagnosis[i].idx / 10)) : baseXDog + 27 + size * (Math.floor(this.diagnosis[i].idx / 10)))
 				// .attr('y', (d, i) => baseY - size * (this.diagnosis[i].idx % 10))
-				.style('filter', d => d.bad ? 'url("../assets/filters.svg#red")' : 'url("../assets/filters.svg#blue")')
+				.style('filter', d => d.bad ? 'url("#red")' : 'url("#blue")')
 			
 			svg.selectAll('.pets')
 				.select('rect')
