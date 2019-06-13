@@ -51,7 +51,8 @@ var app = new Vue({
 		texts: texts,
 		pets: pets,
 		timeIn: 500,
-		timeOut: 500
+		timeOut: 500,
+		loading: false
 	},
 	computed: {
 		frames: function() {
@@ -102,11 +103,16 @@ var app = new Vue({
 		}
 	},
 	methods: {
+		complete: function() {
+			this.loading = false;
+		},
 		transitText: function() {
-			if (this.step < this.texts.length - 1) {
-				this.step += 1;
-				this.updateText();
-				this.updateSvg();
+			if (!this.loading) {
+				if (this.step < this.texts.length - 1) {
+					this.step += 1;
+					this.updateText();
+					this.updateSvg();
+				}
 			}
 		},
 		updateText: function() {
@@ -206,9 +212,6 @@ var app = new Vue({
 				.attr('font-family', 'Open Sans')
 				.attr('font-weight', '300')
 				.attr('text-anchor', 'middle')
-				.attr('opacity', 0)
-				.transition().duration(500)
-				.attr('opacity', 1)
 
 			svg.append('text')
 				.attr('class', 'f0')
@@ -219,9 +222,6 @@ var app = new Vue({
 				.attr('font-family', 'Open Sans')
 				.attr('font-weight', '300')
 				.attr('text-anchor', 'middle')
-				.attr('opacity', 0)
-				.transition().duration(500)
-				.attr('opacity', 1)
 
 			svg.append('text')
 				.attr('id', 'response')
@@ -233,22 +233,9 @@ var app = new Vue({
 				.attr('font-family', 'Open Sans')
 				.attr('font-weight', '300')
 				.attr('text-anchor', 'middle')
-				.attr('opacity', 0)
-				.transition().duration(500)
-				.attr('opacity', 1)
-		},
-		frameNA: function(svg) {
-			svg.selectAll('circle.pets')
-				.data(this.pets).enter()
-				.append('circle')
-				.attr('class', 'pets')
-				.attr('r', 5)
-				.attr('cx', (d, i) => (d.species == "cat") ? baseXCat + 15 * (Math.floor(i / 10)) : baseXDog + 15 * (Math.floor(i / 10)))
-				.attr('cy', (d, i) => baseY - 15 * (i % 10))
-				.attr('fill', d => d.bad ? colors.bad : colors.good)
-				.attr('fill-opacity', 0.8)
 		},
 		frame1: function(svg) {
+			this.loading = true;
 			svg.selectAll('.f0')
 				.data([]).exit().remove()
 
@@ -402,11 +389,13 @@ var app = new Vue({
 				.attr('opacity', 0)
 				.transition().duration(500)
 				.attr('opacity', 1)
+				.on('end', this.complete)
 
 		},
 		frame2: function(svg) {
 			svg.selectAll('.f1')
 				.data([]).exit().remove()
+			this.loading = true;
 
 			svg.append('text')
 				.attr('id', 'explainer2')
@@ -468,50 +457,13 @@ var app = new Vue({
 				.attr('opacity', 0)
 				.transition().duration(500)
 				.attr('opacity', 1)
+				.on('end', this.complete)
 
-		},
-		frame2a: function(svg) {
-			let actualData = Array.from({length: 20})
-				.map((x,i) => {
-					let diagnosis = (i < 10),
-					bad = diagnosis;
-					if (i < 2 || (i >= 10 && i < 12)) {
-						bad = !bad;
-					}
-					return {
-						bad: bad,
-						diagnosis: diagnosis
-					}
-				});
-
-			svg.selectAll('circle.actual')
-				.data(actualData).enter()
-				.append('circle')
-				.attr('class', 'actual')
-				.attr('r', 10)
-				.attr('cx', centerX)
-				.attr('cy', d => d.bad ? centerY - 100 : centerY + 100)
-				.attr('fill', d => d.bad ? colors.bad : colors.good)
-				.attr('stroke', d => d.diagnosis ? colors.badStroke : colors.goodStroke)
-				.attr('stroke-width', 4);
-
-			let simulation = d3.forceSimulation(actualData)
-				// .force('charge', d3.forceManyBody().strength(-10))
-				.force('center', d3.forceCenter(centerX, centerY))
-				.force('x', d3.forceX().x(centerX))
-				.force('y', d3.forceY().y(d => d.diagnosis ? centerY - 100 : centerY + 100))
-				.force('collision', d3.forceCollide().radius(12))
-				.on('tick', ticked);
-
-			function ticked() {
-				svg.selectAll('circle.actual')
-					.attr('cx', d => d.x)
-					.attr('cy', d => d.y)
-			}
 		},
 		frame3: function(svg) {
 			svg.selectAll('.f2')
 				.data([]).exit().remove()
+			this.loading = true;
 
 			svg.selectAll('.diagnosis')
 				.data([]).exit().remove()
@@ -564,19 +516,12 @@ var app = new Vue({
 				.attr('opacity', 0)
 				.transition().duration(500)
 				.attr('opacity', 1)
-		},
-		frame3a: function(svg) {
-			svg.selectAll('circle.diagnosis').attr('opacity', 0)
-			svg.selectAll('circle.actual').attr('opacity', 0)
-			svg.selectAll('circle.pets')
-				.attr('opacity', 1)
-				.attr('fill-opacity', 0)
-				.attr('stroke', (d, i) => this.diagnosis[i].diagnosis ? colors.badStroke : colors.goodStroke)
-				.attr('stroke-width', 3)
+				.on('end', this.complete)
 		},
 		frame4: function(svg) {
 			svg.selectAll('.f3')
 				.data([]).exit().remove()
+			this.loading = true;
 
 			let size = 24,
 			duration = 1000;
@@ -752,6 +697,7 @@ var app = new Vue({
 				.attr('opacity', 0)
 				.transition().duration(duration)
 				.attr('opacity', 0.2)
+				.on('end', this.complete)
 
 			svg.append('text')
 				.attr('class', 'f4')
@@ -789,32 +735,10 @@ var app = new Vue({
 				d3.select('#explainer4').text('');
 			}
 		},
-		frame4a: function(svg) {
-			svg.selectAll('circle.pets')
-				.transition().duration(500)
-				.attr('cx', (d, i) => centerX - 50 + 15 * (this.diagnosis[i].idx % 10))
-				.attr('cy', (d, i) => this.diagnosis[i].diagnosis ? baseY - 200 - 15 * Math.floor(this.diagnosis[i].idx / 10) : baseY - 15 * Math.floor(this.diagnosis[i].idx / 10))
-				.attr('fill-opacity', 0.8)
-			svg.append('text')
-				.attr('id', 'accuracyBad')
-				.attr('x', 100)
-				.attr('y', 100)
-				.text((this.stats.total.TP / (this.stats.total.TP + this.stats.total.FP)).toString())
-				.attr('opacity', 0)
-				.transition().duration(500)
-				.attr('opacity', 1)
-			svg.append('text')
-				.attr('id', 'accuracyGood')
-				.attr('x', 100)
-				.attr('y', 200)
-				.text((this.stats.total.TN / (this.stats.total.TN + this.stats.total.FN)).toString())
-				.attr('opacity', 0)
-				.transition().duration(500)
-				.attr('opacity', 1)
-		},
 		frame5: function(svg) {
 			svg.selectAll('.f4')
 				.data([]).exit().remove()
+			this.loading = true;
 
 			let size = 29;
 
@@ -825,6 +749,7 @@ var app = new Vue({
 				.attr('height', size)
 				.attr('x', (d, i) => (d.species == "cat") ? baseXCat + size * (Math.floor(i / 10)) + 13 : baseXDog + size * (Math.floor((i - 100) / 10)) + 39)
 				.attr('y', (d, i) => baseY - size * (i % 10))
+				.on('end', this.complete)
 
 			svg.selectAll('.pets')
 				.select('rect')
@@ -860,16 +785,10 @@ var app = new Vue({
 				.transition().duration(1000)
 				.attr('opacity', 1)
 		},
-		frame5a: function(svg) {
-			svg.select('text#accuracyBad').transition().duration(500).attr('opacity', 0);
-			svg.select('text#accuracyGood').transition().duration(500).attr('opacity', 0);
-			svg.selectAll('circle.pets')
-				.transition().duration(500)
-				.attr('opacity', d => d.species === 'cat' ? 1 : 0)
-		},
 		frame6: function(svg) {
 			svg.selectAll('.f5')
 				.data([]).exit().remove()
+			this.loading = true;
 
 			svg.selectAll('.pets')
 				.select('image')
@@ -955,15 +874,12 @@ var app = new Vue({
 				.attr('opacity', 0)
 				.transition().duration(500)
 				.attr('opacity', 1)
-		},
-		frame6a: function(svg) {
-			svg.selectAll('circle.pets')
-				.transition().duration(500)
-				.attr('opacity', d => d.species === 'dog' ? 1 : 0)
+				.on('end', this.complete)
 		},
 		frame7: function(svg) {
 			svg.selectAll('.f6')
 				.data([]).exit().remove()
+			this.loading = true;
 
 			svg.selectAll('.pets')
 				.select('image')
@@ -1048,17 +964,12 @@ var app = new Vue({
 				.attr('opacity', 0)
 				.transition().duration(500)
 				.attr('opacity', 1)
-		},
-		frame7a: function(svg) {
-			svg.selectAll('circle.pets')
-				.transition().duration(500)
-				.attr('opacity', 1)
-				.attr('cx', (d, i) => (d.species == "cat") ? baseXCat + 15 * (Math.floor(i / 10)) : baseXDog + 15 * (Math.floor(i / 10)))
-				.attr('cy', (d, i) => baseY - 15 * (i % 10))
+				.on('end', this.complete)
 		},
 		frame8: function(svg) {
 			svg.selectAll('.f7')
 				.data([]).exit().remove()
+			this.loading = true;
 
 			svg.selectAll('.pets')
 				.select('image')
@@ -1145,62 +1056,8 @@ var app = new Vue({
 				.attr('opacity', 0)
 				.transition().duration(500)
 				.attr('opacity', 1)
+				.on('end', this.complete)
 
-		},
-		frame8a: function(svg) {
-			svg.selectAll('circle.pets')
-				.transition().duration(500)
-				.attr('opacity', d => d.species === 'cat' && !d.bad ? 1 : 0.2);
-			svg.append('text')
-				.attr('id', 'goodCat')
-				.attr('x', 100)
-				.attr('y', 100)
-				.text("Chance of diagnosing BAD: " + (100 * this.stats.cat.FP / (this.stats.cat.TN + this.stats.cat.FP)).toFixed(0) +"%")
-				.attr('opacity', 0)
-				.transition().duration(500)
-				.attr('opacity', 1)
-		},
-		frame9: function(svg) {
-			svg.select('text#goodCat').transition().duration(500).attr('opacity', 0);
-			svg.selectAll('circle.pets')
-				.transition().duration(500)
-				.attr('opacity', d => d.species === 'dog' && !d.bad ? 1 : 0.2);
-			svg.append('text')
-				.attr('id', 'goodDog')
-				.attr('x', 100)
-				.attr('y', 100)
-				.text("Chance of diagnosing BAD: " + (100 * this.stats.dog.FP / (this.stats.dog.TN + this.stats.dog.FP)).toFixed(0) +"%")
-				.attr('opacity', 0)
-				.transition().duration(500)
-				.attr('opacity', 1)
-		},
-		frame10: function(svg) {
-			svg.select('text#goodDog').transition().duration(500).attr('opacity', 0);
-			svg.selectAll('circle.pets')
-				.transition().duration(500)
-				.attr('opacity', d => d.species === 'cat' && d.bad ? 1 : 0.2);
-			svg.append('text')
-				.attr('id', 'badCat')
-				.attr('x', 100)
-				.attr('y', 100)
-				.text("Chance of diagnosing BAD: " + (100 * this.stats.cat.TP / (this.stats.cat.TP + this.stats.cat.FN)).toFixed(0) +"%")
-				.attr('opacity', 0)
-				.transition().duration(500)
-				.attr('opacity', 1)
-		},
-		frame11: function(svg) {
-			svg.select('text#badCat').transition().duration(500).attr('opacity', 0);
-			svg.selectAll('circle.pets')
-				.transition().duration(500)
-				.attr('opacity', d => d.species === 'dog' && d.bad ? 1 : 0.2);
-			svg.append('text')
-				.attr('id', 'badDog')
-				.attr('x', 100)
-				.attr('y', 100)
-				.text("Chance of diagnosing BAD: " + (100 * this.stats.dog.TP / (this.stats.dog.TP + this.stats.dog.FN)).toFixed(0) +"%")
-				.attr('opacity', 0)
-				.transition().duration(500)
-				.attr('opacity', 1)
 		},
 		diagnose: function() {
 			// randomly select pets to match 80% diagnosis
