@@ -42,6 +42,7 @@ centerY = 200;
 var framework = new Vue({
 	el: "#framework-diagram",
 	mounted: function() {
+		this.principlesSub.forEach(d => d.rand = Math.random());
 		// Draw main circles
 		d3.select('#framework-diagram > svg').selectAll('circle.principle')
 			.data(this.principlesMain).enter()
@@ -64,14 +65,14 @@ var framework = new Vue({
 					if (d.principle !== "Well-being") {
 						return subCircle(centerX, centerY, 50, this.principlesMain.indexOf(d.principle), this.principlesMain.length - 1, 0).x
 					} else {
-						return divideCircle(centerX, centerY, 140, d.content.length, 15, 0).x
+						return divideCircle(centerX, centerY, 140, d.rand * 1000, 1000, 0).x
 					}
 				})
 			.attr('cy', (d, i) => {
 					if (d.principle !== "Well-being") {
 						return subCircle(centerX, centerY, 50, this.principlesMain.indexOf(d.principle), this.principlesMain.length - 1, 0).y
 					} else {
-						return divideCircle(centerX, centerY, 140, d.content.length, 15, 0).y
+						return divideCircle(centerX, centerY, 140, d.rand * 1000, 1000, 0).y
 					}
 				})
 			.attr('fill', d => this.principlesColors[this.principlesMain.indexOf(d.principle)])
@@ -79,7 +80,7 @@ var framework = new Vue({
 			.on('mouseover.caption', this.captionSubPrinciple)
 			.on('mouseover.opacity', incOpacity)
 			.on('mouseout.caption', this.clearCaption)
-			.on('mouseout.opacity', decOpacity);
+			.on('mouseout.opacity', decOpacity);		
 	},
 	data: {
 		principlesMain: principlesMain,
