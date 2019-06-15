@@ -10,7 +10,10 @@ layout: default
 	<hr/>
 	<div class="contents">
 		<h2>Integration (WIP)</h2>
-		<svg id="framework-diagram"></svg>
+		<div id="framework-diagram">
+			<svg></svg>
+			<h4 v-text='caption'></h4>
+		</div>
 	</div>
 	<hr/>
 	<div id="main">
@@ -56,6 +59,8 @@ layout: default
   <div class="return-to-top"><a href="#title" target="_self">[Return to top]</a></div>
 </dt-appendix>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+<script src="{{ "/assets/framework_data.js" | relative_url }}"></script>
+<script src="{{ "/assets/frameworks_principles.js" | relative_url }}"></script>
 <script src="{{ "/assets/framework_diagram.js" | relative_url }}"></script>
 <script>
 var app = new Vue({
