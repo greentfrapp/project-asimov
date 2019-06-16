@@ -6,6 +6,7 @@ let config = {
 	topScale: 6,
 	topShift: 20,
 	botBar: 600,
+	problemBar: 1000,
 	colors: [
 		"#2980b9",
 		"#16a085",
@@ -26,9 +27,8 @@ let framework = new Vue({
 	el: "#framework-diagram",
 	mounted: function() {
 		let self = this
+		self.svg = d3.select("#framework-diagram > svg")
 		d3.json("../assets/principles.json").then(function(data) {
-			svg = d3.select("#framework-diagram > svg")
-			self.svg = svg
 			self.data = data
 			self.dataByContents = d3.nest()
 				.key(d => d.content).entries(self.data)
@@ -116,7 +116,7 @@ let framework = new Vue({
 				.append("text")
 				.attr("class", "principle-name")
 				.attr("x", (d, i) => i * 100 + 50)
-				.attr("y", config.botBar + 25)
+				.attr("y", config.botBar + 30)
 				.attr("font-size", 14)
 				.attr("fill", (d, i) => config.colors[i])
 				.attr("font-family", "Open Sans")
@@ -150,15 +150,13 @@ let framework = new Vue({
 				.data(e => e.values).enter()
 				.append("path")
 				.attr("class", "link")
-				.attr("val", e => e.content)
+				// .attr("val", e => e.content)
 				.attr("d", (e, i) => self.getPath(i, e.report, e.principle, e.content))
 				// .attr("stroke", "#AAAAAA")
 				.attr("stroke", e => config.colors[self.principles.indexOf(e.principle)])
 				.attr("fill", "transparent")
 				.attr("stroke-width", config.linkWidth)
 				.attr("opacity", config.ogOpacity)
-
-			// Part 2
 
 			// Voronoi
 			voronoi = d3.voronoi()
@@ -173,7 +171,7 @@ let framework = new Vue({
 					}
 				})
 				.extent([[0, 0], [800, 800]])
-			let voronoiGroup = svg.append("g")
+			let voronoiGroup = self.svg.append("g")
 				.attr("class", "voronoi")
   
 			voronoiGroup.selectAll("path")
@@ -187,7 +185,83 @@ let framework = new Vue({
 		  		.on("click", self.click)
 		})
 		
-		d3.json("../assets/principles.json").then(function(data) {
+		d3.json("../assets/problems.json").then(function(data) {
+			self.dataProblems = d3.nest()
+				.key(d => d.problem)
+				// .key(d => d.principle)
+				// .sortKeys((a, b) => self.principles.indexOf(a) - self.principles.indexOf(b))
+				.entries(data)
+
+			self.dataProblems.forEach((problem, i) => {
+				problem.values.forEach(link => {
+					link.problemId = i
+				})
+			})
+
+			// Top Bar
+			self.svg.selectAll("circle.problem-source")
+				.data(self.principles).enter()
+				.append("circle")
+				.attr("class", "problem-source")
+				.attr("r", 10)
+				.attr("cx", (d, i) => i * 100 + 50)
+				.attr("cy", config.botBar + 50)
+				.attr("fill", (d, i) => config.colors[i])
+
+			// Bottom Bar
+			self.svg.selectAll("circle.problem-target")
+				.data(self.dataProblems).enter()
+				.append("circle")
+				.attr("class", "problem-target")
+				.attr("r", 15)
+				.attr("cx", (d, i) => i * 120 + 100)
+				.attr("cy", config.problemBar)
+				.attr("fill", "#AAAAAA")
+			self.svg.selectAll("text.problem-name")
+				.data(self.dataProblems).enter()
+				.append("text")
+				.attr("class", "problem-name")
+				.attr("x", (d, i) => i * 120 + 100)
+				.attr("y", config.problemBar + 40)
+				.attr("font-size", 14)
+				.attr("fill", "#AAAAAA")
+				.attr("font-family", "Open Sans")
+				.attr("font-weight", "300")
+				.attr("text-anchor", "middle")
+				.text(d => d.key)
+
+			// Links
+			self.svg.selectAll("g.problem-group")
+				.data(self.dataProblems).enter()
+				.append("g")
+				.attr("class", "problem-group")
+				.lower()
+				.selectAll("path.problem-link")
+				.data(d => d.values).enter()
+				.append("path")
+				.attr("class", "problem-link")
+				.attr("d", e => {
+					let startX = self.principles.indexOf(e.principle) * 100 + 50,
+					startY = config.botBar + 50,
+					endX = e.problemId * 120 + 100,
+					endY = config.problemBar
+					path = "M "
+					path += [startX, startY].join(" ")
+					path += " C "
+					path += [startX, startY + 100].join(" ")
+					path += ", "
+					path += [endX, endY - 100].join(" ")
+					path += ", "
+					path += [endX, endY].join(" ")
+					return path
+				})
+				// .attr("stroke", "#AAAAAA")
+				.attr("stroke", e => config.colors[self.principles.indexOf(e.principle)])
+				.attr("fill", "transparent")
+				.attr("stroke-width", config.linkWidth)
+				.attr("opacity", config.ogOpacity)
+
+
 		})
 	},
 	data: {
@@ -196,6 +270,7 @@ let framework = new Vue({
 		dataByContents: null,
 		dataByReports: null,
 		dataByPrinciples: null,
+		dataProblems: null,
 		reportsStartPos: {},
 		principlesStartPos: {},
 		contentsStartPos: {},
