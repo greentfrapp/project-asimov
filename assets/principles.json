@@ -74,7 +74,7 @@
   {
     "id": "12",
     "report": "Singapore’s AI Governance Framework",
-    "content": "Using reasonable efforts to ensure that the datasets used for AI model training \u2028are adequate for the intended purpose, and to assess and manage the risks of inaccuracy or bias, as well as reviewing exceptions identified during model training.",
+    "content": "Using reasonable efforts to ensure that the datasets used for AI model training are adequate for the intended purpose, and to assess and manage the risks of inaccuracy or bias, as well as reviewing exceptions identified during model training.",
     "principle": "Fairness"
   },
   {
