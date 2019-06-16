@@ -9,7 +9,7 @@ let principlesMain = [
 ];
 
 let principlesColors = [
-  "#000000",
+  "#999999",
   "#2ecc71",
   "#f1c40f",
   "#e74c3c",

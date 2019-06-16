@@ -25,11 +25,11 @@ function subCircle(cx, cy, radius, i, n, delta) {
 	}
 }
 
-function incOpacity() {
+function increaseOpacity() {
 	d3.select(this).attr('fill-opacity', 1);
 }
 
-function decOpacity() {
+function decreaseOpacity() {
 	d3.select(this).attr('fill-opacity', 0.5);
 }
 
@@ -65,22 +65,22 @@ var framework = new Vue({
 					if (d.principle !== "Well-being") {
 						return subCircle(centerX, centerY, 50, this.principlesMain.indexOf(d.principle), this.principlesMain.length - 1, 0).x
 					} else {
-						return divideCircle(centerX, centerY, 140, d.rand * 1000, 1000, 0).x
+						return divideCircle(centerX, centerY, d.rand * 10 + 130, d.rand * 100, 100, 0).x
 					}
 				})
 			.attr('cy', (d, i) => {
 					if (d.principle !== "Well-being") {
 						return subCircle(centerX, centerY, 50, this.principlesMain.indexOf(d.principle), this.principlesMain.length - 1, 0).y
 					} else {
-						return divideCircle(centerX, centerY, 140, d.rand * 1000, 1000, 0).y
+						return divideCircle(centerX, centerY, d.rand * 10 + 130, d.rand * 100, 100, 0).y
 					}
 				})
 			.attr('fill', d => this.principlesColors[this.principlesMain.indexOf(d.principle)])
 			.attr('fill-opacity', 0.5)
 			.on('mouseover.caption', this.captionSubPrinciple)
-			.on('mouseover.opacity', incOpacity)
+			.on('mouseover.opacity', increaseOpacity)
 			.on('mouseout.caption', this.clearCaption)
-			.on('mouseout.opacity', decOpacity);		
+			.on('mouseout.opacity', decreaseOpacity);		
 	},
 	data: {
 		principlesMain: principlesMain,
