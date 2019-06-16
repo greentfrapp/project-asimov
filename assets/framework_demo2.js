@@ -1,12 +1,12 @@
 
 let config = {
 	width: 800,
-	height: 800,
+	height: 700,
 	topBar: 50,
 	topScale: 6,
 	topShift: 20,
-	botBar: 600,
-	problemBar: 1000,
+	botBar: 400,
+	problemBar: 600,
 	colors: [
 		"#2980b9",
 		"#16a085",
@@ -17,7 +17,7 @@ let config = {
 		"#8e44ad",
 		"#2c3e50"
 	],
-	subPLength: 200,
+	subPLength: 100,
 	subPWidth: 3,
 	linkWidth: 2,
 	ogOpacity: 0.5
@@ -46,7 +46,7 @@ let framework = new Vue({
 				report.startX = count * config.topScale + config.topShift
 				count += report.values.length
 				report.endX = count * config.topScale + config.topShift
-				count += 2
+				count += 3
 				self.reportsStartPos[report.key] = report.startX
 				self.nodes.push({
 					type: "report",
@@ -158,31 +158,7 @@ let framework = new Vue({
 				.attr("stroke-width", config.linkWidth)
 				.attr("opacity", config.ogOpacity)
 
-			// Voronoi
-			voronoi = d3.voronoi()
-				.x(d => d.x)
-				.y(d => {
-					if (d.type === "report") {
-						return config.topBar - config.subPLength / 2
-					} else if (d.type === "content") {
-						return config.topBar + config.subPLength / 2
-					} else if (d.type === "principle") {
-						return config.topBar + 3 * config.subPLength / 2
-					}
-				})
-				.extent([[0, 0], [800, 800]])
-			let voronoiGroup = self.svg.append("g")
-				.attr("class", "voronoi")
-  
-			voronoiGroup.selectAll("path")
-				.data(voronoi.polygons(self.nodes))
-				.enter().append("path")
-				.attr("d", d => d ? "M" + d.join("L") + "Z" : null)
-				// .attr('stroke', '#ccc')
-				.attr("fill", "transparent")
-		  		.on("mouseover", self.mouseover)
-		  		.on("mouseout", self.mouseout)
-		  		.on("click", self.click)
+			self.loadVoronoi()
 		})
 		
 		d3.json("../assets/problems.json").then(function(data) {
@@ -224,11 +200,12 @@ let framework = new Vue({
 				.attr("x", (d, i) => i * 120 + 100)
 				.attr("y", config.problemBar + 40)
 				.attr("font-size", 14)
-				.attr("fill", "#AAAAAA")
+				.attr("fill", "#333333")
 				.attr("font-family", "Open Sans")
 				.attr("font-weight", "300")
 				.attr("text-anchor", "middle")
 				.text(d => d.key)
+				.attr("opacity", config.ogOpacity)
 
 			// Links
 			self.svg.selectAll("g.problem-group")
@@ -261,7 +238,24 @@ let framework = new Vue({
 				.attr("stroke-width", config.linkWidth)
 				.attr("opacity", config.ogOpacity)
 
+			self.loadVoronoi()
+		})
 
+		d3.json("../assets/reportsText.json").then(data => {
+			self.reportsText = data
+			self.loadVoronoi()
+		})
+		// d3.json("../assets/subPrinciplesText.json").then(data => {
+		// 	self.subPrinciplesText = data
+		// 	self.loadVoronoi()
+		// })
+		d3.json("../assets/principlesText.json").then(data => {
+			self.principlesText = data
+			self.loadVoronoi()
+		})
+		d3.json("../assets/problemsText.json").then(data => {
+			self.problemsText = data
+			self.loadVoronoi()
 		})
 	},
 	data: {
@@ -271,10 +265,15 @@ let framework = new Vue({
 		dataByReports: null,
 		dataByPrinciples: null,
 		dataProblems: null,
+		reportsText: null,
+		subPrinciplesText: null,
+		principlesText: null,
+		problemsText: null,
 		reportsStartPos: {},
 		principlesStartPos: {},
 		contentsStartPos: {},
 		nodes: [],
+		problemNodes: [],
 		principles: [
 			"Well-being",
 			"Autonomy",
@@ -286,7 +285,9 @@ let framework = new Vue({
 			"Others"
 		],
 		selected: false,
-		caption: ""
+		captionType: "",
+		captionName: "",
+		captionContents: ""
 	},
 	computed: {
 	},
@@ -306,11 +307,66 @@ let framework = new Vue({
 			path += [endX, endY].join(" ")
 			return path
 		},
+		loadVoronoi: function() {
+			self = this
+			// if (this.dataProblems && this.dataByPrinciples && this.reportsText && this.subPrinciplesText && this.principlesText && this.problemsText) {
+			if (this.dataProblems && this.dataByPrinciples && this.reportsText && this.principlesText && this.problemsText) {
+				this.dataProblems.forEach((problem, i) => {
+					this.nodes.push({
+						type: "problem",
+						name: problem.key,
+						x: i * 120 + 100,
+						text: problem.values[0].text
+					})
+				})
+				this.nodes.forEach(node => {
+					if (node.type === "report") {
+						node.text = self.reportsText[node.name]
+					} else if (node.type === "problem") {
+						node.text = self.problemsText[node.name]
+					} else if (node.type === "principle") {
+						node.text = self.principlesText[node.name]
+					}
+					// else if (node.type === "content") {
+					// 	node.text = self.subPrinciplesText[node.name]
+					// }
+					
+
+				})
+				let voronoi = d3.voronoi()
+					.x(d => d.x)
+					.y(d => {
+						if (d.type === "report") {
+							return config.topBar - config.subPLength / 2
+						} else if (d.type === "content") {
+							return config.topBar + config.subPLength / 2
+						} else if (d.type === "principle") {
+							return config.topBar + 3 * config.subPLength / 2
+						} else if (d.type === "problem") {
+							return config.topBar + 3 * config.subPLength / 2 + 600
+						}
+					})
+					.extent([[0, 0], [config.width, config.height]])
+				let voronoiGroup = this.svg.append("g")
+					.attr("class", "voronoi1")
+				voronoiGroup.selectAll("path")
+					.data(voronoi.polygons(this.nodes))
+					.enter().append("path")
+					.attr("d", d => d ? "M" + d.join("L") + "Z" : null)
+					// .attr('stroke', '#ccc')
+					.attr("fill", "transparent")
+					.on("mouseover", this.mouseover)
+					.on("mouseout", this.mouseout)
+					.on("click", this.click)
+			}
+		},
 		focus: function(d, focus, unfocus) {
 			let feature = d.data.type,
 			name = d.data.name,
 			contentReport = d.data.report
 			this.svg.selectAll("path.link")
+				.attr("opacity", d => d[feature] === name && (feature !== "content" || d.report === contentReport) ? focus : unfocus)
+			this.svg.selectAll("path.problem-link")
 				.attr("opacity", d => d[feature] === name && (feature !== "content" || d.report === contentReport) ? focus : unfocus)
 			this.svg.selectAll("line.subprinciple-line")
 				.attr("opacity", d => {
@@ -326,12 +382,31 @@ let framework = new Vue({
 						return unfocus
 					}
 				})
+			if (feature === "problem") {
+				if (unfocus === 0) {
+					this.svg.selectAll('circle.problem-target')
+					.attr("opacity", d => d.key === name ? focus : unfocus)
+				}
+				this.svg.selectAll('text.problem-name')
+					.attr("opacity", d => d.key === name ? focus : unfocus)
+			}
 		},
 		writeCaption: function(d) {
 			let feature = d.data.type,
 			name = d.data.name,
-			contentReport = d.data.report
-			this.caption = name
+			contentReport = d.data.report,
+			text = d.data.text
+			if (feature === "content") {
+				feature = "subprinciple"
+			}
+			this.captionType = feature
+			this.captionName = name
+			this.captionContents = text
+		},
+		clearCaption: function(d) {
+			this.captionType = ""
+			this.captionName = ""
+			this.captionContents = ""
 		},
 		mouseover: function(d) {
 			if (!this.selected) {
@@ -346,6 +421,13 @@ let framework = new Vue({
 					.attr("opacity", config.ogOpacity)
 				this.svg.selectAll("line.subprinciple-line")
 					.attr("opacity", config.ogOpacity)
+				this.svg.selectAll("path.problem-link")
+					.attr("opacity", config.ogOpacity)
+				this.svg.selectAll('circle.problem-target')
+					.attr("opacity", 1)
+				this.svg.selectAll('text.problem-name')
+					.attr("opacity", config.ogOpacity)
+				this.clearCaption()
 			}
 		},
 		click: function(d) {

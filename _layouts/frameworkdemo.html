@@ -8,12 +8,16 @@ layout: default
 	<h4><a href="https://greentfrapp.github.io/project-asimov/" target="_self">Project Asimov</a></h4>
 	<dt-byline></dt-byline>
 	<hr/>
-	<div class="contents">
+	<div class="contents" style="width: 1500px;">
 		<h2>Integration (WIP)</h2>
 		<p>(Click to focus)</p>
 		<div id="framework-diagram">
-			<svg style="width: 800px; height: 1200px; cursor: pointer;"></svg>
-			<h2 v-text='caption'></h2>
+			<svg style="width: 800px; height: 700px; cursor: pointer; display: inline-block; z-index: 1000;"></svg>
+			<div style="width: 300px; height: 700px; display: inline-block; overflow: hidden; padding-top: 50px;">
+				<h4 v-text="captionType"></h4>
+				<h3 v-text="captionName" style="margin-top: 0;"></h3>
+				<p v-text="captionContents" style="line-height: 1.4285em;"></p>
+			</div>
 		</div>
 	</div>
 	

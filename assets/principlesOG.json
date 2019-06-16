@@ -60,9 +60,21 @@
     "principle": "Autonomy"
   },
   {
+    "id": "10",
+    "report": "Singapore’s AI Governance Framework",
+    "content": "Refers to other documents.",
+    "principle": "Privacy"
+  },
+  {
     "id": "11",
     "report": "Singapore’s AI Governance Framework",
     "content": "Organisations using AI in decision-making should ensure that the decision-making process is explainable, transparent and fair.",
+    "principle": "Fairness"
+  },
+  {
+    "id": "12",
+    "report": "Singapore’s AI Governance Framework",
+    "content": "Using reasonable efforts to ensure that the datasets used for AI model training are adequate for the intended purpose, and to assess and manage the risks of inaccuracy or bias, as well as reviewing exceptions identified during model training.",
     "principle": "Fairness"
   },
   {
@@ -70,6 +82,12 @@
     "report": "Singapore’s AI Governance Framework",
     "content": "Organisations operating in multiple countries should consider the differences in societal norms and values, where possible.",
     "principle": "Fairness"
+  },
+  {
+    "id": "14",
+    "report": "Singapore’s AI Governance Framework",
+    "content": "Ensuring relevant staff dealing with AI systems are trained in interpreting AI model output and decisions.",
+    "principle": "Accountability"
   },
   {
     "id": "15",
@@ -93,6 +111,12 @@
     "id": "18",
     "report": "Singapore’s AI Governance Framework",
     "content": "Reviewing communications channels and interactions with consumers and customers with a view to providing disclosure and effective feedback channels.",
+    "principle": "Transparency"
+  },
+  {
+    "id": "19",
+    "report": "Singapore’s AI Governance Framework",
+    "content": "AI systems can be designed to report on the confidence level of their predictions, and explainability features can focus on why the AI model had a certain level of confidence, rather than why a prediction was made.",
     "principle": "Transparency"
   },
   {
@@ -126,6 +150,12 @@
     "principle": "Robustness"
   },
   {
+    "id": "25",
+    "report": "Singapore’s AI Governance Framework",
+    "content": "Where explainability cannot be practicably achieved (e.g. black box) given the current state of technology, organisations can consider documenting the repeatability of results produced by the AI model.",
+    "principle": "Robustness"
+  },
+  {
     "id": "26",
     "report": "Singapore’s AI Governance Framework",
     "content": "Training and education",
@@ -133,187 +163,187 @@
   },
   {
     "id": "27",
-    "report": "Tencent ARCC",
+    "report": "Tencent’s ARCC",
     "content": "Comprehensible 可知",
     "principle": "Autonomy"
   },
   {
     "id": "28",
-    "report": "Tencent ARCC",
+    "report": "Tencent’s ARCC",
     "content": "Controllable 可控",
     "principle": "Autonomy"
   },
   {
     "id": "29",
-    "report": "Tencent ARCC",
+    "report": "Tencent’s ARCC",
     "content": "Reliable 可靠",
     "principle": "Privacy"
   },
   {
     "id": "30",
-    "report": "Tencent ARCC",
+    "report": "Tencent’s ARCC",
     "content": "Available 可用",
     "principle": "Fairness"
   },
   {
     "id": "31",
-    "report": "Tencent ARCC",
+    "report": "Tencent’s ARCC",
     "content": "Controllable 可控",
     "principle": "Accountability"
   },
   {
     "id": "32",
-    "report": "Tencent ARCC",
+    "report": "Tencent’s ARCC",
     "content": "Comprehensible 可知",
     "principle": "Transparency"
   },
   {
     "id": "33",
-    "report": "Tencent ARCC",
+    "report": "Tencent’s ARCC",
     "content": "Reliable 可靠",
     "principle": "Robustness"
   },
   {
     "id": "34",
-    "report": "OECD's Recommendation of the Council on Artificial Intelligence",
+    "report": "OECD",
     "content": "Inclusive growth, sustainable development and well-being",
     "principle": "Well-being"
   },
   {
     "id": "35",
-    "report": "OECD's Recommendation of the Council on Artificial Intelligence",
+    "report": "OECD",
     "content": "Human-centred values and fairness",
     "principle": "Well-being"
   },
   {
     "id": "36",
-    "report": "OECD's Recommendation of the Council on Artificial Intelligence",
+    "report": "OECD",
     "content": "Human-centred values and fairness",
     "principle": "Autonomy"
   },
   {
     "id": "37",
-    "report": "OECD's Recommendation of the Council on Artificial Intelligence",
+    "report": "OECD",
     "content": "Transparency and explainability",
     "principle": "Autonomy"
   },
   {
     "id": "38",
-    "report": "OECD's Recommendation of the Council on Artificial Intelligence",
+    "report": "OECD",
     "content": "Human-centred values and fairness",
     "principle": "Privacy"
   },
   {
     "id": "39",
-    "report": "OECD's Recommendation of the Council on Artificial Intelligence",
+    "report": "OECD",
     "content": "Human-centred values and fairness",
     "principle": "Fairness"
   },
   {
     "id": "40",
-    "report": "OECD's Recommendation of the Council on Artificial Intelligence",
+    "report": "OECD",
     "content": "Accountability",
     "principle": "Accountability"
   },
   {
     "id": "41",
-    "report": "OECD's Recommendation of the Council on Artificial Intelligence",
+    "report": "OECD",
     "content": "Transparency and explainability",
     "principle": "Transparency"
   },
   {
     "id": "42",
-    "report": "OECD's Recommendation of the Council on Artificial Intelligence",
+    "report": "OECD",
     "content": "Sharing and cooperation",
     "principle": "Transparency"
   },
   {
     "id": "43",
-    "report": "OECD's Recommendation of the Council on Artificial Intelligence",
+    "report": "OECD",
     "content": "Robustness, security and safety",
     "principle": "Robustness"
   },
   {
     "id": "44",
-    "report": "OECD's Recommendation of the Council on Artificial Intelligence",
+    "report": "OECD",
     "content": "Training and education",
     "principle": "Others"
   },
   {
     "id": "45",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Well-being",
     "principle": "Well-being"
   },
   {
     "id": "46",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Solidarity",
     "principle": "Well-being"
   },
   {
     "id": "47",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Sustainable Development",
     "principle": "Well-being"
   },
   {
     "id": "48",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Respect for Autonomy",
     "principle": "Autonomy"
   },
   {
     "id": "49",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Democratic Participation",
     "principle": "Autonomy"
   },
   {
     "id": "50",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Protection of Privacy and Intimacy",
     "principle": "Privacy"
   },
   {
     "id": "51",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Caution / Prudence",
     "principle": "Privacy"
   },
   {
     "id": "52",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Democratic Participation",
     "principle": "Fairness"
   },
   {
     "id": "53",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Equity",
     "principle": "Fairness"
   },
   {
     "id": "54",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Diversity Inclusion",
     "principle": "Fairness"
   },
   {
     "id": "55",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Responsibility",
     "principle": "Accountability"
   },
   {
     "id": "56",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Caution / Prudence",
     "principle": "Transparency"
   },
   {
     "id": "57",
-    "report": "Montréal Declaration",
+    "report": "Montreal",
     "content": "Caution / Prudence",
     "principle": "Robustness"
   },
@@ -355,223 +385,223 @@
   },
   {
     "id": "64",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Research Goal",
     "principle": "Well-being"
   },
   {
     "id": "65",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Research Funding",
     "principle": "Well-being"
   },
   {
     "id": "66",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Safety",
     "principle": "Well-being"
   },
   {
     "id": "67",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Non-subversion",
     "principle": "Well-being"
   },
   {
     "id": "68",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "AI Arms Race",
     "principle": "Well-being"
   },
   {
     "id": "69",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Value Alignment",
     "principle": "Autonomy"
   },
   {
     "id": "70",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Human Values",
     "principle": "Autonomy"
   },
   {
     "id": "71",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Human Control",
     "principle": "Autonomy"
   },
   {
     "id": "72",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Non-subversion",
     "principle": "Autonomy"
   },
   {
     "id": "73",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Personal Privacy",
     "principle": "Privacy"
   },
   {
     "id": "74",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Liberty and Privacy",
     "principle": "Privacy"
   },
   {
     "id": "75",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Shared Benefit",
     "principle": "Fairness"
   },
   {
     "id": "76",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Shared Prosperity",
     "principle": "Fairness"
   },
   {
     "id": "77",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Responsibility",
     "principle": "Accountability"
   },
   {
     "id": "78",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Science-Policy Link",
     "principle": "Transparency"
   },
   {
     "id": "79",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Research Culture",
     "principle": "Transparency"
   },
   {
     "id": "80",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Race Avoidance",
     "principle": "Transparency"
   },
   {
     "id": "81",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Failure Transparency",
     "principle": "Transparency"
   },
   {
     "id": "82",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Judicial Transparency",
     "principle": "Transparency"
   },
   {
     "id": "83",
-    "report": "Asilomar AI Principles",
+    "report": "Asilomar",
     "content": "Long-term issues",
     "principle": "Others"
   },
   {
     "id": "84",
-    "report": "ERLC's Evangelical Statement of Principles",
+    "report": "ERLC",
     "content": "War",
     "principle": "Well-being"
   },
   {
     "id": "85",
-    "report": "ERLC's Evangelical Statement of Principles",
+    "report": "ERLC",
     "content": "Dignity",
     "principle": "Autonomy"
   },
   {
     "id": "86",
-    "report": "ERLC's Evangelical Statement of Principles",
+    "report": "ERLC",
     "content": "Data & Privacy",
     "principle": "Privacy"
   },
   {
     "id": "87",
-    "report": "ERLC's Evangelical Statement of Principles",
+    "report": "ERLC",
     "content": "Bias",
     "principle": "Fairness"
   },
   {
     "id": "88",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Prevention of harm",
     "principle": "Well-being"
   },
   {
     "id": "89",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Societal and environmental wellbeing",
     "principle": "Well-being"
   },
   {
     "id": "90",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Respect for human autonomy",
     "principle": "Autonomy"
   },
   {
     "id": "91",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Human agency and oversight",
     "principle": "Autonomy"
   },
   {
     "id": "92",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Privacy and data governance",
     "principle": "Privacy"
   },
   {
     "id": "93",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Fairness",
     "principle": "Fairness"
   },
   {
     "id": "94",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Diversity, non-discrimination and fairness",
     "principle": "Fairness"
   },
   {
     "id": "95",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Accountability",
     "principle": "Accountability"
   },
   {
     "id": "96",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Explicability",
     "principle": "Transparency"
   },
   {
     "id": "97",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Transparency",
     "principle": "Transparency"
   },
   {
     "id": "98",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Robust",
     "principle": "Robustness"
   },
   {
     "id": "99",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Technical robustness and safety",
     "principle": "Robustness"
   },
   {
     "id": "100",
-    "report": "EU European Commission's Ethics Guidelines for Trustworthy AI",
+    "report": "European Commission",
     "content": "Lawful",
     "principle": "Others"
   },
@@ -679,37 +709,37 @@
   },
   {
     "id": "118",
-    "report": "Villani Report",
+    "report": "France",
     "content": "Data and Privacy Protection",
     "principle": "Privacy"
   },
   {
     "id": "119",
-    "report": "Villani Report",
+    "report": "France",
     "content": "Fairness and Diversity",
     "principle": "Fairness"
   },
   {
     "id": "120",
-    "report": "Villani Report",
+    "report": "France",
     "content": "Transparency and Auditability",
     "principle": "Accountability"
   },
   {
     "id": "121",
-    "report": "Villani Report",
+    "report": "France",
     "content": "Accountability",
     "principle": "Accountability"
   },
   {
     "id": "122",
-    "report": "Villani Report",
+    "report": "France",
     "content": "Transparency and Auditability",
     "principle": "Transparency"
   },
   {
     "id": "123",
-    "report": "Villani Report",
+    "report": "France",
     "content": "Political Action",
     "principle": "Others"
   }

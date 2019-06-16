@@ -1,0 +1,10 @@
+{
+  "Well-being": "The general well-being of all sentient beings, which includes themes of sustainability and human-alignment. This principle underpins the other principles.",
+  "Autonomy": "All sentient beings should have the right to freedom and independence, of actions and thoughts. This also includes themes of human empowerment, human ownership and truth.",
+  "Privacy": "The right to privacy, including ownership of personal data, informed consent to sharing of data and means of redress when data is lost or misappropriated.",
+  "Fairness": "Equal access to the benefits of AI technologies, fair treatment by AI technologies and AI practitioners, including fair compensation for sharing of data and data labeling.",
+  "Accountability": "Human accountability, which allows for suitable redress and compensation in cases of failure, neglect or abuse. This extends to the entire AI pipeline, including data collection, cleaning, training and prediction.",
+  "Transparency": "This encompasses transparency in decision-making and transparency in implementation of AI. The former refers to explanability of any AI-sourced decisions or advice, including display of confidence levels. The latter refers to informing consumers in the process of implementation, including concepts of informed consent, limitations and failure disclosure and explicit notice of AI usage.",
+  "Robustness": "Reliability of AI systems when deployed, including themes of graceful degradation and safeguards. This is considered over the entire AI pipeline, including data collection, cleaning, training and prediction.",
+  "Others": "There are other concepts that are less relevant to AI practitioners in implementation of AI systems, such as existential concerns and politicization of AI. Other unclassified themes include training and education and lawfulness."
+}
