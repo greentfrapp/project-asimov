@@ -245,10 +245,10 @@ let framework = new Vue({
 			self.reportsText = data
 			self.loadVoronoi()
 		})
-		// d3.json("../assets/subPrinciplesText.json").then(data => {
-		// 	self.subPrinciplesText = data
-		// 	self.loadVoronoi()
-		// })
+		d3.json("../assets/subPrinciplesText.json").then(data => {
+			self.subPrinciplesText = data
+			self.loadVoronoi()
+		})
 		d3.json("../assets/principlesText.json").then(data => {
 			self.principlesText = data
 			self.loadVoronoi()
@@ -309,8 +309,7 @@ let framework = new Vue({
 		},
 		loadVoronoi: function() {
 			self = this
-			// if (this.dataProblems && this.dataByPrinciples && this.reportsText && this.subPrinciplesText && this.principlesText && this.problemsText) {
-			if (this.dataProblems && this.dataByPrinciples && this.reportsText && this.principlesText && this.problemsText) {
+			if (this.dataProblems && this.dataByPrinciples && this.reportsText && this.subPrinciplesText && this.principlesText && this.problemsText) {
 				this.dataProblems.forEach((problem, i) => {
 					this.nodes.push({
 						type: "problem",
@@ -326,12 +325,9 @@ let framework = new Vue({
 						node.text = self.problemsText[node.name]
 					} else if (node.type === "principle") {
 						node.text = self.principlesText[node.name]
+					} else if (node.type === "content") {
+						node.text = self.subPrinciplesText[node.report][node.name]
 					}
-					// else if (node.type === "content") {
-					// 	node.text = self.subPrinciplesText[node.name]
-					// }
-					
-
 				})
 				let voronoi = d3.voronoi()
 					.x(d => d.x)
