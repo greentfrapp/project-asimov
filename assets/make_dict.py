@@ -22,5 +22,17 @@ def minify():
 		im.thumbnail(newsize, Image.BICUBIC)
 		im.save(newfolder + filename, "JPEG")
 
+def all_subp():
+	subprinciples = {}
+	with open("principles.json", "r") as file:
+		data = json.load(file)
+	for p in data:
+		if p["report"] not in subprinciples:
+			subprinciples[p["report"]] = {}
+		if p["content"] not in subprinciples[p["report"]]:
+			subprinciples[p["report"]][p["content"]] = ""
+	with open("subPrinciplesText.json", "w") as file:
+		json.dump(subprinciples, file)
+
 if __name__ == "__main__":
-	minify()
+	all_subp()

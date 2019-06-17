@@ -1,0 +1,123 @@
+{
+  "Three Laws of Robotics": {
+    "First Law": "A robot may not injure a human being or, through inaction, allow a human being to come to harm.",
+    "Zeroth Law": "A robot may not harm humanity, or, by inaction, allow humanity to come to harm.",
+    "Second Law": "A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.",
+    "Third Law": "A robot must protect its own existence as long as such protection does not conflict with the First or Second Laws."
+  },
+  "Singapore’s AI Governance Framework": {
+    "AI solutions should be human-centric.": "",
+    "Organisations should consider carefully when deciding whether to provide individuals the option to opt-out and whether this option should be offered by default or only upon request.": "",
+    "[…] consider other modes of providing recourse to the individual such as providing a channel for reviewing the decision.": "",
+    "Organisations using AI in decision-making should ensure that the decision-making process is explainable, transparent and fair.": "",
+    "Organisations operating in multiple countries should consider the differences in societal norms and values, where possible.": "",
+    "[...] put in place good data accountability practices": "",
+    "Organisations should consider measures to enhance the transparency of algorithms found in AI models through concepts of explainability, repeatability and traceability.": "",
+    "Reviewing communications channels and interactions with consumers and customers with a view to providing disclosure and effective feedback channels.": "",
+    "It should be noted that technical explainability may not always be enlightening, especially to the man in the street.": "",
+    "There could also be scenarios where it might not be practical or reasonable to provide information in relation to an algorithm.": "",
+    "Using any existing risk management framework and applying risk control measures [...]": "",
+    "Training and education": ""
+  },
+  "Tencent ARCC": {
+    "Comprehensible 可知": "",
+    "Controllable 可控": "",
+    "Reliable 可靠": "",
+    "Available 可用": ""
+  },
+  "OECD's Recommendation of the Council on Artificial Intelligence": {
+    "Inclusive growth, sustainable development and well-being": "",
+    "Human-centred values and fairness": "",
+    "Transparency and explainability": "",
+    "Accountability": "",
+    "Sharing and cooperation": "",
+    "Robustness, security and safety": "",
+    "Training and education": ""
+  },
+  "Montréal Declaration": {
+    "Well-being": "",
+    "Solidarity": "",
+    "Sustainable Development": "",
+    "Respect for Autonomy": "",
+    "Democratic Participation": "",
+    "Protection of Privacy and Intimacy": "",
+    "Caution / Prudence": "",
+    "Equity": "",
+    "Diversity Inclusion": "",
+    "Responsibility": ""
+  },
+  "Google": {
+    "Be socially beneficial.": "",
+    "Incorporate privacy design principles.": "",
+    "Avoid creating or reinforcing unfair bias.": "",
+    "Be accountable to people.": "",
+    "Uphold high standards of scientific excellence.": "",
+    "Be built and tested for safety.": ""
+  },
+  "Asilomar AI Principles": {
+    "Research Goal": "The goal of AI research should be to create not undirected intelligence, but beneficial intelligence.",
+    "Research Funding": "Investments in AI should be accompanied by funding for research on ensuring its beneficial use, including thorny questions in computer science, economics, law, ethics, and social studies.",
+    "Safety": "AI systems should be safe and secure throughout their operational lifetime, and verifiably so where applicable and feasible.",
+    "Non-subversion": "The power conferred by control of highly advanced AI systems should respect and improve, rather than subvert, the social and civic processes on which the health of society depends.",
+    "AI Arms Race": "An arms race in lethal autonomous weapons should be avoided.",
+    "Value Alignment": "Highly autonomous AI systems should be designed so that their goals and behaviors can be assured to align with human values throughout their operation.",
+    "Human Values": "AI systems should be designed and operated so as to be compatible with ideals of human dignity, rights, freedoms, and cultural diversity.",
+    "Human Control": "Humans should choose how and whether to delegate decisions to AI systems, to accomplish human-chosen objectives.",
+    "Personal Privacy": "People should have the right to access, manage and control the data they generate, given AI systems’ power to analyze and utilize that data.",
+    "Liberty and Privacy": "The application of AI to personal data must not unreasonably curtail people’s real or perceived liberty.",
+    "Shared Benefit": "AI technologies should benefit and empower as many people as possible.",
+    "Shared Prosperity": "The economic prosperity created by AI should be shared broadly, to benefit all of humanity.",
+    "Responsibility": "Designers and builders of advanced AI systems are stakeholders in the moral implications of their use, misuse, and actions, with a responsibility and opportunity to shape those implications.",
+    "Science-Policy Link": "There should be constructive and healthy exchange between AI researchers and policy-makers.",
+    "Research Culture": "A culture of cooperation, trust, and transparency should be fostered among researchers and developers of AI.",
+    "Race Avoidance": "Teams developing AI systems should actively cooperate to avoid corner-cutting on safety standards.",
+    "Failure Transparency": "If an AI system causes harm, it should be possible to ascertain why.",
+    "Judicial Transparency": "Any involvement by an autonomous system in judicial decision-making should provide a satisfactory explanation auditable by a competent human authority.",
+    "Long-term issues": "These consist mainly of existential concerns, such as recursive self-improvement."
+  },
+  "ERLC's Evangelical Statement of Principles": {
+    "War": "",
+    "Dignity": "",
+    "Data & Privacy": "",
+    "Bias": ""
+  },
+  "EU European Commission's Ethics Guidelines for Trustworthy AI": {
+    "Prevention of harm": "",
+    "Societal and environmental wellbeing": "",
+    "Respect for human autonomy": "",
+    "Human agency and oversight": "",
+    "Privacy and data governance": "",
+    "Fairness": "",
+    "Diversity, non-discrimination and fairness": "",
+    "Accountability": "",
+    "Explicability": "",
+    "Transparency": "",
+    "Robust": "",
+    "Technical robustness and safety": "",
+    "Lawful": ""
+  },
+  "Beijing AI Principles": {
+    "Do good": "AI should be designed and developed to promote the progress of society and human civilization, to promote the sustainable development of nature and society, to benefit all humankind and the environment, and to enhance the well-being of society and ecology.",
+    "For the service of humanity": "The R&D of AI should serve humanity and conform to human values as well as the overall interests of humankind. Human privacy, dignity, freedom, autonomy, and rights should be sufficiently respected. AI should not be used to against, utilize or harm human beings.",
+    "Ethical": "AI R&D should take ethical design approaches to make the system trustworthy. This may include, but not limited to: making the system as fair as possible, reducing possible discrimination and biases, improving its transparency, explainability, and predictability, and making the system more traceable, auditable and accountable.",
+    "Control risks": "Continuous efforts should be made to improve the maturity, robustness, reliability, and controllability of AI systems, so as to ensure the security for the data, the safety and security for the AI system itself, and the safety for the external environment where the AI system deploys.",
+    "Harmony and cooperation": "Cooperation should be actively developed to establish an interdisciplinary, cross-domain, cross-sectoral, cross-organizational, cross-regional, global and comprehensive AI governance ecosystem, so as to avoid malicious AI race, to share AI governance experience, and to jointly cope with the impact of AI with the philosophy of 'Optimizing Symbiosis'.",
+    "Using AI proficiently and wisely": "Users of AI systems should have the necessary knowledge and ability to make the system operate according to its design, and have sufficient understanding of the potential impacts to avoid possible misuse and abuse, so as to maximize its benefits and minimize the risks.",
+    "Awareness and consent": "Measures should be taken to ensure that stakeholders of AI systems are with sufficient informed-consent about the impact of the system on their rights and interests. When unexpected circumstances occur, reasonable data and service revocation mechanisms should be established to ensure that users' own rights and interests are not infringed.",
+    "Diverse and Inclusive": "The development of AI should reflect diversity and inclusiveness, and be designed to benefit as many people as possible, especially those who would otherwise be easily neglected or underrepresented in AI applications.",
+    "Responsible": "Researchers and developers of AI should have sufficient considerations for the potential ethical, legal, and social impacts and risks brought in by their products and take concrete actions to reduce and avoid them.",
+    "Open": "It is encouraged to establish AI open platforms to avoid data/platform monopolies, to share the benefits of AI development to the greatest extent, and to promote equal development opportunities for different regions and industries.",
+    "Education and training": "Stakeholders of AI systems should be able to receive education and training to help them adapt to the impact of AI development in psychological, emotional and technical aspects.",
+    "Optimize employment": "An inclusive attitude should be taken towards the potential impact of AI on human employment. A cautious attitude should be taken towards the promotion of AI applications that may have huge impacts on human employment. Explorations on Human-AI coordination and new forms of work that would give full play to human advantages and characteristics should be encouraged.",
+    "Adaptation and moderation": "Adaptive revisions of AI principles, policies, and regulations should be actively considered to adjust them to the development of AI. Governance measures of AI should match its development status, not only to avoid hindering its proper utilization, but also to ensure that it is beneficial to society and nature.",
+    "Detailed and practical": "Various fields and scenarios of AI applications should be actively considered for further formulating more specific and detailed guidelines. The implementation of such principles should also be actively promoted – through the whole life cycle of AI research, development, and application.",
+    "Long-term Planning": "Continuous research on the potential risks of Augmented Intelligence, Artificial General Intelligence (AGI) and Superintelligence should be encouraged. Strategic designs should be considered to ensure that AI will always be beneficial to society and nature in the future."
+  },
+  "Villani Report": {
+    "Data and Privacy Protection": "",
+    "Fairness and Diversity": "",
+    "Transparency and Auditability": "",
+    "Accountability": "",
+    "Political Action": ""
+  }
+}

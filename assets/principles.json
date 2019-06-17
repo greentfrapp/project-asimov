@@ -588,6 +588,12 @@
     "principle": "Well-being"
   },
   {
+    "id": "124",
+    "report": "Beijing AI Principles",
+    "content": "Control risks",
+    "principle": "Robustness"
+  },
+  {
     "id": "103",
     "report": "Beijing AI Principles",
     "content": "Ethical",
