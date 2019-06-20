@@ -11,3 +11,23 @@ Other literature include Olteanu et al.'s "Social Data: Biases, Methdological Pi
 Key to any lens/framework would be to provide practitioners with a clear set of guidelines to detect bias.
 
 Propp, in his treatment of the tale "Morphology of the Folktale", also suggests several other important characteristics of frameworks and classifications - indivisibility of a basic atomic unit, irreplaceability of units and clearly defined boundaries for each unit (ie. no overlaps).
+
+## Examples of Algorithmic Bias
+
+- Amazon Same-day Delivery districts
+- Facial recognition
+- Image recognition
+- Recidivism prediction
+- Patroling and crime prediction
+- Hiring algorithms
+- Medical diagnoses
+- Credit scoring
+- Recommendation engines
+	- YouTube
+	- Facebook
+	- TikTok
+- Pricing algorithms
+	- Online shopping
+	- Grab and Uber
+- Welfare eligibility
+- Gender embeddings in chatbots
