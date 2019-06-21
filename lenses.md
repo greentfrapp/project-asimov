@@ -12,6 +12,19 @@ Key to any lens/framework would be to provide practitioners with a clear set of 
 
 Propp, in his treatment of the tale "Morphology of the Folktale", also suggests several other important characteristics of frameworks and classifications - indivisibility of a basic atomic unit, irreplaceability of units and clearly defined boundaries for each unit (ie. no overlaps).
 
+## Classifications
+
+- Preexisting
+- Technical
+- Emergent
+
+- Data
+- Algorithm
+- Team
+
+- Allocative
+- Representational
+
 ## Examples of Algorithmic Bias
 
 - Amazon Same-day Delivery districts
@@ -31,3 +44,5 @@ Propp, in his treatment of the tale "Morphology of the Folktale", also suggests 
 	- Grab and Uber
 - Welfare eligibility
 - Gender embeddings in chatbots
+
+## Definitions of Bias
