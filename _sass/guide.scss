@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap');
+
+div#guide {
+	background-color: #0A0A0A;
+	background-image: url("../assets/temp-bg.jpg");
+	height: 100%;
+	width: 100%;
+
+	h1 {
+		font-family: 'Cutive Mono', monospace;
+		color: #FE1B6D;
+		font-size: 80px;
+	}
+
+	p {
+		color: #F1F0DB;
+	}
+
+	hr {
+		margin-bottom: 25px;
+	}
+
+	div {
+		background-color: #0A0A0A;
+		padding: 100px;
+		height: 100%;
+		width: 60%;
+	}
+}

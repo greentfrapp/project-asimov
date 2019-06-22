@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta property="og:description" content="Posts about Urban Planning and AI - in isolation as well as how they relate to each other." />
+		<meta property="og:image" content="https://greentfrapp.github.io/assets/logo_large.jpg" />
+		<link rel="shortcut icon" href="https://greentfrapp.github.io/assets/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="https://greentfrapp.github.io/assets/favicon.ico" type="image/x-icon">
+		{%- seo -%}
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css" />
+		<link rel="stylesheet" href="{{ "/assets/semantic.min.css" | relative_url }}">
+		<link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+		<script src="https://unpkg.com/vue"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
+		<script type="text/front-matter">
+		title: "Project Asimov (Working Draft)"
+		description: "A guide to pressing ethical matters in artificial intelligence technologies."
+		authors:
+		- Lim Swee Kiat: https://headlesselephant.com
+		affiliations:
+		- Singapore University of Technology and Design: https://urbanscience.sutd.edu.sg/
+		</script>
+		{%- feed_meta -%}
+		{%- if jekyll.environment == 'production' and site.google_analytics -%}
+		{%- include google-analytics.html -%}
+		{%- endif -%}
+		{%- if site.tags != "" -%}
+			{%- include collecttags.html -%}
+		{%- endif -%}
+	</head>
+
+	<body>
+		<div id="guide">
+			<div class="content">
+				<h1>GLITCHES</h1>
+				<hr/>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -25,6 +25,26 @@ Propp, in his treatment of the tale "Morphology of the Folktale", also suggests 
 - Allocative
 - Representational
 
+- Defining the Target Variable and Class Labels
+- Training Data
+	- Labeling Examples
+	- Data Collection
+- Feature Selection
+- Proxies
+- Masking
+
+- Racism
+- Sexism
+- Sexual Discrimination
+- Classism
+- Nationalism
+- Religious Discrimination
+- Linguistic Discrimination
+- Neurological Discrimination
+- Ageism
+- Political Discrimination
+- Occupation, Education, Criminality, Physical Ability and Attribute (Obesity, Pregnancy, Motherhood, Height, Looks)
+
 ## Examples of Algorithmic Bias
 
 - Amazon Same-day Delivery districts
@@ -51,3 +71,5 @@ Propp, in his treatment of the tale "Morphology of the Folktale", also suggests 
 - Hot or not apps
 
 ## Definitions of Bias
+
+## Definitions of Fairness
