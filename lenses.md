@@ -44,5 +44,10 @@ Propp, in his treatment of the tale "Morphology of the Folktale", also suggests 
 	- Grab and Uber
 - Welfare eligibility
 - Gender embeddings in chatbots
+- Machine translation
+- Image searches
+- Embeddings
+- Open-source datasets
+- Hot or not apps
 
 ## Definitions of Bias
