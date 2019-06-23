@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap');
 
+$guide-background-color: #0A0A0A !default;
+
+body#guide-body {
+	background-color: $guide-background-color;
+}
+
 div#guide {
-	background-color: #0A0A0A;
-	background-image: url("../assets/temp-bg.jpg");
+	background-color: $guide-background-color;
 	height: 100%;
 	width: 100%;
 
 	h1 {
 		font-family: 'Cutive Mono', monospace;
-		color: #FE1B6D;
+		color: #fefcfd;
 		font-size: 80px;
 	}
 
@@ -20,10 +25,14 @@ div#guide {
 		margin-bottom: 25px;
 	}
 
-	div {
-		background-color: #0A0A0A;
+	div.content {
+		background-color: $guide-background-color;
 		padding: 100px;
-		height: 100%;
-		width: 60%;
+
+		p {
+			width: 80%;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 }
