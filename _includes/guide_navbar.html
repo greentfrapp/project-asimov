@@ -1,0 +1,18 @@
+<div id="nav" :class="{ 'navbar-hidden': !showNavbar }">
+	<div class="logo">
+		<a href="{{ "/guide/" | relative_url }}"> 
+			Machines Gone Wrong
+		</a>
+	</div>
+	<ul :class="{ 'navbar-elements-hidden': !showNavbarElements && isBurger, burger: isBurger }">
+		<li><a href="{{ "/guide/" | relative_url }}">Intro</a></li>
+		<li class="disabled">Definitions</li>
+		<li><a href="{{ "/guide/about_ai/" | relative_url }}">AIEthics</a></li>
+		<li class="disabled"><a href="{{ "/guide/fairness/" | relative_url }}">Fairness</a></li>
+		<li class="disabled">Bias</li>
+		<li class="disabled">Tools</li>
+		<li class="disabled">Datasets</li>
+		<li class="disabled">Readings</li>
+	</ul>
+	<span id="showBurger" v-if="isBurger" @click="onOffBurger()">SHOW MENU</span>
+</div>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+	{%- include guide_head.html -%}
+
+	<body id="guide-body">
+		<div id="app">
+			{%- include guide_navbar.html -%}
+			<div class="content guide-content">
+				{{ content }}
+			</div>
+		</div>
+
+		{%- include footer.html -%}
+		
+		<script src="{{ "/assets/guide/guide_main.js" | relative_url }}"></script>
+	</body>
+
+</html>

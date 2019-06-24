@@ -1,38 +1,192 @@
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700,900&display=swap');
 
-$guide-background-color: #0A0A0A !default;
+@font-face {
+	font-family: "Computer Modern";
+	src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+}
+
+$guide-background-color: #222222 !default;
+$guide-antibackground-color: #DDDDDD !default;
+$guide-text-color: #DDDDDD !default;
+$guide-text-secondary-c: #00B0F0 !default;
+$guide-text-secondary-m: #ED2690 !default;
+$guide-text-secondary-y: #FFF33F !default;
+$guide-antitext-color: #222222 !default;
 
 body#guide-body {
 	background-color: $guide-background-color;
-}
-
-div#guide {
-	background-color: $guide-background-color;
 	height: 100%;
 	width: 100%;
-
-	h1 {
-		font-family: 'Cutive Mono', monospace;
-		color: #fefcfd;
-		font-size: 80px;
+	scroll-behavior: smooth;
+	color: $guide-text-color;
+	
+	h1, h2, h3, h4, h5, h6 {
+		color: $guide-text-color;
+		font-family: 'Roboto', serif;
 	}
 
-	p {
-		color: #F1F0DB;
+	h1 {
+		font-size: 80px;
+		text-align: center;
+	}
+
+	h2 {
+		font-size: 48px;
+		color: $guide-text-secondary-c;
+	}
+
+	h3 {
+		text-transform: uppercase;
+		font-size: 24px;
 	}
 
 	hr {
-		margin-bottom: 25px;
+		margin: 100px 0px;
+	}
+
+	div#nav {
+		position: fixed;
+		width: 100%;
+		padding: 10px 50px;
+		background-color: $guide-background-color;
+		color: $guide-text-color;
+		transform: translate3d(0, 0, 0);
+		transition: 0.1s all ease-out;
+		z-index: 1000;
+		//border-bottom: 1px solid $guide-antibackground-color;
+		
+		.logo {
+			width: 150px;
+			font-size: 24px;
+			line-height: 1;
+			font-family: 'Roboto', sans-serif;
+			display: inline-block;
+			vertical-align: middle;
+			font-weight: 900;
+
+			a {
+				color: $guide-text-color;
+			}
+		}
+
+		span#showBurger {
+			float: right;
+			margin-right: 100px;
+			cursor: pointer;
+		}
+		
+		ul {
+			display: inline-block;
+			margin-left: 50px;
+			transform: translate3d(0, 0, 0);
+			transition: 0.1s all ease-out;		
+		}
+
+		ul.burger {
+			position: fixed;
+			width: 140px;
+			top: 50px;
+			right: 90px;
+			background-color: $guide-antibackground-color;
+			li {
+				display: block;
+				margin: 20px 5px;
+				border-bottom: 1px solid $guide-background-color;
+				color: $guide-antitext-color;
+				a {
+					color: $guide-antitext-color;
+				}
+			}
+			li.disabled {
+				color: lighten($guide-antitext-color, 50%);
+			}
+		}
+
+		ul.navbar-elements-hidden {
+			transform: translate3d(100%, 0, 0);
+		}
+		
+		li {
+			margin: 0px;
+			margin-left: 10px;
+			margin-right: 10px;
+			padding: 0;
+			display: inline-block;
+			font-size: 20px;
+			font-family: 'Roboto', sans-serif;
+			font-weight: 400;
+			color: $guide-text-color;
+
+			a {
+				color: $guide-text-color;
+			}
+		}
+
+		li.disabled {
+			color: darken($guide-text-color, 50%);
+		}
+	}
+
+	div#nav.navbar-hidden {
+		transform: translate3d(0, -100%, 0);
 	}
 
 	div.content {
-		background-color: $guide-background-color;
-		padding: 100px;
+		width: 90%;
+	}
 
-		p {
+	div.guide-content {
+		background-color: $guide-background-color;
+		width: 90%;
+		max-width: 900px;
+		padding: 100px 0px;
+		
+		ol, ul, p {
+			font-family: 'CMUSerifRoman', serif;
+			font-size: 26px;
+			line-height: 1.5;
 			width: 80%;
 			margin-left: auto;
 			margin-right: auto;
+
+			.emph {
+				font-family: 'Roboto', sans-serif;
+				font-weight: 700;
+			}
 		}
+	}
+
+	div.card {
+		background-color: $guide-antibackground-color;
+		color: $guide-antitext-color;
+		font-family: 'Open Sans', sans-serif;
+
+		div.content {
+			line-height: 1.5;
+
+			ol, ul, p {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 18px;
+			}
+
+			ul {
+				margin: 0px 15px;
+			}
+		}
+	}
+
+	img#cover-image {
+		width: 100%;
+		max-height: 960px;
+		object-position: 50% 50%;
+		object-fit: cover;
+		margin-bottom: 100px;
+		cursor: pointer;
+	}
+
+	.site-footer {
+		margin-top: 100px;
+		background-color: $guide-antibackground-color;
 	}
 }
