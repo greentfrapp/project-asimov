@@ -139,9 +139,11 @@ var scrollVis = function () {
     matrixWidth = 200
     matrixHeight = 200
     percRealPos = 0.6
-    percPredPos = 0.6
     percRealNeg = 1 - percRealPos
-    percPredNeg = 1 - percPredPos
+    percRealPosPredPos = 0.8
+    percRealNegPredNeg = 0.8
+    percRealPosPredNeg = 1 - percRealPosPredPos
+    percRealNegPredPos = 1 - percRealNegPredNeg
     matrixStroke = "#222222"
     matrixStrokeWidth = 2
 
@@ -155,7 +157,7 @@ var scrollVis = function () {
       .attr("x", matrixStartX)
       .attr("y", matrixStartY)
       .attr("width", matrixWidth * percRealPos)
-      .attr("height", matrixHeight * percPredPos)
+      .attr("height", matrixHeight * percRealPosPredPos)
       .attr("stroke", matrixStroke)
       .attr("stroke-width", matrixStrokeWidth)
       .style("fill", tpTxtr.url())
@@ -164,25 +166,25 @@ var scrollVis = function () {
       .attr("x", matrixStartX + matrixWidth * percRealPos)
       .attr("y", matrixStartY)
       .attr("width", matrixWidth * percRealNeg)
-      .attr("height", matrixHeight * percPredPos)
+      .attr("height", matrixHeight * percRealNegPredPos)
       .attr("stroke", matrixStroke)
       .attr("stroke-width", matrixStrokeWidth)
       .style("fill", fpTxtr.url())
     matrixGroupA.append("rect")
       .attr("id", "fn-area")
       .attr("x", matrixStartX)
-      .attr("y", matrixStartY + matrixHeight * percPredPos)
+      .attr("y", matrixStartY + matrixHeight * percRealPosPredPos)
       .attr("width", matrixWidth * percRealPos)
-      .attr("height", matrixHeight * percPredNeg)
+      .attr("height", matrixHeight * percRealPosPredNeg)
       .attr("stroke", matrixStroke)
       .attr("stroke-width", matrixStrokeWidth)
       .style("fill", fnTxtr.url())
     matrixGroupA.append("rect")
       .attr("id", "tn-area")
       .attr("x", matrixStartX + matrixWidth * percRealPos)
-      .attr("y", matrixStartY + matrixHeight * percPredPos)
+      .attr("y", matrixStartY + matrixHeight * percRealNegPredPos)
       .attr("width", matrixWidth * percRealNeg)
-      .attr("height", matrixHeight * percPredNeg)
+      .attr("height", matrixHeight * percRealNegPredNeg)
       .attr("stroke", matrixStroke)
       .attr("stroke-width", matrixStrokeWidth)
       .style("fill", tnTxtr.url())
@@ -194,18 +196,20 @@ var scrollVis = function () {
     matrixWidth = 200
     matrixHeight = 200
     percRealPos = 0.4
-    percPredPos = 0.4
     percRealNeg = 1 - percRealPos
-    percPredNeg = 1 - percPredPos
+    percRealPosPredPos = 0.8
+    percRealNegPredNeg = 0.8
+    percRealPosPredNeg = 1 - percRealPosPredPos
+    percRealNegPredPos = 1 - percRealNegPredNeg
     matrixStroke = "#222222"
     matrixStrokeWidth = 2
 
-    matrixGroupB.append("rect")
+     matrixGroupB.append("rect")
       .attr("id", "tp-area")
       .attr("x", matrixStartX)
       .attr("y", matrixStartY)
       .attr("width", matrixWidth * percRealPos)
-      .attr("height", matrixHeight * percPredPos)
+      .attr("height", matrixHeight * percRealPosPredPos)
       .attr("stroke", matrixStroke)
       .attr("stroke-width", matrixStrokeWidth)
       .style("fill", tpTxtr.url())
@@ -214,25 +218,25 @@ var scrollVis = function () {
       .attr("x", matrixStartX + matrixWidth * percRealPos)
       .attr("y", matrixStartY)
       .attr("width", matrixWidth * percRealNeg)
-      .attr("height", matrixHeight * percPredPos)
+      .attr("height", matrixHeight * percRealNegPredPos)
       .attr("stroke", matrixStroke)
       .attr("stroke-width", matrixStrokeWidth)
       .style("fill", fpTxtr.url())
     matrixGroupB.append("rect")
       .attr("id", "fn-area")
       .attr("x", matrixStartX)
-      .attr("y", matrixStartY + matrixHeight * percPredPos)
+      .attr("y", matrixStartY + matrixHeight * percRealPosPredPos)
       .attr("width", matrixWidth * percRealPos)
-      .attr("height", matrixHeight * percPredNeg)
+      .attr("height", matrixHeight * percRealPosPredNeg)
       .attr("stroke", matrixStroke)
       .attr("stroke-width", matrixStrokeWidth)
       .style("fill", fnTxtr.url())
     matrixGroupB.append("rect")
       .attr("id", "tn-area")
       .attr("x", matrixStartX + matrixWidth * percRealPos)
-      .attr("y", matrixStartY + matrixHeight * percPredPos)
+      .attr("y", matrixStartY + matrixHeight * percRealNegPredPos)
       .attr("width", matrixWidth * percRealNeg)
-      .attr("height", matrixHeight * percPredNeg)
+      .attr("height", matrixHeight * percRealNegPredNeg)
       .attr("stroke", matrixStroke)
       .attr("stroke-width", matrixStrokeWidth)
       .style("fill", tnTxtr.url())
@@ -310,25 +314,31 @@ var scrollVis = function () {
   alphaMid = 0.6,
   alphaLow = 0.2
 
-  function transformMatrix (group, opacities=[], pred=0.5) {
+  function transformMatrix (group, opacities=[], predPosCorrect=0.5, predNegCorrect=0.5) {
+
+    percRealPosPredPos = predPosCorrect
+    percRealNegPredNeg = predNegCorrect
+    percRealPosPredNeg = 1 - percRealPosPredPos
+    percRealNegPredPos = 1 - percRealNegPredNeg
+
     group.select("#tp-area")
       .transition().duration(500)
       .attr("opacity", opacities[0])
-      .attr("height", matrixHeight * pred)
+      .attr("height", matrixHeight * percRealPosPredPos)
     group.select("#fp-area")
       .transition().duration(500)
       .attr("opacity", opacities[1])
-      .attr("height", matrixHeight * pred)
+      .attr("height", matrixHeight * percRealNegPredPos)
     group.select("#fn-area")
       .transition().duration(500)
       .attr("opacity", opacities[2])
-      .attr("y", matrixStartY + matrixHeight * pred)
-      .attr("height", matrixHeight * (1 - pred))
+      .attr("y", matrixStartY + matrixHeight * percRealPosPredPos)
+      .attr("height", matrixHeight * percRealPosPredNeg)
     group.select("#tn-area")
       .transition().duration(500)
       .attr("opacity", opacities[3])
-      .attr("y", matrixStartY + matrixHeight * pred)
-      .attr("height", matrixHeight * (1 - pred))
+      .attr("y", matrixStartY + matrixHeight * percRealNegPredPos)
+      .attr("height", matrixHeight * percRealNegPredNeg)
   }
 
   function start() {
@@ -336,6 +346,8 @@ var scrollVis = function () {
       .text("")
     // transformMatrix(matrixGroupA, [0, 0, 0, 0], 0.6)
     // transformMatrix(matrixGroupB, [0, 0, 0, 0], 0.4)
+    transformMatrix(matrixGroupA, [1,1,1,1], 0.8, 0.8)
+    transformMatrix(matrixGroupB, [1,1,1,1], 0.8, 0.8)
   }
 
   function groupFairness() {
@@ -358,25 +370,29 @@ var scrollVis = function () {
   function FPErrorRateBalance() {
     g.select('#title')
       .text("False Positive Error Rate Balance")
-    transformMatrix(matrixGroupA, [alphaLow, alphaHigh, alphaLow, alphaHigh], 0.5)
-    transformMatrix(matrixGroupB, [alphaLow, alphaHigh, alphaLow, alphaHigh], 0.5)
+    transformMatrix(matrixGroupA, [alphaLow, alphaHigh, alphaLow, alphaHigh], 0.8, 0.8)
+    transformMatrix(matrixGroupB, [alphaLow, alphaHigh, alphaLow, alphaHigh], 0.8, 0.8)
   }
 
   function FNErrorRateBalance() {
     g.select('#title')
       .text("False Negative Error Rate Balance")
-    transformMatrix(matrixGroupA, [alphaHigh, alphaLow, alphaHigh, alphaLow], 0.5)
-    transformMatrix(matrixGroupB, [alphaHigh, alphaLow, alphaHigh, alphaLow], 0.5)
+    transformMatrix(matrixGroupA, [alphaHigh, alphaLow, alphaHigh, alphaLow], 0.8, 0.8)
+    transformMatrix(matrixGroupB, [alphaHigh, alphaLow, alphaHigh, alphaLow], 0.8, 0.8)
   }
 
   function equalisedOdds() {
     g.select('#title')
       .text("Equalised Odds")
+    transformMatrix(matrixGroupA, [alphaHigh, alphaHigh, alphaHigh, alphaHigh], 0.8, 0.8)
+    transformMatrix(matrixGroupB, [alphaHigh, alphaHigh, alphaHigh, alphaHigh], 0.8, 0.8)
   }
 
   function condUseAccuracyEquality() {
     g.select('#title')
       .text("Conditional Use Accuracy Equality")
+    transformMatrix(matrixGroupA, [alphaHigh, alphaLow, alphaLow, alphaHigh], 0.8, 0.8)
+    transformMatrix(matrixGroupB, [alphaHigh, alphaLow, alphaLow, alphaHigh], 0.8, 0.8)
   }
 
   function overallAccuracyEquality() {
