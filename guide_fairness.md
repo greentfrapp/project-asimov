@@ -1,12 +1,28 @@
 ---
-layout: guide_default
+layout: guide_fairness
 title: The Guide. \| Project Asimov
 permalink: /guide/fairness/
 ---
 
+<div class="step"></div>
+
 # Fairness
 
-*This is to set the stage for the next section on types of bias. See Narayanan's 21 Definitions and Verma & Rubin's Fairness Definitions Explained <dt-cite key="verma2018fairness"></dt-cite>. One important takeaway here is the Impossibility Theorem. Demos here!*
+*This is to set the stage for the next section on types of bias. See Narayanan's 21 Definitions and Verma & Rubin's Fairness Definitions Explained <dt-cite cite="verma2018fairness"></dt-cite>. One important takeaway here is the Impossibility Theorem. Demos here!*
+
+## Case Studies
+
+### Credit Score Prediction
+
+Credit Score Predictor for Men and Women
+
+TP - Good credit predicted as good credit
+
+### Fat Cats and Dogs
+
+Suppose for a moment that dogs are more likely to be fat, as compared to cats. In fact, cats only have a 40% chance of being fat, while dogs have a 60% chance of being fat. Fortunately, a company develops an AI system to diagnose if a pet is fat! Pets diagnosed as fat are then kept on a diet, which means less food and no treats boohoo.
+
+<div class="step"></div>
 
 ## Terms
 
@@ -14,28 +30,13 @@ TP, FP, TN, FN, PPV/Precision, FDR, FOR, NPV, TPR/Recall/Sensitivity, FPR, FNR, 
 
 Protected and unprotected groups. Maybe a better term is sensitive traits? Or non-relevant traits?
 
-## Case Study 1
-
-Fat Detector for Cats and Dogs
-
-TP - Fat predicted as fat
-FP - Thin predicted as fat
-TN - Thin predicted as thin
-FN - Fat predicted as thin
-
-## Case Study 2
-
-Credit Score Predictor for Men and Women
-
-TP - Good credit predicted as good credit
-
 ## Types of Fairness
 
-### Group fairness or statistical parity
+### Group fairness or statistical parity <dt-cite cite="dwork2012fairness"></dt-cite>
 
-<dt-cite key="dwork2012fairness"></dt-cite>
+<div class="step"></div>
 
-*aka equal acceptance rate <dt-cite key="zliobaite2015relation"></dt-cite> and benchmarking <dt-cite key="simoiu2017problem"></dt-cite>*
+*aka equal acceptance rate <dt-cite cite="zliobaite2015relation"></dt-cite> and benchmarking <dt-cite cite="simoiu2017problem"></dt-cite>*
 
 Equal positive prediction probability.
 
@@ -43,9 +44,9 @@ Both cats and dogs should have equal probability of being predicted fat.
 
 Both men and women should have equal probability of being predicted as good credit.
 
-### Conditional statistical parity
+### Conditional statistical parity <dt-cite cite="corbett2017algorithmic"></dt-cite>
 
-<dt-cite key="corbett2017algorithmic"></dt-cite>
+<div class="step"></div>
 
 Extends **statistical parity** with predefined conditions.
 
@@ -53,11 +54,11 @@ Both cats and dogs should have equal probability of being predicted fat, if they
 
 Both men and women should have equal probability of being predicted as good credit, if they have the same age and same job.
 
-### Predictive parity
+### Predictive parity <dt-cite cite="chouldechova2017fair"></dt-cite>
 
-<dt-cite key="chouldechova2017fair"></dt-cite>
+<div class="step"></div>
 
-*aka outcome test <dt-cite key="simoiu2017problem"></dt-cite>*
+*aka outcome test <dt-cite cite="simoiu2017problem"></dt-cite>*
 
 Equal PPV. This also implies equal FDR.
 
@@ -65,11 +66,11 @@ For animals predicted to be fat, the probability of actually being fat should be
 
 For people predicted as good credit, the probability of actually being good credit should be equal regardless for men or women.
 
-### False positive error rate balance
+### False positive error rate balance <dt-cite cite="chouldechova2017fair"></dt-cite>
 
-<dt-cite key="chouldechova2017fair"></dt-cite>
+<div class="step"></div>
 
-*aka predictive equality <dt-cite key="corbett2017algorithmic"></dt-cite>*
+*aka predictive equality <dt-cite cite="corbett2017algorithmic"></dt-cite>*
 
 Equal FPR. This also implies equal TNR.
 
@@ -79,11 +80,11 @@ For animals predicted to be not fat, the probability of actually being not fat s
 
 For people predicted as bad credit, the probability of actually being bad credit should be equal regardless for men or women.
 
-### False negative error rate balance
+### False negative error rate balance <dt-cite cite="chouldechova2017fair"></dt-cite>
 
-<dt-cite key="chouldechova2017fair"></dt-cite>
+<div class="step"></div>
 
-*aka equal opportunity <dt-cite key="hardt2016equality,kusner2017counterfactual"></dt-cite>*
+*aka equal opportunity <dt-cite cite="hardt2016equality,kusner2017counterfactual"></dt-cite>*
 
 Equal FNR. This also implies equal TPR.
 
@@ -91,11 +92,11 @@ For animals predicted fat, the probability of actually being thin (i.e. wrong pr
 
 For people predicted as good credit, the probability of actually being good (i.e. wrong prediction) should be equal regardless for men or women.
 
-### Equalised odds
+### Equalised odds <dt-cite cite="hardt2016equality"></dt-cite>
 
-<dt-cite key="hardt2016equality"></dt-cite>
+<div class="step"></div>
 
-*aka conditional procedure accuracy equality <dt-cite key="berk2018fairness"></dt-cite> and disparate mistreatment <dt-cite key="zafar2017fairness"></dt-cite>*
+*aka conditional procedure accuracy equality <dt-cite cite="berk2018fairness"></dt-cite> and disparate mistreatment <dt-cite cite="zafar2017fairness"></dt-cite>*
 
 Combines false positive error rate balance and false negative error rate balance. Equal TPR and equal FPR.
 
@@ -103,9 +104,9 @@ Animals that are actually fat should have equal probability of being predicted f
 
 People with good credit should have equal probability of being predicted good credit, regardless of gender. Also, people with bad credit should have equal probability of being wrongly predicted good, regardless of gender.
 
-### Conditional use accuracy equality
+### Conditional use accuracy equality <dt-cite cite="berk2018fairness"></dt-cite>
 
-<dt-cite key="berk2018fairness"></dt-cite>
+<div class="step"></div>
 
 Equal PPV and NPV.
 
@@ -113,9 +114,9 @@ Whether predicted fat or not, the probability of the prediction being correct sh
 
 Whether predicted good or bad credit, the probability of the prediction being correct should be equal regardless for men or women.
 
-### Overall accuracy equality
+### Overall accuracy equality <dt-cite cite="berk2018fairness"></dt-cite>
 
-<dt-cite key="berk2018fairness"></dt-cite>
+<div class="step"></div>
 
 Equal accuracy - probability of any sample to be assigned its correct class.
 
@@ -123,9 +124,9 @@ Whether actually fat or not, the probability of the prediction being correct sho
 
 Whether actually good or bad credit, the probability of the prediction being correct should be equal regardless for men or women.
 
-### Treatment equality
+### Treatment equality <dt-cite cite="berk2018fairness"></dt-cite>
 
-<dt-cite key="berk2018fairness"></dt-cite>
+<div class="step"></div>
 
 Equal ratio of FN to FP. The idea here is that wrong predictions lead to samples benefitting or losing disproportionately. So these effects of benefit and loss should be similar across classes.
 
@@ -133,11 +134,11 @@ The ratio of escaped fat animals and wrongly accused thin animals should be equa
 
 The ratio of wrongly approved and wrongly rejected good credit scorers should be equal for men and women.
 
-### Test-fairness or calibration
+### Test-fairness or calibration <dt-cite cite="chouldechova2017fair"></dt-cite>
 
-<dt-cite key="chouldechova2017fair"></dt-cite>
+<div class="step"></div>
 
-*aka matching conditional frequencies <dt-cite key="hardt2016equality"></dt-cite>*
+*aka matching conditional frequencies <dt-cite cite="hardt2016equality"></dt-cite>*
 
 For *any* predicted probability score, samples should have equal probability to be actually positive. Similar to predictive parity but applies for entire probability score spectrum instead of just positive predictions.
 
@@ -145,9 +146,9 @@ Regardless for cats or dogs, animals assigned the same score should have the sam
 
 Regardless for men or woman, people assigned the same score should have the same chance of actually having good credit.
 
-### Well calibration
+### Well calibration <dt-cite cite="kleinberg2016inherent"></dt-cite>
 
-<dt-cite key="kleinberg2016inherent"></dt-cite>
+<div class="step"></div>
 
 An extension of test-fairness. The probability score should be equal to the probability of the sample actually being positive.
 
@@ -155,9 +156,9 @@ Regardless for cats or dogs, animals assigned the same score should have that sa
 
 Regardless for men or woman, people assigned the same score should have the same score's probability of actually having good credit.
 
-### Balance for positive class
+### Balance for positive class <dt-cite cite="kleinberg2016inherent"></dt-cite>
 
-<dt-cite key="kleinberg2016inherent"></dt-cite>
+<div class="step"></div>
 
 Positive samples from different non-relevant traits should have equal average predicted probability scores.
 
@@ -165,9 +166,9 @@ Fat cats and fat dogs should have equal average scores.
 
 Good credit men and good credit women should have equal average scores.
 
-### Balance for negative class
+### Balance for negative class <dt-cite cite="kleinberg2016inherent"></dt-cite>
 
-<dt-cite key="kleinberg2016inherent"></dt-cite>
+<div class="step"></div>
 
 Opposite of balance for positive class. Negative samples from different non-relevant traits should have equal average predicted probability scores.
 
@@ -175,9 +176,9 @@ Thin cats and thin dogs should have equal average scores.
 
 Bad credit men and bad credit women should have equal average scores.
 
-### Causal discrimination
+### Causal discrimination <dt-cite cite="galhotra2017fairness"></dt-cite>
 
-<dt-cite key="galhotra2017fairness"></dt-cite>
+<div class="step"></div>
 
 Samples that are the same except for non-relevant traits should be classified as the same class. This is a stricter form of conditional statistical parity.
 
@@ -185,47 +186,47 @@ Cats and dogs that have the same age and weight should receive the same predicti
 
 Men and women that have the same age and job should receive the same predictions.
 
-### Fairness through unawareness
+### Fairness through unawareness <dt-cite cite="kusner2017counterfactual"></dt-cite>
 
-<dt-cite key="kusner2017counterfactual"></dt-cite>
+<div class="step"></div>
 
 Simply, non-relevant traits are not explicitly used in the model. This does not say anything about proxies or correlated traits.
 
-*The testing for this does not seem to make sense in <dt-cite key="verma2018fairness"></dt-cite>.*
+*The testing for this does not seem to make sense in <dt-cite cite="verma2018fairness"></dt-cite>.*
 
-### Fairness through awareness
+### Fairness through awareness <dt-cite cite="dwork2012fairness"></dt-cite>
 
-<dt-cite key="dwork2012fairness"></dt-cite>
+<div class="step"></div>
 
 Dwork's similar individuals should receive similar treatment.
 
-This depends heavily on the distance metric used. See <dt-cite key="dwork2012fairness,verma2018fairness"></dt-cite> for examples.
+This depends heavily on the distance metric used. See <dt-cite cite="dwork2012fairness,verma2018fairness"></dt-cite> for examples.
 
-### Counterfactual fairness
+### Counterfactual fairness <dt-cite cite="kusner2017counterfactual"></dt-cite>
 
-<dt-cite key="kusner2017counterfactual"></dt-cite>
+<div class="step"></div>
 
 After expressing the model used as a directed acyclic causal graph, the model is considered counterfactually fair if the prediction does not depend on any descendant of a non-relevant attribute.
 
-In other words, the prediction should not depend on the non-relevant attribute or any attributes affected by it. See <dt-cite key="kusner2017counterfactual"></dt-cite> for examples. 
+In other words, the prediction should not depend on the non-relevant attribute or any attributes affected by it. See <dt-cite cite="kusner2017counterfactual"></dt-cite> for examples. 
 
-### No unresolved discrimination
+### No unresolved discrimination <dt-cite cite="kilbertus2017avoiding"></dt-cite>
 
-<dt-cite key="kilbertus2017avoiding"></dt-cite>
+<div class="step"></div>
 
-Again using the causal graph, a model has no unresolved discrimination if there is no path from a non-relevant attribute to the prediction, except via resolving (non-discriminatory) variables. See <dt-cite key="kilbertus2017avoiding"></dt-cite> for examples. 
+Again using the causal graph, a model has no unresolved discrimination if there is no path from a non-relevant attribute to the prediction, except via resolving (non-discriminatory) variables. See <dt-cite cite="kilbertus2017avoiding"></dt-cite> for examples. 
 
-### No proxy discrimination
+### No proxy discrimination <dt-cite cite="kilbertus2017avoiding"></dt-cite>
 
-<dt-cite key="kilbertus2017avoiding"></dt-cite>
+<div class="step"></div>
 
 Referring to the causal graph, a model has no proxy discrimination if there is no path from a non-relevant attribute to the prediction that is blocked by a proxy variable.
 
 In other words, no proxy variables are used in the prediction.
 
-### Fair inference
+### Fair inference <dt-cite cite="nabi2018fair"></dt-cite>
 
-<dt-cite key="nabi2018fair"></dt-cite>
+<div class="step"></div>
 
 > This definition classifies paths in a causal graph as legitimate or illegitimate.
 
@@ -237,6 +238,9 @@ Then fair inference is defined when a model does not use any illegitimate paths.
 
 ## References
 
+<h3>References</h3><dt-bibliography></dt-bibliography>
+
+<script type="text/bibliography">
 @inproceedings{verma2018fairness,
   title={Fairness definitions explained},
   author={Verma, Sahil and Rubin, Julia},
@@ -357,3 +361,4 @@ Then fair inference is defined when a model does not use any illegitimate paths.
   booktitle={Thirty-Second AAAI Conference on Artificial Intelligence},
   year={2018}
 }
+</script>

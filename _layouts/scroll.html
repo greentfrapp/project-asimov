@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+	#graphic {
+		width: 50%;
+		min-width: 870px;
+		margin: 100px auto 0px auto;
+	}
+	#sections {
+		position: relative;
+		display: inline-block;
+		width: 250px;
+		top: 0px;
+		z-index: 90;
+	}
+
+	.title {
+		font-family: sans-serif;
+		font-weight: bold;
+		font-size: 36px;
+	}
+
+	.step {
+		margin-bottom: 100px;
+		height: 800px;
+		font-size: 24px;
+	}
+
+	#vis {
+		display: inline-block;
+		position: fixed;
+		top: 0px;
+		z-index: 1;
+		margin-left: 0;
+
+		//height: 100%;
+		//width: 600px;
+		//background-color: #ddd;
+	}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+<script src="{{ "/assets/guide/scroller.js" | relative_url }}"></script>
+</head>
+<body>
+	<div id='graphic'>
+	  <div id='sections'>
+	  	{{ content }}
+	  </div>
+	  <div id='vis'>
+	  </div>
+	</div>
+	<script src="{{ "/assets/guide/main.js" | relative_url }}"></script>
+</body>
+</html>

@@ -134,10 +134,11 @@ body#guide-body {
 
 	div.content {
 		width: 90%;
+		margin-left: 10%;
 	}
 
 	div.guide-content {
-		background-color: $guide-background-color;
+		//background-color: $guide-background-color;
 		width: 90%;
 		max-width: 900px;
 		padding: 100px 0px;
@@ -188,5 +189,22 @@ body#guide-body {
 	.site-footer {
 		margin-top: 100px;
 		background-color: $guide-antibackground-color;
+	}
+
+	a {
+		color: $guide-text-color;
+	}
+
+	#fairness-vis {
+		display: inline-block;
+		position: fixed;
+		top: 0px;
+		z-index: -1;
+		right: 0px;
+		//margin-left: 0;
+
+		//height: 100%;
+		//width: 600px;
+		//background-color: #ddd;
 	}
 }
