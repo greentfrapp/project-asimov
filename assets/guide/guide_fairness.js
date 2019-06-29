@@ -8,7 +8,7 @@
 var scrollVis = function () {
   // constants to define the size
   // and margins of the vis area.
-  var width = 1000;
+  var width = 800;
   var height = document.documentElement.clientHeight;
   var margin = { top: 0, left: 20, bottom: 40, right: 10 };
 
@@ -26,6 +26,8 @@ var scrollVis = function () {
   // d3 selection that will be used
   // for displaying visualizations
   var g = null;
+  var matrixGroupA = null;
+  var matrixGroupB = null;
 
   var colors = [
   	"#e74c3c",
@@ -81,12 +83,161 @@ var scrollVis = function () {
   	g.append('text')
   		.attr('id', 'title')
   		.attr('x', width / 2)
-    	.attr('y', height / 2)
+    	.attr('y', height / 5 + 100)
     	.attr('font-family', 'sans-serif')
     	.attr('font-weight', 'bold')
-    	.attr('font-size', 64)
+    	.attr('font-size', 48)
     	.attr('text-anchor', 'middle')
+      .attr('fill', '#DDDDDD')
     	.text('')
+
+    let cyan = "#00B0F0",
+    magenta = "#ED2690",
+    yellow = "#FFF33F",
+    black = "#000000",
+    posDark = "#262d97",
+    posLight = "#9ecadd",
+    negDark = "#f14702",
+    negLight = "#ffc409"
+
+    // posLight = "#FFFFFF"
+    // negLight = "#FFFFFF"
+
+    let tpTxtr = textures.circles()
+      .heavier()
+      .fill(posLight)
+      .background(posDark)
+      .complement()
+    let fpTxtr = textures.paths()
+      .d("squares")
+      .fill(posLight)
+      .stroke(posLight)
+      .background(negDark)
+    let tnTxtr = textures.paths()
+      .d("squares")
+      .fill("transparent")
+      .strokeWidth(3)
+      .stroke(negLight)
+      .background(negDark)
+    let fnTxtr = textures.circles()
+      .heavier()
+      .fill("transparent")
+      .radius(4)
+      .strokeWidth(2)
+      .stroke(negLight)
+      .background(posDark)
+      .complement(0.5)
+    // consider using squares texture for empty squares and
+    // lines to simulate filled squares 
+    g.call(tpTxtr)
+    g.call(tnTxtr)
+    g.call(fpTxtr)
+    g.call(fnTxtr)
+
+    matrixStartX = 150
+    matrixStartY = 350
+    matrixWidth = 200
+    matrixHeight = 200
+    percRealPos = 0.6
+    percPredPos = 0.6
+    percRealNeg = 1 - percRealPos
+    percPredNeg = 1 - percPredPos
+    matrixStroke = "#222222"
+    matrixStrokeWidth = 2
+
+    matrixGroupA = g.append("g")
+                  .attr("id", "confusion-matrix-a")
+    matrixGroupB = g.append("g")
+                  .attr("id", "confusion-matrix-b")
+
+    matrixGroupA.append("rect")
+      .attr("id", "tp-area")
+      .attr("x", matrixStartX)
+      .attr("y", matrixStartY)
+      .attr("width", matrixWidth * percRealPos)
+      .attr("height", matrixHeight * percPredPos)
+      .attr("stroke", matrixStroke)
+      .attr("stroke-width", matrixStrokeWidth)
+      .style("fill", tpTxtr.url())
+    matrixGroupA.append("rect")
+      .attr("id", "fp-area")
+      .attr("x", matrixStartX + matrixWidth * percRealPos)
+      .attr("y", matrixStartY)
+      .attr("width", matrixWidth * percRealNeg)
+      .attr("height", matrixHeight * percPredPos)
+      .attr("stroke", matrixStroke)
+      .attr("stroke-width", matrixStrokeWidth)
+      .style("fill", fpTxtr.url())
+    matrixGroupA.append("rect")
+      .attr("id", "fn-area")
+      .attr("x", matrixStartX)
+      .attr("y", matrixStartY + matrixHeight * percPredPos)
+      .attr("width", matrixWidth * percRealPos)
+      .attr("height", matrixHeight * percPredNeg)
+      .attr("stroke", matrixStroke)
+      .attr("stroke-width", matrixStrokeWidth)
+      .style("fill", fnTxtr.url())
+    matrixGroupA.append("rect")
+      .attr("id", "tn-area")
+      .attr("x", matrixStartX + matrixWidth * percRealPos)
+      .attr("y", matrixStartY + matrixHeight * percPredPos)
+      .attr("width", matrixWidth * percRealNeg)
+      .attr("height", matrixHeight * percPredNeg)
+      .attr("stroke", matrixStroke)
+      .attr("stroke-width", matrixStrokeWidth)
+      .style("fill", tnTxtr.url())
+
+    matrixGroupA.selectAll("rect").attr("opacity", 1)
+
+    matrixStartX = 450
+    matrixStartY = 350
+    matrixWidth = 200
+    matrixHeight = 200
+    percRealPos = 0.4
+    percPredPos = 0.4
+    percRealNeg = 1 - percRealPos
+    percPredNeg = 1 - percPredPos
+    matrixStroke = "#222222"
+    matrixStrokeWidth = 2
+
+    matrixGroupB.append("rect")
+      .attr("id", "tp-area")
+      .attr("x", matrixStartX)
+      .attr("y", matrixStartY)
+      .attr("width", matrixWidth * percRealPos)
+      .attr("height", matrixHeight * percPredPos)
+      .attr("stroke", matrixStroke)
+      .attr("stroke-width", matrixStrokeWidth)
+      .style("fill", tpTxtr.url())
+    matrixGroupB.append("rect")
+      .attr("id", "fp-area")
+      .attr("x", matrixStartX + matrixWidth * percRealPos)
+      .attr("y", matrixStartY)
+      .attr("width", matrixWidth * percRealNeg)
+      .attr("height", matrixHeight * percPredPos)
+      .attr("stroke", matrixStroke)
+      .attr("stroke-width", matrixStrokeWidth)
+      .style("fill", fpTxtr.url())
+    matrixGroupB.append("rect")
+      .attr("id", "fn-area")
+      .attr("x", matrixStartX)
+      .attr("y", matrixStartY + matrixHeight * percPredPos)
+      .attr("width", matrixWidth * percRealPos)
+      .attr("height", matrixHeight * percPredNeg)
+      .attr("stroke", matrixStroke)
+      .attr("stroke-width", matrixStrokeWidth)
+      .style("fill", fnTxtr.url())
+    matrixGroupB.append("rect")
+      .attr("id", "tn-area")
+      .attr("x", matrixStartX + matrixWidth * percRealPos)
+      .attr("y", matrixStartY + matrixHeight * percPredPos)
+      .attr("width", matrixWidth * percRealNeg)
+      .attr("height", matrixHeight * percPredNeg)
+      .attr("stroke", matrixStroke)
+      .attr("stroke-width", matrixStrokeWidth)
+      .style("fill", tnTxtr.url())
+
+    matrixGroupB.selectAll("rect").attr("opacity", 1)
   };
 
   /**
@@ -105,7 +256,7 @@ var scrollVis = function () {
       activateFunctions[i] = function () {};
     })
 
-    activateFunctions[1] = blank;
+    activateFunctions[1] = start;
     activateFunctions[2] = groupFairness;
     activateFunctions[3] = condStatParity;
     activateFunctions[4] = predictiveParity;
@@ -155,14 +306,43 @@ var scrollVis = function () {
    *
    */
 
-  function blank() {
+  let alphaHigh = 1,
+  alphaMid = 0.6,
+  alphaLow = 0.2
+
+  function transformMatrix (group, opacities=[], pred=0.5) {
+    group.select("#tp-area")
+      .transition().duration(500)
+      .attr("opacity", opacities[0])
+      .attr("height", matrixHeight * pred)
+    group.select("#fp-area")
+      .transition().duration(500)
+      .attr("opacity", opacities[1])
+      .attr("height", matrixHeight * pred)
+    group.select("#fn-area")
+      .transition().duration(500)
+      .attr("opacity", opacities[2])
+      .attr("y", matrixStartY + matrixHeight * pred)
+      .attr("height", matrixHeight * (1 - pred))
+    group.select("#tn-area")
+      .transition().duration(500)
+      .attr("opacity", opacities[3])
+      .attr("y", matrixStartY + matrixHeight * pred)
+      .attr("height", matrixHeight * (1 - pred))
+  }
+
+  function start() {
     g.select('#title')
       .text("")
+    // transformMatrix(matrixGroupA, [0, 0, 0, 0], 0.6)
+    // transformMatrix(matrixGroupB, [0, 0, 0, 0], 0.4)
   }
 
   function groupFairness() {
     g.select('#title')
       .text("Group Fairness")
+    transformMatrix(matrixGroupA, [alphaHigh, alphaHigh, alphaLow, alphaLow], 0.5)
+    transformMatrix(matrixGroupB, [alphaHigh, alphaHigh, alphaLow, alphaLow], 0.5)
   }
 
   function condStatParity() {
@@ -178,11 +358,15 @@ var scrollVis = function () {
   function FPErrorRateBalance() {
     g.select('#title')
       .text("False Positive Error Rate Balance")
+    transformMatrix(matrixGroupA, [alphaLow, alphaHigh, alphaLow, alphaHigh], 0.5)
+    transformMatrix(matrixGroupB, [alphaLow, alphaHigh, alphaLow, alphaHigh], 0.5)
   }
 
   function FNErrorRateBalance() {
     g.select('#title')
       .text("False Negative Error Rate Balance")
+    transformMatrix(matrixGroupA, [alphaHigh, alphaLow, alphaHigh, alphaLow], 0.5)
+    transformMatrix(matrixGroupB, [alphaHigh, alphaLow, alphaHigh, alphaLow], 0.5)
   }
 
   function equalisedOdds() {

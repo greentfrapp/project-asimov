@@ -74,11 +74,9 @@ For people predicted as good credit, the probability of actually being good cred
 
 Equal FPR. This also implies equal TNR.
 
-Can be seen as the opposite of predictive parity.
+For thin animals, the probability of actually being predicted fat (i.e. wrong prediction) should be equal regardless for cats or dogs.
 
-For animals predicted to be not fat, the probability of actually being not fat should be equal regardless for cats or dogs.
-
-For people predicted as bad credit, the probability of actually being bad credit should be equal regardless for men or women.
+For people with bad credit, the probability of being predicted good (i.e. wrong prediction) should be equal regardless for men or women.
 
 ### False negative error rate balance <dt-cite cite="chouldechova2017fair"></dt-cite>
 
@@ -88,9 +86,9 @@ For people predicted as bad credit, the probability of actually being bad credit
 
 Equal FNR. This also implies equal TPR.
 
-For animals predicted fat, the probability of actually being thin (i.e. wrong prediction) should be equal regardless for cats or dogs.
+For fat animals, the probability of being predicted thin (i.e. wrong prediction) should be equal regardless for cats or dogs.
 
-For people predicted as good credit, the probability of actually being good (i.e. wrong prediction) should be equal regardless for men or women.
+For people with good credit, the probability of being predicted bad (i.e. wrong prediction) should be equal regardless for men or women.
 
 ### Equalised odds <dt-cite cite="hardt2016equality"></dt-cite>
 
