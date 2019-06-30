@@ -1,6 +1,10 @@
 
 let arc = d3.arc()
 
+let rectScale = d3.scaleLinear()
+  .domain([0, 1])
+  .range([0, 250]);
+
 function arcTween ({r=null, start=null, end=null, degrees=true, shift=Math.PI/2, shortest=true}) {
 
   return function(d) {
@@ -105,6 +109,14 @@ var scrollVis = function () {
   chartA = {},
   chartB = {}
 
+  let posTxtr = null,
+  negTxtr = null,
+  tpTxtr = null,
+  fpTxtr = null,
+  fnTxtr = null,
+  tnTxtr = null,
+  radius = 0
+
   // When scrolling to a new section
   // the activation function for that
   // section is called.
@@ -170,10 +182,10 @@ var scrollVis = function () {
 
     // Pie Charts
 
-    let cA = {x: 250, y: 400},
-    cB = {x: 550, y: 400},
-    radius = 125,
-    ctrlRadius = 135,
+    cA = {x: 250, y: 400}
+    cB = {x: 550, y: 400}
+    radius = 125
+    ctrlRadius = 135
     chartColors = {
       posDark: "#262d97",
       posLight: "#9ecadd",
@@ -183,7 +195,18 @@ var scrollVis = function () {
 
     // Textures https://riccardoscalco.it/textures/
 
-    let tpTxtr = textures.circles()
+    posTxtr = textures.circles()
+      .heavier()
+      .fill("#FFFFFF")
+      .background(chartColors.posDark)
+      .complement(),
+    negTxtr = textures.paths()
+      .d("squares")
+      .fill("#FFFFFF")
+      .size(15)
+      .stroke("#FFFFFF")
+      .background(chartColors.negDark),
+    tpTxtr = textures.circles()
       .heavier()
       .fill(chartColors.posLight)
       .background(chartColors.posDark)
@@ -210,6 +233,8 @@ var scrollVis = function () {
       .background(chartColors.posDark)
       .complement()
     
+    svg.call(posTxtr)
+    svg.call(negTxtr)
     svg.call(tpTxtr)
     svg.call(tnTxtr)
     svg.call(fpTxtr)
@@ -221,6 +246,78 @@ var scrollVis = function () {
       .attr("transform", `translate(${cA.x}, ${cA.y})`)
       .attr("id", "chartA")
 
+    chartA.title = chartA.g.append("text")
+      .attr('id', 'chartA-title')
+      .attr('x', 0)
+      .attr('y', - radius - 20)
+      .attr('font-family', 'sans-serif')
+      .attr('font-size', 18)
+      .attr('text-anchor', 'middle')
+      .attr('fill', '#DDDDDD')
+      .text('Cats')
+      .attr("opacity", 0)
+    chartA.title2 = chartA.g.append("text")
+      .attr('id', 'chartA-title2')
+      .attr('x', 0)
+      .attr('y', radius + 35)
+      .attr('font-family', 'sans-serif')
+      .attr('font-size', 18)
+      .attr('text-anchor', 'middle')
+      .attr('fill', '#DDDDDD')
+      .text('Cats Predicted Fat')
+      .attr("opacity", 0)
+    chartA.x0 = chartA.g.append("text")
+      .attr('id', 'chartA-x0')
+      .attr('x', -radius)
+      .attr('y', radius + 101)
+      .attr('font-family', 'sans-serif')
+      .attr('font-size', 14)
+      .attr('text-anchor', 'middle')
+      .attr('fill', '#DDDDDD')
+      .text('0%')
+      .attr("opacity", 0)
+    chartA.x1 = chartA.g.append("text")
+      .attr('id', 'chartA-x1')
+      .attr('x', radius)
+      .attr('y', radius + 101)
+      .attr('font-family', 'sans-serif')
+      .attr('font-size', 14)
+      .attr('text-anchor', 'middle')
+      .attr('fill', '#DDDDDD')
+      .text('100%')
+      .attr("opacity", 0)
+
+    chartA.rect1 = chartA.g.append("rect")
+      .attr("id", "chartA-rect1")
+      .attr("x", -radius)
+      .attr("y", radius + 50)
+      .attr("width", rectScale(0.8))
+      .attr("height", 35)
+      .attr("fill", tpTxtr.url())
+      .attr("stroke", "#222222")
+      .attr("stroke-width", 3)
+      .attr("opacity", 0)
+    chartA.rect2 = chartA.g.append("rect")
+      .attr("id", "chartA-rect2")
+      .attr("x", -radius + rectScale(0.8))
+      .attr("y", radius + 50)
+      .attr("width", rectScale(0.2))
+      .attr("height", 35)
+      .attr("fill", fpTxtr.url())
+      .attr("stroke", "#222222")
+      .attr("stroke-width", 3)
+      .attr("opacity", 0)
+
+    chartA.pos = chartA.g.append("path")
+      .attr("id", "chartA-pos")
+      .datum({innerRadius: 0, outerRadius: radius, startAngle: 0.55 * 2 * Math.PI, endAngle: 0.95 * 2 * Math.PI})
+      .attr("d", arc)
+      .style("fill", posTxtr.url())
+    chartA.neg = chartA.g.append("path")
+      .attr("id", "chartA-neg")
+      .datum({innerRadius: 0, outerRadius: radius, startAngle: -0.05 * 2 * Math.PI, endAngle: 0.55 * 2 * Math.PI})
+      .attr("d", arc)
+      .style("fill", negTxtr.url())
     chartA.fp = chartA.g.append("path")
       .attr("id", "chartA-fp")
       .datum({innerRadius: 0, outerRadius: radius, startAngle: 0, endAngle: 0.5 * Math.PI})
@@ -244,7 +341,7 @@ var scrollVis = function () {
     chartA.g.selectAll("path")
       .attr("stroke", "#222222")
       .attr("stroke-width", 3)
-      .attr("opacity", 1)
+      .attr("opacity", 0)
 
     // Chart B
 
@@ -252,6 +349,78 @@ var scrollVis = function () {
       .attr("transform", `translate(${cB.x}, ${cB.y})`)
       .attr("id", "chartB")
 
+    chartB.title = chartB.g.append("text")
+      .attr('id', 'chartB-title')
+      .attr('x', 0)
+      .attr('y', - radius - 20)
+      .attr('font-family', 'sans-serif')
+      .attr('font-size', 18)
+      .attr('text-anchor', 'middle')
+      .attr('fill', '#DDDDDD')
+      .text('Dogs')
+      .attr("opacity", 0)
+    chartB.title2 = chartB.g.append("text")
+      .attr('id', 'chartB-title2')
+      .attr('x', 0)
+      .attr('y', radius + 35)
+      .attr('font-family', 'sans-serif')
+      .attr('font-size', 18)
+      .attr('text-anchor', 'middle')
+      .attr('fill', '#DDDDDD')
+      .text('Dogs Predicted Fat')
+      .attr("opacity", 0)
+
+    chartB.rect1 = chartB.g.append("rect")
+      .attr("id", "chartB-rect1")
+      .attr("x", -radius)
+      .attr("y", radius + 50)
+      .attr("width", rectScale(0.8))
+      .attr("height", 35)
+      .attr("fill", tpTxtr.url())
+      .attr("stroke", "#222222")
+      .attr("stroke-width", 3)
+      .attr("opacity", 0)
+    chartB.rect2 = chartB.g.append("rect")
+      .attr("id", "chartB-rect2")
+      .attr("x", -radius + rectScale(0.8))
+      .attr("y", radius + 50)
+      .attr("width", rectScale(0.2))
+      .attr("height", 35)
+      .attr("fill", fpTxtr.url())
+      .attr("stroke", "#222222")
+      .attr("stroke-width", 3)
+      .attr("opacity", 0)
+    chartB.x0 = chartB.g.append("text")
+      .attr('id', 'chartB-x0')
+      .attr('x', -radius)
+      .attr('y', radius + 101)
+      .attr('font-family', 'sans-serif')
+      .attr('font-size', 14)
+      .attr('text-anchor', 'middle')
+      .attr('fill', '#DDDDDD')
+      .text('0%')
+      .attr("opacity", 0)
+    chartB.x1 = chartB.g.append("text")
+      .attr('id', 'chartB-x1')
+      .attr('x', radius)
+      .attr('y', radius + 101)
+      .attr('font-family', 'sans-serif')
+      .attr('font-size', 14)
+      .attr('text-anchor', 'middle')
+      .attr('fill', '#DDDDDD')
+      .text('100%')
+      .attr("opacity", 0)
+
+    chartB.pos = chartB.g.append("path")
+      .attr("id", "chartB-pos")
+      .datum({innerRadius: 0, outerRadius: radius, startAngle: 0.45 * 2 * Math.PI, endAngle: 1.05 * 2 * Math.PI})
+      .attr("d", arc)
+      .style("fill", posTxtr.url())
+    chartB.neg = chartB.g.append("path")
+      .attr("id", "chartB-neg")
+      .datum({innerRadius: 0, outerRadius: radius, startAngle: 0.05 * 2 * Math.PI, endAngle: 0.45 * 2 * Math.PI})
+      .attr("d", arc)
+      .style("fill", negTxtr.url())
     chartB.fp = chartB.g.append("path")
       .attr("id", "chartB-fp")
       .datum({innerRadius: 0, outerRadius: radius, startAngle: 0, endAngle: 0.5 * Math.PI})
@@ -275,7 +444,7 @@ var scrollVis = function () {
     chartB.g.selectAll("path")
       .attr("stroke", "#222222")
       .attr("stroke-width", 3)
-      .attr("opacity", 1)
+      .attr("opacity", 0)
 
     // Controls
 
@@ -417,26 +586,27 @@ var scrollVis = function () {
 
     activateFunctions[0] = reset;
     activateFunctions[1] = start;
-    activateFunctions[2] = groupFairness;
-    // activateFunctions[3] = condStatParity;
-    // activateFunctions[4] = predictiveParity;
-    // activateFunctions[5] = FPErrorRateBalance;
-    // activateFunctions[6] = FNErrorRateBalance;
-    // activateFunctions[7] = equalisedOdds;
-    // activateFunctions[8] = condUseAccuracyEquality;
-    // activateFunctions[9] = overallAccuracyEquality;
-    // activateFunctions[10] = treatmentEquality;
-    // activateFunctions[11] = testFairness;
-    // activateFunctions[12] = wellCalibration;
-    // activateFunctions[13] = balancePositive;
-    // activateFunctions[14] = balanceNegative;
-    // activateFunctions[15] = causalDiscrimination;
-    // activateFunctions[16] = unawareness;
-    // activateFunctions[17] = awareness;
-    // activateFunctions[18] = counterfactual;
-    // activateFunctions[19] = noUnresolvedDisc;
-    // activateFunctions[20] = noProxyDisc;
-    // activateFunctions[21] = fairInference;
+    activateFunctions[2] = predict;
+    activateFunctions[3] = groupFairness;
+    activateFunctions[4] = condStatParity;
+    activateFunctions[5] = predictiveParity;
+    activateFunctions[6] = FPErrorRateBalance;
+    activateFunctions[7] = FNErrorRateBalance;
+    activateFunctions[8] = equalisedOdds;
+    activateFunctions[9] = condUseAccuracyEquality;
+    activateFunctions[10] = overallAccuracyEquality;
+    activateFunctions[11] = treatmentEquality;
+    activateFunctions[12] = testFairness;
+    activateFunctions[13] = wellCalibration;
+    activateFunctions[14] = balancePositive;
+    activateFunctions[15] = balanceNegative;
+    activateFunctions[16] = causalDiscrimination;
+    activateFunctions[17] = unawareness;
+    activateFunctions[18] = awareness;
+    activateFunctions[19] = counterfactual;
+    activateFunctions[20] = noUnresolvedDisc;
+    activateFunctions[21] = noProxyDisc;
+    activateFunctions[22] = fairInference;
 
     // updateFunctions are called while
     // in a particular section to update
@@ -447,7 +617,7 @@ var scrollVis = function () {
     for (var i = 0; i < activateFunctions.length; i++) {
       updateFunctions[i] = function () {};
     }
-    // updateFunctions[2] = updateMove;
+    // updateFunctions[2] = groupFairnessProgress;
     // updateFunctions[3] = updateExpand;
   };
 
@@ -466,152 +636,435 @@ var scrollVis = function () {
    *
    */
 
-  let hi=1, mid=0.6, lo=0.2
+  let hi=1, mid=0.6, lo=0.1
 
   function reset() {
     title.text("")
+    chartA.title.transition().duration(500)
+      .attr("opacity", 0)
+    chartB.title.transition().duration(500)
+      .attr("opacity", 0)
+    chartA.pos.transition().duration(500)
+      .attr("opacity", 0)
+    chartA.neg.transition().duration(500)
+      .attr("opacity", 0)
+    chartB.pos.transition().duration(500)
+      .attr("opacity", 0)
+    chartB.neg.transition().duration(500)
+      .attr("opacity", 0)
     chartA.fp.transition().duration(500)
       .attrTween("d", arcTween({start: -90, end: 0}))
-      .attr("opacity", hi)
+      .attr("opacity", 0)
     chartA.tn.transition().duration(500)
       .attrTween("d", arcTween({start: 0, end: 90}))
-      .attr("opacity", hi)
+      .attr("opacity", 0)
     chartA.fn.transition().duration(500)
       .attrTween("d", arcTween({start: 90, end: 180}))
-      .attr("opacity", hi)
+      .attr("opacity", 0)
     chartA.tp.transition().duration(500)
       .attrTween("d", arcTween({start: 180, end: 270}))
-      .attr("opacity", hi)
+      .attr("opacity", 0)
     chartB.fp.transition().duration(500)
       .attrTween("d", arcTween({start: -90, end: 0}))
-      .attr("opacity", hi)
+      .attr("opacity", 0)
     chartB.tn.transition().duration(500)
       .attrTween("d", arcTween({start: 0, end: 90}))
-      .attr("opacity", hi)
+      .attr("opacity", 0)
     chartB.fn.transition().duration(500)
       .attrTween("d", arcTween({start: 90, end: 180}))
-      .attr("opacity", hi)
+      .attr("opacity", 0)
     chartB.tp.transition().duration(500)
       .attrTween("d", arcTween({start: 180, end: 270}))
-      .attr("opacity", hi)
-    textBox.text("Suppose for a moment that dogs are more likely to be fat, as compared to cats. In fact, cats only have a 40% chance of being fat, while dogs have a 60% chance of being fat. Fortunately, a company develops an AI system to diagnose if a pet is fat! Pets diagnosed as fat are then kept on a diet, which means less foo")
+      .attr("opacity", 0)
+    textBox.text("")
   }
 
   function start() {
     title.text("")
+    chartA.title.transition().duration(500)
+      .attr("opacity", 1)
+    chartB.title.transition().duration(500)
+      .attr("opacity", 1)
+    chartA.pos.transition().duration(500)
+      .attr("opacity", 1)
+    chartA.neg.transition().duration(500)
+      .attr("opacity", 1)
+    chartB.pos.transition().duration(500)
+      .attr("opacity", 1)
+    chartB.neg.transition().duration(500)
+      .attr("opacity", 1)
     chartA.fp.transition().duration(500)
-      .attrTween("d", arcTween({start: -90, end: 0.05 * 360}))
+      .attrTween("d", arcTween({start: -0.3 * 360, end: 0}))
+      .attr("opacity", 0)
+    chartA.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0, end: 0.3 * 360}))
+      .attr("opacity", 0)
+    chartA.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.5 * 360}))
+      .attr("opacity", 0)
+    chartA.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.5 * 360, end: 0.7 * 360}))
+      .attr("opacity", 0)
+    chartB.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.2 * 360, end: 0}))
+      .attr("opacity", 0)
+    chartB.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0, end: 0.2 * 360}))
+      .attr("opacity", 0)
+    chartB.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.2 * 360, end: 0.5 * 360}))
+      .attr("opacity", 0)
+    chartB.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.5 * 360, end: 0.8 * 360}))
+      .attr("opacity", 0)
+    textBox.text("Fat animals are represented in dark blue with circles. Thin animals are represented in orange with squares.")
+  }
+
+  function predict() {
+    title.text("")
+    chartA.pos.transition().duration(500)
+      .attr("opacity", 0)
+    chartA.neg.transition().duration(500)
+      .attr("opacity", 0)
+    chartB.pos.transition().duration(500)
+      .attr("opacity", 0)
+    chartB.neg.transition().duration(500)
+      .attr("opacity", 0)
+    chartA.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.3 * 360, end: 0}))
       .attr("opacity", hi)
     chartA.tn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.05 * 360, end: 0.35 * 360}))
+      .attrTween("d", arcTween({start: 0, end: 0.3 * 360}))
       .attr("opacity", hi)
     chartA.fn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.35 * 360, end: 0.55 * 360}))
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.5 * 360}))
       .attr("opacity", hi)
     chartA.tp.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.55 * 360, end: 270}))
+      .attrTween("d", arcTween({start: 0.5 * 360, end: 0.7 * 360}))
       .attr("opacity", hi)
     chartB.fp.transition().duration(500)
-      .attrTween("d", arcTween({start: -90, end: -0.05 * 360}))
+      .attrTween("d", arcTween({start: -0.2 * 360, end: 0}))
       .attr("opacity", hi)
     chartB.tn.transition().duration(500)
-      .attrTween("d", arcTween({start: -0.05 * 360, end: 0.15 * 360}))
+      .attrTween("d", arcTween({start: 0, end: 0.2 * 360}))
       .attr("opacity", hi)
     chartB.fn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.15 * 360, end: 0.45 * 360}))
+      .attrTween("d", arcTween({start: 0.2 * 360, end: 0.5 * 360}))
       .attr("opacity", hi)
     chartB.tp.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.45 * 360, end: 270}))
+      .attrTween("d", arcTween({start: 0.5 * 360, end: 0.8 * 360}))
       .attr("opacity", hi)
-    
+    textBox.text("Animals predicted fat are in light blue solid shapes, animals predicted thin are in yellow empty shapes.")
   }
 
   function groupFairness() {
     title.text("Group Fairness")
+    // chartA
     chartA.fp.transition().duration(500)
-      .attrTween("d", arcTween({start: -90, end: 0.05 * 360}))
+      .attrTween("d", arcTween({start: -0.3 * 360, end: -0.1 * 360}))
       .attr("opacity", hi)
     chartA.tn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.05 * 360, end: 0.35 * 360}))
-      .attr("opacity", hi)
+      .attrTween("d", arcTween({start: -0.1 * 360, end: 0.3 * 360}))
+      .attr("opacity", lo)
     chartA.fn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.35 * 360, end: 0.55 * 360}))
-      .attr("opacity", hi)
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.5 * 360}))
+      .attr("opacity", lo)
     chartA.tp.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.55 * 360, end: 270}))
+      .attrTween("d", arcTween({start: 0.5 * 360, end: 0.7 * 360}))
       .attr("opacity", hi)
+    // chartB
     chartB.fp.transition().duration(500)
-      .attrTween("d", arcTween({start: -90, end: -0.05 * 360}))
+      .attrTween("d", arcTween({start: -0.2 * 360, end: -0.1 * 360}))
       .attr("opacity", hi)
     chartB.tn.transition().duration(500)
-      .attrTween("d", arcTween({start: -0.05 * 360, end: 0.15 * 360}))
-      .attr("opacity", hi)
+      .attrTween("d", arcTween({start: -0.1 * 360, end: 0.2 * 360}))
+      .attr("opacity", lo)
     chartB.fn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.15 * 360, end: 0.45 * 360}))
-      .attr("opacity", hi)
+      .attrTween("d", arcTween({start: 0.2 * 360, end: 0.5 * 360}))
+      .attr("opacity", lo)
     chartB.tp.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.45 * 360, end: 270}))
+      .attrTween("d", arcTween({start: 0.5 * 360, end: 0.8 * 360}))
       .attr("opacity", hi)
+    textBox.text("In this case, both cats and dogs have the same 40% chance of being predicted fat (light blue). It does not matter whether the predictions are correct.")
   }
 
   function condStatParity() {
     title.text("Conditional Statistical Parity")
+    chartA.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.3 * 360, end: -0.1 * 360}))
+      .attr("opacity", hi)
+    chartA.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.1 * 360, end: 0.3 * 360}))
+      .attr("opacity", lo)
+    chartA.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.5 * 360}))
+      .attr("opacity", lo)
+    chartA.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.5 * 360, end: 0.7 * 360}))
+      .attr("opacity", hi)
+    chartB.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.2 * 360, end: -0.1 * 360}))
+      .attr("opacity", hi)
+    chartB.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.1 * 360, end: 0.2 * 360}))
+      .attr("opacity", lo)
+    chartB.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.2 * 360, end: 0.5 * 360}))
+      .attr("opacity", lo)
+    chartB.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.5 * 360, end: 0.8 * 360}))
+      .attr("opacity", hi)
+    textBox.text("This is similar to Group Fairness, except that the equality only applies for cats and dogs that are the same (e.g. same age and same weight).")
   }
 
   function predictiveParity() {
     title.text("Predictive Parity")
     chartA.fp.transition().duration(500)
-      .attrTween("d", arcTween({start: 90, end: 180}))
+      .attrTween("d", arcTween({start: -0.3 * 360, end: -0.25 * 360}))
       .attr("opacity", hi)
     chartA.tn.transition().duration(500)
-      .attrTween("d", arcTween({start: 180, end: 0.85*360}))
+      .attrTween("d", arcTween({start: -0.25 * 360, end: 0.3 * 360}))
       .attr("opacity", lo)
     chartA.fn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.85*360, end: 360}))
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.5 * 360}))
       .attr("opacity", lo)
     chartA.tp.transition().duration(500)
-      .attrTween("d", arcTween({start: 360, end: 360 * 1.25}))
+      .attrTween("d", arcTween({start: 0.5 * 360, end: 0.7 * 360}))
       .attr("opacity", hi)
     chartB.fp.transition().duration(500)
-      .attrTween("d", arcTween({start: 90, end: 180}))
+      .attrTween("d", arcTween({start: -0.2 * 360, end: -0.1 * 360}))
       .attr("opacity", hi)
     chartB.tn.transition().duration(500)
-      .attrTween("d", arcTween({start: 180, end: 0.65*360}))
+      .attrTween("d", arcTween({start: -0.1 * 360, end: 0.2 * 360}))
       .attr("opacity", lo)
     chartB.fn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.65*360, end: 360}))
+      .attrTween("d", arcTween({start: 0.2 * 360, end: 0.4 * 360}))
       .attr("opacity", lo)
     chartB.tp.transition().duration(500)
-      .attrTween("d", arcTween({start: 360, end: 360 * 1.25}))
+      .attrTween("d", arcTween({start: 0.4 * 360, end: 0.8 * 360}))
       .attr("opacity", hi)
+    textBox.text("In this case, any animal predicted as fat (light blue) has an 80% chance of actually being fat (dark blue), for both cats and dogs. This disregards animals predicted to be thin (yellow).")
   }
 
   function FPErrorRateBalance() {
     title.text("False Positive Error Rate Balance")
+    chartA.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.3 * 360, end: -0.1 * 360}))
+      .attr("opacity", hi)
+    chartA.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.1 * 360, end: 0.3 * 360}))
+      .attr("opacity", hi)
+    chartA.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.5 * 360}))
+      .attr("opacity", lo)
+    chartA.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.5 * 360, end: 0.7 * 360}))
+      .attr("opacity", lo)
+    chartB.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.2 * 360, end: -0.067 * 360}))
+      .attr("opacity", hi)
+    chartB.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.067 * 360, end: 0.2 * 360}))
+      .attr("opacity", hi)
+    chartB.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.2 * 360, end: 0.4 * 360}))
+      .attr("opacity", lo)
+    chartB.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.4 * 360, end: 0.8 * 360}))
+      .attr("opacity", lo)
+    textBox.text("For example, a thin animal (orange) could have a 33% chance of being wrongly predicted as fat (light blue), no matter cat or dog. This disregards fat animals.")
+
+    chartA.title2.text("Cats Actually Thin")
+    chartA.rect1.transition().duration(500)
+      .attr("fill", fpTxtr.url())
+      .attr("width", rectScale(0.33))
+    chartA.rect2.transition().duration(500)
+      .attr("fill", tnTxtr.url())
+      .attr("x", -radius + rectScale(0.33))
+      .attr("width", rectScale(0.67))
+
+    chartB.title2.text("Dogs Actually Thin")
+    chartB.rect1.transition().duration(500)
+      .attr("fill", fpTxtr.url())
+      .attr("width", rectScale(0.33))
+    chartB.rect2.transition().duration(500)
+      .attr("fill", tnTxtr.url())
+      .attr("x", -radius + rectScale(0.33))
+      .attr("width", rectScale(0.67))
   }
 
   function FNErrorRateBalance() {
     title.text("False Negative Error Rate Balance")
+    chartA.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.3 * 360, end: -0.1 * 360}))
+      .attr("opacity", lo)
+    chartA.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.1 * 360, end: 0.3 * 360}))
+      .attr("opacity", lo)
+    chartA.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.34 * 360}))
+      .attr("opacity", hi)
+    chartA.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.34 * 360, end: 0.7 * 360}))
+      .attr("opacity", hi)
+    chartB.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.2 * 360, end: -0.067 * 360}))
+      .attr("opacity", lo)
+    chartB.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.067 * 360, end: 0.2 * 360}))
+      .attr("opacity", lo)
+    chartB.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.2 * 360, end: 0.26 * 360}))
+      .attr("opacity", hi)
+    chartB.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.26 * 360, end: 0.8 * 360}))
+      .attr("opacity", hi)
+    textBox.text("For instance, a fat animal (dark blue) could have a 10% chance of being wrongly predicted as thin (yellow), no matter cat or dog. This disregards thin animals.")
   }
 
   function equalisedOdds() {
     title.text("Equalised Odds")
+    chartA.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.3 * 360, end: -0.1 * 360}))
+      .attr("opacity", hi)
+    chartA.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.1 * 360, end: 0.3 * 360}))
+      .attr("opacity", hi)
+    chartA.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.34 * 360}))
+      .attr("opacity", hi)
+    chartA.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.34 * 360, end: 0.7 * 360}))
+      .attr("opacity", hi)
+    chartB.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.2 * 360, end: -0.067 * 360}))
+      .attr("opacity", hi)
+    chartB.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.067 * 360, end: 0.2 * 360}))
+      .attr("opacity", hi)
+    chartB.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.2 * 360, end: 0.267 * 360}))
+      .attr("opacity", hi)
+    chartB.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.267 * 360, end: 0.8 * 360}))
+      .attr("opacity", hi)
+    textBox.text("This combines the previous two cases. It also means that the chance of being falsely accused and the chance of escaping from a diet are the same for both cats and dogs.")
   }
 
   function condUseAccuracyEquality() {
     title.text("Conditional Use Accuracy Equality")
+    chartA.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.3 * 360, end: -0.233 * 360}))
+      .attr("opacity", hi)
+    chartA.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.233 * 360, end: 0.3 * 360}))
+      .attr("opacity", hi)
+    chartA.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.567 * 360}))
+      .attr("opacity", hi)
+    chartA.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.567 * 360, end: 0.7 * 360}))
+      .attr("opacity", hi)
+    chartB.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.2 * 360, end: 0.067 * 360}))
+      .attr("opacity", hi)
+    chartB.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.067 * 360, end: 0.2 * 360}))
+      .attr("opacity", hi)
+    chartB.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.2 * 360, end: 0.267 * 360}))
+      .attr("opacity", hi)
+    chartB.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.267 * 360, end: 0.8 * 360}))
+      .attr("opacity", hi)
+    textBox.text("For an animal predicted to be fat (yellow), it has a 60% chance of actually being fat (orange). For an animal predicted to be thin (light blue), it has a 60% chance of actually being thin (dark blue). This applies for both cats and dogs.")
   }
 
   function overallAccuracyEquality() {
     title.text("Overall Accuracy Equality")
+    chartA.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.3 * 360, end: 0}))
+      .attr("opacity", mid)
+    chartA.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0, end: 0.3 * 360}))
+      .attr("opacity", hi)
+    chartA.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.4 * 360}))
+      .attr("opacity", mid)
+    chartA.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.4 * 360, end: 0.7 * 360}))
+      .attr("opacity", hi)
+    chartB.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.2 * 360, end: 0.1 * 360}))
+      .attr("opacity", mid)
+    chartB.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.1 * 360, end: 0.2 * 360}))
+      .attr("opacity", hi)
+    chartB.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.2 * 360, end: 0.3 * 360}))
+      .attr("opacity", mid)
+    chartB.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.8 * 360}))
+      .attr("opacity", hi)
+    textBox.text("In this case, the chance of a correct prediction (yellow on orange and light blue on dark blue) is 60% for both cats and dogs. This disregards the type of prediction that is correct.")
   }
 
   function treatmentEquality() {
     title.text("Treatment Equality")
+    chartA.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.3 * 360, end: -0.2 * 360}))
+      .attr("opacity", hi)
+    chartA.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.2 * 360, end: 0.3 * 360}))
+      .attr("opacity", lo)
+    chartA.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.4 * 360}))
+      .attr("opacity", hi)
+    chartA.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.4 * 360, end: 0.7 * 360}))
+      .attr("opacity", lo)
+    chartB.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.2 * 360, end: 0.1 * 360}))
+      .attr("opacity", hi)
+    chartB.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.1 * 360, end: 0.2 * 360}))
+      .attr("opacity", lo)
+    chartB.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.2 * 360, end: 0.5 * 360}))
+      .attr("opacity", hi)
+    chartB.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.5 * 360, end: 0.8 * 360}))
+      .attr("opacity", lo)
+    textBox.text("For example, the ratio of falsely accused thin animals and escaped fat animals could be 1:1 for both cats and dogs. But this says nothing about the absolute accuracies. In this case, the predictions are obviously more inaccurate for dogs.")
   }
 
   function testFairness() {
     title.text("Test Fairness")
+    chartA.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.3 * 360, end: -0.2 * 360}))
+      .attr("opacity", 0)
+    chartA.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.2 * 360, end: 0.3 * 360}))
+      .attr("opacity", 0)
+    chartA.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.3 * 360, end: 0.4 * 360}))
+      .attr("opacity", 0)
+    chartA.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.4 * 360, end: 0.7 * 360}))
+      .attr("opacity", 0)
+    chartB.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: -0.2 * 360, end: 0.1 * 360}))
+      .attr("opacity", 0)
+    chartB.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.1 * 360, end: 0.2 * 360}))
+      .attr("opacity", 0)
+    chartB.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.2 * 360, end: 0.5 * 360}))
+      .attr("opacity", 0)
+    chartB.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.5 * 360, end: 0.8 * 360}))
+      .attr("opacity", 0)
+    textBox.text("")
   }
 
   function wellCalibration() {

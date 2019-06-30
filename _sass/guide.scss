@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Lora|Open+Sans|Roboto:400,700,900&display=swap');
 
 @font-face {
 	font-family: "Computer Modern";
@@ -144,17 +143,21 @@ body#guide-body {
 		padding: 100px 0px;
 		
 		ol, ul, p {
-			font-family: 'CMUSerifRoman', serif;
-			font-size: 26px;
+			font-family: 'Lora', serif;
+			font-size: 20px;
 			line-height: 1.5;
 			width: 80%;
-			margin-left: auto;
-			margin-right: auto;
+			//margin-left: auto;
+			//margin-right: auto;
 
 			.emph {
 				font-family: 'Roboto', sans-serif;
 				font-weight: 700;
 			}
+		}
+
+		div.step {
+			height: 100px;
 		}
 	}
 
@@ -209,12 +212,12 @@ body#guide-body {
 
 		.vis-textbox {
 			height: 200px;
-			margin-top: -350px;
+			margin-top: -250px;
 			padding: 0px 100px;
 
 			p {
-				font-size: 16px;
-				font-family: "Roboto";
+				font-size: 18px;
+				font-family: "Roboto", sans-serif;
 			}
 		}
 
