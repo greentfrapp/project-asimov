@@ -1,37 +1,21 @@
 
 let arc = d3.arc()
+let drag = d3.drag()
 
-function arcTween ({r=null, start=null, end=null, degrees=true, shift=Math.PI/2, shortest=true}) {
+let arcTween = function({r=null, start=null, end=null, degrees=true}) {
 
   return function(d) {
     if (r === null) r = d.outerRadius
     if (start === null) {
       start = d.startAngle
     } else if (degrees) {
-      start = Math.radians(start)
+      start = start / 180 * Math.PI
     }
     if (end === null) {
       end = d.endAngle
     } else if (degrees) {
-      end = Math.radians(end)
+      end = end / 180 * Math.PI
     }
-    start += shift
-    end += shift
-
-    // if (shortest) {
-    //   if (Math.abs(start - d.startAngle) > Math.PI) {
-    //     if (start > d.startAngle) {
-    //       start -= 2 * Math.PI
-    //       end -= 2 * Math.PI
-    //     } else {
-    //       start += 2 * Math.PI
-    //       end += 2 * Math.PI
-    //     }
-    //   }
-    // }
-
-    // while (start >= d.startAngle + 2 * Math.PI) start -= 2 * Math.PI
-    // while (end >= d.endAngle + 2 * Math.PI) end -= 2 * Math.PI
 
     var interRadius = d3.interpolate(d.outerRadius, r),
     interStartAngle = d3.interpolate(d.startAngle, start),
@@ -64,14 +48,6 @@ function clipAngle(t, min, max) {
   }
 }
 
-Math.radians = function(degrees) {
-  return degrees * Math.PI / 180;
-};
- 
-Math.degrees = function(radians) {
-  return radians * 180 / Math.PI;
-};
-
 /**
  * scrollVis - encapsulates
  * all the code for the visualization
@@ -102,8 +78,9 @@ var scrollVis = function () {
   // var matrixGroupA = null;
   // var matrixGroupB = null;
   var title = null,
-  chartA = {},
-  chartB = {}
+  sectorsA = {},
+  sectorsB = {},
+  posPred = 0.5
 
   // When scrolling to a new section
   // the activation function for that
@@ -130,11 +107,6 @@ var scrollVis = function () {
   			.attr('width', width + margin.left + margin.right)
   			.attr('height', height + margin.top + margin.bottom)
 
-      textBox = d3.select(this)
-        .append('div')
-        .attr("class", "vis-textbox")
-        .append('p')
-
   		// g = svg.append('g')
 
     	setupVis(data);
@@ -160,7 +132,7 @@ var scrollVis = function () {
   	title = svg.append('text')
   		.attr('id', 'title')
   		.attr('x', width / 2)
-    	.attr('y', height / 5)
+    	.attr('y', height / 5 + 100)
     	.attr('font-family', 'sans-serif')
     	.attr('font-weight', 'bold')
     	.attr('font-size', 48)
@@ -170,44 +142,43 @@ var scrollVis = function () {
 
     // Pie Charts
 
-    let cA = {x: 250, y: 400},
-    cB = {x: 550, y: 400},
+    let cx1 = 250,
+    cy1 = 500,
+    cx2 = 550,
+    cy2 = 500,
     radius = 125,
-    ctrlRadius = 135,
-    chartColors = {
-      posDark: "#262d97",
-      posLight: "#9ecadd",
-      negDark: "#f14702",
-      negLight: "#ffc409"
-    }
+    ctrlRadius = 135
 
-    // Textures https://riccardoscalco.it/textures/
+    let posDark = "#262d97",
+    posLight = "#9ecadd",
+    negDark = "#f14702",
+    negLight = "#ffc409"
 
     let tpTxtr = textures.circles()
       .heavier()
-      .fill(chartColors.posLight)
-      .background(chartColors.posDark)
+      .fill(posLight)
+      .background(posDark)
       .complement(),
     fpTxtr = textures.paths()
       .d("squares")
-      .fill(chartColors.posLight)
+      .fill(posLight)
       .size(15)
-      .stroke(chartColors.posLight)
-      .background(chartColors.negDark),
+      .stroke(posLight)
+      .background(negDark),
     tnTxtr = textures.paths()
       .d("squares")
       .fill("transparent")
       .size(15)
       .strokeWidth(2)
-      .stroke(chartColors.negLight)
-      .background(chartColors.negDark),
+      .stroke(negLight)
+      .background(negDark),
     fnTxtr = textures.circles()
       .heavier()
       .fill("transparent")
       .radius(4)
       .strokeWidth(2)
-      .stroke(chartColors.negLight)
-      .background(chartColors.posDark)
+      .stroke(negLight)
+      .background(posDark)
       .complement()
     
     svg.call(tpTxtr)
@@ -215,125 +186,120 @@ var scrollVis = function () {
     svg.call(fpTxtr)
     svg.call(fnTxtr)
 
-    // Chart A
+    pieA = svg.append("g")
+      .attr("transform", `translate(${cx1}, ${cy1})`)
+      .attr("id", "pieA")
 
-    chartA.g = svg.append("g")
-      .attr("transform", `translate(${cA.x}, ${cA.y})`)
-      .attr("id", "chartA")
-
-    chartA.fp = chartA.g.append("path")
-      .attr("id", "chartA-fp")
+    sectorsA.fp = pieA.append("path")
+      .attr("id", "sectorsA-fp")
       .datum({innerRadius: 0, outerRadius: radius, startAngle: 0, endAngle: 0.5 * Math.PI})
       .attr("d", arc)
       .style("fill", fpTxtr.url())
-    chartA.tn = chartA.g.append("path")
-      .attr("id", "chartA-tn")
+    sectorsA.tn = pieA.append("path")
+      .attr("id", "sectorsA-tn")
       .datum({innerRadius: 0, outerRadius: radius, startAngle: 0.5 * Math.PI, endAngle: Math.PI})
       .attr("d", arc)
       .style("fill", tnTxtr.url())
-    chartA.fn = chartA.g.append("path")
-      .attr("id", "chartA-fn")
+    sectorsA.fn = pieA.append("path")
+      .attr("id", "sectorsA-fn")
       .datum({innerRadius: 0, outerRadius: radius, startAngle: Math.PI, endAngle: 1.5 * Math.PI})
       .attr("d", arc)
       .style("fill", fnTxtr.url())
-    chartA.tp = chartA.g.append("path")
-      .attr("id", "chartA-tp")
+    sectorsA.tp = pieA.append("path")
+      .attr("id", "sectorsA-tp")
       .datum({innerRadius: 0, outerRadius: radius, startAngle: 1.5 * Math.PI, endAngle: 2 * Math.PI})
       .attr("d", arc)
       .style("fill", tpTxtr.url())
-    chartA.g.selectAll("path")
+    pieA.selectAll("path")
       .attr("stroke", "#222222")
       .attr("stroke-width", 3)
       .attr("opacity", 1)
 
-    // Chart B
+    pieB = svg.append("g")
+      .attr("transform", `translate(${cx2}, ${cy2})`)
+      .attr("id", "pieB")
 
-    chartB.g = svg.append("g")
-      .attr("transform", `translate(${cB.x}, ${cB.y})`)
-      .attr("id", "chartB")
-
-    chartB.fp = chartB.g.append("path")
-      .attr("id", "chartB-fp")
+    sectorsB.fp = pieB.append("path")
+      .attr("id", "sectorsB-fp")
       .datum({innerRadius: 0, outerRadius: radius, startAngle: 0, endAngle: 0.5 * Math.PI})
       .attr("d", arc)
       .style("fill", fpTxtr.url())
-    chartB.tn = chartB.g.append("path")
-      .attr("id", "chartB-tn")
+    sectorsB.tn = pieB.append("path")
+      .attr("id", "sectorsB-tn")
       .datum({innerRadius: 0, outerRadius: radius, startAngle: 0.5 * Math.PI, endAngle: Math.PI})
       .attr("d", arc)
       .style("fill", tnTxtr.url())
-    chartB.fn = chartB.g.append("path")
-      .attr("id", "chartB-fn")
+    sectorsB.fn = pieB.append("path")
+      .attr("id", "sectorsB-fn")
       .datum({innerRadius: 0, outerRadius: radius, startAngle: Math.PI, endAngle: 1.5 * Math.PI})
       .attr("d", arc)
       .style("fill", fnTxtr.url())
-    chartB.tp = chartB.g.append("path")
-      .attr("id", "chartB-tp")
+    sectorsB.tp = pieB.append("path")
+      .attr("id", "sectorsB-tp")
       .datum({innerRadius: 0, outerRadius: radius, startAngle: 1.5 * Math.PI, endAngle: 2 * Math.PI})
       .attr("d", arc)
       .style("fill", tpTxtr.url())
-    chartB.g.selectAll("path")
+    pieB.selectAll("path")
       .attr("stroke", "#222222")
       .attr("stroke-width", 3)
       .attr("opacity", 1)
 
     // Controls
 
-    chartA.posCtrl = chartA.g.append("circle")
-                        .attr("id", "chartA-posCtrl")
+    sectorsA.posCtrl = pieA.append("circle")
+                        .attr("id", "sectorsA-posCtrl")
                         .datum({r: 10, x: 0, y: -ctrlRadius})
                         .attr("r", d => d.r)
                         .attr("cx", d => d.x)
                         .attr("cy", d => d.y)
                         .attr("fill", "#FF0000")
                         .call(d3.drag().on("drag", dragPosCtrlA))
-                        .attr("class", "hidden")
 
-    chartA.negCtrl = chartA.g.append("circle")
-                        .attr("id", "chartA-negCtrl")
+    function dragPosCtrlA(d) {
+      let r = (d3.event.x ** 2 + d3.event.y ** 2) ** 0.5,
+      t = Math.atan2(d3.event.y, d3.event.x)
+      tDegree = t / Math.PI * 180
+      tDegree = clipAngle(tDegree, -162, -18)
+      t = tDegree / 180 * Math.PI
+
+      d3.select(this)
+        .attr("cx", d.x = ctrlRadius * Math.cos(t))
+        .attr("cy", d.y = ctrlRadius * Math.sin(t))
+      startTP = t * 180 / Math.PI + 90
+      sectorsA.fn.transition().duration(0)
+        .attrTween("d", arcTween({start: 288, end: startTP + 360}))
+        .attr("opacity", hi)
+      sectorsA.tp.transition().duration(0)
+        .attrTween("d", arcTween({start: startTP, end: 72}))
+        .attr("opacity", hi)
+    }
+
+    sectorsA.negCtrl = pieA.append("circle")
+                        .attr("id", "sectorsA-negCtrl")
                         .datum({r: 10, x: 0, y: ctrlRadius})
                         .attr("r", d => d.r)
                         .attr("cx", d => d.x)
                         .attr("cy", d => d.y)
                         .attr("fill", "#00FF00")
                         .call(d3.drag().on("drag", dragNegCtrlA))
-                        .attr("class", "hidden")
 
-    chartB.posCtrl = chartB.g.append("circle")
-                        .attr("id", "chartB-posCtrl")
+    sectorsB.posCtrl = pieB.append("circle")
+                        .attr("id", "sectorsB-posCtrl")
                         .datum({r: 10, x: 0, y: -ctrlRadius})
                         .attr("r", d => d.r)
                         .attr("cx", d => d.x)
                         .attr("cy", d => d.y)
                         .attr("fill", "#FF0000")
                         .call(d3.drag().on("drag", dragPosCtrlB))
-                        .attr("class", "hidden")
 
-    chartB.negCtrl = chartB.g.append("circle")
-                        .attr("id", "chartB-negCtrl")
+    sectorsB.negCtrl = pieB.append("circle")
+                        .attr("id", "sectorsB-negCtrl")
                         .datum({r: 10, x: 0, y: ctrlRadius})
                         .attr("r", d => d.r)
                         .attr("cx", d => d.x)
                         .attr("cy", d => d.y)
                         .attr("fill", "#00FF00")
                         .call(d3.drag().on("drag", dragNegCtrlB))
-                        .attr("class", "hidden")
-
-    function dragPosCtrlA(d) {
-      theta = Math.degrees(Math.atan2(d3.event.y, d3.event.x))
-      theta = clipAngle(theta, -162, -18)
-
-      d3.select(this)
-        .attr("cx", d.x = ctrlRadius * Math.cos(Math.radians(theta)))
-        .attr("cy", d.y = ctrlRadius * Math.sin(Math.radians(theta)))
-      startTP = theta + 90
-      chartA.fn.transition().duration(0)
-        .attrTween("d", arcTween({start: 288, end: startTP + 360}))
-        .attr("opacity", hi)
-      chartA.tp.transition().duration(0)
-        .attrTween("d", arcTween({start: startTP, end: 72}))
-        .attr("opacity", hi)
-    }
 
     function dragNegCtrlA(d) {
       let initialT = Math.atan2(d.y, d.x)
@@ -347,13 +313,24 @@ var scrollVis = function () {
       d3.select(this)
         .attr("cx", d.x = ctrlRadius * Math.cos(t))
         .attr("cy", d.y = ctrlRadius * Math.sin(t))
-      
+      sectorsB.negCtrl.attr("cx", d => {
+          prevT = Math.atan2(d.y, d.x)
+          newT = prevT + deltaT
+          d.x = ctrlRadius * Math.cos(newT)
+          return d.x
+        })
+        .attr("cy", d => {
+          prevT = Math.atan2(d.y, d.x)
+          newT = prevT + deltaT
+          d.y = ctrlRadius * Math.sin(newT)
+          return d.y
+        })
       startTN = t * 180 / Math.PI + 90
       while (startTN < 0) startTN += 360
-      chartA.fp.transition().duration(0)
+      sectorsA.fp.transition().duration(0)
         .attrTween("d", arcTween({start: 72, end: startTN}))
         .attr("opacity", hi)
-      chartA.tn.transition().duration(0)
+      sectorsA.tn.transition().duration(0)
         .attrTween("d", arcTween({start: startTN, end: 288}))
         .attr("opacity", hi)
     }
@@ -370,10 +347,10 @@ var scrollVis = function () {
         .attr("cy", d.y = ctrlRadius * Math.sin(t))
       startTP = t * 180 / Math.PI + 90
       while (startTP > 180) startTP -= 360
-      chartB.fn.transition().duration(0)
+      sectorsB.fn.transition().duration(0)
         .attrTween("d", arcTween({start: 252, end: startTP + 360}))
         .attr("opacity", hi)
-      chartB.tp.transition().duration(0)
+      sectorsB.tp.transition().duration(0)
         .attrTween("d", arcTween({start: startTP, end: 108}))
         .attr("opacity", hi)
     }
@@ -390,10 +367,11 @@ var scrollVis = function () {
         .attr("cy", d.y = ctrlRadius * Math.sin(t))
       startTN = t * 180 / Math.PI + 90
       while (startTN < 0) startTN += 360
-      chartB.fp.transition().duration(0)
+      console.log(startTN)
+      sectorsB.fp.transition().duration(0)
         .attrTween("d", arcTween({start: 72, end: startTN}))
         .attr("opacity", hi)
-      chartB.tn.transition().duration(0)
+      sectorsB.tn.transition().duration(0)
         .attrTween("d", arcTween({start: startTN, end: 288}))
         .attr("opacity", hi)
     }
@@ -417,7 +395,7 @@ var scrollVis = function () {
 
     activateFunctions[0] = reset;
     activateFunctions[1] = start;
-    activateFunctions[2] = groupFairness;
+    // activateFunctions[2] = groupFairness;
     // activateFunctions[3] = condStatParity;
     // activateFunctions[4] = predictiveParity;
     // activateFunctions[5] = FPErrorRateBalance;
@@ -470,87 +448,86 @@ var scrollVis = function () {
 
   function reset() {
     title.text("")
-    chartA.fp.transition().duration(500)
-      .attrTween("d", arcTween({start: -90, end: 0}))
-      .attr("opacity", hi)
-    chartA.tn.transition().duration(500)
+    sectorsA.fp.transition().duration(500)
       .attrTween("d", arcTween({start: 0, end: 90}))
       .attr("opacity", hi)
-    chartA.fn.transition().duration(500)
+    sectorsA.tn.transition().duration(500)
       .attrTween("d", arcTween({start: 90, end: 180}))
       .attr("opacity", hi)
-    chartA.tp.transition().duration(500)
+    sectorsA.fn.transition().duration(500)
       .attrTween("d", arcTween({start: 180, end: 270}))
       .attr("opacity", hi)
-    chartB.fp.transition().duration(500)
-      .attrTween("d", arcTween({start: -90, end: 0}))
+    sectorsA.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 270, end: 360}))
       .attr("opacity", hi)
-    chartB.tn.transition().duration(500)
+    sectorsB.fp.transition().duration(500)
       .attrTween("d", arcTween({start: 0, end: 90}))
       .attr("opacity", hi)
-    chartB.fn.transition().duration(500)
+    sectorsB.tn.transition().duration(500)
       .attrTween("d", arcTween({start: 90, end: 180}))
       .attr("opacity", hi)
-    chartB.tp.transition().duration(500)
+    sectorsB.fn.transition().duration(500)
       .attrTween("d", arcTween({start: 180, end: 270}))
       .attr("opacity", hi)
-    textBox.text("Suppose for a moment that dogs are more likely to be fat, as compared to cats. In fact, cats only have a 40% chance of being fat, while dogs have a 60% chance of being fat. Fortunately, a company develops an AI system to diagnose if a pet is fat! Pets diagnosed as fat are then kept on a diet, which means less foo")
+    sectorsB.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 270, end: 360}))
+      .attr("opacity", hi)
   }
 
   function start() {
     title.text("")
-    chartA.fp.transition().duration(500)
-      .attrTween("d", arcTween({start: -90, end: 0.05 * 360}))
+    sectorsA.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.2*360, end: 180}))
       .attr("opacity", hi)
-    chartA.tn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.05 * 360, end: 0.35 * 360}))
+    sectorsA.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: 180, end: 0.8*360}))
       .attr("opacity", hi)
-    chartA.fn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.35 * 360, end: 0.55 * 360}))
+    sectorsA.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.8*360, end: 360}))
       .attr("opacity", hi)
-    chartA.tp.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.55 * 360, end: 270}))
+    sectorsA.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 360, end: 360 * 1.2}))
       .attr("opacity", hi)
-    chartB.fp.transition().duration(500)
-      .attrTween("d", arcTween({start: -90, end: -0.05 * 360}))
+    sectorsB.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.3*360, end: 180}))
       .attr("opacity", hi)
-    chartB.tn.transition().duration(500)
-      .attrTween("d", arcTween({start: -0.05 * 360, end: 0.15 * 360}))
+    sectorsB.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: 180, end: 0.7*360}))
       .attr("opacity", hi)
-    chartB.fn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.15 * 360, end: 0.45 * 360}))
+    sectorsB.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.7*360, end: 360}))
       .attr("opacity", hi)
-    chartB.tp.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.45 * 360, end: 270}))
+    sectorsB.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 360, end: 360 * 1.3}))
       .attr("opacity", hi)
     
   }
 
   function groupFairness() {
     title.text("Group Fairness")
-    chartA.fp.transition().duration(500)
-      .attrTween("d", arcTween({start: -90, end: 0.05 * 360}))
+    sectorsA.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.2*360, end: 180}))
       .attr("opacity", hi)
-    chartA.tn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.05 * 360, end: 0.35 * 360}))
+    sectorsA.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: 180, end: 0.8*360}))
+      .attr("opacity", lo)
+    sectorsA.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.8*360, end: 360}))
+      .attr("opacity", lo)
+    sectorsA.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 360, end: 360 * 1.2}))
       .attr("opacity", hi)
-    chartA.fn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.35 * 360, end: 0.55 * 360}))
+    sectorsB.fp.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.3*360, end: 180}))
       .attr("opacity", hi)
-    chartA.tp.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.55 * 360, end: 270}))
-      .attr("opacity", hi)
-    chartB.fp.transition().duration(500)
-      .attrTween("d", arcTween({start: -90, end: -0.05 * 360}))
-      .attr("opacity", hi)
-    chartB.tn.transition().duration(500)
-      .attrTween("d", arcTween({start: -0.05 * 360, end: 0.15 * 360}))
-      .attr("opacity", hi)
-    chartB.fn.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.15 * 360, end: 0.45 * 360}))
-      .attr("opacity", hi)
-    chartB.tp.transition().duration(500)
-      .attrTween("d", arcTween({start: 0.45 * 360, end: 270}))
+    sectorsB.tn.transition().duration(500)
+      .attrTween("d", arcTween({start: 180, end: 0.7*360}))
+      .attr("opacity", lo)
+    sectorsB.fn.transition().duration(500)
+      .attrTween("d", arcTween({start: 0.7*360, end: 360}))
+      .attr("opacity", lo)
+    sectorsB.tp.transition().duration(500)
+      .attrTween("d", arcTween({start: 360, end: 360 * 1.3}))
       .attr("opacity", hi)
   }
 
@@ -560,28 +537,28 @@ var scrollVis = function () {
 
   function predictiveParity() {
     title.text("Predictive Parity")
-    chartA.fp.transition().duration(500)
+    sectorsA.fp.transition().duration(500)
       .attrTween("d", arcTween({start: 90, end: 180}))
       .attr("opacity", hi)
-    chartA.tn.transition().duration(500)
+    sectorsA.tn.transition().duration(500)
       .attrTween("d", arcTween({start: 180, end: 0.85*360}))
       .attr("opacity", lo)
-    chartA.fn.transition().duration(500)
+    sectorsA.fn.transition().duration(500)
       .attrTween("d", arcTween({start: 0.85*360, end: 360}))
       .attr("opacity", lo)
-    chartA.tp.transition().duration(500)
+    sectorsA.tp.transition().duration(500)
       .attrTween("d", arcTween({start: 360, end: 360 * 1.25}))
       .attr("opacity", hi)
-    chartB.fp.transition().duration(500)
+    sectorsB.fp.transition().duration(500)
       .attrTween("d", arcTween({start: 90, end: 180}))
       .attr("opacity", hi)
-    chartB.tn.transition().duration(500)
+    sectorsB.tn.transition().duration(500)
       .attrTween("d", arcTween({start: 180, end: 0.65*360}))
       .attr("opacity", lo)
-    chartB.fn.transition().duration(500)
+    sectorsB.fn.transition().duration(500)
       .attrTween("d", arcTween({start: 0.65*360, end: 360}))
       .attr("opacity", lo)
-    chartB.tp.transition().duration(500)
+    sectorsB.tp.transition().duration(500)
       .attrTween("d", arcTween({start: 360, end: 360 * 1.25}))
       .attr("opacity", hi)
   }

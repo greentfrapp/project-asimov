@@ -204,7 +204,22 @@ body#guide-body {
 		//margin-left: 0;
 
 		//height: 100%;
-		//width: 600px;
+		width: 800px;
 		//background-color: #ddd;
+
+		.vis-textbox {
+			height: 200px;
+			margin-top: -350px;
+			padding: 0px 100px;
+
+			p {
+				font-size: 16px;
+				font-family: "Roboto";
+			}
+		}
+
+		.hidden {
+			display: none;
+		}
 	}
 }
