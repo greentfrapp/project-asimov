@@ -345,7 +345,7 @@ var scrollVis = function () {
       .attr("height", 35)
       .attr("fill", tpTxtr.url())
       .attr("stroke", "#222222")
-      .attr("stroke-width", 3)
+      .attr("stroke-width", 2)
       .attr("opacity", 0)
     chartA.rect2 = chartA.g.append("rect")
       .attr("id", "chartA-rect2")
@@ -355,7 +355,7 @@ var scrollVis = function () {
       .attr("height", 35)
       .attr("fill", fpTxtr.url())
       .attr("stroke", "#222222")
-      .attr("stroke-width", 3)
+      .attr("stroke-width", 2)
       .attr("opacity", 0)
 
     chartA.pos = chartA.g.append("path")
@@ -390,7 +390,7 @@ var scrollVis = function () {
       .style("fill", tpTxtr.url())
     chartA.g.selectAll("path")
       .attr("stroke", "#222222")
-      .attr("stroke-width", 3)
+      .attr("stroke-width", 2)
       .attr("opacity", 0)
 
     // Chart B
@@ -428,7 +428,7 @@ var scrollVis = function () {
       .attr("height", 35)
       .attr("fill", tpTxtr.url())
       .attr("stroke", "#222222")
-      .attr("stroke-width", 3)
+      .attr("stroke-width", 2)
       .attr("opacity", 0)
     chartB.rect2 = chartB.g.append("rect")
       .attr("id", "chartB-rect2")
@@ -438,7 +438,7 @@ var scrollVis = function () {
       .attr("height", 35)
       .attr("fill", fpTxtr.url())
       .attr("stroke", "#222222")
-      .attr("stroke-width", 3)
+      .attr("stroke-width", 2)
       .attr("opacity", 0)
     chartB.x0 = chartB.g.append("text")
       .attr('id', 'chartB-x0')
@@ -493,7 +493,7 @@ var scrollVis = function () {
       .style("fill", tpTxtr.url())
     chartB.g.selectAll("path")
       .attr("stroke", "#222222")
-      .attr("stroke-width", 3)
+      .attr("stroke-width", 2)
       .attr("opacity", 0)
 
     // Controls
