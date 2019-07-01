@@ -6,7 +6,7 @@
 }
 
 $guide-background-color: #222222 !default;
-$guide-antibackground-color: #DDDDDD !default;
+$guide-antibackground-color: #AAAAAA !default;
 $guide-text-color: #DDDDDD !default;
 $guide-text-secondary-c: #00B0F0 !default;
 $guide-text-secondary-m: #ED2690 !default;
@@ -131,22 +131,20 @@ body#guide-body {
 		transform: translate3d(0, -100%, 0);
 	}
 
-	div.content {
-		width: 90%;
-		margin-left: 10%;
-	}
-
 	div.guide-content {
-		//background-color: $guide-background-color;
-		width: 90%;
-		max-width: 900px;
+		//border: 1px solid red;
+		margin-left: 10%;
+		margin-right: 500px;
+		width: auto;
+		//width: 90%;
+		//max-width: 900px;
 		padding: 100px 0px;
 		
 		ol, ul, p {
 			font-family: 'Lora', serif;
 			font-size: 20px;
 			line-height: 1.5;
-			width: 80%;
+			width: 100%;
 			//margin-left: auto;
 			//margin-right: auto;
 
@@ -157,7 +155,7 @@ body#guide-body {
 		}
 
 		div.step {
-			height: 100px;
+			height: 150px;
 		}
 	}
 
@@ -199,21 +197,24 @@ body#guide-body {
 	}
 
 	#fairness-vis {
+		//border: 1px solid blue;
 		display: inline-block;
 		position: fixed;
 		top: 0px;
 		z-index: 1;
 		right: 0px;
 		//margin-left: 0;
+		margin-right: 25px;
 
 		//height: 100%;
-		width: 800px;
+		width: 500px;
 		//background-color: #ddd;
 
 		.vis-textbox {
+			//border: 1px solid green;
 			height: 200px;
 			margin-top: -250px;
-			padding: 0px 100px;
+			padding: 0px 50px;
 
 			p {
 				font-size: 18px;

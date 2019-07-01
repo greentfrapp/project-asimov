@@ -85,9 +85,9 @@ Math.degrees = function(radians) {
 var scrollVis = function () {
   // constants to define the size
   // and margins of the vis area.
-  var width = 800;
+  var width = 500;
   var height = document.documentElement.clientHeight;
-  var margin = { top: 0, left: 20, bottom: 40, right: 10 };
+  var margin = { top: 0, left: 0, bottom: 40, right: 0 };
 
   // Keep track of which visualization
   // we are on and which was the last
@@ -172,19 +172,39 @@ var scrollVis = function () {
   	title = svg.append('text')
   		.attr('id', 'title')
   		.attr('x', width / 2)
-    	.attr('y', height / 5)
+    	.attr('y', height / 6)
     	.attr('font-family', 'sans-serif')
     	.attr('font-weight', 'bold')
-    	.attr('font-size', 48)
+    	.attr('font-size', 36)
     	.attr('text-anchor', 'middle')
       .attr('fill', '#DDDDDD')
     	.text('')
+    titleTop = svg.append('text')
+      .attr('id', 'title')
+      .attr('x', width / 2)
+      .attr('y', height / 6 - 18)
+      .attr('font-family', 'sans-serif')
+      .attr('font-weight', 'bold')
+      .attr('font-size', 36)
+      .attr('text-anchor', 'middle')
+      .attr('fill', '#DDDDDD')
+      .text('')
+    titleBot = svg.append('text')
+      .attr('id', 'title')
+      .attr('x', width / 2)
+      .attr('y', height / 6 + 18)
+      .attr('font-family', 'sans-serif')
+      .attr('font-weight', 'bold')
+      .attr('font-size', 36)
+      .attr('text-anchor', 'middle')
+      .attr('fill', '#DDDDDD')
+      .text('')
 
     // Pie Charts
 
-    cA = {x: 250, y: 400}
-    cB = {x: 550, y: 400}
-    radius = 125
+    cA = {x: 125, y: 300}
+    cB = {x: 375, y: 300}
+    radius = 100
     ctrlRadius = 135
     chartColors = {
       posDark: "#262d97",
@@ -759,6 +779,8 @@ var scrollVis = function () {
 
   function groupFairness() {
     title.text("Group Fairness")
+    titleTop.text("")
+    titleBot.text("")
     // chartA
     chartA.fp.transition().duration(500)
       .attrTween("d", arcTween({start: -0.3 * 360, end: -0.1 * 360}))
@@ -789,7 +811,9 @@ var scrollVis = function () {
   }
 
   function condStatParity() {
-    title.text("Conditional Statistical Parity")
+    title.text("")
+    titleTop.text("Conditional")
+    titleBot.text("Statistical Parity")
     chartA.fp.transition().duration(500)
       .attrTween("d", arcTween({start: -0.3 * 360, end: -0.1 * 360}))
       .attr("opacity", hi)
@@ -819,6 +843,8 @@ var scrollVis = function () {
 
   function predictiveParity() {
     title.text("Predictive Parity")
+    titleTop.text("")
+    titleBot.text("")
     chartA.fp.transition().duration(500)
       .attrTween("d", arcTween({start: -0.3 * 360, end: -0.25 * 360}))
       .attr("opacity", hi)
@@ -847,7 +873,9 @@ var scrollVis = function () {
   }
 
   function FPErrorRateBalance() {
-    title.text("False Positive Error Rate Balance")
+    title.text("")
+    titleTop.text("False Positive")
+    titleBot.text("Error Rate Balance")
     chartA.fp.transition().duration(500)
       .attrTween("d", arcTween({start: -0.3 * 360, end: -0.1 * 360}))
       .attr("opacity", hi)
@@ -894,7 +922,9 @@ var scrollVis = function () {
   }
 
   function FNErrorRateBalance() {
-    title.text("False Negative Error Rate Balance")
+    title.text("")
+    titleTop.text("False Negative")
+    titleBot.text("Error Rate Balance")
     chartA.fp.transition().duration(500)
       .attrTween("d", arcTween({start: -0.3 * 360, end: -0.1 * 360}))
       .attr("opacity", lo)
@@ -924,6 +954,8 @@ var scrollVis = function () {
 
   function equalisedOdds() {
     title.text("Equalised Odds")
+    titleTop.text("")
+    titleBot.text("")
     chartA.fp.transition().duration(500)
       .attrTween("d", arcTween({start: -0.3 * 360, end: -0.1 * 360}))
       .attr("opacity", hi)
@@ -952,7 +984,9 @@ var scrollVis = function () {
   }
 
   function condUseAccuracyEquality() {
-    title.text("Conditional Use Accuracy Equality")
+    title.text("")
+    titleTop.text("Conditional Use")
+    titleBot.text("Accuracy Equality")
     chartA.fp.transition().duration(500)
       .attrTween("d", arcTween({start: -0.3 * 360, end: -0.233 * 360}))
       .attr("opacity", hi)
@@ -982,6 +1016,8 @@ var scrollVis = function () {
 
   function overallAccuracyEquality() {
     title.text("Overall Accuracy Equality")
+    titleTop.text("")
+    titleBot.text("")
     chartA.fp.transition().duration(500)
       .attrTween("d", arcTween({start: -0.3 * 360, end: 0}))
       .attr("opacity", mid)
@@ -1081,26 +1117,38 @@ var scrollVis = function () {
 
   function causalDiscrimination() {
     title.text("Causal Discrimination")
+    titleTop.text("")
+    titleBot.text("")
   }
 
   function unawareness() {
-    title.text("Fairness through Unawareness")
+    title.text("")
+    titleTop.text("Fairness")
+    titleBot.text("through Unawareness")
   }
 
   function awareness() {
-    title.text("Fairness through Awareness")
+    title.text("")
+    titleTop.text("Fairness")
+    titleBot.text("through Awareness")
   }
 
   function counterfactual() {
     title.text("Counterfactual Fairness")
+    titleTop.text("")
+    titleBot.text("")
   }
 
   function noUnresolvedDisc() {
-    title.text("No Unresolved Discrimination")
+    title.text("")
+    titleTop.text("No Unresolved")
+    titleBot.text("Discrimination")
   }
 
   function noProxyDisc() {
     title.text("No Proxy Discrimination")
+    titleTop.text("")
+    titleBot.text("")
   }
 
   function fairInference() {
