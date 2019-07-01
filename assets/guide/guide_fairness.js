@@ -213,10 +213,14 @@ var scrollVis = function () {
     radius = 100
     ctrlRadius = 135
     chartColors = {
-      posDark: "#262d97",
-      posLight: "#9ecadd",
-      negDark: "#f14702",
-      negLight: "#ffc409"
+      // posDark: "#262d97",
+      // posLight: "#9ecadd",
+      // negDark: "#f14702",
+      // negLight: "#ffc409"
+      posDark: "#036ecd",
+      posLight: "#dddddd",
+      negDark: "#f3442d",
+      negLight: "#dddddd"
     }
 
     // Textures https://riccardoscalco.it/textures/
@@ -257,7 +261,27 @@ var scrollVis = function () {
       .strokeWidth(2)
       .stroke(chartColors.negLight)
       .background(chartColors.posDark)
-      .complement()
+      .complement(),
+    tnTxtr = textures.lines()
+      .heavier()
+      .stroke(chartColors.negLight)
+      .background(chartColors.negDark),
+    tpTxtr = textures.lines()
+      .heavier()
+      .stroke(chartColors.posLight)
+      .background(chartColors.posDark),
+    fpTxtr = textures.paths()
+      .d(s => '')
+      .background(chartColors.negDark),
+    fnTxtr = textures.paths()
+      .d(s => '')
+      .background(chartColors.posDark),
+    negTxtr = textures.paths()
+      .d(s => '')
+      .background(chartColors.negDark),
+    posTxtr = textures.paths()
+      .d(s => '')
+      .background(chartColors.posDark)
     
     svg.call(posTxtr)
     svg.call(negTxtr)
