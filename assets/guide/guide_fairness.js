@@ -5,7 +5,11 @@ let rectScale = d3.scaleLinear()
   .domain([0, 1])
   .range([0, 250]);
 
-d3.select("#fairness-vis").style("right", document.documentElement.clientWidth * 0.05 + "px")
+if (document.documentElement.clientWidth > 1500) {
+  d3.select("#fairness-vis").style("right", (document.documentElement.clientWidth - 1400) * 0.5 + "px")
+} else {
+  d3.select("#fairness-vis").style("right", document.documentElement.clientWidth * 0.05 + "px")
+}
 
 function arcTween ({r=null, start=null, end=null, degrees=true, shift=Math.PI/2, shortest=true}) {
 

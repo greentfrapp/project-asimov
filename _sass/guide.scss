@@ -140,6 +140,11 @@ body#guide-body {
 		//max-width: 500px;
 		padding: 100px 0px;
 		padding-right: 25px;
+
+		@media(min-width: 1500px) {
+			width: 900px;
+			margin-left: calc((100% - 1400px) / 2);
+		}
 		
 		ol, ul, p {
 			font-family: 'Lora', serif;
