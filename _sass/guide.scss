@@ -12,6 +12,8 @@ $guide-text-secondary-c: #00B0F0 !default;
 $guide-text-secondary-m: #ED2690 !default;
 $guide-text-secondary-y: #FFF33F !default;
 $guide-antitext-color: #222222 !default;
+$guide-negative-color: #f3442d !default;
+$guide-positive-color: #036ecd !default;
 
 body#guide-body {
 	background-color: $guide-background-color;
@@ -230,6 +232,34 @@ body#guide-body {
 
 		.hidden {
 			display: none;
+		}
+	}
+	#fairness-explorable {
+		.ui.statistics .statistic .value,
+		.ui.statistics .statistic .label {
+			color: $guide-text-color; 
+		}
+		.ui.statistics .statistic.hover-neg .value,
+		.ui.statistics .statistic.hover-neg .label {
+			color: lighten($guide-negative-color, 20%); 
+		}
+		.ui.statistics .statistic.hover-pos .value,
+		.ui.statistics .statistic.hover-pos .label {
+			color: lighten($guide-positive-color, 20%); 
+		}
+		.ui.statistics .statistic .label {
+			font-size: 1rem;
+		}
+		.ui.statistics .statistic {
+			margin-left: 0.5em;
+			margin-right: 0.5em;
+		}
+		#chartA-stats, #chartB-stats {
+			margin: 0px 40px;
+			display: inline-block;
+		}
+		#fairness-types {
+			margin-top: 25px;
 		}
 	}
 }
