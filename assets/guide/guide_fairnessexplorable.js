@@ -6,6 +6,216 @@ Math.degrees = function(radians) {
   return radians * 180 / Math.PI;
 };
 
+const annotations = [
+  {
+    note: {
+      title: "Real Positives",
+      label: "Fat animals (in blue).",
+      padding: 3,
+      align: "middle",
+      wrap: 100
+    },
+    className: "tooltip-real-pos tooltip-base1",
+    x: 332,
+    y: 233,
+    dx: -33,
+    dy: -31,
+    subject: {
+      width: 89,
+      height: 135
+    },
+    color: "#fccf35",
+    type: d3.annotationCalloutRect
+  },
+  {
+    note: {
+      title: "Real Negatives",
+      label: "Thin animals (in red).",
+      padding: 3,
+      align: "middle",
+      wrap: 100
+    },
+    className: "tooltip-real-neg tooltip-base1",
+    x: 179,
+    y: 234,
+    dx: 119,
+    dy: 164,
+    subject: {
+      width: 89,
+      height: 135
+    },
+    color: "#fccf35",
+    type: d3.annotationCalloutRect
+  },
+  {
+    note: {
+      title: "Predicted Positives",
+      label: "Animals predicted fat (blue-striped).",
+      padding: 3,
+      align: "middle",
+      wrap: 150
+    },
+    className: "tooltip-pred-pos tooltip-base2",
+    x: 333,
+    y: 216,
+    dx: -33,
+    dy: -33,
+    subject: {
+      width: 180,
+      height: 75
+    },
+    color: "#fccf35",
+    type: d3.annotationCalloutRect
+  },
+  {
+    note: {
+      title: "Predicted Negatives",
+      label: "Animals predicted not fat (no stripes).",
+      padding: 3,
+      align: "middle",
+      wrap: 150
+    },
+    className: "tooltip-pred-neg tooltip-base2",
+    x: 85,
+    y: 310,
+    dx: 212,
+    dy: 107,
+    subject: {
+      width: 180,
+      height: 75
+    },
+    color: "#fccf35",
+    type: d3.annotationCalloutRect
+  },
+  {
+    note: {
+      title: "True Positives",
+      label: "Fat cats that got caught.",
+      padding: 3,
+      align: "right",
+      wrap: 100
+    },
+    className: "tooltip-tp tooltip-Cats",
+    x: 130,
+    y: 266,
+    dx: -26,
+    dy: -66,
+    color: "#fccf35"
+  },
+  {
+    note: {
+      title: "False Positives",
+      label: "Thin cats that got predicted fat.",
+      padding: 3,
+      align: "left",
+      wrap: 100
+    },
+    className: "tooltip-fp tooltip-Cats",
+    x: 207,
+    y: 253,
+    dx: 36,
+    dy: -57,
+    color: "#fccf35"
+  },
+  {
+    note: {
+      title: "True Negatives",
+      label: "Thin cats that got predicted thin.",
+      padding: 3,
+      align: "left",
+      wrap: 100
+    },
+    className: "tooltip-tn tooltip-Cats",
+    x: 213,
+    y: 354,
+    dx: 35,
+    dy: 50,
+    color: "#fccf35"
+  },
+  {
+    note: {
+      title: "False Negatives",
+      label: "Fat cats that escaped.",
+      padding: 3,
+      align: "right",
+      wrap: 100
+    },
+    className: "tooltip-fn tooltip-Cats",
+    x: 133,
+    y: 342,
+    dx: -26,
+    dy: 63,
+    color: "#fccf35",
+    type: d3.annotationCallout
+  },
+  {
+    note: {
+      title: "True Positives",
+      label: "Fat dogs that got caught.",
+      padding: 3,
+      align: "right",
+      wrap: 100
+    },
+    className: "tooltip-tp tooltip-Dogs",
+    x: 130+250,
+    y: 266,
+    dx: -26,
+    dy: -66,
+    color: "#fccf35"
+  },
+  {
+    note: {
+      title: "False Positives",
+      label: "Thin dogs that got predicted fat.",
+      padding: 3,
+      align: "left",
+      wrap: 100
+    },
+    className: "tooltip-fp tooltip-Dogs",
+    x: 207+250,
+    y: 253,
+    dx: 36,
+    dy: -57,
+    color: "#fccf35"
+  },
+  {
+    note: {
+      title: "True Negatives",
+      label: "Thin dogs that got predicted thin.",
+      padding: 3,
+      align: "left",
+      wrap: 100
+    },
+    className: "tooltip-tn tooltip-Dogs",
+    x: 213+250,
+    y: 354,
+    dx: 35,
+    dy: 50,
+    color: "#fccf35"
+  },
+  {
+    note: {
+      title: "False Negatives",
+      label: "Fat dogs that escaped.",
+      padding: 3,
+      align: "right",
+      wrap: 100
+    },
+    className: "tooltip-fn tooltip-Dogs",
+    x: 133+250,
+    y: 342,
+    dx: -26,
+    dy: 63,
+    color: "#fccf35",
+    type: d3.annotationCallout
+  }
+]
+
+const makeAnnotations = d3.annotation()
+  // .editMode(true)
+  // .type(d3.annotationCallout)
+  .annotations(annotations)
+
 function initChart(holder, self, c, name, percs) {
   holder.g = self.svg.append("g")
     .attr("id", `${name}-g`)
@@ -27,8 +237,14 @@ function initChart(holder, self, c, name, percs) {
     .style("fill", self.txtrs.fp.url())
     .on("mouseover.sector", mouseoverSector)
     .on("mouseout.sector", mouseoutSector)
-    .on("mouseover.fp", d => holder.hover.fp = true)
-    .on("mouseout.fp", d => holder.hover.fp = false)
+    .on("mouseover.fp", d => {
+      holder.hover.fp = true
+      d3.select(`.tooltip-fp.tooltip-${name}`).classed("hidden", false)
+    })
+    .on("mouseout.fp", d => {
+      holder.hover.fp = false
+      d3.select(`.tooltip-fp.tooltip-${name}`).classed("hidden", true)
+    })
   holder.tn = holder.g.append("path")
     .attr("id", `${name}-tn`)
     .datum({innerRadius: 0, outerRadius: self.pieParams.r, startAngle: self.pieScale(percs.tn.start), endAngle: self.pieScale(percs.tn.end)})
@@ -36,8 +252,14 @@ function initChart(holder, self, c, name, percs) {
     .style("fill", self.txtrs.tn.url())
     .on("mouseover.sector", mouseoverSector)
     .on("mouseout.sector", mouseoutSector)
-    .on("mouseover.tn", d => holder.hover.tn = true)
-    .on("mouseout.tn", d => holder.hover.tn = false)
+    .on("mouseover.tn", d => {
+      holder.hover.tn = true
+      d3.select(`.tooltip-tn.tooltip-${name}`).classed("hidden", false)
+    })
+    .on("mouseout.tn", d => {
+      holder.hover.tn = false
+      d3.select(`.tooltip-tn.tooltip-${name}`).classed("hidden", true)
+    })
   holder.fn = holder.g.append("path")
     .attr("id", `${name}-fn`)
     .datum({innerRadius: 0, outerRadius: self.pieParams.r, startAngle: self.pieScale(percs.fn.start), endAngle: self.pieScale(percs.fn.end)})
@@ -45,8 +267,14 @@ function initChart(holder, self, c, name, percs) {
     .style("fill", self.txtrs.fn.url())
     .on("mouseover.sector", mouseoverSector)
     .on("mouseout.sector", mouseoutSector)
-    .on("mouseover.fn", d => holder.hover.fn = true)
-    .on("mouseout.fn", d => holder.hover.fn = false)
+    .on("mouseover.fn", d => {
+      holder.hover.fn = true
+      d3.select(`.tooltip-fn.tooltip-${name}`).classed("hidden", false)
+    })
+    .on("mouseout.fn", d => {
+      holder.hover.fn = false
+      d3.select(`.tooltip-fn.tooltip-${name}`).classed("hidden", true)
+    })
   holder.tp = holder.g.append("path")
     .attr("id", `${name}-tp`)
     .datum({innerRadius: 0, outerRadius: self.pieParams.r, startAngle: self.pieScale(percs.tp.start), endAngle: self.pieScale(percs.tp.end)})
@@ -54,8 +282,14 @@ function initChart(holder, self, c, name, percs) {
     .style("fill", self.txtrs.tp.url())
     .on("mouseover.sector", mouseoverSector)
     .on("mouseout.sector", mouseoutSector)
-    .on("mouseover.tp", d => holder.hover.tp = true)
-    .on("mouseout.tp", d => holder.hover.tp = false)
+    .on("mouseover.tp", d => {
+      holder.hover.tp = true
+      d3.select(`.tooltip-tp.tooltip-${name}`).classed("hidden", false)
+    })
+    .on("mouseout.tp", d => {
+      holder.hover.tp = false
+      d3.select(`.tooltip-tp.tooltip-${name}`).classed("hidden", true)
+    })
   holder.g.selectAll("path")
     .attr("stroke", "#222222")
     .attr("stroke-width", 2)
@@ -102,6 +336,7 @@ function initChart(holder, self, c, name, percs) {
   // Positive Control
   holder.posCtrl = holder.g.append("circle")
     .attr("id", `${name}-posCtrl`)
+    .attr("class", "chart-control")
     .datum({r: 10, x: -self.pieParams.ctrlR, y: 0})
     .attr("r", d => d.r)
     .attr("cx", d => d.x)
@@ -119,17 +354,42 @@ function initChart(holder, self, c, name, percs) {
       d3.select(this)
         .attr("cx", d.x = self.pieParams.ctrlR * Math.cos(t))
         .attr("cy", d.y = self.pieParams.ctrlR * Math.sin(t))
+      // Update TP
       holder.tp.transition().duration(0)
         .attrTween("d", self.arcTween({start: t + Math.PI / 2, end: self.pieScale(percs.tp.end)}))
       holder.vals.tp = Math.round(100 * (percs.tp.end - (t + Math.PI / 2) / (2 * Math.PI)))
+      // Update FN
       holder.fn.transition().duration(0)
         .attrTween("d", self.arcTween({start: self.pieScale(percs.fn.start), end: t + Math.PI / 2}))
       holder.vals.fn = Math.round(100 * ((t + Math.PI / 2) / (2 * Math.PI) - percs.fn.start))
+      // Update tooltips
+      self.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", false);
+      tpMidAngle = (self.pieScale(percs.tp.end) + t + Math.PI / 2) / 2 - Math.PI / 2
+      tpMidX = 50 * Math.cos(tpMidAngle) + c.x
+      tpMidY = 50 * Math.sin(tpMidAngle) + c.y
+      d3.selectAll(`.tooltip-tp.tooltip-${name}`).each(d => {
+        d.x = tpMidX
+        d.y = tpMidY
+        d.dx = name == "Cats" ? 104-tpMidX : 104-tpMidX + 250
+        d.dy = 200-tpMidY
+      })
+      fnMidAngle = (self.pieScale(percs.fn.start) + t + Math.PI / 2) / 2 - Math.PI / 2
+      fnMidX = 50 * Math.cos(fnMidAngle) + c.x
+      fnMidY = 50 * Math.sin(fnMidAngle) + c.y
+      d3.selectAll(`.tooltip-fn.tooltip-${name}`).each(d => {
+        d.x = fnMidX
+        d.y = fnMidY
+        d.dx = name == "Cats" ? 107-fnMidX : 107-fnMidX + 250
+        d.dy = 405-fnMidY
+      })
+      makeAnnotations.update()
+      self.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", true);
     }))
 
   // Negative Control
   holder.negCtrl = holder.g.append("circle")
     .attr("id", `${name}-negCtrl`)
+    .attr("class", "chart-control")
     .datum({r: 10, x: self.pieParams.ctrlR, y: 0})
     .attr("r", d => d.r)
     .attr("cx", d => d.x)
@@ -149,10 +409,32 @@ function initChart(holder, self, c, name, percs) {
         holder.tn.transition().duration(0)
           .attrTween("d", self.arcTween({start: t + Math.PI / 2, end: self.pieScale(percs.tn.end)}))
         holder.vals.tn = Math.round(100 * (percs.tn.end - (t + Math.PI / 2) / (2 * Math.PI)))
+        // Update tooltips
+        self.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", false);
+        tnMidAngle = (self.pieScale(percs.tn.end) + t + Math.PI / 2) / 2 - Math.PI / 2
+        tnMidX = 50 * Math.cos(tnMidAngle) + c.x
+        tnMidY = 50 * Math.sin(tnMidAngle) + c.y
+        d3.selectAll(`.tooltip-tn.tooltip-${name}`).each(d => {
+          d.x = tnMidX
+          d.y = tnMidY
+          d.dx = name == "Cats" ? 248-tnMidX : 248-tnMidX + 250
+          d.dy = 404-tnMidY
+        })
         t += 2 * Math.PI
         holder.fp.transition().duration(0)
           .attrTween("d", self.arcTween({start: self.pieScale(percs.fp.start), end: t + Math.PI / 2}))
         holder.vals.fp = Math.round(100 * ((t + Math.PI / 2) / (2 * Math.PI) - percs.fp.start))
+        fpMidAngle = (self.pieScale(percs.fp.start) + t + Math.PI / 2) / 2 - Math.PI / 2
+        fpMidX = 50 * Math.cos(fpMidAngle) + c.x
+        fpMidY = 50 * Math.sin(fpMidAngle) + c.y
+        d3.selectAll(`.tooltip-fp.tooltip-${name}`).each(d => {
+          d.x = fpMidX
+          d.y = fpMidY
+          d.dx = name == "Cats" ? 243-fpMidX : 243-fpMidX + 250
+          d.dy = 200-fpMidY
+        })
+        makeAnnotations.update()
+        self.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", true);
       } else {
         t += Math.PI / 2
         if (t < self.pieScale(percs.fp.start)) t = self.pieScale(percs.fp.start)
@@ -163,10 +445,32 @@ function initChart(holder, self, c, name, percs) {
         holder.fp.transition().duration(0)
           .attrTween("d", self.arcTween({start: self.pieScale(percs.fp.start), end: t + Math.PI / 2}))
         holder.vals.fp = Math.round(100 * ((t + Math.PI / 2) / (2 * Math.PI) - percs.fp.start))
+        // Update tooltips
+        self.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", false);
+        fpMidAngle = (self.pieScale(percs.fp.start) + t + Math.PI / 2) / 2 - Math.PI / 2
+        fpMidX = 50 * Math.cos(fpMidAngle) + c.x
+        fpMidY = 50 * Math.sin(fpMidAngle) + c.y
+        d3.selectAll(`.tooltip-fp.tooltip-${name}`).each(d => {
+          d.x = fpMidX
+          d.y = fpMidY
+          d.dx = name == "Cats" ? 243-fpMidX : 243-fpMidX + 250
+          d.dy = 200-fpMidY
+        })
         t -= 2 * Math.PI
         holder.tn.transition().duration(0)
           .attrTween("d", self.arcTween({start: t + Math.PI / 2, end: self.pieScale(percs.tn.end)}))
         holder.vals.tn = Math.round(100 * (percs.tn.end - (t + Math.PI / 2) / (2 * Math.PI)))
+        tnMidAngle = (self.pieScale(percs.tn.end) + t + Math.PI / 2) / 2 - Math.PI / 2
+        tnMidX = 50 * Math.cos(tnMidAngle) + c.x
+        tnMidY = 50 * Math.sin(tnMidAngle) + c.y
+        d3.selectAll(`.tooltip-tn.tooltip-${name}`).each(d => {
+          d.x = tnMidX
+          d.y = tnMidY
+          d.dx = name == "Cats" ? 248-tnMidX : 248-tnMidX + 250
+          d.dy = 404-tnMidY
+        })
+        makeAnnotations.update()
+        self.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", true);
       }
     }))
 
@@ -201,11 +505,11 @@ let fairnessExplorable = {
                       .heavier()
                       .stroke(this.colors.posLight)
                       .background(this.colors.posDark)
-    this.txtrs.tn = textures.lines()
+    this.txtrs.fp = textures.lines()
                       .heavier()
-                      .stroke(this.colors.negLight)
+                      .stroke(this.colors.posLight)
                       .background(this.colors.negDark)
-    this.txtrs.fp = textures.paths()
+    this.txtrs.tn = textures.paths()
                       .d(s => '')
                       .background(this.colors.negDark)
     this.txtrs.fn = textures.paths()
@@ -234,14 +538,19 @@ let fairnessExplorable = {
         fn: {start: .45, end: .75},
       }
     }
-    initChart(this.charts.A, this, this.pieParams.cA, "chartA", percs.A)
-    initChart(this.charts.B, this, this.pieParams.cB, "chartB", percs.B)
+    initChart(this.charts.A, this, this.pieParams.cA, "Cats", percs.A)
+    initChart(this.charts.B, this, this.pieParams.cB, "Dogs", percs.B)
+    this.svg.append("g")
+      .attr("class", "annotation-group")
+      .call(makeAnnotations)
+    //HERE
+    this.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", true);
   },
   beforeDestroy: function () {},
   data: function () {
     return {
       svgHeight: 500,
-      svgWidth: 800,
+      svgWidth: 600,
       arc: d3.arc(),
       pieScale: d3.scaleLinear()
                   .domain([0, 1])
@@ -255,7 +564,9 @@ let fairnessExplorable = {
       },
       colors: {
         posDark: "#036ecd",
-        posLight: "#dddddd",
+        // posLight: "#dddddd",
+        // posLight: "#262d97", //darkblue
+        posLight: "#9ecadd", //liteblue
         negDark: "#f3442d",
         negLight: "#dddddd"
       },
@@ -284,16 +595,24 @@ let fairnessExplorable = {
       fnErrorBalance = this.comparePerc((this.charts.A.vals.fn / (this.charts.A.vals.fn + this.charts.A.vals.tp)), (this.charts.B.vals.fn / (this.charts.B.vals.fn + this.charts.B.vals.tp)))
       //equalisedOdds
       equalisedOdds = fpErrorBalance && fnErrorBalance
+      //condUseAccuracyEquality
+      condUseAccuracyEqualityPos = this.comparePerc((this.charts.A.vals.tp / (this.charts.A.vals.tp + this.charts.A.vals.fp)), (this.charts.B.vals.tp / (this.charts.B.vals.tp + this.charts.B.vals.fp)))
+      condUseAccuracyEqualityNeg = this.comparePerc((this.charts.A.vals.tn / (this.charts.A.vals.tn + this.charts.A.vals.fn)), (this.charts.B.vals.tn / (this.charts.B.vals.tn + this.charts.B.vals.fn)))
+      condUseAccuracyEquality = condUseAccuracyEqualityPos && condUseAccuracyEqualityNeg
+      //overallAccuracyEquality
+      overallAccuracyEquality = this.comparePerc((this.charts.A.vals.tp + this.charts.A.vals.tn), (this.charts.B.vals.tp + this.charts.B.vals.tn))
+      //treatmentEquality
+      treatmentEquality = this.comparePerc((this.charts.A.vals.fp / this.charts.A.vals.fn), (this.charts.B.vals.fp / this.charts.B.vals.fn))
       return {
         groupFairness: groupFairness,
         predictiveParity: predictiveParity,
         fpErrorBalance: fpErrorBalance,
         fnErrorBalance: fnErrorBalance,
-        equalisedOdds: equalisedOdds
+        equalisedOdds: equalisedOdds,
+        condUseAccuracyEqualityPos: condUseAccuracyEqualityPos,
+        overallAccuracyEquality: overallAccuracyEquality,
+        treatmentEquality: treatmentEquality
       }
-    },
-    test: function () {
-      return this.charts.A.vals
     }
   },
   methods: {
@@ -331,11 +650,20 @@ let fairnessExplorable = {
       } else {
         return false
       }
+    },
+    showTooltip: function(className) {
+      d3.selectAll(`.${className}`).classed("hidden", false)
+    },
+    hideTooltip: function(className) {
+      d3.selectAll(`.${className}`).classed("hidden", true)
     }
   },
   template: 
   `<div id="fairness-explorable">
     <svg></svg>
+    <div id="fairness-types">
+      <a class="ui big label" :class="{grey: !value, green: value}" v-for="(value, key) in fairnessTypes">{{key}}</a>
+    </div>
     <div>
       <div id="chartA-stats">
         <div class="ui tiny statistics">
@@ -414,8 +742,9 @@ let fairnessExplorable = {
         </div>
       </div>
     </div>
-    <div id="fairness-types">
-      <a class="ui big label" :class="{grey: !value, green: value}" v-for="(value, key) in fairnessTypes">{{key}}</a>
+    <div id="tooltip-qns">
+      <p @mouseover="showTooltip('tooltip-base1')" @mouseout="hideTooltip('tooltip-base1')">What do the colors mean?</p>
+      <p @mouseover="showTooltip('tooltip-base2')" @mouseout="hideTooltip('tooltip-base2')">What do the stripes mean?</p>
     </div>
   </div>`
 }

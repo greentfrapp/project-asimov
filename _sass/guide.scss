@@ -136,7 +136,7 @@ body#guide-body {
 	div.guide-content {
 		//border: 1px solid red;
 		margin-left: 5%;
-		margin-right: 550px;
+		//margin-right: 550px;
 		width: auto;
 		//width: 90%;
 		//max-width: 500px;
@@ -260,6 +260,24 @@ body#guide-body {
 		}
 		#fairness-types {
 			margin-top: 25px;
+			display: inline-block;
+			width: 250px;
+			.label {
+				width: 250px;
+				margin: 1px 0px;
+			}
+		}
+		circle.chart-control:hover {
+			cursor: move;
+		}
+		.hidden {
+			display: none;
+		}
+		g.annotation-group {
+			font-size: 1rem;
+		}
+		#tooltip-qns {
+			margin: 25px 0px;
 		}
 	}
 }
