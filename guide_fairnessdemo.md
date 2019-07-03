@@ -6,23 +6,23 @@ permalink: /guide/fairnessdemo/
 
 # Fairness
 
-To lay the ground for the examples of algorithmic bias, we first ask, "What is fairness?"
+To lay the ground for algorithmic bias, we first ask, "What do you mean by fairness?"
 
-This section is a non-exhaustive list of the many technical definitions of fairness. 20 definitions are presented here, following <dt-cite cite="verma2018fairness"></dt-cite>. There is no single *right* definition. In fact, several of these definitions can be mutually exclusive <dt-cite cite="chouldechova2017fair,kleinberg2016inherent"></dt-cite>.
+## A Fair Fat Pet Predictor
 
-The key lesson here is to think about what kind of **fairness** are we adopting and to communicate this clearly to users. 
+To help put things in perspective, we will use a fictional example of a Fat Pet Predictor.
 
-## Fat Cats and Dogs
+Suppose for a moment that our company organizes diet boot camps for overweight cats and dogs. We want to develop an AI system to help owners diagnose if a pet is overweight. Pets diagnosed as fat are then sent to our boot camps, which means less food and no treats boohoo. Furthermore, we know that dogs are more likely to be fat, as compared to cats. In fact, cats only have a 40% chance of being overweight, while dogs have a 60% chance of being overweight.
 
-To help visualize the different fairness definitions, we will use a fictional example of a Fat Pet Predictor.
-
-Suppose for a moment that dogs are more likely to be fat, as compared to cats. In fact, cats only have a 40% chance of being fat, while dogs have a 60% chance of being fat.
-
-Fortunately, a company develops an AI system to diagnose if a pet is fat! Pets diagnosed as fat are then kept on a diet, which means less food and no treats boohoo.
-
-In the charts on the right, fat animals are represented in orange and circles and thin animals are represented in dark blue and squares. On top of that, animals predicted fat are represented in light blue and solid shapes. Animals predicted thin are presented in yellow and empty shapes. 
+In the charts below, we can tune our AI system's accuracy for cats and dogs (if only it was so easy!). The charts on the left and right represent the resulting predictions for cats and dogs respectively. The truth is shown by the colors of the sectors - red for fat and blue for not fat. Positive (fat) predictions by our AI system are shown by the striped sectors. In other words, sectors with blue stripes on blue background and no stripes on red background are correct predictions. The other two sectors represent wrong predictions.
 
 <fairness-explorable></fairness-explorable>
+
+## 
+
+This section is a non-exhaustive list of the many technical definitions of fairness. 20 definitions are presented here, following Verma and Rubin <dt-cite cite="verma2018fairness"></dt-cite> and Narayanan. There is no single *right* definition. In fact, several of these definitions can be mutually exclusive <dt-cite cite="chouldechova2017fair,kleinberg2016inherent"></dt-cite>.
+
+The key lesson here is to think about what kind of **fairness** are we adopting and to communicate this clearly to users.
 
 ---
 
