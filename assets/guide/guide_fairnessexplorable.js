@@ -17,7 +17,7 @@ const annotations = [
     },
     className: "tooltip-real-pos tooltip-base1",
     x: 332,
-    y: 233,
+    y: 133,
     dx: -33,
     dy: -31,
     subject: {
@@ -37,7 +37,7 @@ const annotations = [
     },
     className: "tooltip-real-neg tooltip-base1",
     x: 179,
-    y: 234,
+    y: 134,
     dx: 119,
     dy: 164,
     subject: {
@@ -57,7 +57,7 @@ const annotations = [
     },
     className: "tooltip-pred-pos tooltip-base2",
     x: 333,
-    y: 216,
+    y: 116,
     dx: -33,
     dy: -33,
     subject: {
@@ -77,7 +77,7 @@ const annotations = [
     },
     className: "tooltip-pred-neg tooltip-base2",
     x: 85,
-    y: 310,
+    y: 210,
     dx: 212,
     dy: 107,
     subject: {
@@ -97,7 +97,7 @@ const annotations = [
     },
     className: "tooltip-tp tooltip-Cats",
     x: 130,
-    y: 266,
+    y: 166,
     dx: -26,
     dy: -66,
     color: "#fccf35"
@@ -112,7 +112,7 @@ const annotations = [
     },
     className: "tooltip-fp tooltip-Cats",
     x: 207,
-    y: 253,
+    y: 153,
     dx: 36,
     dy: -57,
     color: "#fccf35"
@@ -127,7 +127,7 @@ const annotations = [
     },
     className: "tooltip-tn tooltip-Cats",
     x: 213,
-    y: 354,
+    y: 254,
     dx: 35,
     dy: 50,
     color: "#fccf35"
@@ -142,7 +142,7 @@ const annotations = [
     },
     className: "tooltip-fn tooltip-Cats",
     x: 133,
-    y: 342,
+    y: 242,
     dx: -26,
     dy: 63,
     color: "#fccf35",
@@ -158,7 +158,7 @@ const annotations = [
     },
     className: "tooltip-tp tooltip-Dogs",
     x: 130+250,
-    y: 266,
+    y: 166,
     dx: -26,
     dy: -66,
     color: "#fccf35"
@@ -173,7 +173,7 @@ const annotations = [
     },
     className: "tooltip-fp tooltip-Dogs",
     x: 207+250,
-    y: 253,
+    y: 153,
     dx: 36,
     dy: -57,
     color: "#fccf35"
@@ -188,7 +188,7 @@ const annotations = [
     },
     className: "tooltip-tn tooltip-Dogs",
     x: 213+250,
-    y: 354,
+    y: 254,
     dx: 35,
     dy: 50,
     color: "#fccf35"
@@ -203,7 +203,7 @@ const annotations = [
     },
     className: "tooltip-fn tooltip-Dogs",
     x: 133+250,
-    y: 342,
+    y: 242,
     dx: -26,
     dy: 63,
     color: "#fccf35",
@@ -371,7 +371,7 @@ function initChart(holder, self, c, name, percs) {
         d.x = tpMidX
         d.y = tpMidY
         d.dx = name == "Cats" ? 104-tpMidX : 104-tpMidX + 250
-        d.dy = 200-tpMidY
+        d.dy = 100-tpMidY
       })
       fnMidAngle = (self.pieScale(percs.fn.start) + t + Math.PI / 2) / 2 - Math.PI / 2
       fnMidX = 50 * Math.cos(fnMidAngle) + c.x
@@ -380,7 +380,7 @@ function initChart(holder, self, c, name, percs) {
         d.x = fnMidX
         d.y = fnMidY
         d.dx = name == "Cats" ? 107-fnMidX : 107-fnMidX + 250
-        d.dy = 405-fnMidY
+        d.dy = 305-fnMidY
       })
       makeAnnotations.update()
       self.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", true);
@@ -418,7 +418,7 @@ function initChart(holder, self, c, name, percs) {
           d.x = tnMidX
           d.y = tnMidY
           d.dx = name == "Cats" ? 248-tnMidX : 248-tnMidX + 250
-          d.dy = 404-tnMidY
+          d.dy = 304-tnMidY
         })
         t += 2 * Math.PI
         holder.fp.transition().duration(0)
@@ -431,7 +431,7 @@ function initChart(holder, self, c, name, percs) {
           d.x = fpMidX
           d.y = fpMidY
           d.dx = name == "Cats" ? 243-fpMidX : 243-fpMidX + 250
-          d.dy = 200-fpMidY
+          d.dy = 100-fpMidY
         })
         makeAnnotations.update()
         self.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", true);
@@ -454,7 +454,7 @@ function initChart(holder, self, c, name, percs) {
           d.x = fpMidX
           d.y = fpMidY
           d.dx = name == "Cats" ? 243-fpMidX : 243-fpMidX + 250
-          d.dy = 200-fpMidY
+          d.dy = 100-fpMidY
         })
         t -= 2 * Math.PI
         holder.tn.transition().duration(0)
@@ -467,7 +467,7 @@ function initChart(holder, self, c, name, percs) {
           d.x = tnMidX
           d.y = tnMidY
           d.dx = name == "Cats" ? 248-tnMidX : 248-tnMidX + 250
-          d.dy = 404-tnMidY
+          d.dy = 304-tnMidY
         })
         makeAnnotations.update()
         self.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", true);
@@ -549,7 +549,7 @@ let fairnessExplorable = {
   beforeDestroy: function () {},
   data: function () {
     return {
-      svgHeight: 500,
+      svgHeight: 400,
       svgWidth: 600,
       arc: d3.arc(),
       pieScale: d3.scaleLinear()
@@ -557,8 +557,8 @@ let fairnessExplorable = {
                   .range([0, 2 * Math.PI]),
       svg: null,
       pieParams: {
-        cA: {x: 175, y: 300},
-        cB: {x: 425, y: 300},
+        cA: {x: 175, y: 200},
+        cB: {x: 425, y: 200},
         r: 100,
         ctrlR: 110,
       },
@@ -661,12 +661,9 @@ let fairnessExplorable = {
   template: 
   `<div id="fairness-explorable">
     <svg></svg>
-    <div id="fairness-types">
-      <a class="ui big label" :class="{grey: !value, green: value}" v-for="(value, key) in fairnessTypes">{{key}}</a>
-    </div>
-    <div>
+    <div id="stats">
       <div id="chartA-stats">
-        <div class="ui tiny statistics">
+        <div class="ui mini statistics">
           <div class="statistic" :class="{'hover-pos': charts.A.hover.tp}">
             <div class="value">
               {{ charts.A.vals.tp }}%
@@ -684,7 +681,7 @@ let fairnessExplorable = {
             </div>
           </div>
         </div>
-        <div class="ui tiny statistics">
+        <div class="ui mini statistics">
           <div class="statistic" :class="{'hover-pos': charts.A.hover.fn}">
             <div class="value">
               {{ charts.A.vals.fn }}%
@@ -704,7 +701,7 @@ let fairnessExplorable = {
         </div>
       </div>
       <div id="chartB-stats">
-        <div class="ui tiny statistics">
+        <div class="ui mini statistics">
           <div class="statistic" :class="{'hover-pos': charts.B.hover.tp}">
             <div class="value">
               {{ charts.B.vals.tp }}%
@@ -722,7 +719,7 @@ let fairnessExplorable = {
             </div>
           </div>
         </div>
-        <div class="ui tiny statistics">
+        <div class="ui mini statistics">
           <div class="statistic" :class="{'hover-pos': charts.B.hover.fn}">
             <div class="value">
               {{ charts.B.vals.fn }}%
@@ -741,6 +738,9 @@ let fairnessExplorable = {
           </div>
         </div>
       </div>
+    </div>
+    <div id="fairness-types">
+      <a class="ui big label" :class="{grey: !value, green: value}" v-for="(value, key) in fairnessTypes">{{key}}</a>
     </div>
     <div id="tooltip-qns">
       <p @mouseover="showTooltip('tooltip-base1')" @mouseout="hideTooltip('tooltip-base1')">What do the colors mean?</p>
