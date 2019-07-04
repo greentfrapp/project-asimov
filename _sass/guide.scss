@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Lora|Open+Sans|Roboto:400,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Lora|Open+Sans|Roboto:400,600,700,900&display=swap');
 
 @font-face {
 	font-family: "Computer Modern";
@@ -6,7 +6,7 @@
 }
 
 $guide-background-color: #222222 !default;
-$guide-antibackground-color: #AAAAAA !default;
+$guide-antibackground-color: #DDDDDD !default;
 $guide-text-color: #DDDDDD !default;
 $guide-text-secondary-c: #00B0F0 !default;
 $guide-text-secondary-m: #ED2690 !default;
@@ -161,12 +161,17 @@ body#guide-body {
 
 			.emph {
 				font-family: 'Roboto', sans-serif;
-				font-weight: 700;
+				font-weight: 600;
 			}
 		}
 
 		div.step {
 			height: 150px;
+		}
+
+		blockquote p {
+			// font-family: "Roboto", sans-serif;
+			color: darken($guide-text-color, 20%);
 		}
 	}
 
@@ -205,6 +210,7 @@ body#guide-body {
 
 	a {
 		color: $guide-text-color;
+		text-decoration: underline;
 	}
 
 	#fairness-vis {
@@ -238,8 +244,13 @@ body#guide-body {
 		}
 	}
 	#fairness-explorable {
-		border: 1px solid $guide-text-color;
+		// border: 1px solid $guide-text-color;
 		min-width: 890px;
+		height: 775px;
+		#charts-stats {
+			// width: 600px;
+			display: inline-block;
+		}
 		svg {
 			margin-left: auto;
 			margin-right: auto;
@@ -265,7 +276,7 @@ body#guide-body {
 			margin-right: 0.5em;
 		}
 		#stats {
-			margin-top: -125px;
+			margin-top: -145px;
 			text-align: center;
 		}
 		#chartA-stats, #chartB-stats {
@@ -273,13 +284,18 @@ body#guide-body {
 			display: inline-block;
 		}
 		#fairness-types {
-			margin-top: 25px;
-			text-align: center;
-		}
-		.fairness-types-segment {
-			width: 40%;
+			// margin-top: 25px;
+			margin-left: 25px;
 			text-align: left;
 			display: inline-block;
+			vertical-align: top;
+			width: 355px;
+		}
+		.fairness-types-segment {
+			// border-right: 2px solid $guide-text-color;
+			// width: 40%;
+			text-align: left;
+			// display: inline-block;
 			vertical-align: top;
 			.title {
 				font-weight: bold;
@@ -288,8 +304,11 @@ body#guide-body {
 				width: auto;
 				margin: 0;
 				padding-top: 0;
+				padding-right: 25px;
 				p {
 					font-family: 'Lato', sans-serif;
+					margin-top: 10px;
+					margin-bottom: 10px;
 				}
 			}
 		}
@@ -307,6 +326,7 @@ body#guide-body {
 		}
 		.keyword {
 			color: $guide-annotation-color;
+			cursor: pointer;
 		}
 	}
 }

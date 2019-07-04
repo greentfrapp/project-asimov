@@ -10,25 +10,43 @@ To lay the ground for algorithmic bias, we first ask, "What do you mean by fairn
 
 ## A Fair Fat Pet Predictor
 
-To help put things in perspective, we will use a fictional example of a Fat Pet Predictor.
-
 Suppose for a moment that our company organizes diet boot camps for overweight cats and dogs. We want to develop an AI system to help owners diagnose if a pet is overweight. Pets diagnosed as fat are then sent to our boot camps, which means less food and no treats boohoo. Furthermore, we know that dogs are more likely to be fat, as compared to cats. In fact, cats only have a 40% chance of being overweight, while dogs have a 60% chance of being overweight.
 
-In the charts below, we can tune our AI system's accuracy for cats and dogs (if only it was so easy!). The charts on the left and right represent the resulting predictions for cats and dogs respectively. The truth is shown by the colors of the sectors - red for fat and blue for not fat. Positive (fat) predictions by our AI system are shown by the striped sectors. In other words, sectors with blue stripes on blue background and no stripes on red background are correct predictions. The other two sectors represent wrong predictions.
+In the charts below, we can tune our AI system's accuracy for cats and dogs (if only it was so easy!). The charts on the left and right represent the resulting predictions for cats and dogs respectively.
 
 <fairness-explorable></fairness-explorable>
 
-## More Metrics
+## Many More Metrics
 
-This section is a non-exhaustive list of the many technical definitions of fairness. 20 definitions are presented here, following Verma and Rubin <dt-cite cite="verma2018fairness"></dt-cite> and Narayanan. There is no single *right* definition. In fact, several of these definitions can be mutually exclusive <dt-cite cite="chouldechova2017fair,kleinberg2016inherent"></dt-cite>.
+The experiment above introduced five fairness metrics:
 
-The key lesson here is to think about what kind of **fairness** are we adopting and to communicate this clearly to users.
+- Group Fairness <dt-cite cite="dwork2012fairness"></dt-cite>
+- Equalised Odds <dt-cite cite="hardt2016equality"></dt-cite>
+- Conditional Use Accuracy Equality <dt-cite cite="berk2018fairness"></dt-cite>
+- Overall Accuracy Equality <dt-cite cite="berk2018fairness"></dt-cite>
+- Treatment Equality <dt-cite cite="berk2018fairness"></dt-cite>
+
+In addition to these, there are plenty more fairness metrics enumerated by Verma and Rubin <dt-cite cite="verma2018fairness"></dt-cite> and Narayanan <dt-cite cite="narayanan2018translation"></dt-cite>. There are all sorts of ingenious ideas including calibration and fairness through awareness. <span class="emph">Perhaps most importantly, these metrics all have different priorities and justifications and they exemplify the importance of context when discussing fairness</span>.
+
+## The Impossibility Theorem
+
+In our fictional AI system above, we had complete control over the system's accuracy. Even so, you may have noticed that it was impossible to fulfill all five fairness metrics at the same time.
+
+In ProPublica's well-known article [Machine Bias](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing) <dt-cite cite="angwin2016machine"></dt-cite>, the subtitle reads: 
+
+> There’s software used across the country to predict future criminals. And it’s biased against blacks.
+
+A company named Northpointe sold an algorithm known as the Correctional Offender Management Profiling for Alternative Sanctions (COMPAS). COMPAS was intended to predict recidivism (criminal re-offending) rate based on factors such as history of violence, substance abuse and financial problems <dt-cite cite="brennan2009evaluating"></dt-cite>. Predictions from the algorithm were employed in sentencing decisions across many U.S. states including "Arizona, Colorado, Delaware, Kentucky, Louisiana, Oklahoma, Virginia, Washington and Wisconsin" <dt-cite cite="angwin2016machine"></dt-cite>.
+
+In their article, ProPublica documented the "significant racial disparities" found in COMPAS's predictions. But in their response, Northpointe disputed ProPublica's claims.
+
+Later on, we would discover that NorthPointe and ProPublica had different ideas of what constituted *fairness*. Northpointe used Conditional Use Accuracy Equality, while ProPublica used Treatment Equality (see above for details). Critically, it is impossible to satisfy both definitions of fairness given populations with different base rates of recidivism. This is similar to our example above of fat pets. We are not saying that individuals could be more prone to re-offending by virtue of race. Instead of genetic predisposition, such trends are more likely due to unequal treatment and circumstances from past and present biases.
 
 ---
 
 ## References
 
-<h3>References</h3><dt-bibliography></dt-bibliography>
+<dt-bibliography></dt-bibliography>
 
 <script type="text/bibliography">
 @inproceedings{verma2018fairness,
@@ -150,5 +168,31 @@ The key lesson here is to think about what kind of **fairness** are we adopting 
   author={Nabi, Razieh and Shpitser, Ilya},
   booktitle={Thirty-Second AAAI Conference on Artificial Intelligence},
   year={2018}
+}
+
+@inproceedings{narayanan2018translation,
+  title={Translation tutorial: 21 fairness definitions and their politics},
+  author={Narayanan, Arvind},
+  booktitle={Proc. Conf. Fairness Accountability Transp., New York, USA},
+  year={2018}
+}
+
+@article{brennan2009evaluating,
+  title={Evaluating the predictive validity of the COMPAS risk and needs assessment system},
+  author={Brennan, Tim and Dieterich, William and Ehret, Beate},
+  journal={Criminal Justice and Behavior},
+  volume={36},
+  number={1},
+  pages={21--40},
+  year={2009},
+  publisher={Sage Publications Sage CA: Los Angeles, CA}
+}
+
+@article{angwin2016machine,
+  title={Machine bias},
+  author={Angwin, Julia and Larson, Jeff and Mattu, Surya and Kirchner, Lauren},
+  journal={ProPublica, May},
+  volume={23},
+  year={2016}
 }
 </script>
