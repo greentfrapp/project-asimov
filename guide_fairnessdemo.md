@@ -18,7 +18,7 @@ In the charts below, we can tune our AI system's accuracy for cats and dogs (if 
 
 <fairness-explorable></fairness-explorable>
 
-## 
+## More Metrics
 
 This section is a non-exhaustive list of the many technical definitions of fairness. 20 definitions are presented here, following Verma and Rubin <dt-cite cite="verma2018fairness"></dt-cite> and Narayanan. There is no single *right* definition. In fact, several of these definitions can be mutually exclusive <dt-cite cite="chouldechova2017fair,kleinberg2016inherent"></dt-cite>.
 

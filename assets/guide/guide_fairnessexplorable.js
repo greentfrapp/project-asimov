@@ -93,7 +93,7 @@ const annotations = [
       label: "Fat cats that got caught.",
       padding: 3,
       align: "right",
-      wrap: 100
+      wrap: 125
     },
     className: "tooltip-tp tooltip-Cats",
     x: 130,
@@ -108,7 +108,7 @@ const annotations = [
       label: "Thin cats that got predicted fat.",
       padding: 3,
       align: "left",
-      wrap: 100
+      wrap: 125
     },
     className: "tooltip-fp tooltip-Cats",
     x: 207,
@@ -123,7 +123,7 @@ const annotations = [
       label: "Thin cats that got predicted thin.",
       padding: 3,
       align: "left",
-      wrap: 100
+      wrap: 125
     },
     className: "tooltip-tn tooltip-Cats",
     x: 213,
@@ -138,7 +138,7 @@ const annotations = [
       label: "Fat cats that escaped.",
       padding: 3,
       align: "right",
-      wrap: 100
+      wrap: 125
     },
     className: "tooltip-fn tooltip-Cats",
     x: 133,
@@ -154,7 +154,7 @@ const annotations = [
       label: "Fat dogs that got caught.",
       padding: 3,
       align: "right",
-      wrap: 100
+      wrap: 125
     },
     className: "tooltip-tp tooltip-Dogs",
     x: 130+250,
@@ -169,7 +169,7 @@ const annotations = [
       label: "Thin dogs that got predicted fat.",
       padding: 3,
       align: "left",
-      wrap: 100
+      wrap: 125
     },
     className: "tooltip-fp tooltip-Dogs",
     x: 207+250,
@@ -184,7 +184,7 @@ const annotations = [
       label: "Thin dogs that got predicted thin.",
       padding: 3,
       align: "left",
-      wrap: 100
+      wrap: 125
     },
     className: "tooltip-tn tooltip-Dogs",
     x: 213+250,
@@ -199,7 +199,7 @@ const annotations = [
       label: "Fat dogs that escaped.",
       padding: 3,
       align: "right",
-      wrap: 100
+      wrap: 125
     },
     className: "tooltip-fn tooltip-Dogs",
     x: 133+250,
@@ -215,6 +215,51 @@ const makeAnnotations = d3.annotation()
   // .editMode(true)
   // .type(d3.annotationCallout)
   .annotations(annotations)
+
+const makeKeywordAnnotations = d3.annotation()
+  // .editMode(true)
+  .annotations([
+    {
+      note: {
+        title: "Predicted Positives",
+        // label: "Animals predicted fat (blue-striped).",
+        padding: 3,
+        align: "middle",
+        wrap: 150
+      },
+      className: "tooltip-keyword tooltip-keyword-predPos",
+      x: 333,
+      y: 116,
+      dx: -33,
+      dy: -33,
+      subject: {
+        width: 180,
+        height: 75
+      },
+      color: "#fccf35",
+      type: d3.annotationCalloutRect
+    },
+    {
+      note: {
+        // title: "Predicted Positives",
+        // label: "Animals predicted fat (blue-striped).",
+        padding: 3,
+        align: "middle",
+        wrap: 150
+      },
+      className: "tooltip-keyword tooltip-keyword-predPos",
+      x: 83,
+      y: 116,
+      dx: 217,
+      dy: -33,
+      subject: {
+        width: 180,
+        height: 75
+      },
+      color: "#fccf35",
+      type: d3.annotationCalloutRect
+    }
+  ])
 
 function initChart(holder, self, c, name, percs) {
   holder.g = self.svg.append("g")
@@ -232,6 +277,7 @@ function initChart(holder, self, c, name, percs) {
 
   holder.fp = holder.g.append("path")
     .attr("id", `${name}-fp`)
+    .attr("class", "sector")
     .datum({innerRadius: 0, outerRadius: self.pieParams.r, startAngle: self.pieScale(percs.fp.start), endAngle: self.pieScale(percs.fp.end)})
     .attr("d", self.arc)
     .style("fill", self.txtrs.fp.url())
@@ -247,6 +293,7 @@ function initChart(holder, self, c, name, percs) {
     })
   holder.tn = holder.g.append("path")
     .attr("id", `${name}-tn`)
+    .attr("class", "sector")
     .datum({innerRadius: 0, outerRadius: self.pieParams.r, startAngle: self.pieScale(percs.tn.start), endAngle: self.pieScale(percs.tn.end)})
     .attr("d", self.arc)
     .style("fill", self.txtrs.tn.url())
@@ -262,6 +309,7 @@ function initChart(holder, self, c, name, percs) {
     })
   holder.fn = holder.g.append("path")
     .attr("id", `${name}-fn`)
+    .attr("class", "sector")
     .datum({innerRadius: 0, outerRadius: self.pieParams.r, startAngle: self.pieScale(percs.fn.start), endAngle: self.pieScale(percs.fn.end)})
     .attr("d", self.arc)
     .style("fill", self.txtrs.fn.url())
@@ -277,6 +325,7 @@ function initChart(holder, self, c, name, percs) {
     })
   holder.tp = holder.g.append("path")
     .attr("id", `${name}-tp`)
+    .attr("class", "sector")
     .datum({innerRadius: 0, outerRadius: self.pieParams.r, startAngle: self.pieScale(percs.tp.start), endAngle: self.pieScale(percs.tp.end)})
     .attr("d", self.arc)
     .style("fill", self.txtrs.tp.url())
@@ -290,7 +339,7 @@ function initChart(holder, self, c, name, percs) {
       holder.hover.tp = false
       d3.select(`.tooltip-tp.tooltip-${name}`).classed("hidden", true)
     })
-  holder.g.selectAll("path")
+  holder.g.selectAll(".sector")
     .attr("stroke", "#222222")
     .attr("stroke-width", 2)
 
@@ -380,7 +429,7 @@ function initChart(holder, self, c, name, percs) {
         d.x = fnMidX
         d.y = fnMidY
         d.dx = name == "Cats" ? 107-fnMidX : 107-fnMidX + 250
-        d.dy = 305-fnMidY
+        d.dy = 280-fnMidY
       })
       makeAnnotations.update()
       self.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", true);
@@ -418,7 +467,7 @@ function initChart(holder, self, c, name, percs) {
           d.x = tnMidX
           d.y = tnMidY
           d.dx = name == "Cats" ? 248-tnMidX : 248-tnMidX + 250
-          d.dy = 304-tnMidY
+          d.dy = 280-tnMidY
         })
         t += 2 * Math.PI
         holder.fp.transition().duration(0)
@@ -467,7 +516,7 @@ function initChart(holder, self, c, name, percs) {
           d.x = tnMidX
           d.y = tnMidY
           d.dx = name == "Cats" ? 248-tnMidX : 248-tnMidX + 250
-          d.dy = 304-tnMidY
+          d.dy = 280-tnMidY
         })
         makeAnnotations.update()
         self.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", true);
@@ -486,8 +535,72 @@ function initChart(holder, self, c, name, percs) {
       .text(`${name}`)
 }
 
+let keyword = {
+  props: ["word", "action"],
+  mounted: function(){},
+  beforeDestroy: function () {},
+  data: function () {
+    return {}
+  },
+  computed: {
+    actions: function() {
+      return {
+        test: this.test
+      }
+    }
+  },
+  methods: {
+    test: function () {
+      console.log("LALALA")
+    }
+  },
+  template: 
+  `
+    <span @mouseover="actions[action]">
+      {{ word }}
+    </span>
+  `
+}
+
+let accSegment = {
+  props: ["title", "pass", "content"],
+  components: {
+    "keyword": keyword
+  },
+  mounted: function(){},
+  beforeDestroy: function () {},
+  data: function () {
+    return {}
+  },
+  computed: {
+    color: function () {
+      if (this.pass) return "#2ecc71"
+      else return "#DDDDDD"
+    }
+  },
+  methods: {
+    test: function () {
+      console.log("TEST")
+    }
+  },
+  template: 
+  `
+    <div>
+      <div class="title" :style="{color: color}">
+        <i class="dropdown icon"></i>
+        {{ title }}
+      </div>
+      <div class="content" v-html="content">
+      </div>
+    </div>
+  `
+}
+
 let fairnessExplorable = {
   props: [],
+  components: {
+    'acc-segment': accSegment
+  },
   mounted: function() {
     let self = this
     this.svg = d3.select("#fairness-explorable > svg")
@@ -543,13 +656,44 @@ let fairnessExplorable = {
     this.svg.append("g")
       .attr("class", "annotation-group")
       .call(makeAnnotations)
-    //HERE
+    
     this.svg.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", true);
+    $('.ui.accordion').accordion()
+
+    //Bind hover events to keywords
+    this.svg.append("g")
+      .attr("class", "annotation-keywords")
+      .call(makeKeywordAnnotations)
+    this.svg.selectAll(".tooltip-keyword").classed("hidden", true);
+    d3.selectAll(".keyword.keyword-tp")
+      .on("mouseover.keyword", this.keywordHandler("tp"))
+      .on("mouseout.keyword", this.keywordHandler("reset"))
+    d3.selectAll(".keyword.keyword-fp")
+      .on("mouseover.keyword", this.keywordHandler("fp"))
+      .on("mouseout.keyword", this.keywordHandler("reset"))
+    d3.selectAll(".keyword.keyword-tn")
+      .on("mouseover.keyword", this.keywordHandler("tn"))
+      .on("mouseout.keyword", this.keywordHandler("reset"))
+    d3.selectAll(".keyword.keyword-fn")
+      .on("mouseover.keyword", this.keywordHandler("fn"))
+      .on("mouseout.keyword", this.keywordHandler("reset"))
+    d3.selectAll(".keyword.keyword-predPos")
+      .on("mouseover.keyword", this.keywordHandler("tp-fp"))
+      .on("mouseout.keyword", this.keywordHandler("reset"))
+    d3.selectAll(".keyword.keyword-predNeg")
+      .on("mouseover.keyword", this.keywordHandler("tn-fn"))
+      .on("mouseout.keyword", this.keywordHandler("reset"))
+    d3.selectAll(".keyword.keyword-realPos")
+      .on("mouseover.keyword", this.keywordHandler("tp-fn"))
+      .on("mouseout.keyword", this.keywordHandler("reset"))
+    d3.selectAll(".keyword.keyword-realNeg")
+      .on("mouseover.keyword", this.keywordHandler("tn-fp"))
+      .on("mouseout.keyword", this.keywordHandler("reset"))
   },
   beforeDestroy: function () {},
   data: function () {
     return {
-      svgHeight: 400,
+      svgHeight: 475,
       svgWidth: 600,
       arc: d3.arc(),
       pieScale: d3.scaleLinear()
@@ -603,16 +747,111 @@ let fairnessExplorable = {
       overallAccuracyEquality = this.comparePerc((this.charts.A.vals.tp + this.charts.A.vals.tn), (this.charts.B.vals.tp + this.charts.B.vals.tn))
       //treatmentEquality
       treatmentEquality = this.comparePerc((this.charts.A.vals.fp / this.charts.A.vals.fn), (this.charts.B.vals.fp / this.charts.B.vals.fn))
-      return {
-        groupFairness: groupFairness,
-        predictiveParity: predictiveParity,
-        fpErrorBalance: fpErrorBalance,
-        fnErrorBalance: fnErrorBalance,
-        equalisedOdds: equalisedOdds,
-        condUseAccuracyEqualityPos: condUseAccuracyEqualityPos,
-        overallAccuracyEquality: overallAccuracyEquality,
-        treatmentEquality: treatmentEquality
-      }
+      // return {
+      //   groupFairness: groupFairness,
+      //   predictiveParity: predictiveParity,
+      //   fpErrorBalance: fpErrorBalance,
+      //   fnErrorBalance: fnErrorBalance,
+      //   equalisedOdds: equalisedOdds,
+      //   condUseAccuracyEqualityPos: condUseAccuracyEqualityPos,
+      //   overallAccuracyEquality: overallAccuracyEquality,
+      //   treatmentEquality: treatmentEquality
+      // }
+      return [
+        {
+          name: "Group Fairness", value: groupFairness,
+          eqn: `[${this.charts.A.vals.tp+this.charts.A.vals.fp}% : ${this.charts.B.vals.tp+this.charts.B.vals.fp}%]`,
+          content: `
+          <p>
+            Both cats and dogs should have equal chances of being predicted fat.
+          </p>
+          <p>
+            The chance of a positive prediction (<span class="keyword keyword-tp">TP</span> + <span class="keyword keyword-fp">FP</span>) should be equal.
+          </p>
+          `
+        },
+        {
+          name: "Predictive Parity", value: predictiveParity,
+          eqn: `[${(100*this.charts.A.vals.tp/(this.charts.A.vals.tp+this.charts.A.vals.fp)).toFixed()}% : ${(100*this.charts.B.vals.tp/(this.charts.B.vals.tp+this.charts.B.vals.fp)).toFixed()}%]`,
+          content: `
+          <p>
+            Pets predicted fat should have the same chance of being actually fat, no matter cat or dog.
+          </p>
+          <p>
+            Equal positive predictive value (PPV) or precision i.e. <span class="keyword keyword-tp">TP</span> / <span class="keyword keyword-predPos">Predicted Positives</span>.
+          </p>
+          `
+        },
+        {
+          name: "FP Error Balance", value: fpErrorBalance,
+          eqn: `[${(100*this.charts.A.vals.fp/(this.charts.A.vals.fp+this.charts.A.vals.tn)).toFixed()}% : ${(100*this.charts.B.vals.fp/(this.charts.B.vals.fp+this.charts.B.vals.tn)).toFixed()}%]`,
+          content: `
+          <p>
+            Both thin cats and thin dogs should have equal rates of false alarms (thin pets misdiagnosed as fat).
+          </p>
+          <p>
+            Equal false positive rate (FPR) i.e. <span class="keyword keyword-fp">FP</span> / <span class="keyword keyword-realNeg">Real Negatives</span>
+          </p>
+          `
+        },
+        {
+          name: "FN Error Balance", value: fnErrorBalance,
+          eqn: `[${(100*this.charts.A.vals.fn/(this.charts.A.vals.fn+this.charts.A.vals.tp)).toFixed()}% : ${(100*this.charts.B.vals.fn/(this.charts.B.vals.fn+this.charts.B.vals.tp)).toFixed()}%]`,
+          content: `
+          <p>
+            Both fat cats and fat dogs should have equal rates of escaping (fat pets misdiagnosed as thin).
+          </p>
+          <p>
+            Equal false negative rate (FNR) i.e. <span class="keyword keyword-fn">FN</span> / <span class="keyword keyword-realPos">Real Positives</span>
+          </p>
+          `
+        },
+        {
+          name: "Equalised Odds", value: equalisedOdds,
+          eqn: ``,
+          content: `
+          <p>
+            This combines FP Error Balance and FN Error Balance and is true only if the two metrics are both true.
+          </p>
+          `
+        },
+        {
+          name: "Conditional Use Accuracy Equality", value: condUseAccuracyEquality,
+          eqn: ``,
+          content: `
+          <p>
+            Whether predicted fat or not, the probability of the prediction being correct should be equal for cats and dogs.
+          </p>
+          <p>
+            Equal positive predictive value (PPV) or precision i.e. <span class="keyword keyword-tp">TP</span> / <span class="keyword keyword-predPos">Predicted Positives</span> and equal negative predictive value (NPV) i.e. <span class="keyword keyword-tn">TN</span> / <span class="keyword keyword-predNeg">Predicted Negatives</span>
+          </p>
+          `
+        },
+        {
+          name: "Overall Accuracy Equality", value: overallAccuracyEquality,
+          eqn: `[${this.charts.A.vals.tp+this.charts.A.vals.tn}% : ${this.charts.B.vals.tp+this.charts.B.vals.tn}%]`,
+          content: `
+          <p>
+            The probability of the prediction being correct should be equal for cats and dogs. This disregards the type of prediction.
+          </p>
+          <p>
+            Equal accuracy i.e. <span class="keyword keyword-tp">TP</span> + <span class="keyword keyword-tn">TN</span>
+          </p>
+          `
+        },
+        {
+          name: "Treatment Equality", value: treatmentEquality,
+          eqn: `[${(this.charts.A.vals.fp/this.charts.A.vals.fn).toFixed(2)} : ${(this.charts.B.vals.fp/this.charts.B.vals.fn).toFixed(2)}]`,
+          content: `
+          <p>
+            The ratio of escaped fat animals to wrongly accused thin animals should be equal for cats and dogs. The idea here is that wrong predictions lead to either false alarms (<span class="keyword keyword-fp">FP</span>) or escapes (<span class="keyword keyword-fn">FN</span>). So the ratio of these two effects should be equal between cats and dogs.
+          </p>
+          <p>
+            Equal ratios of wrong predictions i.e. <span class="keyword keyword-fp">FP</span> : <span class="keyword keyword-fn">FN</span>
+          </p>
+          `
+        }
+      ]
     }
   },
   methods: {
@@ -656,6 +895,66 @@ let fairnessExplorable = {
     },
     hideTooltip: function(className) {
       d3.selectAll(`.${className}`).classed("hidden", true)
+    },
+    keywordHandler: function(key) {
+      self = this
+      // let handlers = {
+      //   reset: function(){
+      //     for (var prop in self.charts.A.hover) {
+      //       if (self.charts.A.hover.hasOwnProperty(prop)) self.charts.A.hover[prop] = false
+      //       if (self.charts.B.hover.hasOwnProperty(prop)) self.charts.B.hover[prop] = false
+      //     }
+      //     self.charts.A.g.selectAll("path").attr("opacity", 1)
+      //     self.charts.B.g.selectAll("path").attr("opacity", 1)
+      //   },
+      //   tp: function(){
+      //     self.charts.A.hover.tp = true
+      //     self.charts.B.hover.tp = true
+      //     d3.selectAll(`.tooltip-tp`).classed("hidden", false)
+      //     d3.selectAll(".sector").attr("opacity", 0.5)
+      //     d3.select("#Cats-tp").attr("opacity", 1)
+      //     d3.select("#Dogs-tp").attr("opacity", 1)
+      //   },
+      //   fp: function(){
+      //     self.charts.A.hover.fp = true
+      //     self.charts.B.hover.fp = true
+      //     d3.selectAll(`.tooltip-fp`).classed("hidden", false)
+      //     d3.selectAll(".sector").attr("opacity", 0.5)
+      //     d3.select("#Cats-fp").attr("opacity", 1)
+      //     d3.select("#Dogs-fp").attr("opacity", 1)
+      //   }
+      // }
+      // return handlers[key]
+      if (key === "reset") {
+        return function(){
+          for (var prop in self.charts.A.hover) {
+            if (self.charts.A.hover.hasOwnProperty(prop)) self.charts.A.hover[prop] = false
+            if (self.charts.B.hover.hasOwnProperty(prop)) self.charts.B.hover[prop] = false
+          }
+          d3.selectAll(".tooltip-base1, .tooltip-base2, .tooltip-Cats, .tooltip-Dogs").classed("hidden", true);
+          d3.selectAll(".sector").attr("opacity", 1)
+        }
+      } else if (["tp-fp", "tn-fn", "tp-fn", "tn-fp"].indexOf(key) != -1) {
+        return function(){
+          d3.selectAll(".sector").attr("opacity", 0.5)
+          key.split("-").forEach(k => {
+            self.charts.A.hover[k] = true
+            self.charts.B.hover[k] = true
+            // d3.selectAll(`.tooltip-${k}`).classed("hidden", false)
+            d3.select(`#Cats-${k}`).attr("opacity", 1)
+            d3.select(`#Dogs-${k}`).attr("opacity", 1)
+          })
+        }
+      } else {
+        return function(){
+          self.charts.A.hover[key] = true
+          self.charts.B.hover[key] = true
+          d3.selectAll(`.tooltip-${key}`).classed("hidden", false)
+          d3.selectAll(".sector").attr("opacity", 0.5)
+          d3.select(`#Cats-${key}`).attr("opacity", 1)
+          d3.select(`#Dogs-${key}`).attr("opacity", 1)
+        }
+      }
     }
   },
   template: 
@@ -740,7 +1039,13 @@ let fairnessExplorable = {
       </div>
     </div>
     <div id="fairness-types">
-      <a class="ui big label" :class="{grey: !value, green: value}" v-for="(value, key) in fairnessTypes">{{key}}</a>
+      <h3>Fairness Metrics</h3>
+      <div class="ui inverted accordion fairness-types-segment">
+        <acc-segment v-for="(el, idx) in fairnessTypes.slice(0, 4)" :key="idx" :title="el.name+' '+el.eqn" :pass="el.value" :content="el.content"></acc-segment>
+      </div>
+      <div class="ui inverted accordion fairness-types-segment">
+        <acc-segment v-for="(el, idx) in fairnessTypes.slice(4)" :key="idx" :title="el.name+' '+el.eqn" :pass="el.value" :content="el.content"></acc-segment>
+      </div>
     </div>
     <div id="tooltip-qns">
       <p @mouseover="showTooltip('tooltip-base1')" @mouseout="hideTooltip('tooltip-base1')">What do the colors mean?</p>

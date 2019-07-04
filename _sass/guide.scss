@@ -147,7 +147,7 @@ body#guide-body {
 
 		@media(min-width: 1500px) {
 			width: 900px;
-			margin-left: calc((100% - 1400px) / 2);
+			// margin-left: calc((100% - 1400px) / 2);
 		}
 		
 		ol, ul, p {
@@ -237,6 +237,8 @@ body#guide-body {
 		}
 	}
 	#fairness-explorable {
+		border: 1px solid $guide-text-color;
+		min-width: 890px;
 		svg {
 			margin-left: auto;
 			margin-right: auto;
@@ -262,7 +264,7 @@ body#guide-body {
 			margin-right: 0.5em;
 		}
 		#stats {
-			margin-top: -50px;
+			margin-top: -125px;
 			text-align: center;
 		}
 		#chartA-stats, #chartB-stats {
@@ -271,14 +273,23 @@ body#guide-body {
 		}
 		#fairness-types {
 			margin-top: 25px;
-			// display: inline-block;
-			margin-left: auto;
-			margin-right: auto;
-			width: 564px;
-			.label {
-				display: inline-block;
-				width: 250px;
-				margin: 1px;
+			text-align: center;
+		}
+		.fairness-types-segment {
+			width: 40%;
+			text-align: left;
+			display: inline-block;
+			vertical-align: top;
+			.title {
+				font-weight: bold;
+			}
+			.content {
+				width: auto;
+				margin: 0;
+				padding-top: 0;
+				p {
+					font-family: 'Lato', sans-serif;
+				}
 			}
 		}
 		circle.chart-control:hover {
