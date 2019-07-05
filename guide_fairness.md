@@ -1,242 +1,52 @@
 ---
-layout: guide_fairness
+layout: guide_fairnessdemo
 title: The Guide. \| Project Asimov
 permalink: /guide/fairness/
 ---
 
-<div class="step"></div>
-
 # Fairness
 
-To lay the ground for the examples of algorithmic bias, we first ask, "What is fairness?"
+To lay the ground for algorithmic bias, we first ask, "What do you mean by fairness?"
 
-This section is a non-exhaustive list of the many technical definitions of fairness. 20 definitions are presented here, following <dt-cite cite="verma2018fairness"></dt-cite>. There is no single *right* definition. In fact, several of these definitions can be mutually exclusive <dt-cite cite="chouldechova2017fair,kleinberg2016inherent"></dt-cite>.
+## A Fair Fat Pet Predictor
 
-The key lesson here is to think about what kind of **fairness** are we adopting and to communicate this clearly to users. 
+Suppose for a moment that our company organizes diet boot camps for overweight cats and dogs. We want to develop an AI system to help owners diagnose if a pet is overweight. Pets diagnosed as fat are then sent to our boot camps, which means less food and no treats boohoo. Furthermore, we know that dogs are more likely to be fat, as compared to cats. In fact, cats only have a 40% chance of being overweight, while dogs have a 60% chance of being overweight.
 
-<div class="step"></div>
+In the charts below, we can tune our AI system's accuracy for cats and dogs (if only it was so easy!). The charts on the left and right represent the resulting predictions for cats and dogs respectively.
 
-## Fat Cats and Dogs
+<fairness-explorable></fairness-explorable>
 
-To help visualize the different fairness definitions, we will use a fictional example of a Fat Pet Predictor.
+## Many More Metrics
 
-Suppose for a moment that dogs are more likely to be fat, as compared to cats. In fact, cats only have a 40% chance of being fat, while dogs have a 60% chance of being fat.
+The experiment above introduced five fairness metrics:
 
-Fortunately, a company develops an AI system to diagnose if a pet is fat! Pets diagnosed as fat are then kept on a diet, which means less food and no treats boohoo.
+- Group Fairness <dt-cite cite="dwork2012fairness"></dt-cite>
+- Equalised Odds <dt-cite cite="hardt2016equality"></dt-cite>
+- Conditional Use Accuracy Equality <dt-cite cite="berk2018fairness"></dt-cite>
+- Overall Accuracy Equality <dt-cite cite="berk2018fairness"></dt-cite>
+- Treatment Equality <dt-cite cite="berk2018fairness"></dt-cite>
 
-In the charts on the right, fat animals are represented in orange and circles and thin animals are represented in dark blue and squares. On top of that, animals predicted fat are represented in light blue and solid shapes. Animals predicted thin are presented in yellow and empty shapes. 
+In addition to these, there are plenty more fairness metrics enumerated by Verma and Rubin <dt-cite cite="verma2018fairness"></dt-cite> and Narayanan <dt-cite cite="narayanan2018translation"></dt-cite>. There are all sorts of ingenious ideas including calibration and fairness through awareness. <span class="emph">Perhaps most importantly, these metrics all have different priorities and justifications and they exemplify the importance of context when discussing fairness</span>.
 
-<div class="step"></div>
+## The Impossibility Theorem
 
-## Terms (WIP)
+In our fictional AI system above, we had complete control over the system's accuracy. Even so, you may have noticed that it was impossible to fulfill all five fairness metrics at the same time.
 
-TP, FP, TN, FN, PPV/Precision, FDR, FOR, NPV, TPR/Recall/Sensitivity, FPR, FNR, TNR.
+In ProPublica's well-known article [Machine Bias](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing) <dt-cite cite="angwin2016machine"></dt-cite>, the subtitle reads: 
 
-Protected and unprotected groups. Maybe a better term is sensitive traits? Or non-relevant traits?
+> There’s software used across the country to predict future criminals. And it’s biased against blacks.
 
-## Types of Fairness
+A company named Northpointe sold an algorithm known as the Correctional Offender Management Profiling for Alternative Sanctions (COMPAS). COMPAS was intended to predict recidivism (criminal re-offending) rate based on factors such as history of violence, substance abuse and financial problems <dt-cite cite="brennan2009evaluating"></dt-cite>. Predictions from the algorithm were employed in sentencing decisions across many U.S. states including "Arizona, Colorado, Delaware, Kentucky, Louisiana, Oklahoma, Virginia, Washington and Wisconsin" <dt-cite cite="angwin2016machine"></dt-cite>.
 
-<div class="step"></div>
+In their article, ProPublica documented the "significant racial disparities" found in COMPAS's predictions. But in their response, Northpointe disputed ProPublica's claims.
 
-### Group fairness or statistical parity <dt-cite cite="dwork2012fairness"></dt-cite>
-
-*aka equal acceptance rate <dt-cite cite="zliobaite2015relation"></dt-cite> and benchmarking <dt-cite cite="simoiu2017problem"></dt-cite>*
-
-In Group Fairness, all sensitive groups have the same chance of getting a positive prediction. It does not matter whether the predictions are accurate or random.
-
-<div class="step"></div>
-
-### Conditional statistical parity <dt-cite cite="corbett2017algorithmic"></dt-cite>
-
-Extends **statistical parity** with predefined conditions.
-
-Both cats and dogs should have equal probability of being predicted fat, if they are the same age and same weight.
-
-Both men and women should have equal probability of being predicted as good credit, if they have the same age and same job.
-
-<div class="step"></div>
-
-### Predictive parity <dt-cite cite="chouldechova2017fair"></dt-cite>
-
-*aka outcome test <dt-cite cite="simoiu2017problem"></dt-cite>*
-
-Equal PPV. This also implies equal FDR.
-
-For animals predicted to be fat, the probability of actually being fat should be equal regardless for cats or dogs.
-
-For people predicted as good credit, the probability of actually being good credit should be equal regardless for men or women.
-
-<div class="step"></div>
-
-### False positive error rate balance <dt-cite cite="chouldechova2017fair"></dt-cite>
-
-*aka predictive equality <dt-cite cite="corbett2017algorithmic"></dt-cite>*
-
-Equal FPR. This also implies equal TNR.
-
-For thin animals, the probability of actually being predicted fat (i.e. wrong prediction) should be equal regardless for cats or dogs.
-
-For people with bad credit, the probability of being predicted good (i.e. wrong prediction) should be equal regardless for men or women.
-
-<div class="step"></div>
-
-### False negative error rate balance <dt-cite cite="chouldechova2017fair"></dt-cite>
-
-*aka equal opportunity <dt-cite cite="hardt2016equality,kusner2017counterfactual"></dt-cite>*
-
-Equal FNR. This also implies equal TPR.
-
-For fat animals, the probability of being predicted thin (i.e. wrong prediction) should be equal regardless for cats or dogs.
-
-For people with good credit, the probability of being predicted bad (i.e. wrong prediction) should be equal regardless for men or women.
-
-<div class="step"></div>
-
-### Equalised odds <dt-cite cite="hardt2016equality"></dt-cite>
-
-*aka conditional procedure accuracy equality <dt-cite cite="berk2018fairness"></dt-cite> and disparate mistreatment <dt-cite cite="zafar2017fairness"></dt-cite>*
-
-Combines false positive error rate balance and false negative error rate balance. Equal TPR and equal FPR.
-
-Animals that are actually fat should have equal probability of being predicted fat, regardless for cats or dogs. Also, animals that are actually thin should have equal probability of being wrongly predicted fat, regardless for cats or dogs.
-
-People with good credit should have equal probability of being predicted good credit, regardless of gender. Also, people with bad credit should have equal probability of being wrongly predicted good, regardless of gender.
-
-<div class="step"></div>
-
-### Conditional use accuracy equality <dt-cite cite="berk2018fairness"></dt-cite>
-
-Equal PPV and NPV.
-
-Whether predicted fat or not, the probability of the prediction being correct should be equal regardless for cats or dogs.
-
-Whether predicted good or bad credit, the probability of the prediction being correct should be equal regardless for men or women.
-
-<div class="step"></div>
-
-### Overall accuracy equality <dt-cite cite="berk2018fairness"></dt-cite>
-
-Equal accuracy - probability of any sample to be assigned its correct class.
-
-Whether actually fat or not, the probability of the prediction being correct should be equal regardless for cats or dogs.
-
-Whether actually good or bad credit, the probability of the prediction being correct should be equal regardless for men or women.
-
-<div class="step"></div>
-
-### Treatment equality <dt-cite cite="berk2018fairness"></dt-cite>
-
-Equal ratio of FN to FP. The idea here is that wrong predictions lead to samples benefitting or losing disproportionately. So these effects of benefit and loss should be similar across classes.
-
-The ratio of escaped fat animals and wrongly accused thin animals should be equal for cats and dogs.
-
-The ratio of wrongly approved and wrongly rejected good credit scorers should be equal for men and women.
-
-<div class="step"></div>
-
-### Test-fairness or calibration <dt-cite cite="chouldechova2017fair"></dt-cite>
-
-*aka matching conditional frequencies <dt-cite cite="hardt2016equality"></dt-cite>*
-
-For *any* predicted probability score, samples should have equal probability to be actually positive. Similar to predictive parity but applies for entire probability score spectrum instead of just positive predictions.
-
-Regardless for cats or dogs, animals assigned the same score should have the same chance of actually being fat.
-
-Regardless for men or woman, people assigned the same score should have the same chance of actually having good credit.
-
-<div class="step"></div>
-
-### Well calibration <dt-cite cite="kleinberg2016inherent"></dt-cite>
-
-An extension of test-fairness. The probability score should be equal to the probability of the sample actually being positive.
-
-Regardless for cats or dogs, animals assigned the same score should have that same score's probability of actually being fat.
-
-Regardless for men or woman, people assigned the same score should have the same score's probability of actually having good credit.
-
-<div class="step"></div>
-
-### Balance for positive class <dt-cite cite="kleinberg2016inherent"></dt-cite>
-
-Positive samples from different non-relevant traits should have equal average predicted probability scores.
-
-Fat cats and fat dogs should have equal average scores.
-
-Good credit men and good credit women should have equal average scores.
-
-<div class="step"></div>
-
-### Balance for negative class <dt-cite cite="kleinberg2016inherent"></dt-cite>
-
-Opposite of balance for positive class. Negative samples from different non-relevant traits should have equal average predicted probability scores.
-
-Thin cats and thin dogs should have equal average scores.
-
-Bad credit men and bad credit women should have equal average scores.
-
-<div class="step"></div>
-
-### Causal discrimination <dt-cite cite="galhotra2017fairness"></dt-cite>
-
-Samples that are the same except for non-relevant traits should be classified as the same class. This is a stricter form of conditional statistical parity.
-
-Cats and dogs that have the same age and weight should receive the same predictions.
-
-Men and women that have the same age and job should receive the same predictions.
-
-<div class="step"></div>
-
-### Fairness through unawareness <dt-cite cite="kusner2017counterfactual"></dt-cite>
-
-Simply, non-relevant traits are not explicitly used in the model. This does not say anything about proxies or correlated traits.
-
-*The testing for this does not seem to make sense in <dt-cite cite="verma2018fairness"></dt-cite>.*
-
-<div class="step"></div>
-
-### Fairness through awareness <dt-cite cite="dwork2012fairness"></dt-cite>
-
-Dwork's similar individuals should receive similar treatment.
-
-This depends heavily on the distance metric used. See <dt-cite cite="dwork2012fairness,verma2018fairness"></dt-cite> for examples.
-
-<div class="step"></div>
-
-### Counterfactual fairness <dt-cite cite="kusner2017counterfactual"></dt-cite>
-
-After expressing the model used as a directed acyclic causal graph, the model is considered counterfactually fair if the prediction does not depend on any descendant of a non-relevant attribute.
-
-In other words, the prediction should not depend on the non-relevant attribute or any attributes affected by it. See <dt-cite cite="kusner2017counterfactual"></dt-cite> for examples. 
-
-<div class="step"></div>
-
-### No unresolved discrimination <dt-cite cite="kilbertus2017avoiding"></dt-cite>
-
-Again using the causal graph, a model has no unresolved discrimination if there is no path from a non-relevant attribute to the prediction, except via resolving (non-discriminatory) variables. See <dt-cite cite="kilbertus2017avoiding"></dt-cite> for examples. 
-
-<div class="step"></div>
-
-### No proxy discrimination <dt-cite cite="kilbertus2017avoiding"></dt-cite>
-
-Referring to the causal graph, a model has no proxy discrimination if there is no path from a non-relevant attribute to the prediction that is blocked by a proxy variable.
-
-In other words, no proxy variables are used in the prediction.
-
-<div class="step"></div>
-
-### Fair inference <dt-cite cite="nabi2018fair"></dt-cite>
-
-> This definition classifies paths in a causal graph as legitimate or illegitimate.
-
-Then fair inference is defined when a model does not use any illegitimate paths. A proxy variable can be legitimate.
-
-## Impossibility Theorems
+Later on, we would discover that NorthPointe and ProPublica had different ideas of what constituted *fairness*. Northpointe used Conditional Use Accuracy Equality, while ProPublica used Treatment Equality (see above for details). Critically, it is impossible to satisfy both definitions of fairness given populations with different base rates of recidivism. This is similar to our example above of fat pets. We are not saying that individuals could be more prone to re-offending by virtue of race. Instead of genetic predisposition, such trends are more likely due to unequal treatment and circumstances from past and present biases.
 
 ---
 
 ## References
 
-<h3>References</h3><dt-bibliography></dt-bibliography>
+<dt-bibliography></dt-bibliography>
 
 <script type="text/bibliography">
 @inproceedings{verma2018fairness,
@@ -358,5 +168,31 @@ Then fair inference is defined when a model does not use any illegitimate paths.
   author={Nabi, Razieh and Shpitser, Ilya},
   booktitle={Thirty-Second AAAI Conference on Artificial Intelligence},
   year={2018}
+}
+
+@inproceedings{narayanan2018translation,
+  title={Translation tutorial: 21 fairness definitions and their politics},
+  author={Narayanan, Arvind},
+  booktitle={Proc. Conf. Fairness Accountability Transp., New York, USA},
+  year={2018}
+}
+
+@article{brennan2009evaluating,
+  title={Evaluating the predictive validity of the COMPAS risk and needs assessment system},
+  author={Brennan, Tim and Dieterich, William and Ehret, Beate},
+  journal={Criminal Justice and Behavior},
+  volume={36},
+  number={1},
+  pages={21--40},
+  year={2009},
+  publisher={Sage Publications Sage CA: Los Angeles, CA}
+}
+
+@article{angwin2016machine,
+  title={Machine bias},
+  author={Angwin, Julia and Larson, Jeff and Mattu, Surya and Kirchner, Lauren},
+  journal={ProPublica, May},
+  volume={23},
+  year={2016}
 }
 </script>
