@@ -1,7 +1,9 @@
 
 let bibliography = {}
-parsed = bibtexParse.toJSON(d3.select('script[type="text/bibliography"]').node().textContent)
-parsed.forEach(function (e, i) {
+bibjson = d3.select('script[type="text/bibliography"]').node()
+if (bibjson) {
+	parsed = bibtexParse.toJSON(bibjson.textContent)
+	parsed.forEach(function (e, i) {
 	for (var k in e.entryTags){
 	  var val = e.entryTags[k];
 	  val = val.replace(/[\t\n ]+/g, " ");
@@ -15,7 +17,8 @@ parsed.forEach(function (e, i) {
 	bibliography[e.citationKey].type = e.entryType;
 	bibliography[e.citationKey].idx = i + 1
 	bibliography[e.citationKey].key = e.citationKey
-});
+	});
+}
 
 function author_string(ent, template, sep, finalSep){
     var names = ent.author.split(" and ");

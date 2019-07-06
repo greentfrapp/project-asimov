@@ -147,6 +147,7 @@ body#guide-body {
 		//max-width: 500px;
 		padding: 100px 0px;
 		// padding-right: 25px;
+		text-align: center;
 
 		@media(min-width: 1000px) {
 			width: 900px;
@@ -158,13 +159,14 @@ body#guide-body {
 			font-size: 1.25rem;
 			line-height: 1.875rem;
 			width: 100%;
+			text-align: left;
 			//margin-left: auto;
 			//margin-right: auto;
+		}
 
-			.emph {
-				font-family: 'Roboto', sans-serif;
-				font-weight: 600;
-			}
+		.emph {
+			font-family: 'Roboto', sans-serif;
+			font-weight: 600;
 		}
 
 		div.step {
@@ -174,6 +176,10 @@ body#guide-body {
 		blockquote p {
 			// font-family: "Roboto", sans-serif;
 			color: darken($guide-text-color, 20%);
+		}
+
+		h3, h4, h5, h6 {
+			text-align: left;
 		}
 	}
 
@@ -214,6 +220,10 @@ body#guide-body {
 	a {
 		color: $guide-text-color;
 		text-decoration: underline;
+	}
+
+	img.comic {
+		margin: 25px auto;
 	}
 
 	#fairness-vis {
