@@ -20,7 +20,7 @@ Suppose for a moment that our company organizes diet boot camps for overweight c
 <img class="comic" width="200px" src="{{ "/assets/guide/comics/cat_2_inverted.png" | relative_url }}" title="That's what statistics means right?" alt="40% of cats are overweight.">
 </div>
 
-In the charts below, we can tune our AI system's accuracy for cats and dogs (if only it was so easy!). The charts on the left and right represent the resulting predictions for cats and dogs respectively.
+In the charts below, we can tune our AI system's accuracy for cats and dogs (if only it was so easy!). The charts on the left and right represent the resulting predictions for cats and dogs respectively. (Hover over yellow keywords to see the tooltips.)
 
 <fairness-explorable></fairness-explorable>
 
@@ -34,21 +34,31 @@ The experiment above introduced five fairness metrics:
 - Overall Accuracy Equality <dt-cite cite="berk2018fairness"></dt-cite>
 - Treatment Equality <dt-cite cite="berk2018fairness"></dt-cite>
 
-In addition to these, there are plenty more fairness metrics enumerated by Verma and Rubin <dt-cite cite="verma2018fairness"></dt-cite> and Narayanan <dt-cite cite="narayanan2018translation"></dt-cite>. There are all sorts of ingenious ideas including calibration and fairness through awareness. <span class="emph">Perhaps most importantly, these metrics all have different priorities and justifications and they exemplify the importance of context when discussing fairness</span>.
+In addition to these, there are plenty more fairness metrics enumerated by Verma and Rubin <dt-cite cite="verma2018fairness"></dt-cite> and Narayanan <dt-cite cite="narayanan2018translation"></dt-cite>. There are all sorts of ingenious ideas including calibration <dt-cite cite="kleinberg2016inherent,chouldechova2017fair"></dt-cite> and fairness through awareness <dt-cite cite="dwork2012fairness"></dt-cite>. <span class="emph">These metrics all have different priorities and justifications and they exemplify the importance of context when discussing fairness</span>.
 
-## The Impossibility Theorem
+<div>
+<img class="comic" width="450px" src="{{ "/assets/guide/comics/manymetrics_inverted.png" | relative_url }}" title="Is the temperature in Kelvin, Celsius or Farenheit? Yes." alt="There are a ton of metrics to measure fairness.">
+</div>
 
-In our fictional AI system above, we had complete control over the system's accuracy. Even so, you may have noticed that it was impossible to fulfill all five fairness metrics at the same time.
+## The Impossibility Theorem of Fairness
+
+For our fictional AI system above, we had complete control over the system's accuracy. Even so, you may have noticed that it was impossible to fulfill all five fairness metrics at the same time. Similar phenomena have been documented in the real world.
 
 In ProPublica's well-known article [Machine Bias](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing) <dt-cite cite="angwin2016machine"></dt-cite>, the subtitle reads: 
 
 > There’s software used across the country to predict future criminals. And it’s biased against blacks.
 
-A company named Northpointe sold an algorithm known as the Correctional Offender Management Profiling for Alternative Sanctions (COMPAS). COMPAS was intended to predict recidivism (criminal re-offending) rate based on factors such as history of violence, substance abuse and financial problems <dt-cite cite="brennan2009evaluating"></dt-cite>. Predictions from the algorithm were employed in sentencing decisions across many U.S. states including "Arizona, Colorado, Delaware, Kentucky, Louisiana, Oklahoma, Virginia, Washington and Wisconsin" <dt-cite cite="angwin2016machine"></dt-cite>.
+In their article, ProPublica documented the "significant racial disparities" found in COMPAS's predictions. But in their response, Northpointe disputed ProPublica's claims. Later on, we would discover that NorthPointe and ProPublica had different ideas about what constituted *fairness*. Northpointe used Conditional Use Accuracy Equality, while ProPublica used Treatment Equality (see demo above for details).
 
-In their article, ProPublica documented the "significant racial disparities" found in COMPAS's predictions. But in their response, Northpointe disputed ProPublica's claims.
+Turns out, it is impossible to satisfy both definitions of fairness, given populations with different base rates of recidivism <dt-cite cite="kleinberg2016inherent,chouldechova2017fair"></dt-cite>. This is similar to our example above of fat pets. Now, different base rates of recidivism do not mean that certain individuals are more prone to re-offending by virtue of race. Instead of racial predisposition, such trends are more likely due to unequal treatment and circumstances from past and present biases.
 
-Later on, we would discover that NorthPointe and ProPublica had different ideas of what constituted *fairness*. Northpointe used Conditional Use Accuracy Equality, while ProPublica used Treatment Equality (see above for details). Critically, it is impossible to satisfy both definitions of fairness given populations with different base rates of recidivism. This is similar to our example above of fat pets. We are not saying that individuals could be more prone to re-offending by virtue of race. Instead of genetic predisposition, such trends are more likely due to unequal treatment and circumstances from past and present biases.
+### So fairness is impossible?
+
+The point of all these is not to show that fairness does not make sense. After all, notions of fairness are heavily based on context and culture. Different definitions that appear incompatible simply reflect this context-dependent nature.
+
+But this also means that it is super critical to have a deliberate discussion about what constitutes fairness. For each AIS, the AI practitioners, their clients and the users of the AIS need to base their conversations on the same definition of fairness. <span class="emph">We cannot assume that everyone has the same idea of fairness.</span>
+
+While it could be ideal for everyone to have a say in what definition of fairness to use, sometimes this can be difficult. <span class="emph">At the very least, AI practitioners should be upfront with their users about fairness considerations in the design of the AIS. This includes what fairness definition was used and why, as well as potential shortcomings.</span>
 
 ---
 
