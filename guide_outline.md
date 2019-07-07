@@ -20,6 +20,7 @@
   - Comic to describe supply chain - Siri being a humongous monster hiding behind an iPhone
   - Comic to describe life cycle (this is an AI system egg; this is a baby AI; this is old man AI)
 - AI Ethics - include Jack Clark and Meredith Whittaker's tweets
+- Fairness
 - Algorithmic Bias
 
 ## AI Ethics
@@ -41,7 +42,12 @@
 1. [comic] When is AI not the answer? - man holding a ton of smart gadgets, "Is that a trick question?"
 2. Illusion
 3. Speed and Scale
-4. [comic] Power to accessibility ratio - grid comparison of power to accessibility technologies
+4. [comic] Power to accessibility ratio - grid comparison of power to accessibility technologies - this should probably be in blobs - for example gold will extend across different capacities for harm, ranging from gold flakes to King Midas
+   1. Nuclear Bomb - High power Low accessibility
+   2. AI - Mid-High power Mid-High accessibility
+   3. Knife - Low power High accessibility
+   4. Gun - Mid power Mid-low accessibility
+   5. Gold - Low power Low accessibility
 5. [comic] At Responsibility of the Engineer - "I can code." Uncle Ben replying with great power...
 
 ## Fairness
