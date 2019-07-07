@@ -88,7 +88,7 @@ In her book Automating Inequality, Virginia Eubanks notes that child welfare off
 
 *Automating Inequality (Virginia Eubanks, 2018) <dt-cite cite="eubanks2018automating"></dt-cite>*
 
-Such observations are hardly surprising, given the daily exhortations of the reliability of machines. But this over-deference to machines potentially undermines the idea of AI+Human models that complement each other. System designers must be aware of such nuances and unintended consequences.
+Such observations are hardly surprising, given the daily exhortations of the reliability of machines. But this over-deference to machines potentially undermines the idea of AI+Human models where the two elements complement each other. System designers must be aware of such nuances and unintended consequences.
 
 <div>
 <img class="comic" width="300px" src="{{ "/assets/guide/comics/notanswer_3_inverted.png" | relative_url }}" title="The teller said she would be happy to help me reinstate my account if I can prove I am alive." alt="Over-deference to machines.">
