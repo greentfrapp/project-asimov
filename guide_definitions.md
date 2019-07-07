@@ -22,9 +22,9 @@ The Montréal Declaration's 10 principles refers extensively to "AIS" instead of
 <img class="comic" width="815px" src="{{ "/assets/guide/comics/siri_inverted.png" | relative_url }}" title="Before working at Apple, Siri acted at Studio Ghibli." alt="Siri is not a tiny sprite living in an iPhone.">
 </div>
 
-Siri is not a tiny sprite that lives in iPhones. Siri is an entire digital supply chain from initial conception to data collection to model training to deployment to maintenance and finally retirement. This big-picture perspective is important because this reminds us that we have to look at the entire system and infrastructure when we talk about AI ethics.
+Siri is not a tiny sprite that lives in iPhones. Siri is an entire digital supply chain from initial conception to data collection to model training to deployment to maintenance and finally retirement. The same is true for any other AIS, including Google Translate, Amazon Rekognition and Northpointe's COMPAS. This big-picture perspective is important because this reminds us that we have to look at the entire system and infrastructure when we talk about AI ethics.
 
-Furthermore, AIS also have physical supply chains that comprise energy usage, resource extraction and hardware recycling or disposal. This can be primarily due to cloud servers or physical devices.
+Furthermore, AIS also have physical supply chains that comprise energy usage, resource extraction and hardware recycling or disposal. These physical supply chains can be due to cloud servers, physical devices or simply the electricity and hardware used to train and house the models.
 
 The AI Now Institute also has a fantastic illustration titled [Anatomy of an AI System](https://anatomyof.ai/) that considers AIS in terms of "material resources, human labor, and data".
 
@@ -87,9 +87,7 @@ See the [AIEthics section](../about_ai/) for a more detailed look at what makes 
 
 ## Fairness
 
-`WIP`
-
-Oh boy is this a big one. Check out the [Fairness section](../fairness/) for details.
+Oh boy is this a big one. This guide being what it is, a definition of fairness warrants its own section. Check out the [Fairness section](../fairness/) for details.
 
 ---
 
