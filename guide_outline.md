@@ -41,6 +41,8 @@
 
 1. [comic] When is AI not the answer? - man holding a ton of smart gadgets, "Is that a trick question?"
 2. Illusion
+   1. Kid asking parent about math problem, parent uses Excel spreadsheet
+   2. A robot doing something bad - I have no feelings therefore I must be fair.
 3. Speed and Scale
 4. [comic] Power to accessibility ratio - grid comparison of power to accessibility technologies - this should probably be in blobs - for example gold will extend across different capacities for harm, ranging from gold flakes to King Midas
    1. Nuclear Bomb - High power Low accessibility
@@ -106,3 +108,7 @@
 - *How do we consistently evaluate our models for bias?*
 
 ## Readings
+
+# Other Comic Ideas
+
+On Explainability - 1st panel - witch hunt using needles - why does that make them a witch? I have no idea but look the crops are growing again. 2nd panel hiring using AI - why does that make them a good employee? I have no idea but look at all the money we are saving.

@@ -70,12 +70,7 @@ But AIS can also violate human values. The use of generative models to create fa
 
 The pervasive nature of AIS means that these systems potentially affect millions and billions of lives. Many important institutions (political, judicial, financial) are increasingly augmented by AIS. In short, it is critical to get things right before human civilization blows up in our faces.
 
-AI ethics goes beyond philosophical musings and thought experiments. It affects the innocent man who was arrested because he was the wrong skin color. It affects the woman rejected from jobs because of her gender. AI ethics tries to fix the real problems cropping up from so-called solutions. Most importantly, AIS are implemented by human researchers and engineers, who have to understand the tremendous power and responsibility that they possess.
-
-<div style="margin-left: auto; margin-right: auto; width:500px;">
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Fair point that can just as easily, and more urgently, be inverted: why don&#39;t those building AI for $subject actually engage with the foundational $subject literature? Including the histories of ethics, discrimination, etc in $subject domain... <a href="https://t.co/SPkSBCxWzz">https://t.co/SPkSBCxWzz</a></p>&mdash; Meredith Whittaker (@mer__edith) <a href="https://twitter.com/mer__edith/status/998211595879833602?ref_src=twsrc%5Etfw">May 20, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
+AI ethics goes beyond philosophical musings and thought experiments. It affects the innocent man who was arrested because he was the wrong skin color. It affects the woman rejected from jobs because of her gender. AI ethics tries to fix the real problems cropping up from so-called solutions. Most importantly, the human researchers and engineers behind AIS have to understand the tremendous power and responsibility that they possess.
 
 See the [AIEthics section](../about_ai/) for a more detailed look at what makes modern AI different from previous technologies.
 
@@ -83,17 +78,20 @@ See the [AIEthics section](../about_ai/) for a more detailed look at what makes 
 	TL;DR - For the remainder of this guide, ethics of artificial intelligence (AI ethics) refers to the study of how AIS affect, promote and violate human moral ideals, including justice, autonomy and privacy.
 </p>
 
+<div style="margin-left: auto; margin-right: auto; width:500px;">
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Fair point that can just as easily, and more urgently, be inverted: why don&#39;t those building AI for $subject actually engage with the foundational $subject literature? Including the histories of ethics, discrimination, etc in $subject domain... <a href="https://t.co/SPkSBCxWzz">https://t.co/SPkSBCxWzz</a></p>&mdash; Meredith Whittaker (@mer__edith) <a href="https://twitter.com/mer__edith/status/998211595879833602?ref_src=twsrc%5Etfw">May 20, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
 ---
 
-## Fairness
+## Fairness  `WIP`
 
 Oh boy is this a big one. This guide being what it is, a definition of fairness warrants its own section. Check out the [Fairness section](../fairness/) for details.
 
 ---
 
-## Algorithmic Bias
-
-`WIP`
+## Algorithmic Bias  `WIP`
 
 ---
 
