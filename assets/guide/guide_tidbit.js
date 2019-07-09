@@ -13,5 +13,5 @@ let tidbit = {
 		}
 	},
 	// template: '<span class="tidbit" v-text="content"></span>'
-	template: '<span class="tidbit-holder"><i class="plus circle large icon tidbit-link" :class="{ closed: !hidden }" @click="expand"></i><span v-text="content" class="tidbit-content" :class="{ hidden: hidden }"></span></span>'
+	template: '<span class="tidbit-holder"><i class="plus circle large icon tidbit-link" :class="{ closed: !hidden }" @click="expand"></i><span v-html="content" class="tidbit-content" :class="{ hidden: hidden }"></span></span>'
 }
