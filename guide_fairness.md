@@ -24,11 +24,15 @@ The difference between disparate treatment and disparate impact can be summarize
 
 We can use Amazon's Prime Free Same-Day service as an example <dt-cite cite="ingold2016amazon"></dt-cite>. Suppose Amazon has a model that decides which neighborhoods should get the Prime Free Same-Day service.
 
-Using race to decide who should get this service is certainly unjustified. So if Amazon had explicitly used racial composition of neighborhoods as an input feature for the model, that would be **disparate treatment**.
+#### Disparate Treatment
 
-On the other hand, Amazon might have used non-racial metrics for their model. However, the resulting model still might make recommendations that disproportionately exclude predominantly black ZIP codes. This would be **disparate impact**.
+Using race to decide who should get this service is certainly unjustified. So if Amazon had explicitly used racial composition of neighborhoods as an input feature for the model, that would be **disparate treatment**. In other words, disparate treatment occurs when protected characteristics are used as input features.
 
-Obviously, disparate treatment is much easier to spot and resolve once we determine the set of protected characteristics. We just have to make sure none of protected characteristics is explicitly used as an input feature.
+Obviously, disparate treatment is relatively easy to spot and resolve once we determine the set of protected characteristics. We just have to make sure none of protected characteristics is explicitly used as an input feature.
+
+#### Disparate Impact
+
+On the other hand, Amazon might have deliberately excluded racial features for their model. However, the resulting model might still make recommendations that disproportionately exclude predominantly black ZIP codes. This would be **disparate impact**. In general, disparate impact occurs when protected characteristics are not used as input features but the resulting outcome still exhibits disproportional disadvantages.
 
 Disparate impact is more difficult to fix since it can come from multiple sources, such as:
 
@@ -36,7 +40,13 @@ Disparate impact is more difficult to fix since it can come from multiple source
 - A dataset that already encodes unfair decisions <tidbit content='E.g. a credit scoring dataset with labels that underreports the credit score for black individuals.'></tidbit>
 - Input features that are proxies for protected characteristics <tidbit content='E.g. Postal code might be a proxy feature for race since the two are often correlated.'></tidbit>
 
-In addition, we have to review what we mean by "disproportionately disadvantaged" in the context of AIS. Let's say an insurance company uses an AIS that predicts if an insuree is likely to get into an accident within the next year. If the AIS predicts a certain gender as more likely to get into an accident, is this gender "disproportionately disadvantaged"? But what if we correct for that and the accuracies are now different between gender groups, are the groups with worse accuracies "disproportionately disadvantaged"? The next section is a more detailed look at the different ways to look at fairness and the term "disproportionately disadvantaged".
+In addition, we have to review what we mean by "disproportionately disadvantaged" in the context of AIS. Let's say an insurance company uses an AIS that predicts whether an insuree will get into an accident within the next year. Insurees predicted as accident-prone could be charged higher premiums.
+
+- If the model predicts a certain gender as accident-prone, is this gender disproportionately disadvantaged?
+- If the accuracies are different between age groups, are the age groups with worse accuracies disproportionately disadvantaged?
+- If the model overestimates accident-likelihood for certain races and underestimates it for other races. This means the first group pays higher premiums than they should, while the second group underpays. Then do we say the former group is disproportionately worse off and the latter is disproportionately better off?
+
+The next section is a more detailed look at the different ways to look at fairness and the term "disproportionately disadvantaged".
 
 ## A Fair Fat Pet Predictor
 
