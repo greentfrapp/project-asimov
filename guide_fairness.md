@@ -12,13 +12,31 @@ permalink: /guide/fairness/
 
 To lay the ground for algorithmic bias, we first ask, "What does fairness mean?"
 
-## Disparate Treatment and Disparate Impact `WIP`
+## Disparate Treatment, Disparate Impact
 
 Let's begin with a not-so-mathematical idea. A common paradigm for thinking about fairness in US labor law is *disparate treatment and disparate impact*.
 
-Both terms refer to practices that **disproportionately disadvantages** any group of people sharing **protected characteristics**. The phrase "disproportionately disadvantages" dismisses differences in treatment due to statistical randomness. <tidbit content='There is an interesting 80% rule presented by the State of California Fair Employment Practice Commission (FEPC) in 1971 to quantify what "disproportionately" means. Simply put, we compare the treatment/mistreatment rates between two groups and see if they differ by more than 20% (equal to 100%-80%). This somewhat arbitrary rule was augmented by a 2007 memorandum from the U.S. Equal Employment Opportunities Commission, which suggested a random baseline.'></tidbit> The phrase "protected characteristics" refers to traits such as race, gender, age, physical or mental disabilities, *where differences in such traits cannot be reasonably justified*. <tidbit content='The italicized disclaimer is important because in some cases, differences in treatment is justified. For instance, roller coaster rides often prohibit pregnant riders. This is generally deemed to be reasonable, since the ride poses a risk to the physical wellbeing of the pregnant person. Of course, this then raises the difficult question of how do we decide if a particular justification is reasonable.'></tidbit>
+Both terms refer to practices that cause any group of people sharing **protected characteristics** to be  **disproportionately disadvantaged**. The phrase "protected characteristics" refers to traits such as race, gender, age, physical or mental disabilities, *where differences due to such traits cannot be reasonably justified*. <tidbit content='The italicized disclaimer is important because in some cases, differences in treatment is justified. For instance, roller coaster rides often prohibit pregnant riders. This is generally deemed to be reasonable, since the ride poses a risk to the physical wellbeing of the pregnant person. Of course, this then raises the difficult question of how do we decide if a particular justification is reasonable.'></tidbit> Ideally, we should have a set of sensitive traits that we can check against. <span class="emph">But in reality, what constitutes "protected characteristics" varies by context, culture and country.</span> The phrase "disproportionately disadvantaged" dismisses differences in treatment due to statistical randomness. <tidbit content='There is an interesting 80% rule presented by the State of California Fair Employment Practice Commission (FEPC) in 1971 to quantify what "disproportionately" means. Simply put, we compare the treatment/mistreatment rates between two groups and see if they differ by more than 20% (equal to 100%-80%). This somewhat arbitrary rule was augmented by a 2007 memorandum from the U.S. Equal Employment Opportunities Commission, which suggested a uniform random baseline instead.'></tidbit> 
 
 The difference between disparate treatment and disparate impact can be summarized as **explicit intent**. Disparate treatment is explicitly intentional, while disparate impact is implicit or unintentional.
+
+### What does this mean for AIS?
+
+We can use Amazon's Prime Free Same-Day service as an example <dt-cite cite="ingold2016amazon"></dt-cite>. Suppose Amazon has a model that decides which neighborhoods should get the Prime Free Same-Day service.
+
+Using race to decide who should get this service is certainly unjustified. So if Amazon had explicitly used racial composition of neighborhoods as an input feature for the model, that would be **disparate treatment**.
+
+On the other hand, Amazon might have used non-racial metrics for their model. However, the resulting model still might make recommendations that disproportionately exclude predominantly black ZIP codes. This would be **disparate impact**.
+
+Obviously, disparate treatment is much easier to spot and resolve once we determine the set of protected characteristics. We just have to make sure none of protected characteristics is explicitly used as an input feature.
+
+Disparate impact is more difficult to fix since it can come from multiple sources, such as:
+
+- A non-representative dataset <tidbit content='E.g. using a training set that contains only white male faces but applying the trained model to everyone regardless of race or gender.'></tidbit>
+- A dataset that already encodes unfair decisions <tidbit content='E.g. a credit scoring dataset with labels that underreports the credit score for black individuals.'></tidbit>
+- Input features that are proxies for protected characteristics <tidbit content='E.g. Postal code might be a proxy feature for race since the two are often correlated.'></tidbit>
+
+In addition, we have to review what we mean by "disproportionately disadvantaged" in the context of AIS. Let's say an insurance company uses an AIS that predicts if an insuree is likely to get into an accident within the next year. If the AIS predicts a certain gender as more likely to get into an accident, is this gender "disproportionately disadvantaged"? But what if we correct for that and the accuracies are now different between gender groups, are the groups with worse accuracies "disproportionately disadvantaged"? The next section is a more detailed look at the different ways to look at fairness and the term "disproportionately disadvantaged".
 
 ## A Fair Fat Pet Predictor
 
@@ -62,7 +80,7 @@ In ProPublica's well-known article [Machine Bias](https://www.propublica.org/art
 
 In their article, ProPublica documented the "significant racial disparities" found in COMPAS's predictions. But in their response, Northpointe disputed ProPublica's claims. Later on, we would discover that NorthPointe and ProPublica had different ideas about what constituted *fairness*. Northpointe used Conditional Use Accuracy Equality, while ProPublica used Treatment Equality (see demo above for details).
 
-Turns out, it is impossible to satisfy both definitions of fairness, given populations with different base rates of recidivism <dt-cite cite="kleinberg2016inherent,chouldechova2017fair"></dt-cite>. This is similar to our example above of fat pets. Now, different base rates of recidivism do not mean that certain individuals are more prone to re-offending by virtue of race. Instead of racial predisposition, such trends are more likely due to unequal treatment and circumstances from past and present biases.
+Turns out, it is impossible to satisfy both definitions of fairness, given populations with different base rates of recidivism <dt-cite cite="kleinberg2016inherent,chouldechova2017fair"></dt-cite>. This is similar to our example above of fat pets. Now, different base rates of recidivism do not mean that certain individuals are more prone to re-offending by virtue of race. Instead of racial predisposition, such trends are more likely due to unequal treatment and circumstances from past and present biases. In our fat pets example, dogs might have a higher base rate for obesity not because dogs have fat genes but because dog owners tend to be overly enthusiastic about feeding their pets.
 
 ### So fairness is impossible?
 
@@ -225,4 +243,12 @@ While it could be ideal for everyone to have a say in what definition of fairnes
   volume={23},
   year={2016}
 }
+
+@article{ingold2016amazon,
+  title={Amazon doesn’t consider the race of its customers. Should It},
+  author={Ingold, David and Soper, Spencer},
+  journal={Bloomberg News},
+  year={2016}
+}
+
 </script>
