@@ -158,7 +158,8 @@ let framework = new Vue({
 	el: "#app",
 	components: {
 		'dt-cite': dtCite,
-		'dt-bibliography': dtBibliography
+		'dt-bibliography': dtBibliography,
+		'tidbit': tidbit
 	},
 	mounted: function() {
 		let self = this

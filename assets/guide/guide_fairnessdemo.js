@@ -156,7 +156,8 @@ let framework = new Vue({
 	components: {
 		'dt-cite': dtCite,
 		'dt-bibliography': dtBibliography,
-		'fairness-explorable': fairnessExplorable
+		'fairness-explorable': fairnessExplorable,
+		'tidbit': tidbit
 	},
 	mounted: function() {
 		let self = this
@@ -166,7 +167,6 @@ let framework = new Vue({
 			this.isBurger = true
 			this.showNavbarElements = false
 		}
-
 	},
 	beforeDestroy () {
 		window.removeEventListener('scroll', this.onScroll)

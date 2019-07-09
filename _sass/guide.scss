@@ -8,13 +8,14 @@
 $guide-background-color: #222222 !default;
 $guide-antibackground-color: #DDDDDD !default;
 $guide-text-color: #DDDDDD !default;
-$guide-text-secondary-c: #00B0F0 !default;
+$guide-text-secondary-c: #00BBFF !default;
 $guide-text-secondary-m: #ED2690 !default;
 $guide-text-secondary-y: #FFF33F !default;
 $guide-antitext-color: #222222 !default;
 $guide-negative-color: #f3442d !default;
 $guide-positive-color: #036ecd !default;
 $guide-annotation-color: #fccf35 !default;
+$guide-tidbit-color: #FF8A8A !default;
 
 body#guide-body {
 	background-color: $guide-background-color;
@@ -84,7 +85,7 @@ body#guide-body {
 			display: inline-block;
 			margin-left: 50px;
 			transform: translate3d(0, 0, 0);
-			transition: 0.1s all ease-out;		
+			transition: 0.1s all ease-out;
 		}
 
 		ul.burger {
@@ -180,6 +181,33 @@ body#guide-body {
 
 		h3, h4, h5, h6 {
 			text-align: left;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		i.tidbit-link {
+			// width: 20.65px;
+			// height: 20.65px;
+			// margin-right: 0;
+			margin-top: -0.2em;
+			cursor: pointer;
+			color: darken($guide-tidbit-color, 10%);
+			// transform: rotate(0deg);
+			// transform-origin: 40% 50%;
+			transition: 0.1s all ease-out;
+			font-size: 1.2em;
+		}
+
+		i.tidbit-link.closed {
+			transform: rotate(45deg);
+			transform-origin: 50% 50%;
+			transition: 0.1s all ease-out;
+		}
+
+		.tidbit-content {
+			color: $guide-tidbit-color;
 		}
 	}
 
