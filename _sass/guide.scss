@@ -30,18 +30,22 @@ body#guide-body {
 	}
 
 	h1 {
-		font-size: 80px;
+		font-size: 8rem;
 		text-align: center;
 	}
 
 	h2 {
-		font-size: 48px;
+		font-size: 3.5rem;
 		color: $guide-text-secondary-c;
 	}
 
 	h3 {
 		text-transform: uppercase;
-		font-size: 24px;
+		font-size: 2rem;
+	}
+
+	h4 {
+		font-size: 1.5rem;
 	}
 
 	hr {
