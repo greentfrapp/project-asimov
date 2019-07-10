@@ -106,39 +106,51 @@ But this also means that it is super critical to have a deliberate discussion ab
 
 While it could be ideal for everyone to have a say in what definition of fairness to use, sometimes this can be difficult. <span class="emph">At the very least, AI practitioners should be upfront with their users about fairness considerations in the design of the AIS. This includes what fairness definition was used and why, as well as potential shortcomings.</span>
 
-### A Unified Theory of Fairness `WIP`
+## A Unified Theory of Fairness
+
+*Consider moving to own section, and citing Peter Westen's Empty Idea of Equality*
 
 Computer scientists might often prefer general algorithms that is agnostic to context and application. The agnostic nature of unstructured deep learning is often cited as a huge advantage compared to labor-intensive feature engineering. So the importance of context in understanding fairness can be a bane to computer scientists, who might like to "[abstract] away the social context in which these systems will be deployed" <dt-cite cite="selbst2019fairness"></dt-cite>.
 
 But as Selbst et al. write in their work on fairness in sociotechnical systems:
 
-> Fairness and justice are properties of social and legal systems like employment and criminal justice, not properties of the technical tools within. To treat fairness and justice as terms that have meaningful application to technology **separate** from a social context is therefore to make a category error, or as we posit here, an abstraction error. [emphasis mine]
+> Fairness and justice are properties of social and legal systems like employment and criminal justice, not properties of the technical tools within. **To treat fairness and justice as terms that have meaningful application to technology separate from a social context is therefore to make a category error, or as we posit here, an abstraction error.** [emphasis mine]
 
-In their work, Selbst et al. identify what they term "five failure modes". What follows is a brief summary of these failure modes and we strongly encourage all readers to have a close reading of Selbst et al.'s original work. A freely available copy can be found on co-author Sorelle Friedler's website [here](http://sorelle.friedler.net/papers/sts_fat2019.pdf).
+In their work, Selbst et al. identify what they term "five failure modes" or "traps" that might ensnare the AI practitioner trying to build a fair AIS. What follows is a summary of the failure modes. We strongly encourage all readers to conduct a close reading of Selbst et al.'s original work. A copy can be found on co-author Sorelle Friedler's website [here](http://sorelle.friedler.net/papers/sts_fat2019.pdf).
 
 #### Framing Trap
 
 > Failure to model the entire system over which a social criterion, such as fairness, will be enforced
 
+A fair AIS must take into account the context in which the AIS might be used, otherwise it is meaningless. For example, an AIS to filter job applicants should also consider how its suggestions would be used by the hiring manager. The AIS might be "fair" in isolation but subsequent "post-processing" by the hiring manager might distort and undo the "fairness".
+
 #### Portability Trap
 
-> Failure to understand how repurposing algorithmic solutions designed for one social context may be misleading, inaccurate, or otherwise do harm when applied to a di erent context
+> Failure to understand how repurposing algorithmic solutions designed for one social context may be misleading, inaccurate, or otherwise do harm when applied to a different context
+
+This refers to our earlier observation that computer scientists often prefer general algorithms agnostic to context and application, which Selbst et al. refer to as "portability". The authors contend that the quality of portability must sacrifice aspects of fairness because fairness *is* unique to time and space, unique to cultures and communities, and not readily transferable.
 
 #### Formalism Trap
 
 > Failure to account for the full meaning of social concepts such as fairness, which can be procedural, contextual, and contestable, and cannot be resolved through mathematical formalisms
 
+This trap stems from the computer science field's preference for mathematical definitions, such as the many definitions of fairness that we have seen earlier. The authors suggest that such mathematical formulations fail to capture the intrinsically complex and abstract nature of fairness, which is, again, nested deeply in the context of the application.
+
 #### Ripple Effect Trap
 
 > Failure to understand how the insertion of technology into an existing social system changes the behaviors and embedded values of the pre-existing system
+
+This is related to the Framing Trap in that the AI practitioner fails to properly account for "the entire system", which in this case includes how existing actors might be affected by the AIS. For instance, decision-makers might be biased towards agreeing with the AIS's suggestions (a phenomenon known as automation bias) or the opposite might be true and decision-makers might be prone to disagreeing with the AIS's suggestions. Again, this stems from designing an AIS in isolation without caring enough about the context.
 
 #### Solutionism Trap
 
 > Failure to recognize the possibility that the best solution to a problem may not involve technology
 
-Hence we crowned the most important question in this entire guide as, "When is AI not the answer?" (mentioned [here](../about_ai/#when-is-ai-not-the-answer))
+Hence we crowned the most important question in this entire guide as, "When is AI not the answer?" (mentioned [here](../about_ai/#when-is-ai-not-the-answer)). AI practitioners are naturally biased towards AI-driven solutions, which would be an impedement when the ideal solution might be far from AI-driven.
 
-<span class="emph">TL;DR - so nope, there is no unified theory of fairness yet, but maybe there shouldn't be one.</span>
+This piece by Selbst et al. is important because it highlights many obstacles to designing fair AIS, all of which are often deeply embedded in the psyche of an AI practitioner. Perhaps the most important thing to pick up from this is that AI practitioners *have* to treat their application's subject matter with humility, rather than naively and arrogantly assuming that AIS can simply solve everything.
+
+<span class="emph">TL;DR - Nope, there is no unified theory of fairness yet and maybe there shouldn't be one.</span>
 
 ---
 

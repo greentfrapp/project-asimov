@@ -74,7 +74,7 @@ AI technologies have been used for facial recognition, hiring, criminal sentenci
 
 The superiority of AIS should not be taken for granted despite all the hype. For example, human professionals are often far better at explaining their decisions, as compared to AIS. It is immensely important to consider the trade-offs when deploying AIS and look critically at both pros and cons. In some cases, AIS may not actually offer significant benefits despite all the hype. Other common considerations include explainability and emotional and social qualities, where humans far outperform machines.
 
-In particular, an oft-neglected consideration could be overconfidence in AIS-derived decisions. While the well-known fallibility of humans remind us to double and triple check decisions, employing AIS might create a false sense of security based on flawed assumptions (see Illusion of Fairness above).
+In particular, an oft-neglected consideration is how the introduction of an AIS might change the behaviors of the humans interacting with the system. This is referred to the Ripple Effect Trap by Selbst et al. <dt-cite cite="selbst2019fairness"></dt-cite>. An example could be overconfidence in AIS-derived decisions. While the well-known fallibility of humans remind us to double and triple check decisions, employing AIS might create a false sense of security based on flawed assumptions (see Illusion of Fairness above).
 
 ### AI + Human = Best of Both Worlds?
 
@@ -88,7 +88,7 @@ In her book Automating Inequality, Virginia Eubanks notes that child welfare off
 
 *Automating Inequality (Virginia Eubanks, 2018) <dt-cite cite="eubanks2018automating"></dt-cite>*
 
-Such observations are hardly surprising, given the daily exhortations of the reliability of machines. But this over-deference to machines potentially undermines the idea of AI+Human models where the two elements complement each other. System designers must be aware of such nuances and unintended consequences.
+Such observations are hardly surprising, given the daily exhortations of the reliability of machines, and the phenomenon has been termed "automation bias" <dt-cite cite="skitka2000automation,citron2007technological"></dt-cite>. Unfortunately, this over-deference to machines potentially undermines the idea of AI+Human models where the two elements complement each other. System designers must be aware of such nuances and unintended consequences.
 
 <div>
 <img class="comic" width="300px" src="{{ "/assets/guide/comics/notanswer_3_inverted.png" | relative_url }}" title="The teller said she would be happy to help me reinstate my account if I can prove I am alive." alt="Over-deference to machines.">
@@ -124,4 +124,34 @@ Such observations are hardly surprising, given the daily exhortations of the rel
   author={Eubanks, Virginia},
   year={2018},
   publisher={St. Martin's Press}
+}
+
+@article{citron2007technological,
+  title={Technological due process},
+  author={Citron, Danielle Keats},
+  journal={Wash. UL Rev.},
+  volume={85},
+  pages={1249},
+  year={2007},
+  publisher={HeinOnline}
+}
+
+@article{skitka2000automation,
+  title={Automation bias and errors: are crews better than individuals?},
+  author={Skitka, Linda J and Mosier, Kathleen L and Burdick, Mark and Rosenblatt, Bonnie},
+  journal={The International journal of aviation psychology},
+  volume={10},
+  number={1},
+  pages={85--97},
+  year={2000},
+  publisher={Taylor \& Francis}
+}
+
+@inproceedings{selbst2019fairness,
+  title={Fairness and abstraction in sociotechnical systems},
+  author={Selbst, Andrew D and Boyd, Danah and Friedler, Sorelle A and Venkatasubramanian, Suresh and Vertesi, Janet},
+  booktitle={Proceedings of the Conference on Fairness, Accountability, and Transparency},
+  pages={59--68},
+  year={2019},
+  organization={ACM}
 }
