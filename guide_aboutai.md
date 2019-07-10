@@ -60,7 +60,7 @@ We need to dispel the myth of the neutral AI. We need to fix widespread AI syste
 <img class="comic" width="250px" src="{{ "/assets/guide/comics/notanswer_1_inverted.png" | relative_url }}" title='When the Question is, "What do you get if you multiply six by nine?"' alt="Is that a trick question?">
 </div>
 
-These days, it can feel like the answer is, "Never."
+This is the most important question in this entire guide, and these days it can feel like the answer is, "Never."
 
 AI technologies have been used for facial recognition, hiring, criminal sentencing, credit scoring. More unconventional applications include writing inspirational quotes ([link](http://inspirobot.me/)), coming up with Halloween costumes ([link](https://www.nytimes.com/interactive/2018/10/26/opinion/halloween-spooky-costumes-machine-learning-generator.html)), inventing new pizza recipes ([link](https://www.youtube.com/watch?v=WVvHCJls3yY)) and creating rap lyrics ([link](http://deepbeat.org/)).
 
@@ -72,7 +72,7 @@ AI technologies have been used for facial recognition, hiring, criminal sentenci
 	This section here is to remind the reader that not using AIS is an option. Think carefully about whether AI should be used for a problem at hand.
 </span>
 
-The superiority of AIS should not be taken for granted despite all the hype. For example, human professionals are often far better at explaining their decisions, as compared to AIS. It is immensely important to consider the trade-offs when deploying AIS. Common considerations include explainability and emotional and social qualities, where humans far outperform machines.
+The superiority of AIS should not be taken for granted despite all the hype. For example, human professionals are often far better at explaining their decisions, as compared to AIS. It is immensely important to consider the trade-offs when deploying AIS and look critically at both pros and cons. In some cases, AIS may not actually offer significant benefits despite all the hype. Other common considerations include explainability and emotional and social qualities, where humans far outperform machines.
 
 In particular, an oft-neglected consideration could be overconfidence in AIS-derived decisions. While the well-known fallibility of humans remind us to double and triple check decisions, employing AIS might create a false sense of security based on flawed assumptions (see Illusion of Fairness above).
 
