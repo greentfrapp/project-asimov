@@ -74,11 +74,9 @@ AI technologies have been used for facial recognition, hiring, criminal sentenci
 
 The superiority of AIS should not be taken for granted despite all the hype. For example, human professionals are often far better at explaining their decisions, as compared to AIS. It is immensely important to consider the trade-offs when deploying AIS and look critically at both pros and cons. In some cases, AIS may not actually offer significant benefits despite all the hype. Other common considerations include explainability and emotional and social qualities, where humans far outperform machines.
 
-In particular, an oft-neglected consideration is how the introduction of an AIS might change the behaviors of the humans interacting with the system. This is referred to the Ripple Effect Trap by Selbst et al. <dt-cite cite="selbst2019fairness"></dt-cite>. An example could be overconfidence in AIS-derived decisions. While the well-known fallibility of humans remind us to double and triple check decisions, employing AIS might create a false sense of security based on flawed assumptions (see Illusion of Fairness above).
-
 ### AI + Human = Best of Both Worlds?
 
-Another related concern is that AI+Human systems are frequently perceived to be the best of both worlds. However, documented experiences have shown that in such systems, humans might have a tendency to defer to suggestions made by the AIS.
+AI+Human systems are frequently perceived to be the best of both worlds. However, documented experiences have shown that in such systems, humans might have a tendency to defer to suggestions made by the AIS.
 
 In her book Automating Inequality, Virginia Eubanks notes that child welfare officers working with a child abuse prediction model would choose to amend their own assessments in light of the model's predictions.
 
@@ -88,11 +86,21 @@ In her book Automating Inequality, Virginia Eubanks notes that child welfare off
 
 *Automating Inequality (Virginia Eubanks, 2018) <dt-cite cite="eubanks2018automating"></dt-cite>*
 
-Such observations are hardly surprising, given the daily exhortations of the reliability of machines, and the phenomenon has been termed "automation bias" <dt-cite cite="skitka2000automation,citron2007technological"></dt-cite>. Unfortunately, this over-deference to machines potentially undermines the idea of AI+Human models where the two elements complement each other. System designers must be aware of such nuances and unintended consequences.
+Such observations are hardly surprising, given the daily exhortations of the reliability of machines. In fact, the human tendency to defer to automated decisions has been termed "automation bias" <dt-cite cite="skitka2000automation,citron2007technological"></dt-cite>. Unfortunately, this over-deference to machines potentially undermines the mutually complementary aspect of AI+Human models.
 
 <div>
 <img class="comic" width="300px" src="{{ "/assets/guide/comics/notanswer_3_inverted.png" | relative_url }}" title="The teller said she would be happy to help me reinstate my account if I can prove I am alive." alt="Over-deference to machines.">
 </div>
+
+### Neglected Ripples
+
+More generally, when discussing the pros and cons of adopting an AIS solution, an oft-neglected consideration is how the AIS might change the behaviors of the humans interacting with the system i.e. cause ripples within the system. This is referred to the Ripple Effect Trap by Selbst et al. <dt-cite cite="selbst2019fairness"></dt-cite>. Examples of ripples include:
+
+- Automation bias, asmentioned earlier. <tidbit content="This refers to an unwarranted bias towards automated decisions."></tidbit>
+- Automation aversion. <tidbit content="The opposite of automation bias, this refers to a preference to disagree with automated decisions."></tidbit>
+- Overconfidence in AIS-derived decisions. <tidbit content="While the well-known fallibility of humans remind us to double and triple check decisions, employing AIS might create a false sense of security based on flawed assumptions (see Illusion of Fairness above)."></tidbit>
+
+System designers need to be acutely aware of such nuances and unintended consequences of using AIS in a larger sociotechnical context, as opposed to just thinking of AIS in isolation.
 
 ---
 

@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Lora:400,700|Open+Sans|Roboto:400,600,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Lora:400,700|Open+Sans|Roboto:400,600,700,900|Crimson+Text:400,600,700&display=swap');
 
-@font-face {
-	font-family: "Computer Modern";
-	src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
-}
+// @font-face {
+// 	font-family: "Computer Modern";
+// 	src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+// }
 
 $guide-background-color: #222222 !default;
 $guide-antibackground-color: #DDDDDD !default;
@@ -175,7 +175,7 @@ body#guide-body {
 		}
 
 		div.step {
-			height: 150px;
+			// height: 0px;
 		}
 
 		blockquote p {

@@ -106,15 +106,23 @@ But this also means that it is super critical to have a deliberate discussion ab
 
 While it could be ideal for everyone to have a say in what definition of fairness to use, sometimes this can be difficult. <span class="emph">At the very least, AI practitioners should be upfront with their users about fairness considerations in the design of the AIS. This includes what fairness definition was used and why, as well as potential shortcomings.</span>
 
-## A Unified Theory of Fairness
+## An Agnostic Theory of Fairness
 
-*Consider moving to own section, and citing Peter Westen's Empty Idea of Equality*
+*Consider moving to own section.*
 
 Computer scientists might often prefer general algorithms that is agnostic to context and application. The agnostic nature of unstructured deep learning is often cited as a huge advantage compared to labor-intensive feature engineering. So the importance of context in understanding fairness can be a bane to computer scientists, who might like to "[abstract] away the social context in which these systems will be deployed" <dt-cite cite="selbst2019fairness"></dt-cite>.
 
 But as Selbst et al. write in their work on fairness in sociotechnical systems:
 
 > Fairness and justice are properties of social and legal systems like employment and criminal justice, not properties of the technical tools within. **To treat fairness and justice as terms that have meaningful application to technology separate from a social context is therefore to make a category error, or as we posit here, an abstraction error.** [emphasis mine]
+
+On a similar note, in Peter Westen's The Empty Idea of Equality <dt-cite cite="westen1982empty"></dt-cite>, he writes:
+
+> For [equality] to have meaning, it must incorporate some external values that determine which persons and treatments are alike [...]
+
+<span class="emph">In other words, the treatment of fairness, justice and equality *cannot* be separated from the specific context of the problem at hand.</span>
+
+### Five Failure Modes
 
 In their work, Selbst et al. identify what they term "five failure modes" or "traps" that might ensnare the AI practitioner trying to build a fair AIS. What follows is a summary of the failure modes. We strongly encourage all readers to conduct a close reading of Selbst et al.'s original work. A copy can be found on co-author Sorelle Friedler's website [here](http://sorelle.friedler.net/papers/sts_fat2019.pdf).
 
@@ -148,9 +156,11 @@ This is related to the Framing Trap in that the AI practitioner fails to properl
 
 Hence we crowned the most important question in this entire guide as, "When is AI not the answer?" (mentioned [here](../about_ai/#when-is-ai-not-the-answer)). AI practitioners are naturally biased towards AI-driven solutions, which would be an impedement when the ideal solution might be far from AI-driven.
 
-This piece by Selbst et al. is important because it highlights many obstacles to designing fair AIS, all of which are often deeply embedded in the psyche of an AI practitioner. Perhaps the most important thing to pick up from this is that AI practitioners *have* to treat their application's subject matter with humility, rather than naively and arrogantly assuming that AIS can simply solve everything.
+---
 
-<span class="emph">TL;DR - Nope, there is no unified theory of fairness yet and maybe there shouldn't be one.</span>
+This piece by Selbst et al. is important because it highlights many obstacles to designing fair AIS, all of which are often deeply embedded in the psyche of an AI practitioner. Upon a close reading of the work, readers might realize that the five traps are essentially variants of each other and can be ultimately attributed to a lack of appreciation for the sociotechnical context. Perhaps the most important thing to pick up from this is that AI practitioners *have* to treat their application's subject matter with humility, rather than naively and arrogantly assuming that AIS can simply solve everything.
+
+<span class="emph">TL;DR - Nope, there is no agnostic theory of fairness yet and maybe there shouldn't be one.</span>
 
 ---
 
@@ -322,5 +332,13 @@ This piece by Selbst et al. is important because it highlights many obstacles to
   organization={ACM}
 }
 
+@article{westen1982empty,
+  title={The empty idea of equality},
+  author={Westen, Peter},
+  journal={Harvard Law Review},
+  pages={537--596},
+  year={1982},
+  publisher={JSTOR}
+}
 
 </script>

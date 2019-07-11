@@ -24,17 +24,20 @@ The Montréal Declaration's 10 principles refers extensively to "AIS" instead of
 
 Siri is not a tiny sprite that lives in iPhones. Siri is an entire digital supply chain from initial conception to data collection to model training to deployment to maintenance and finally retirement. The same is true for any other AIS, including Google Translate, Amazon Rekognition and Northpointe's COMPAS. This big-picture perspective is important because this reminds us that we have to look at the entire system and infrastructure when we talk about AI ethics.
 
-Furthermore, AIS also have physical supply chains that comprise energy usage, resource extraction and hardware recycling or disposal. These physical supply chains can be due to cloud servers, physical devices or simply the electricity and hardware used to train and house the models.
+In addition to a digital supply chain, AIS also have physical supply chains that comprise energy usage, resource extraction and hardware recycling or disposal. These physical supply chains can be due to cloud servers, physical devices or simply the electricity and hardware used to train and house the models.
 
 The AI Now Institute also has a fantastic illustration titled [Anatomy of an AI System](https://anatomyof.ai/) that considers AIS in terms of "material resources, human labor, and data".
+
+Finally, discussions about AIS also consider the sociotechnical context where the AIS is applied. This includes the culture, norms and values of the application (facial recognition, job application filtering), the domain (criminal justice, employment) and the geography and society (a particular country, state, city). These norms and values can be formalized, as in laws, or informal, as in unwritten customs and traditions. 
 
 <div>
 	<p class="emph">
 		TL;DR - For the remainder of this guide, Artificial Intelligence Systems (AIS) refer to the entirety of an artificial intelligence application or solution, in terms of:
 	</p>
 	<ul class="emph">
-		<li>Digital lifecycle (conceptualization to retirement), and</li>
-		<li>Physical lifecycle (resource extraction to hardware disposal).</li>
+		<li>Digital lifecycle (conceptualization to retirement),</li>
+		<li>Physical lifecycle (resource extraction to hardware disposal), and</li>
+    <li>Sociotechnical context (culture, norms and values).</li>
 	</ul>
 </div>
 
@@ -60,7 +63,7 @@ Anyone who has been touched by Robin Williams's portrayal of Andrew in Bicentenn
 
 Nevertheless, AIS that demand us to rethink notions of humanity and consciousness still remain on the far-flung horizon.
 
-### Treatment of Humans by AIS
+### Treatment of Humans by (Other Humans via) AIS
 
 More urgently, we need to consider the effects of present AIS on human moral ideals.
 
@@ -75,7 +78,7 @@ AI ethics goes beyond philosophical musings and thought experiments. It affects 
 See the [AIEthics section](../about_ai/) for a more detailed look at what makes modern AI different from previous technologies.
 
 <p class="emph">
-	TL;DR - For the remainder of this guide, ethics of artificial intelligence (AI ethics) refers to the study of how AIS affect, promote and violate human moral ideals, including justice, autonomy and privacy.
+	TL;DR - For the remainder of this guide, ethics of artificial intelligence (AI ethics) refers to the study of how AIS affect, promote and violate human moral ideals, including justice, autonomy and privacy. Despite AIS being the subject, we note that current AIS are still created, deployed and maintained by humans.
 </p>
 
 <div style="margin-left: auto; margin-right: auto; width:500px;">
