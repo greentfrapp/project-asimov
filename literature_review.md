@@ -34,11 +34,30 @@ In this review, we look at four main types of literature in AI ethics and examin
 
 ## AI Ethics Principles
 
-Examples of AI ethics principles include the European Commission’s Ethics Guidelines for Trustworthy AI (European Commission, 2019), the Organisation for Economic Co-operation and Development’s (OECD) Recommendation of the Council on Artificial Intelligence (OECD, 2019), USA’s Preparing for the Future of Artificial Intelligence (NSTC, 2016), China’s Beijing AI Principles (人工智能北京共识) (BAAI, 2019) and Singapore’s AI Governance Framework (PDPC, 2019). More recently, the Berkman Klein Center for Internet and Society at Harvard University launched the "Principled Artificial Intelligence Project" (Fjeld et al., 2019), which mapped 32 sets of principles across eight themes of Privacy, Accountability, Safety and Security, Transparency and Explainability, Fairness and Non-discrimination, Human Control of Technology, Professional Responsibility, and Promotion of Human Values.
+In the context of this review, AI ethics principles refer to official publications of ethical guidelines. Such guidelines are typically published by key organizations, which can be divided into five main categories (Fjeld et al., 2019):
+- Civil society (e.g. Amnesty International, Access Now)
+- Government (e.g. USA, China, Japan, Singapore)
+- Multistakeholder (e.g. University of Montréal, Future of Life Institute)
+- Inter-governmental organizations (e.g. Council of Europe, Organisation for Economic Co-operation and Development (OECD), United Nations (UN))
+- Private sector (e.g. Google, Microsoft, Tencent)
 
-These principles establish the foundations for future political and legislative policies. However, they are often dry and frequently lack illustrative examples. Policymakers may be used to the nature of such formal texts, but they can be unrelatable for many AI practitioners and general consumers. Given the pervasive nature of AI technologies, it is critical for both AI practitioners and general users to be aware of related ethical problems.
+Examples of AI ethics principles include the Amnesty International and Access Now’s Toronto Declaration (Amnesty International, 2018), USA’s Preparing for the Future of Artificial Intelligence (NSTC, 2016), University of Montréal’s Montréal Declaration, OECD’s Recommendation of the Council on Artificial Intelligence (OECD, 2019), and Microsoft’s Microsoft AI Principles (Microsoft, 2018). More recently, the Berkman Klein Center for Internet and Society at Harvard University launched the “Principled Artificial Intelligence Project” (Fjeld et al., 2019), which maps 32 sets of principles across eight themes of Privacy, Accountability, Safety and Security, Transparency and Explainability, Fairness and Non-discrimination, Human Control of Technology, Professional Responsibility, and Promotion of Human Values.
 
-Also, it is important to note that while algorithmic bias is not an explicit principle, the problem violates many of the themes mapped by Fjeld et al. These include Safety and Security, Transparency and Explainability, Fairness and Non-discrimination, Human Control of Technology, Professional Responsibility, and Promotion of Human Values.
+### A Growing Concern
+
+The recent proliferation of these guidelines are a sign of growing concerns with AI ethics. In a piece discussing the governance of AI, Corinne Cath writes, “At the same time, AI may be misused or behave in unpredicted and potentially harmful ways. Questions on the role of the law, ethics and technology in governing AI systems are thus more relevant than ever before.” (Cath, 2018:2) This concern and alarm is also mentioned explicitly in many of these guidelines. The preamble of the Montréal Declaration states that “the development of artificial intelligence does pose major ethical challenges and social risks” (University of Montréal, 2018:7). The preamble of Singapore’s AI Governance Framework mentions that “AI also introduces new ethical, legal and governance challenges” (PDPC, 2019:2). Most importantly, the European Commission’s Ethics Guidelines for Trustworthy AI proclaims, “While offering great opportunities, AI systems also give rise to certain risks that must be handled appropriately and proportionately. We now have an important window of opportunity to shape their development. [emphasis mine]” (European Commission, 2019:4). The phrase “window of opportunity” suggests that we are at a critical juncture for the discussion and implementation of ethical AI.
+
+### Communicating Ethical Guidelines
+
+In light of the ethical AI emergency, these principles establish the foundations for future political and legislative policies. However, they are often dry and frequently lack illustrative examples. Policymakers may be used to the nature of such formal texts, but they can be unpalatable for many AI practitioners and general consumers. Given the pervasive nature of AI technologies, it is critical for both AI practitioners and general users to be aware of related ethical problems. AI practitioners need to understand that their responsibility extends beyond optimizing for efficiency and accuracy. As creators and enablers of AI technologies, practitioners are also gatekeepers for the ethical use of their creations. On the other hand, general consumers need to know enough to protect themselves from harmful AI technologies. This can be by making informed purchasing choices or exercising their power as political citizens. But all these can only happen with public education and awareness of AI ethics.
+
+In an article criticizing the illegibility of privacy policies, Litman-Navarro (2019) used the Lexile test (MetaMetrics, 2019) to analyze 150 privacy policies. The Lexile test “measures a text’s complexity based on factors like sentence length and the difficulty of vocabulary” (Litman-Navarro, 2019), with higher scores for more complex texts. The author found that the vast majority of privacy policies scored over 1300 on the Lexile test, which approximates to a college-level reading ability. To put things in perspective, Litman-Navarro also reported Lexile scores for classic texts such as Jane Austen’s Pride and Prejudice (1060), Charles Dickens’s Great Expectations (1150) and Stephen Hawking’s A Brief History of Time (1300).
+
+In a similar manner, we can analyze the ethical guidelines for their readability. For instance, the Toronto Declaration (Amnesty International, 2018) and USA’s Preparing for the Future of Artificial Intelligence (NSTC, 2016) have Lexile scores of 1400 to 1500. This means that the language used in these guidelines are more complex than privacy policies when measured by the Lexile test. [Need to substantiate with more metrics.] The complexity of these texts, coupled with the urgency of their message, indicates the need for alternatives that can better communicate AI ethics.
+
+### Conclusion
+
+In summary, the proliferation of ethical guidelines demonstrate the urgency of embedding appropriate ethics into AI systems. In addition to policymakers, AI practitioners and public consumers are important stakeholders who have to be aware of pertinent issues in AI ethics. However, the nature of these guidelines prevent them from effectively communicating to AI practitioners and the general public. This suggests a need for more relatable alternatives, targeted at these audiences.
 
 <div class="return-to-top"><a href="#title">[Return to top]</a></div>
 
@@ -84,6 +103,8 @@ Academic researchers may object to such emotional writing. However, these pieces
 
 ## References
 
+Amnesty International & Access Now. (2018). Toronto Declaration. Retrieved from [https://www.accessnow.org/the-toronto-declaration-protecting-the-rights-to-equality-and-non-discrimination-in-machine-learning-systems/](https://www.accessnow.org/the-toronto-declaration-protecting-the-rights-to-equality-and-non-discrimination-in-machine-learning-systems/)
+
 Beijing Academy of Artificial Intelligence (BAAI). (2019). Beijing AI Principles (人工智能北京共识). Retrieved from [https://www.baai.ac.cn/blog/beijing-ai-principles](https://www.baai.ac.cn/blog/beijing-ai-principles)
 
 Broussard, M. (2018). *Artificial unintelligence: How computers misunderstand the world*. MIT Press.
@@ -96,7 +117,9 @@ Fjeld, J., Hilligoss, H., Achten, N., Daniel, M. L., Feldman, J., Kagay, S. and 
 
 Friedman, B., & Nissenbaum, H. (1996). Bias in computer systems. ACM Transactions on Information Systems (TOIS), 14(3), 330-347.
 
-Montréal Declaration. (2018). Montréal Declaration for a Responsible Development of Artificial Intelligence. Retrieved from [https://www.montrealdeclaration-responsibleai.com/](https://www.montrealdeclaration-responsibleai.com/)
+Litman-Navarro, K. (2019). We Read 150 Privacy Policies. They Were an Incomprehensible Disaster. New York Times. Retrieved from [https://www.nytimes.com/interactive/2019/06/12/opinion/facebook-google-privacy-policies.html](https://www.nytimes.com/interactive/2019/06/12/opinion/facebook-google-privacy-policies.html)
+
+University of Montréal. (2018). Montréal Declaration for a Responsible Development of Artificial Intelligence. Retrieved from [https://www.montrealdeclaration-responsibleai.com/](https://www.montrealdeclaration-responsibleai.com/)
 
 Moor, J. H. (1985). What is computer ethics?. Metaphilosophy, 16(4), 266-275.
 
