@@ -20,13 +20,13 @@ The Montréal Declaration's 10 principles refers extensively to "AIS" instead of
 <img class="comic" width="815px" src="{{ "/assets/guide/comics/siri_inverted.png" | relative_url }}" title="Before working at Apple, Siri acted at Studio Ghibli." alt="Siri is not a tiny sprite living in an iPhone.">
 </div>
 
-Siri is not a tiny sprite that lives in iPhones. Siri is an entire digital supply chain from initial conception to data collection to model training to deployment to maintenance and finally retirement. The same is true for any other AIS, including Google Translate, Amazon Rekognition and Northpointe's COMPAS. This big-picture perspective is important because this reminds us that we have to look at the entire system and infrastructure when we talk about AI ethics.
+Siri is not a tiny sprite that lives in iPhones. Siri is an entire digital supply chain from initial conception to data collection to model training to deployment to maintenance and finally retirement. The same is true for any other AIS, including Google Translate, Amazon Rekognition and Northpointe's COMPAS. This big-picture perspective is important. It reminds us that we have to look at the entire system and infrastructure when we talk about AI ethics.
 
 In addition to a digital supply chain, AIS also have physical supply chains that comprise energy usage, resource extraction and hardware recycling or disposal. These physical supply chains can be due to cloud servers, physical devices or simply the electricity and hardware used to train and house the models.
 
 The AI Now Institute also has a fantastic illustration titled [Anatomy of an AI System](https://anatomyof.ai/) that considers AIS in terms of "material resources, human labor, and data".
 
-Finally, discussions about AIS also consider the sociotechnical context where the AIS is applied. This includes the culture, norms and values of the application (facial recognition, job application filtering), the domain (criminal justice, employment) and the geography and society (a particular country, state, city). These norms and values can be formalized, as in laws, or informal, as in unwritten customs and traditions. 
+Finally, "system" also includes the sociotechnical context where the AIS is applied. This includes the culture, norms and values of the application, the domain and the geography and society. These values can be formalized (e.g. laws) or informal (e.g. unwritten customs and traditions). In particular, concepts such as justice and fairness are specific to context and differ from case to case.
 
 <div>
 	<p class="emph">
@@ -65,13 +65,13 @@ Nevertheless, AIS that demand us to rethink notions of humanity and consciousnes
 
 More urgently, we need to consider the effects of present AIS on human moral ideals.
 
-AIS can promote human values. For instance, low-cost automated medical diagnoses enable fairer access to medical services. Fraud detection algorithms in banks help to prevent illegitimate transactions.
+AIS can promote human values. Low-cost automated medical diagnoses enable more accessible medical services. Fraud detection algorithms in banks help to prevent illegitimate transactions.
 
 But AIS can also violate human values. The use of generative models to create fake articles, videos and photos threatens our notion of truth. The use of facial recognition on public cameras disrupt our conventional understanding of privacy. The use of biased algorithms to hire workers and sentence criminals violate our values of fairness and justice.
 
 The pervasive nature of AIS means that these systems potentially affect millions and billions of lives. Many important institutions (political, judicial, financial) are increasingly augmented by AIS. In short, it is critical to get things right before human civilization blows up in our faces.
 
-AI ethics goes beyond philosophical musings and thought experiments. It affects the innocent man who was arrested because he was the wrong skin color. It affects the woman rejected from jobs because of her gender. AI ethics tries to fix the real problems cropping up from so-called solutions. Most importantly, the human researchers and engineers behind AIS have to understand the tremendous power and responsibility that they possess.
+AI ethics goes beyond philosophical musings and thought experiments. It tries to fix the real problems cropping up from so-called solutions. Most importantly, the human researchers and engineers behind AIS have to understand the tremendous power and responsibility that they possess.
 
 See the [AIEthics section](../about_ai/) for a more detailed look at what makes modern AI different from previous technologies.
 

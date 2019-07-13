@@ -4,7 +4,7 @@ title: The Guide. \| Project Asimov
 permalink: /guide/checklist/
 ---
 
-# Checklist `WIP`
+# Checklist
 
 Here is a checklist of questions to answer when implementing an AIS. While there is no strictly correct answer, a good rule of thumb is that we should be okay with publishing our answers publicly.
 
