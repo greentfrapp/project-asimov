@@ -6,8 +6,6 @@ permalink: /guide/basics/
 
 # Basics
 
-*This section lays the groundwork for terms that we will be using extensively.*
-
 ---
 
 ## Artificial Intelligence Systems (AIS)
