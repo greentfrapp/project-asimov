@@ -96,9 +96,9 @@ Such observations are hardly surprising, given the daily exhortations of the rel
 
 More generally, when discussing the pros and cons of adopting an AIS solution, an oft-neglected consideration is how the AIS might change the behaviors of the humans interacting with the system i.e. cause ripples within the system. This is referred to the Ripple Effect Trap by Selbst et al. <dt-cite cite="selbst2019fairness"></dt-cite>. Examples of ripples include:
 
-- Automation bias, asmentioned earlier. <tidbit content="This refers to an unwarranted bias towards automated decisions."></tidbit>
+- Automation bias, as mentioned earlier. <tidbit content="This refers to an unwarranted bias towards automated decisions."></tidbit>
 - Automation aversion. <tidbit content="The opposite of automation bias, this refers to a preference to disagree with automated decisions."></tidbit>
-- Overconfidence in AIS-derived decisions. <tidbit content="While the well-known fallibility of humans remind us to double and triple check decisions, employing AIS might create a false sense of security based on flawed assumptions (see Illusion of Fairness above)."></tidbit>
+- Overconfidence in AIS-derived decisions. <tidbit content="While the well-known fallibility of humans remind us to double and triple check decisions, employing AIS might create a false sense of security."></tidbit>
 
 System designers need to be acutely aware of such nuances and unintended consequences of using AIS in a larger sociotechnical context, as opposed to just thinking of AIS in isolation.
 

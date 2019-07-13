@@ -20,6 +20,10 @@ Both terms refer to practices that cause any group of people sharing **protected
 
 The difference between disparate treatment and disparate impact can be summarized as **explicit intent**. Disparate treatment is explicitly intentional, while disparate impact is implicit or unintentional.
 
+<div>
+<img class="comic" width="400px" src="{{ "/assets/guide/comics/disparate_inverted.png" | relative_url }}" title="I also heard animals that begin with 'C' need more food." alt="Disparate treatment vs disparate impact.">
+</div>
+
 ### What does this mean for AIS?
 
 We can use Amazon's Prime Free Same-Day service as an example <dt-cite cite="ingold2016amazon"></dt-cite>. Suppose Amazon has a model that decides which neighborhoods should get the Prime Free Same-Day service.
@@ -102,11 +106,11 @@ Turns out, it is impossible to satisfy both definitions of fairness, given popul
 
 The point of all these is not to show that fairness does not make sense. After all, notions of fairness are heavily based on context and culture. Different definitions that appear incompatible simply reflect this context-dependent nature.
 
-But this also means that it is super critical to have a deliberate discussion about what constitutes fairness. This deliberate discussion must be nested in the context of how and where the AIS will be used. For each AIS, the AI practitioners, their clients and the users of the AIS need to base their conversations on the same definition of fairness. <span class="emph">We cannot assume that everyone has the same idea of fairness.</span>
+But this also means that it is super critical to have a deliberate discussion about what constitutes fairness. This deliberate discussion must be nested in the context of how and where the AIS will be used. For each AIS, the AI practitioners, their clients and users of the AIS need to base their conversations on the same definition of fairness. <span class="emph">We cannot assume that everyone has the same idea of fairness.</span>
 
 While it could be ideal for everyone to have a say in what definition of fairness to use, sometimes this can be difficult. <span class="emph">At the very least, AI practitioners should be upfront with their users about fairness considerations in the design of the AIS. This includes what fairness definition was used and why, as well as potential shortcomings.</span>
 
-## An Agnostic Theory of Fairness
+## A Context-Free Theory of Fairness
 
 *Consider moving to own section.*
 
@@ -130,7 +134,7 @@ In their work, Selbst et al. identify what they term "five failure modes" or "tr
 
 > Failure to model the entire system over which a social criterion, such as fairness, will be enforced
 
-A fair AIS must take into account the context in which the AIS might be used, otherwise it is meaningless. For example, an AIS to filter job applicants should also consider how its suggestions would be used by the hiring manager. The AIS might be "fair" in isolation but subsequent "post-processing" by the hiring manager might distort and undo the "fairness".
+A fair AIS must take into account the larger sociotechnical context in which the AIS might be used, otherwise it is meaningless. For example, an AIS to filter job applicants should also consider how its suggestions would be used by the hiring manager. The AIS might be "fair" in isolation but subsequent "post-processing" by the hiring manager might distort and undo the "fairness".
 
 #### Portability Trap
 
@@ -160,7 +164,7 @@ Hence we crowned the most important question in this entire guide as, "When is A
 
 This piece by Selbst et al. is important because it highlights many obstacles to designing fair AIS, all of which are often deeply embedded in the psyche of an AI practitioner. Upon a close reading of the work, readers might realize that the five traps are essentially variants of each other and can be ultimately attributed to a lack of appreciation for the sociotechnical context. Perhaps the most important thing to pick up from this is that AI practitioners *have* to treat their application's subject matter with humility, rather than naively and arrogantly assuming that AIS can simply solve everything.
 
-<span class="emph">TL;DR - Nope, there is no agnostic theory of fairness yet and maybe there shouldn't be one.</span>
+<span class="emph">TL;DR - Nope, there is no context-free theory of fairness yet and maybe there shouldn't be one.</span>
 
 ---
 

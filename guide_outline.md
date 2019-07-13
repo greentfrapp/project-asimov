@@ -90,6 +90,18 @@
 		- Deployment
 			- *What should our client and users know?*
 			- *How do we consistently evaluate our models for bias?*
+- See Barocas & Selbst's Big Data's Disparate Impact
+  - Defining the Problem
+  - Training Data
+  - Feature Selection
+  - Proxies
+  - Masking
+- See Suresh & Guttag's A Framework for Understanding Unintended Consequences of Machine Learning
+  - Historical Bias
+  - Representation Bias
+  - Measurement Bias
+  - Aggregation Bias
+  - Evaluation Bias
 
 ### Images
 

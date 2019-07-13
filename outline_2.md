@@ -18,7 +18,17 @@
 - Types of Algorithmic Bias
 	- By Source
 		- See Barocas & Selbst's Big Data's Disparate Impact
+		  - Defining the Problem
+		  - Training Data
+		  - Feature Selection
+		  - Proxies
+		  - Masking
 		- See Suresh & Guttag's A Framework for Understanding Unintended Consequences of Machine Learning
+		  - Historical Bias
+		  - Representation Bias
+		  - Measurement Bias
+		  - Aggregation Bias
+		  - Evaluation Bias
 	- By Impact
 		- See Kate Crawford's NIPS2017 keynote
 - Tools

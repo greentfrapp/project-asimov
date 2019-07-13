@@ -180,11 +180,23 @@ body#guide-body {
 
 		blockquote p {
 			// font-family: "Roboto", sans-serif;
-			color: darken($guide-text-color, 20%);
+			color: darken($guide-text-color, 15%);
 		}
 
 		h3, h4, h5, h6 {
 			text-align: left;
+		}
+
+		table {
+			color: $guide-text-color;
+
+			th {
+				background-color: rgba(255, 255, 255, 0.1);
+			}
+
+			tr:nth-child(2n) {
+				background-color: transparent;
+			}
 		}
 
 		.hidden {
