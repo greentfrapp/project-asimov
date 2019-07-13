@@ -1,10 +1,10 @@
 ---
 layout: guide_default
 title: The Guide. \| Project Asimov
-permalink: /guide/definitions/
+permalink: /guide/basics/
 ---
 
-# Definitions
+# Basics
 
 *This section lays the groundwork for terms that we will be using extensively.*
 
@@ -78,23 +78,13 @@ AI ethics goes beyond philosophical musings and thought experiments. It affects 
 See the [AIEthics section](../about_ai/) for a more detailed look at what makes modern AI different from previous technologies.
 
 <p class="emph">
-	TL;DR - For the remainder of this guide, ethics of artificial intelligence (AI ethics) refers to the study of how AIS affect, promote and violate human moral ideals, including justice, autonomy and privacy. Despite AIS being the subject, we note that current AIS are still created, deployed and maintained by humans.
+	TL;DR - For the remainder of this guide, ethics of artificial intelligence (AI ethics) refers to the study of how AIS affect, promote and violate human moral ideals, including justice, autonomy and privacy. In particular, we note that current AIS are still created, deployed and maintained by humans.
 </p>
 
 <div style="margin-left: auto; margin-right: auto; width:500px;">
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Fair point that can just as easily, and more urgently, be inverted: why don&#39;t those building AI for $subject actually engage with the foundational $subject literature? Including the histories of ethics, discrimination, etc in $subject domain... <a href="https://t.co/SPkSBCxWzz">https://t.co/SPkSBCxWzz</a></p>&mdash; Meredith Whittaker (@mer__edith) <a href="https://twitter.com/mer__edith/status/998211595879833602?ref_src=twsrc%5Etfw">May 20, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
-
----
-
-## Fairness  `WIP`
-
-Oh boy is this a big one. This guide being what it is, a definition of fairness warrants its own section. Check out the [Fairness section](../fairness/) for details.
-
----
-
-## Algorithmic Bias  `WIP`
 
 ---
 
