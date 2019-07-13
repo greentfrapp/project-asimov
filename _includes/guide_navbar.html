@@ -1,19 +1,29 @@
-<div id="nav" :class="{ 'navbar-hidden': !showNavbar }">
-	<div class="logo">
-		<a href="{{ "/guide/" | relative_url }}"> 
-			Machines Gone Wrong
-		</a>
-	</div>
-	<ul :class="{ 'navbar-elements-hidden': !showNavbarElements && isBurger, burger: isBurger }">
-		<li><a href="{{ "/guide/" | relative_url }}">Intro</a></li>
-		<li><a href="{{ "/guide/basics/" | relative_url }}">Basics</a></li>
-		<li><a href="{{ "/guide/about_ai/" | relative_url }}">AIEthics</a></li>
-		<li><a href="{{ "/guide/fairness/" | relative_url }}">Fairness</a></li>
-		<li><a href="{{ "/guide/bias/" | relative_url }}">Bias</a></li>
-		<li><a href="{{ "/guide/checklist/" | relative_url }}">Checklist</a></li>
-		<li class="disabled">Tools</li>
-		<li class="disabled">Datasets</li>
-		<li class="disabled">Readings</li>
-	</ul>
-	<span id="showBurger" v-if="isBurger" @click="onOffBurger()">SHOW MENU</span>
+<div class="ui sidebar inverted vertical menu">
+  <a class="item" href="{{ "/guide/#start" | relative_url }}">
+    Intro
+  </a>
+  <a class="item" href="{{ "/guide/basics/" | relative_url }}">
+    Basics
+  </a>
+  <a class="item" href="{{ "/guide/about_ai/" | relative_url }}">
+    AIEthics
+  </a>
+  <a class="item" href="{{ "/guide/fairness/" | relative_url }}">
+    Fairness
+  </a>
+  <a class="item" href="{{ "/guide/bias/" | relative_url }}">
+    Bias
+  </a>
+  <a class="item" href="{{ "/guide/checklist/" | relative_url }}">
+    Checklist
+  </a>
+  <a class="item disabled" href="{{ "/guide/fairness/" | relative_url }}">
+    Tools
+  </a>
+  <a class="item disabled" href="{{ "/guide/fairness/" | relative_url }}">
+    Datasets
+  </a>
+  <a class="item disabled">
+    Readings
+  </a>
 </div>

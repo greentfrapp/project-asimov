@@ -17,6 +17,12 @@ $guide-positive-color: #036ecd !default;
 $guide-annotation-color: #fccf35 !default;
 $guide-tidbit-color: #FF8A8A !default;
 
+body.pushable > .pusher {
+	background: $guide-background-color !important;
+	overflow: inherit;
+	overflow-y: scroll;
+}
+
 body#guide-body {
 	background-color: $guide-background-color;
 	height: 100%;
@@ -52,26 +58,72 @@ body#guide-body {
 		margin: 100px 0px;
 	}
 
-	div#nav {
-		position: fixed;
+	div#toggle {
 		width: 100%;
-		padding: 10px 50px;
 		background-color: $guide-background-color;
-		color: $guide-text-color;
-		transform: translate3d(0, 0, 0);
-		transition: 0.1s all ease-out;
-		z-index: 1000;
-		//border-bottom: 1px solid $guide-antibackground-color;
-		
 		.logo {
-			width: 150px;
+			width: 100%;
+			padding: 10px 25px;
 			font-size: 24px;
 			line-height: 1;
 			font-family: 'Roboto', sans-serif;
+			background-color: $guide-background-color;
 			display: inline-block;
 			vertical-align: middle;
 			font-weight: 900;
 			text-decoration: none;
+			// z-index: 10;
+
+			a {
+				color: $guide-text-color;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.ui.sidebar {
+
+		.item {
+			font-size: 1.5em;
+		}
+
+		.item.disabled {
+			color: darken($guide-text-color, 50%) !important;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+	}
+
+	div#nav {
+		position: fixed;
+		width: 100%;
+		
+		// background-color: $guide-background-color;
+		// color: $guide-text-color;
+		// transform: translate3d(0, 0, 0);
+		// transition: 0.1s all ease-out;
+		z-index: 3;
+		//border-bottom: 1px solid $guide-antibackground-color;
+		
+		.logo {
+			width: 100%;
+			padding: 10px 25px;
+			font-size: 24px;
+			line-height: 1;
+			font-family: 'Roboto', sans-serif;
+			background-color: $guide-background-color;
+			display: inline-block;
+			vertical-align: middle;
+			font-weight: 900;
+			text-decoration: none;
+			// z-index: 10;
+
+			i#toggle {
+				cursor: pointer;
+			}
 
 			a {
 				color: $guide-text-color;
@@ -87,24 +139,31 @@ body#guide-body {
 		
 		ul {
 			display: inline-block;
-			margin-left: 50px;
+			margin-left: 0px;
 			transform: translate3d(0, 0, 0);
 			transition: 0.1s all ease-out;
+			border-right: 3px solid $guide-text-color;
+			padding: 25px;
 		}
 
 		ul.burger {
 			position: fixed;
-			width: 140px;
-			top: 50px;
-			right: 90px;
-			background-color: $guide-antibackground-color;
+			// z-index: -1;
+			width: 250px;
+			height: 100vh;
+			top: 0px;
+			// padding-top: 100px;
+			left: 0px;
+			background-color: $guide-background-color;
+			overflow-y: scroll;
 			li {
 				display: block;
 				margin: 20px 5px;
 				border-bottom: 1px solid $guide-background-color;
-				color: $guide-antitext-color;
+				color: $guide-text-color;
 				a {
-					color: $guide-antitext-color;
+					color: $guide-text-color;
+					text-decoration: none;
 				}
 			}
 			li.disabled {
@@ -112,8 +171,8 @@ body#guide-body {
 			}
 		}
 
-		ul.navbar-elements-hidden {
-			transform: translate3d(100%, 0, 0);
+		ul.hide {
+			transform: translate3d(-100%, 0, 0);
 		}
 		
 		li {
@@ -143,7 +202,7 @@ body#guide-body {
 
 	div.guide-content {
 		//border: 1px solid red;
-		margin-left: auto;
+		margin-left: auto !important;
 		margin-right: auto;
 		width: 90%;
 		//margin-right: 550px;
@@ -156,7 +215,7 @@ body#guide-body {
 
 		@media(min-width: 1000px) {
 			width: 900px;
-			// margin-left: calc((100% - 1400px) / 2);
+			margin-left: calc((100% - 1400px) / 2);
 		}
 		
 		ol, ul, p {

@@ -4,15 +4,27 @@
 	{%- include guide_head.html -%}
 
 	<body id="guide-body">
-		<div id="app">
-			{%- include guide_navbar.html -%}
-			<div class="content guide-content">
-				{{ content }}
+		{%- include guide_navbar.html -%}
+		<div id="nav" class="fixed">
+					<div class="logo">
+						<i class="icon bars large" id="toggle"></i>
+						<div style="width: 150px; display: inline-block; vertical-align: middle;">
+			  			<a href="{{ "/guide/" | relative_url }}"> 
+								Machines Gone Wrong
+							</a>
+						</div>
+					</div>
+		  	</div>
+	  <div class="pusher">
+			<div id="app">
+				
+				<div class="content guide-content">
+					{{ content }}
+				</div>
 			</div>
-		</div>
 
-		{%- include footer.html -%}
-		
+			{%- include footer.html -%}
+		</div>
 		<script src="{{ "/assets/guide/bibtexParse.js" | relative_url }}"></script>
 		<!-- <script src="{{ "/assets/guide/bibtex.js" | relative_url }}"></script> -->
 		<script src="{{ "/assets/guide/guide_tidbit.js" | relative_url }}"></script>

@@ -10,6 +10,26 @@ let framework = new Vue({
 		if (document.documentElement.clientWidth < 500) {
 			this.introQuestionsClasses = "ui one cards"
 		}
+		let self = this
+		$('body').bind('DOMMouseScroll', function(e){
+		     if(e.detail > 0) {
+		         //scroll down
+		         console.log('Down');
+		         d3.select("#nav").classed("navbar-hidden", true)
+		         
+		     }else {
+		         //scroll up
+		         console.log('Up');
+		         d3.select("#nav").classed("navbar-hidden", false)
+     		}
+     	});
+  		d3.select("#nav").classed("navbar-hidden", false)
+		$('.ui.sidebar').sidebar('setting', 'dimPage', false);
+		d3.select('i#toggle').on('click', function () {
+			$('.ui.sidebar')
+			  .sidebar('toggle')
+			;
+		})
 	},
 	beforeDestroy () {
 		window.removeEventListener('scroll', this.onScroll)
@@ -19,6 +39,7 @@ let framework = new Vue({
 		showNavbar: false,
 		showNavbarElements: true,
 		isBurger: false,
+		hideMenu: true,
 		coverHeight: 0,
 		lastScrollPosition: 0,
 		introQuestionsClasses: "ui two cards"
@@ -56,6 +77,9 @@ let framework = new Vue({
 		},
 		onOffBurger () {
 			this.showNavbarElements = !this.showNavbarElements
+		},
+		toggleMenu () {
+			this.hideMenu = !this.hideMenu
 		}
 	}
 })
