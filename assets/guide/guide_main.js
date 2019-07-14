@@ -163,26 +163,18 @@ let framework = new Vue({
 	},
 	mounted: function() {
 		let self = this
-		// window.addEventListener('scroll', this.onScroll)
-		$('body').bind('DOMMouseScroll', function(e){
-		     if(e.detail > 0) {
-		         //scroll down
-		         console.log('Down');
-		         d3.select("#nav").classed("navbar-hidden", true)
-		         
-		     }else {
-		         //scroll up
-		         console.log('Up');
-		         d3.select("#nav").classed("navbar-hidden", false)
-     		}
-     	});
-
+		window.addEventListener('scroll', this.onScroll)
 		window.addEventListener('resize', this.onResize)
 		if (document.documentElement.clientWidth < 950) {
 			this.isBurger = true
 			this.showNavbarElements = false
 		}
 		$('.ui.sidebar').sidebar('setting', 'dimPage', false);
+		// $('.ui.sidebar').sidebar({
+		//     onHide: function() {
+		//       d3.select("body").classed("pushable", false)
+		//     }
+		// });
 		d3.select('i#toggle').on('click', function () {
 			$('.ui.sidebar')
 			  .sidebar('toggle')
@@ -211,6 +203,11 @@ let framework = new Vue({
 			const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
 			if (currentScrollPosition >= 0) {
 				this.showNavbar = currentScrollPosition < this.lastScrollPosition
+				if (currentScrollPosition < this.lastScrollPosition) {
+					d3.select("#nav").classed("navbar-hidden", false)
+				} else {
+					d3.select("#nav").classed("navbar-hidden", true)
+				}
 				this.lastScrollPosition = currentScrollPosition
 			}
 		},

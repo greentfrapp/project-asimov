@@ -19,8 +19,13 @@ $guide-tidbit-color: #FF8A8A !default;
 
 body.pushable > .pusher {
 	background: $guide-background-color !important;
-	overflow: inherit;
-	overflow-y: scroll;
+	overflow: visible;
+}
+
+body.pushable {
+	background: $guide-background-color !important;
+	overflow: visible;
+	padding: inherit !important;
 }
 
 body#guide-body {

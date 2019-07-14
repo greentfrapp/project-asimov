@@ -10,20 +10,6 @@ let framework = new Vue({
 		if (document.documentElement.clientWidth < 500) {
 			this.introQuestionsClasses = "ui one cards"
 		}
-		let self = this
-		$('body').bind('DOMMouseScroll', function(e){
-		     if(e.detail > 0) {
-		         //scroll down
-		         console.log('Down');
-		         d3.select("#nav").classed("navbar-hidden", true)
-		         
-		     }else {
-		         //scroll up
-		         console.log('Up');
-		         d3.select("#nav").classed("navbar-hidden", false)
-     		}
-     	});
-  		d3.select("#nav").classed("navbar-hidden", false)
 		$('.ui.sidebar').sidebar('setting', 'dimPage', false);
 		d3.select('i#toggle').on('click', function () {
 			$('.ui.sidebar')
@@ -51,6 +37,12 @@ let framework = new Vue({
 			this.coverHeight = d3.select('img#cover-image').node().getBoundingClientRect().height
 			const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
 			this.showNavbar = currentScrollPosition > this.coverHeight
+
+			if (currentScrollPosition > this.coverHeight) {
+				d3.select("#nav").classed("navbar-hidden", false)
+			} else {
+				d3.select("#nav").classed("navbar-hidden", true)
+			}
 			
 			this.showNavbarElements = false
 			// if (currentScrollPosition < 0) {

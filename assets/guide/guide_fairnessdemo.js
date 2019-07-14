@@ -167,18 +167,6 @@ let framework = new Vue({
 			this.isBurger = true
 			this.showNavbarElements = false
 		}
-		$('body').bind('DOMMouseScroll', function(e){
-		     if(e.detail > 0) {
-		         //scroll down
-		         console.log('Down');
-		         d3.select("#nav").classed("navbar-hidden", true)
-		         
-		     }else {
-		         //scroll up
-		         console.log('Up');
-		         d3.select("#nav").classed("navbar-hidden", false)
-     		}
-     	});
 		$('.ui.sidebar').sidebar('setting', 'dimPage', false);
 		d3.select('i#toggle').on('click', function () {
 			$('.ui.sidebar')
@@ -207,6 +195,11 @@ let framework = new Vue({
 			const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
 			if (currentScrollPosition >= 0) {
 				this.showNavbar = currentScrollPosition < this.lastScrollPosition
+				if (currentScrollPosition < this.lastScrollPosition) {
+					d3.select("#nav").classed("navbar-hidden", false)
+				} else {
+					d3.select("#nav").classed("navbar-hidden", true)
+				}
 				this.lastScrollPosition = currentScrollPosition
 			}
 		},
