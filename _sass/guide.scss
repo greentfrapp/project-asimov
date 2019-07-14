@@ -17,20 +17,25 @@ $guide-positive-color: #036ecd !default;
 $guide-annotation-color: #fccf35 !default;
 $guide-tidbit-color: #FF8A8A !default;
 
-body.pushable > .pusher {
-	background: $guide-background-color !important;
-	overflow: visible;
-}
-
 body.pushable {
 	background: $guide-background-color !important;
-	overflow: visible;
-	padding: inherit !important;
+	height: auto;
+	// overflow: visible;
+	// padding: inherit !important;
+
+	.pusher {
+		background: $guide-background-color !important;
+		overflow: visible;
+	}
+
+	.ui.visible.uncover.sidebar {
+		transition: transform .2s ease,-webkit-transform .2s ease;
+	}
 }
 
 body#guide-body {
 	background-color: $guide-background-color;
-	height: 100%;
+	height: auto;
 	width: 100%;
 	scroll-behavior: smooth;
 	color: $guide-text-color;
@@ -63,29 +68,6 @@ body#guide-body {
 		margin: 100px 0px;
 	}
 
-	div#toggle {
-		width: 100%;
-		background-color: $guide-background-color;
-		.logo {
-			width: 100%;
-			padding: 10px 25px;
-			font-size: 24px;
-			line-height: 1;
-			font-family: 'Roboto', sans-serif;
-			background-color: $guide-background-color;
-			display: inline-block;
-			vertical-align: middle;
-			font-weight: 900;
-			text-decoration: none;
-			// z-index: 10;
-
-			a {
-				color: $guide-text-color;
-				text-decoration: none;
-			}
-		}
-	}
-
 	.ui.sidebar {
 
 		.item {
@@ -109,13 +91,13 @@ body#guide-body {
 		// background-color: $guide-background-color;
 		// color: $guide-text-color;
 		// transform: translate3d(0, 0, 0);
-		// transition: 0.1s all ease-out;
+		// transition: 0.2s ease;
 		z-index: 3;
 		//border-bottom: 1px solid $guide-antibackground-color;
 		
 		.logo {
 			width: 100%;
-			padding: 10px 25px;
+			padding: 10px;
 			font-size: 24px;
 			line-height: 1;
 			font-family: 'Roboto', sans-serif;
@@ -124,9 +106,10 @@ body#guide-body {
 			vertical-align: middle;
 			font-weight: 900;
 			text-decoration: none;
+			border-bottom: 1px solid $guide-text-color;
 			// z-index: 10;
 
-			i#toggle {
+			.toggle {
 				cursor: pointer;
 			}
 
@@ -203,6 +186,10 @@ body#guide-body {
 
 	div#nav.navbar-hidden {
 		transform: translate3d(0, -100%, 0);
+	}
+
+	div#nav.shift-right.navbar-hidden {
+		transform: translate3d(260px, -100%, 0);
 	}
 
 	div.guide-content {

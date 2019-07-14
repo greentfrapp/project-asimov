@@ -169,13 +169,16 @@ let framework = new Vue({
 			this.isBurger = true
 			this.showNavbarElements = false
 		}
+		$('.ui.sidebar').sidebar({
+		    onHidden: function() {
+		      d3.select("#nav").classed("shift-right", false)
+		    },
+		    onShow: function() {
+		      d3.select("#nav").classed("shift-right", true)
+		    }
+		});
 		$('.ui.sidebar').sidebar('setting', 'dimPage', false);
-		// $('.ui.sidebar').sidebar({
-		//     onHide: function() {
-		//       d3.select("body").classed("pushable", false)
-		//     }
-		// });
-		d3.select('i#toggle').on('click', function () {
+		d3.selectAll('.toggle').on('click', function () {
 			$('.ui.sidebar')
 			  .sidebar('toggle')
 			;
@@ -198,7 +201,6 @@ let framework = new Vue({
 	},
 	methods: {
 		onScroll () {
-			console.log("SCROLLING")
 			this.showNavbarElements = false
 			const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
 			if (currentScrollPosition >= 0) {

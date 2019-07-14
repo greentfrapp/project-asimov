@@ -10,8 +10,16 @@ let framework = new Vue({
 		if (document.documentElement.clientWidth < 500) {
 			this.introQuestionsClasses = "ui one cards"
 		}
+		$('.ui.sidebar').sidebar({
+		    onHidden: function() {
+		      d3.select("#nav").classed("shift-right", false)
+		    },
+		    onShow: function() {
+		      d3.select("#nav").classed("shift-right", true)
+		    }
+		});
 		$('.ui.sidebar').sidebar('setting', 'dimPage', false);
-		d3.select('i#toggle').on('click', function () {
+		d3.selectAll('.toggle').on('click', function () {
 			$('.ui.sidebar')
 			  .sidebar('toggle')
 			;
