@@ -7,7 +7,7 @@ permalink: /guide/fairness/impossible/
 ## The Impossibility Theorem
 
 <div>
-<img class="comic" width="450px" src="{{ "/assets/guide/comics/bongo_inverted.gif" | relative_url }}" title="Before working at Apple, Siri acted at Studio Ghibli." alt="Some fairness definitions are mutually exclusive.">
+<img class="comic" width="450px" src="{{ "/assets/guide/comics/bongo_inverted.gif" | relative_url }}" title="" alt="Some fairness definitions are mutually exclusive.">
 </div>
 
 For our fictional fat pet predictor, we had complete control over the system's accuracy. Even so, you may have noticed that it was impossible to fulfill all five fairness metrics at the same time. This is sometimes known as the impossibility theorem of fairness.
@@ -23,11 +23,11 @@ For our fictional fat pet predictor, we had complete control over the system's a
   </p>
 </blockquote>
 <p>
-  In their article, ProPublica documented the "significant racial disparities" found in COMPAS's predictions. But in their response, Northpointe disputed ProPublica's claims. Later on, we would discover that NorthPointe and ProPublica had different ideas about what constituted *fairness*. Northpointe used Conditional Use Accuracy Equality, while ProPublica used Treatment Equality (see demo above for details).
+  ProPublica's article documented the "significant racial disparities" found in COMPAS, a recidivism prediction model sold by NorthPointe. But in their response, Northpointe disputed ProPublica's claims. Later on, we would discover that NorthPointe and ProPublica had different ideas about what constituted <em>fairness</em>. Northpointe used Conditional Use Accuracy Equality, while ProPublica used Treatment Equality (see previous <a href="../fat_pet/">demo</a> for details).
 </p>
 </div>
 
-Turns out, it is impossible to satisfy both definitions of fairness, given populations with different base rates of recidivism <dt-cite cite="kleinberg2016inherent,chouldechova2017fair"></dt-cite>. This is similar to our example above of fat pets. Now, different base rates of recidivism do not mean that certain individuals are more prone to re-offending by virtue of race. Instead of racial predisposition, such trends are more likely due to unequal treatment and circumstances from past and present biases. In our fat pets example, dogs might have a higher base rate for obesity not because dogs have fat genes but because dog owners tend to be overly enthusiastic about feeding their pets.
+Turns out, it is impossible to satisfy both definitions of fairness, given populations with different base rates of recidivism <dt-cite cite="kleinberg2016inherent,chouldechova2017fair"></dt-cite>. This is similar to our previous example of fat pets. Now, different base rates of recidivism do not mean that certain individuals are more prone to re-offending by virtue of race. Instead of racial predisposition, such trends are more likely due to unequal treatment and circumstances from past and present biases. In our fat pets example, dogs might have a higher base rate for obesity not because dogs have fat genes but because dog owners tend to be overly enthusiastic about feeding their pets.
 
 ### So fairness is impossible?
 

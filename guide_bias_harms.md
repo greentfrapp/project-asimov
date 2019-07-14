@@ -24,6 +24,8 @@ In the same way, we can classify the harms of algorithmic bias into harms of all
 
 *Comparison between the two types of harm, from Crawford's NIPS 2017 keynote <dt-cite cite="crawford2017trouble"></dt-cite>*
 
+---
+
 ### Harms of Allocation
 
 > An allocative harm is when a system allocates or withholds certain groups an opportunity or a resource.
@@ -31,6 +33,8 @@ In the same way, we can classify the harms of algorithmic bias into harms of all
 *The Trouble with Bias, Kate Crawford at NIPS2017 <dt-cite cite="crawford2017trouble"></dt-cite>*
 
 Harms of allocation arise from the unjust distribution of opportunities and resources, such as jobs, loans, insurance or education. This can range from complete denial to preferential allocation to unjustified differential pricing. Examples include denying loans to people who live in predominantly black neighborhoods and disproportionately rejecting female job applicants. Frequently-cited examples of algorithmic bias often fall in this category, such as many of the examples observed by Cathy O'Neil in Weapons of Math Destruction <dt-cite cite="o2016weapons"></dt-cite>.
+
+---
 
 ### Harms of Representation
 
@@ -58,19 +62,19 @@ Harms of representation are dangerous because they shape how we see the world. A
 <img class="comic" width="250px" src="{{ "/assets/guide/comics/harmsofrep_inverted.png" | relative_url }}" alt="The Reality-Representation Cycle.">
 </div>
 
-It is worth noting that there are two possible problems when looking at harms of representation. Deviation from reality and deviation from ideal.
+It is worth noting that there are two possible problems when looking at harms of representation. Inaccurate representations and unideal representations.
 
-#### Deviation from Reality
+#### Inaccurate Representations
 
-The Google Image results in April 2015 were entirely dominated by white males. Technically, in 2014, 4% of the 500 companies on the US S&P 1500 had female CEOs <dt-cite cite="ey2015women"></dt-cite>. If the search results had 0 females, that would be a **deviation from reality**. The search results would be an inaccurate representation of reality.
+The Google Image results in April 2015 were entirely dominated by white males. Technically, in 2014, 4% of the 500 companies on the US S&P 1500 had female CEOs <dt-cite cite="ey2015women"></dt-cite>. Search results that do not observe this distribution would be **inaccurate representations**. For example, search results that have zero female images would be inaccurate and enforce false and exaggerated gender stereotypes. Subsequently, downstream applications that rely on these representations would perpetuate such errors.
 
-#### Deviation from the Ideal
+#### Unideal Representations
 
-In March 2015, the New York Times ran an article titled "Fewer Women Run Big Companies Than Men Named John" <dt-cite cite="wolfers2015fewer"></dt-cite>. This contributed to a growing literature on gender inequality, founded on the conviction that gender should not matter for most careers. This ideal world is one where the gender distribution of CEOs is similar to that of the general population. The search results that were dominated by white males were a **deviation from the ideal**.
+In March 2015, the New York Times ran an article titled "Fewer Women Run Big Companies Than Men Named John" <dt-cite cite="wolfers2015fewer"></dt-cite>. This contributed to a growing literature on gender inequality, founded on the conviction that gender should not matter for most careers. Such literature describes an ideal world where the gender distribution of CEOs is similar to that of the general population. Search results that stray from this would be **unideal representations**.
 
-Following the cycle between representation and reality, we can make the world a better place by first *seeing* it as a better place. Representations can embed unwritten norms and values. With Google Image returning more gender- and race-diverse search results for "CEO", non-white-male candidates can go from minority to mainstream.
+Representations both embed and influence unwritten norms and values. Following the cycle between representation and reality, we can make the world a better place by first *seeing* it as a better place. In our example, the presence of more gender- and race-diverse search results for "CEO" can encourage non-white-male candidates to go from minority to mainstream.
 
-<span class="emph">In an imperfect world, an ideal representation cannot be an accurate representation. Decisions and compromises have to be made about what is important in the context of the application.</span>
+<p class="box-red emph">There is merit behind both an accurate representation and an ideal representation. But in an imperfect world, any representation cannot be both accurate and ideal. Decisions and compromises have to be made about what is important in the context of the application. And once again, these decisions and compromises should be shared with users of these systems.</p>
 
 <tofro prevtext="Algorithmic Bias" prevlink="../" nexttext="Sources of Bias" nextlink="../sources/"></tofro>
 
