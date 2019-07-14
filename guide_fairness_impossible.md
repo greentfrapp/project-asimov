@@ -6,6 +6,10 @@ permalink: /guide/fairness/impossible/
 
 ## The Impossibility Theorem
 
+<div>
+<img class="comic" width="450px" src="{{ "/assets/guide/comics/bongo_inverted.gif" | relative_url }}" title="Before working at Apple, Siri acted at Studio Ghibli." alt="Some fairness definitions are mutually exclusive.">
+</div>
+
 For our fictional fat pet predictor, we had complete control over the system's accuracy. Even so, you may have noticed that it was impossible to fulfill all five fairness metrics at the same time. This is sometimes known as the impossibility theorem of fairness.
 
 In ProPublica's well-known article [Machine Bias](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing) <dt-cite cite="angwin2016machine"></dt-cite>, the subtitle reads: 
