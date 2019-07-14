@@ -18,7 +18,7 @@
 		<div class="pusher">
 		<div id="app">
 			<a href="#start">
-				<img id="cover-image" src="{{ "/assets/guide/glitch_cover_2.jpg" | relative_url }}" alt="Machines Gone Wrong"/>
+				<img id="cover-image" src="{{ "/assets/guide/glitch_cover_2.jpg" | relative_url }}" alt="Machines Gone Wrong" />
 			</a>
 			<div id="start" class="content guide-content">
 				<p style="display: inline-block;">
@@ -94,11 +94,13 @@
 						</div>
 					</div>
 				</div>
+				<tofro prevtext="" prevlink="" nexttext="Basics" nextlink="basics/"></tofro>
 			</div>
 		</div>
-
 		{%- include footer.html -%}
 		</div>
+		<script src="{{ "/assets/guide/guide_tidbit.js" | relative_url }}"></script>
+		<script src="{{ "/assets/guide/guide_tofro.js" | relative_url }}"></script>
 		<script src="{{ "/assets/guide/guide.js" | relative_url }}"></script>
 		<script type="text/javascript">
 			// const scroller = scrollama()

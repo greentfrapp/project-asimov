@@ -1,5 +1,9 @@
 let framework = new Vue({
 	el: "#app",
+	components: {
+		'tidbit': tidbit,
+		'tofro': tofro
+	},
 	mounted: function() {
 		window.addEventListener('scroll', this.onScroll)
 		window.addEventListener('resize', this.onResize)

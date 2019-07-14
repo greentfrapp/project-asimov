@@ -84,7 +84,7 @@ See the [AIEthics section](../about_ai/) for a more detailed look at what makes 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
----
+<tofro prevtext="Intro" prevlink="../" nexttext="What is different about AI?" nextlink="../different/"></tofro>
 
 ## References
 

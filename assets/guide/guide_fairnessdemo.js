@@ -157,7 +157,8 @@ let framework = new Vue({
 		'dt-cite': dtCite,
 		'dt-bibliography': dtBibliography,
 		'fairness-explorable': fairnessExplorable,
-		'tidbit': tidbit
+		'tidbit': tidbit,
+		'tofro': tofro
 	},
 	mounted: function() {
 		let self = this

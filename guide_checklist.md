@@ -6,7 +6,11 @@ permalink: /guide/checklist/
 
 # Checklist
 
+---
+
 Here is a checklist of questions to answer when implementing an AIS. While there is no strictly correct answer, a good rule of thumb is that we should be okay with publishing our answers publicly.
+
+---
 
 ### Section 1 - Defining the Problem
 
@@ -17,11 +21,15 @@ Here is a checklist of questions to answer when implementing an AIS. While there
 5. Who will interact with the AIS?
 6. How will the AIS affect the current system?
 
+---
+
 ### Section 2 - Preparing the Data
 
 1. What is our population?
 2. How does our sample distribution differ from our population distribution?
 3. How are our annotated labels different from the ideal labels?
+
+---
 
 ### Section 3 - Training the Model
 
@@ -30,9 +38,13 @@ Here is a checklist of questions to answer when implementing an AIS. While there
 3. Do we use the same model or different models for different inputs?
 4. If we are importing a pre-trained model or external data, wWhat are possible conflicts between these imports and our current context?
 
+---
+
 ### Section 4 - Deploying the Solution
 
 1. How does our test distribution differ from our population distribution?
 2. What can we say about the fairness of our final model?
 3. How do we know the AIS has screwed up? 
 4. What are alternative solutions in case of failure?
+
+<tofro prevtext="Sources of Bias" prevlink="../bias/sources/" nexttext="Tools" nextlink="../tools/"></tofro>

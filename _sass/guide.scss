@@ -46,7 +46,7 @@ body#guide-body {
 	}
 
 	h1 {
-		font-size: 8rem;
+		font-size: 7rem;
 		text-align: center;
 	}
 
@@ -76,6 +76,12 @@ body#guide-body {
 
 		.item.disabled {
 			color: darken($guide-text-color, 50%) !important;
+		}
+
+		.subitem {
+			padding-left: 50px;
+			font-size: 1.3em;
+			color: darken($guide-text-color, 10%) !important;
 		}
 
 		a {
@@ -192,6 +198,10 @@ body#guide-body {
 		transform: translate3d(260px, -100%, 0);
 	}
 
+	#app {
+		margin-top: 70px;
+	}
+
 	div.guide-content {
 		//border: 1px solid red;
 		margin-left: auto !important;
@@ -278,6 +288,30 @@ body#guide-body {
 		}
 	}
 
+	.tofro {
+		margin: 100px 0;
+		a {
+			text-decoration: none;
+		}
+		hr {
+			display: block;
+			width: 100%;
+			margin: 0;
+			margin-bottom: 0.3em;
+		}
+		div {
+			height: 2em;
+		}
+		.prev {
+			display: inline-block;
+			float: left;
+		}
+		.next {
+			display: inline-block;
+			float: right;
+		}
+	}
+
 	div.card {
 		background-color: $guide-antibackground-color;
 		color: $guide-antitext-color;
@@ -305,6 +339,7 @@ body#guide-body {
 		object-fit: cover;
 		margin-bottom: 100px;
 		cursor: pointer;
+		margin-top: -70px;
 	}
 
 	.site-footer {
