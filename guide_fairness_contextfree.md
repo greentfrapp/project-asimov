@@ -16,7 +16,11 @@ On a similar note, in Peter Westen's The Empty Idea of Equality <dt-cite cite="w
 
 > For [equality] to have meaning, it must incorporate some external values that determine which persons and treatments are alike [...]
 
-<span class="emph">In other words, the treatment of fairness, justice and equality *cannot* be separated from the specific context of the problem at hand.</span>
+<div class="box-red">
+  <p class="emph">
+    In other words, the treatment of fairness, justice and equality <em>cannot</em> be separated from the specific context of the problem at hand.
+  </p>
+</div>
 
 ### Five Failure Modes
 
@@ -50,13 +54,20 @@ This is related to the Framing Trap in that the AI practitioner fails to properl
 
 > Failure to recognize the possibility that the best solution to a problem may not involve technology
 
-Hence we crowned the most important question in this entire guide as, "When is AI not the answer?" (mentioned [here](../about_ai/#when-is-ai-not-the-answer)). AI practitioners are naturally biased towards AI-driven solutions, which would be an impedement when the ideal solution might be far from AI-driven.
+Hence we crowned the most important question in this entire guide as, "When is AI not the answer?" (mentioned [here](../../the_question/)). AI practitioners are naturally biased towards AI-driven solutions, which would be an impedement when the ideal solution might be far from AI-driven.
 
 ---
 
-This piece by Selbst et al. is important because it highlights many obstacles to designing fair AIS, all of which are often deeply embedded in the psyche of an AI practitioner. Upon a close reading of the work, readers might realize that the five traps are essentially variants of each other and can be ultimately attributed to a lack of appreciation for the sociotechnical context. Perhaps the most important thing to pick up from this is that AI practitioners *have* to treat their application's subject matter with humility, rather than naively and arrogantly assuming that AIS can simply solve everything.
+This piece by Selbst et al. is important because it highlights many obstacles to designing fair AIS, all of which are often deeply embedded in the psyche of an AI practitioner. Upon a close reading of the work, readers might realize that the five traps are essentially variants of each other and can be ultimately attributed to a lack of appreciation for the sociotechnical context.
 
-<span class="emph">TL;DR - Nope, there is no context-free theory of fairness yet and maybe there shouldn't be one.</span>
+<div class="box-red">
+<p>
+  Perhaps the most important thing to pick up from this is that AI practitioners <em>have</em> to treat their application's subject matter with humility, rather than naively and arrogantly assuming that AIS can simply solve everything.
+</p>
+<p class="emph">
+  TL;DR - Nope, there is no context-free theory of fairness yet and maybe there shouldn't be one.
+</p>
+</div>
 
 <tofro prevtext="The Impossibility Theorem" prevlink="../impossible/" nexttext="Algorithmic Bias" nextlink="../../bias/"></tofro>
 

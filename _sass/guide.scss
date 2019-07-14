@@ -85,6 +85,7 @@ body#guide-body {
 		}
 
 		a {
+			color: $guide-text-color;
 			text-decoration: none;
 		}
 
@@ -239,9 +240,12 @@ body#guide-body {
 			// height: 0px;
 		}
 
-		blockquote p {
-			// font-family: "Roboto", sans-serif;
-			color: darken($guide-text-color, 15%);
+		blockquote {
+			border-left: 4px solid darken($guide-text-color, 15%);
+			p {
+				// font-family: "Roboto", sans-serif;
+				color: darken($guide-text-color, 15%);
+			}
 		}
 
 		h3, h4, h5, h6 {
@@ -286,11 +290,43 @@ body#guide-body {
 		.tidbit-content {
 			color: $guide-tidbit-color;
 		}
+
+		.box,
+		.box-blue,
+		.box-red,
+		.box-yellow {
+			background-color: lighten($guide-background-color, 3%);
+			padding: 15px;
+		}
+
+		div.box,
+		div.box-blue,
+		div.box-red,
+		div.box-yellow {
+			margin: 50px 0;
+		}
+
+		.box-blue {
+			border-bottom: 3px solid darken($guide-text-secondary-c, 10%);
+			border-top: 3px solid darken($guide-text-secondary-c, 10%);
+		}
+
+		.box-red {
+			border-bottom: 3px solid darken($guide-text-secondary-m, 0%);
+			border-top: 3px solid darken($guide-text-secondary-m, 0%);
+		}
+
+		.box-yellow {
+			border-bottom: 3px solid darken($guide-text-secondary-y, 10%);
+			border-top: 3px solid darken($guide-text-secondary-y, 10%);
+		}
 	}
 
 	.tofro {
 		margin: 100px 0;
+		font-family: 'Lora', serif;
 		a {
+			color: $guide-text-color;
 			text-decoration: none;
 		}
 		hr {
@@ -348,7 +384,8 @@ body#guide-body {
 	}
 
 	a {
-		color: $guide-text-color;
+		// color: $guide-text-color;
+		color: darken($guide-text-secondary-c, 0%);
 		text-decoration: underline;
 	}
 

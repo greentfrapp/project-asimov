@@ -18,7 +18,9 @@ The difference between disparate treatment and disparate impact can be summarize
 
 ### What does this mean for AIS?
 
-We can use Amazon's Prime Free Same-Day service as an example <dt-cite cite="ingold2016amazon"></dt-cite>. Suppose Amazon has a model that decides which neighborhoods should get the Prime Free Same-Day service.
+<p class="box-blue">
+  We can use Amazon's Prime Free Same-Day service as an example <dt-cite cite="ingold2016amazon"></dt-cite>. Suppose Amazon has a model that decides which neighborhoods should get the Prime Free Same-Day service.
+</p>
 
 #### Disparate Treatment
 

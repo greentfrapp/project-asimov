@@ -20,7 +20,9 @@ The Montréal Declaration's 10 principles refers extensively to "AIS" instead of
 <img class="comic" width="815px" src="{{ "/assets/guide/comics/siri_inverted.png" | relative_url }}" title="Before working at Apple, Siri acted at Studio Ghibli." alt="Siri is not a tiny sprite living in an iPhone.">
 </div>
 
-Siri is not a tiny sprite that lives in iPhones. Siri is an entire digital supply chain from initial conception to data collection to model training to deployment to maintenance and finally retirement. The same is true for any other AIS, including Google Translate, Amazon Rekognition and Northpointe's COMPAS. This big-picture perspective is important. It reminds us that we have to look at the entire system and infrastructure when we talk about AI ethics.
+<p class="box-blue">
+  Siri is not a tiny sprite that lives in iPhones. Siri is an entire digital supply chain from initial conception to data collection to model training to deployment to maintenance and finally retirement. The same is true for any other AIS, including Google Translate, Amazon Rekognition and Northpointe's COMPAS. This big-picture perspective is important. It reminds us that we have to look at the entire system and infrastructure when we talk about AI ethics.
+</p>
 
 In addition to a digital supply chain, AIS also have physical supply chains that comprise energy usage, resource extraction and hardware recycling or disposal. These physical supply chains can be due to cloud servers, physical devices or simply the electricity and hardware used to train and house the models.
 
@@ -28,7 +30,7 @@ The AI Now Institute also has a fantastic illustration titled [Anatomy of an AI 
 
 Finally, "system" also includes the sociotechnical context where the AIS is applied. This includes the culture, norms and values of the application, the domain and the geography and society. These values can be formalized (e.g. laws) or informal (e.g. unwritten customs and traditions). In particular, concepts such as justice and fairness are specific to context and differ from case to case.
 
-<div>
+<div class="box-red">
 	<p class="emph">
 		TL;DR - For the remainder of this guide, Artificial Intelligence Systems (AIS) refer to the entirety of an artificial intelligence application or solution, in terms of:
 	</p>
@@ -75,9 +77,11 @@ AI ethics goes beyond philosophical musings and thought experiments. It tries to
 
 See the [AIEthics section](../about_ai/) for a more detailed look at what makes modern AI different from previous technologies.
 
+<div class="box-red">
 <p class="emph">
 	TL;DR - For the remainder of this guide, ethics of artificial intelligence (AI ethics) refers to the study of how AIS affect, promote and violate human moral ideals, including justice, autonomy and privacy. In particular, we note that current AIS are still created, deployed and maintained by humans.
 </p>
+</div>
 
 <div style="margin-left: auto; margin-right: auto; width:500px;">
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Fair point that can just as easily, and more urgently, be inverted: why don&#39;t those building AI for $subject actually engage with the foundational $subject literature? Including the histories of ethics, discrimination, etc in $subject domain... <a href="https://t.co/SPkSBCxWzz">https://t.co/SPkSBCxWzz</a></p>&mdash; Meredith Whittaker (@mer__edith) <a href="https://twitter.com/mer__edith/status/998211595879833602?ref_src=twsrc%5Etfw">May 20, 2018</a></blockquote>

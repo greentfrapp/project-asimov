@@ -8,7 +8,6 @@ permalink: /guide/different/
 
 ---
 
-
 ## Illusion of Fairness
 
 Since machines have no emotions, we often assume that they would be impartial and make decisions without fear or favor.
@@ -21,6 +20,8 @@ This assumption is flawed. For one, guns too, have no capacity for prejudice. Bu
 
 This illusion of fairness provides unwarranted justification for widespread deployment of AIS without adequate control. But fairness is not a natural by-product of AIS. It is a quality that has to be carefully designed for.
 
+---
+
 ## Speed and Scale
 
 The shipping industry revolutionized trade, enabling it to be conducted on an international scale across maritime trade routes. Previously lengthy land detours had much quicker maritime alternatives. But this increase in speed and scale also facilitated the rapid spread of the Black Death.
@@ -30,6 +31,8 @@ Many of today's AIS function on an unprecedented speed and scale. Google Transla
 <div>
 <img class="comic" width="500px" src="{{ "/assets/guide/comics/scale_inverted.png" | relative_url }}" title="It's a Rock Fact!" alt="Speed and scale applies to both benefits and problems.">
 </div>
+
+---
 
 ## Accessibility
 
@@ -41,13 +44,14 @@ AI research has largely been open. The vast majority of researchers share their 
 
 The combination of accessible research, hardware, software and data means that many people have the ability to train and deploy their own AIS for personal use. A powerful technology is now openly accessible to unregulated individuals who may use it for any purpose they deem fit. Consider the examples of DeepFakes and DeepNude. These open-source programs use Generative Adversarial Networks and variants of the pix2pix algorithm to generate realistic pornographic media of unwitting individuals.
 
----
-
-We need to dispel the myth of the neutral AI. We need to fix widespread AI systems before they can do more harm. We need to reach out to all potential practitioners who can deploy these systems, from professional engineers to casual hobbyists.
-
-<span class="emph">
-	All three points above point to an urgent need for public awareness about AI ethics.
-</span>
+<div class="box-red">
+  <p>
+    We need to dispel the myth of the neutral AI. We need to fix widespread AI systems before they can do more harm. We need to reach out to all potential practitioners who can deploy these systems, from professional engineers to casual hobbyists.
+  </p>
+  <p class="emph">
+  	All three points above point to an urgent need for public awareness about AI ethics.
+  </p>
+</div>
 
 <tofro prevtext="Basics" prevlink="../basics/" nexttext="The Most Important Question" nextlink="../the_question/"></tofro>
 
