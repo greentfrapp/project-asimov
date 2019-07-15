@@ -155,7 +155,7 @@ Representations both embed and influence unwritten norms and values. Following t
 
 @book{o2016weapons,
   title={Weapons of math destruction: How big data increases inequality and threatens democracy},
-  author={O'neil, Cathy},
+  author={O'Neil, Cathy},
   year={2016},
   publisher={Broadway Books}
 }

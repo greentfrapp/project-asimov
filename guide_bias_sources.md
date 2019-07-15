@@ -16,7 +16,7 @@ In the following sections, we will look at sources of bias when:
 
 We will make extensive references to the works of Barocas & Selbst <dt-cite cite="barocas2016big"></dt-cite>, Selbst et al. <dt-cite cite="selbst2019fairness"></dt-cite> and Suresh & Guttag <dt-cite cite="suresh2019framework"></dt-cite>. We strongly advise readers to take a close look at these works for more details. 
 
-<tofro prevtext="Two Types of Harms" prevlink="../harms/" nexttext="" nextlink=""></tofro>
+<tofro prevtext="Two Types of Harms" prevlink="../harms/" nexttext="Bias from Data" nextlink="../data/"></tofro>
 
 ## References
 
@@ -49,6 +49,5 @@ We will make extensive references to the works of Barocas & Selbst <dt-cite cite
   journal={arXiv preprint arXiv:1901.10002},
   year={2019}
 }
-
 
 </script>
