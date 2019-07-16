@@ -4,43 +4,103 @@ title: The Guide. \| Project Asimov
 permalink: /guide/bias_i/
 ---
 
-# Understanding Bias Part I
+# Understanding Bias Part I `WIP`
 
----
+<div class="box-red">
+<blockquote>
+  <p>
+    Accordingly, we use the term bias to refer to computer systems that <em>systematically</em> and <em>unfairly discriminate</em> against certain individuals or groups of individuals in favor of others.
+  </p>
+  <p>
+    <em>Bias in Computer Systems - Friedman & Nissenbaum, 1996</em>
+  </p>
+</blockquote>
+<p class="emph">
+  What is so bad about algorithmic bias anyway? Has it caused any real damage in the world? To figure out what algorithmic bias is, it is useful to consider some real-world examples.
+</p>
+<p>
+  Here, we examine the tail-end of algorithmic bias and take a look at what the effects of algorithmic bias look like. We cover the following questions:
+</p>
 
-> Accordingly, we use the term bias to refer to computer systems that *systematically* and *unfairly discriminate* against certain individuals or groups of individuals in favor of others. 
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        How might we analyze the harm caused by algorithmic bias?
+    </div>
+  </div>
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        What are some examples of harms of allocation?
+    </div>
+  </div>
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        What are some examples of harms of representation?
+    </div>
+  </div>
+</div>
 
-*Bias in Computer Systems - Friedman & Nissenbaum, 1996*
-
----
-
-## Why is it so Difficult?
+</div>
 
 ---
 
 ## Two Types of Harms
 
-AIS typically fall into two main categories. AIS are increasingly used to **allocate** resources, such as credit scoring algorithms that help in filtering loan applications, or hiring algorithms that help to "allocate" jobs. AIS are also increasingly affecting the way we perceive or **represent** the world. Examples include Google Search, Facebook's News Feed and YouTube's Recommended feed. This is also known as "filtering" <dt-cite cite="susskind2018future"></dt-cite>.
+AIS are increasingly used to **allocate** resources, such as credit scoring algorithms that help in filtering loan applications, or hiring algorithms that help to "allocate" jobs. In these systems, we can think of fairness as a comparison between how much is allocated or denied. 
 
-> If you control the flow of information in a society, you can influence its shared sense of right and wrong, fair and unfair, clean and unclean, seemly and unseemly, real and fake, true and false, known and unknown.
+AIS are also increasingly affecting the way we perceive or **represent** the world. Examples include Google Search, Facebook's News Feed and YouTube's Recommended feed. This is also known as "filtering" <dt-cite cite="susskind2018future"></dt-cite>. In these systems, fairness tends to be more abstract and difficult to define. Intuitively, a system is unfair when it presents a skewed or harmful depiction of a certain group.
 
-*Future Politics - Jamie Susskind, 2018 <dt-cite cite="susskind2018future"></dt-cite>*
+In the same way, we can classify the harms of algorithmic bias into harms of allocation and representation. This was proposed by Kate Crawford in her NIPS 2017 keynote The Trouble with Bias <dt-cite cite="crawford2017trouble"></dt-cite>. Crawford first defined algorithmic bias as "a skew that produces a type of harm". She then further classifies algorithmic biases into the two types of harms that they cause - allocative and representative.
 
-In the same way, we can classify the harms of algorithmic bias into harms of allocation and representation. This was proposed by Kate Crawford in her NIPS 2017 keynote The Trouble with Bias <dt-cite cite="crawford2017trouble"></dt-cite>. Crawford first defined algorithmic bias as "a skew that produces a type of harm". She then further classifies algorithmic biases into the two types of harms that they cause - allocative and representative. (A recording can be viewed [here](https://www.youtube.com/watch?v=fMym_BKWQzk).)
-
-|-------------------|----------------------|
-|Allocation         |Representation        |
-|-------------------|----------------------|
-|Immediate          |Long term             |
-|Easily quantifiable|Difficult to formalize|
-|Discrete           |Diffuse               |
-|Transactional      |Cultural              |
-
-*Comparison between the two types of harm, from Crawford's NIPS 2017 keynote <dt-cite cite="crawford2017trouble"></dt-cite>*
+<div class="box-red">
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        How might we analyze the harm caused by algorithmic bias? 
+    </div>
+  </div>
+</div>
+<div class="emph">
+  <p>
+    A framework proposed by Kate Crawford classifies algorithmic bias by the type of harm caused. Harms of allocation refers to unfairly assigned opportunities or resources due to algorithmic intervention. Harms of representation refers to algorithmically filtered depictions that are discriminatory.
+  </p>
+<table style="font-size: 1.25rem;">
+  <thead>
+    <tr>
+      <th>Allocation</th>
+      <th>Representation</th>
+    </tr>
+  </thead>
+  <tbody style="font-weight: 400;">
+    <tr>
+      <td>Immediate</td>
+      <td>Long term</td>
+    </tr>
+    <tr>
+      <td>Easily quantifiable</td>
+      <td>Difficult to formalize</td>
+    </tr>
+    <tr>
+      <td>Discrete</td>
+      <td>Diffuse</td>
+    </tr>
+    <tr>
+      <td>Transactional</td>
+      <td>Cultural</td>
+    </tr>
+  </tbody>
+</table>
+<p><em>Comparison between the two types of harm, from Crawford's NIPS 2017 keynote <dt-cite cite="crawford2017trouble"></dt-cite></em></p>
+</div>
+</div>
 
 ---
 
-### Harms of Allocation
+## Harms of Allocation
 
 > An allocative harm is when a system allocates or withholds certain groups an opportunity or a resource.
 
@@ -50,11 +110,15 @@ Harms of allocation arise from the unjust distribution of opportunities and reso
 
 ---
 
-### Harms of Representation
+## Harms of Representation
 
 > [Representative harms] occur when systems reinforce the subordination of some groups along the lines of identity.
 
 *The Trouble with Bias, Kate Crawford at NIPS2017 <dt-cite cite="crawford2017trouble"></dt-cite>*
+
+> If you control the flow of information in a society, you can influence its shared sense of right and wrong, fair and unfair, clean and unclean, seemly and unseemly, real and fake, true and false, known and unknown.
+
+*Future Politics - Jamie Susskind, 2018 <dt-cite cite="susskind2018future"></dt-cite>*
 
 Harms of representation arise from unjust perspectives of the world. Let's take the simple and vivid example of Google's Image Search for the term "CEO". Studies have found that Google's Image Search perpetuated and exacerbated gender and racial stereotypes <dt-cite cite="otterbacher2017competent,kay2015unequal"></dt-cite>. In April 2015, a Google Image search for the term "CEO" returned results dominated by white male figures. To Google's credit, current searches appear to be more diverse (see below).
 

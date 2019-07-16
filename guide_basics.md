@@ -4,7 +4,44 @@ title: The Guide. \| Project Asimov
 permalink: /guide/basics/
 ---
 
-# Basics
+# Getting Started
+
+<div class="box-red">
+<p class="emph">
+  AI ethics can be confusing. To practitioners, AI is kind of just clever mathematics. So how can a bunch of code and equations be ethical or unethical? Why are we so worried about AI ethics?
+</p>
+<p>
+  This section tries to give a warm-up to AI ethics before we dive into the deep end. It will cover the following:
+</p>
+
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        What do we mean by AI ethics?
+    </div>
+  </div>
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        What do we mean by AI systems?
+    </div>
+  </div>
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        How is AI different from other technologies?
+    </div>
+  </div>
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        What is the single most important question when implementing AI solutions?
+    </div>
+  </div>
+</div>
+
+</div>
 
 ---
 
@@ -14,21 +51,21 @@ permalink: /guide/basics/
 
 *What is Computer Ethics? (Moor, 1985) <dt-cite cite="moor1985computer"></dt-cite>*
 
-Discussions of AI ethics typically fall into two main categories: treatment of AIS by humans and treatment of humans by AIS.
+Discussions of AI ethics typically fall into two categories: how people treat AI (think Chappie and Bicentennial Man) and how AI treat people (think Terminator and HAL9000).
 
-### Treatment of AI Systems by Humans
+### Treatment of AI by Humans
 
 <div>
 <img class="comic" width="380px" src="{{ "/assets/guide/comics/andrew_inverted.png" | relative_url }}" title="I don’t know what he feels inside but I don’t know what you feel inside. When you talk to him you’ll find he reacts to the various abstractions as you and I do, and what else counts? If someone else’s reactions are like your own, what more can you ask for?" alt="Siri is not a tiny sprite living in an iPhone.">
 </div>
 
-Anyone who has been touched by Robin Williams's portrayal of Andrew in Bicentennial Man might have thought about the idea of granting rights to robots and AIS. In Life 3.0, author Max Tegmark recounts a heated discussion between Larry Page and Elon Musk on robot rights <dt-cite cite="tegmark2017life"></dt-cite>.
+Anyone who has been touched by Robin Williams's portrayal of Andrew in Bicentennial Man might have thought about the idea of granting rights to robots and AIS. In Life 3.0, Max Tegmark recounted a heated discussion between Larry Page and Elon Musk on robot rights <dt-cite cite="tegmark2017life"></dt-cite>.
 
 > At times, Larry accused Elon of being "specieist": treating certain life forms as inferior just because they were silicon-based rather than carbon-based.
 
-Nevertheless, AIS that demand us to rethink notions of humanity and consciousness still remain on the far-flung horizon.
+Realistically though, AI systems that require us to rethink notions of humanity and consciousness still remain on the far-flung horizon. Instead, let's focus on the more urgent issue of how AI treat people.
 
-### Treatment of Humans by (Other Humans via) AI Systems
+### Treatment of Humans by (Other Humans via) AI
 
 More urgently, we need to consider the effects of present AI systems on human moral ideals.
 
@@ -40,11 +77,17 @@ The pervasive nature of AI systems means that these systems potentially affect m
 
 AI ethics goes beyond philosophical musings and thought experiments. It tries to fix the real problems cropping up from so-called solutions. Most importantly, the human researchers and engineers behind AI systems have to understand the tremendous power and responsibility that they possess.
 
-See the [AIEthics section](../about_ai/) for a more detailed look at what makes modern AI different from previous technologies.
-
 <div class="box-red">
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        What do we mean by AI ethics?
+    </div>
+  </div>
+</div>
 <p class="emph">
-  TL;DR - For the remainder of this guide, ethics of artificial intelligence (AI ethics) refers to the study of how AIS affect, promote and violate human moral ideals, including justice, autonomy and privacy. In particular, we note that current AIS are still created, deployed and maintained by humans.
+  For the rest of this guide, AI ethics refers to the study of how AI systems promote and violate human values, including justice, autonomy and privacy. In particular, we note that current AI systems are still created, deployed and maintained by humans.
 </p>
 </div>
 
@@ -73,14 +116,22 @@ The AI Now Institute also has a fantastic illustration titled [Anatomy of an AI 
 Finally, "system" also includes the sociotechnical context where the AIS is applied. This includes the culture, norms and values of the application, the domain and the geography and society. These values can be formalized (e.g. laws) or informal (e.g. unwritten customs and traditions). In particular, concepts such as justice and fairness are specific to context and differ from case to case.
 
 <div class="box-red">
-	<p class="emph">
-		TL;DR - For the remainder of this guide, Artificial Intelligence Systems (AIS) refer to the entirety of an artificial intelligence application or solution, in terms of:
-	</p>
-	<ul class="emph">
-		<li>Digital lifecycle (conceptualization to retirement),</li>
-		<li>Physical lifecycle (resource extraction to hardware disposal), and</li>
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        What do we mean by AI systems?
+    </div>
+  </div>
+</div>
+<p class="emph">
+  The term Artificial Intelligence System (AIS) refer to the entirety of an artificial intelligence application or solution, in terms of:
+</p>
+<ul class="emph">
+    <li>Digital lifecycle (conceptualization to retirement),</li>
+    <li>Physical lifecycle (resource extraction to hardware disposal), and</li>
     <li>Sociotechnical context (culture, norms and values).</li>
-	</ul>
+  </ul>
 </div>
 
 ---
@@ -120,19 +171,31 @@ AI research has largely been open. The vast majority of researchers share their 
 The combination of accessible research, hardware, software and data means that many people have the ability to train and deploy their own AIS for personal use. A powerful technology is now openly accessible to unregulated individuals who may use it for any purpose they deem fit. Consider the examples of DeepFakes and DeepNude. These open-source programs use Generative Adversarial Networks and variants of the pix2pix algorithm to generate realistic pornographic media of unwitting individuals.
 
 <div class="box-red">
-  <p>
-    We need to dispel the myth of the neutral AI. We need to fix widespread AI systems before they can do more harm. We need to reach out to all potential practitioners who can deploy these systems, from professional engineers to casual hobbyists.
-  </p>
-  <p class="emph">
-    All three points above point to an urgent need for public awareness about AI ethics.
-  </p>
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        How is AI different from other technologies? 
+    </div>
+  </div>
+</div>
+<div class="emph">
+<p>
+  AI differs from most technologies in three aspects:
+</p>
+<ul>
+  <li>We tend to think AI is like totally fair and better than people.</li>
+  <li>AI can be crazy fast and deployed on a massive scale.</li>
+  <li>Given how powerful it is, AI is also really accessible to everyone.</li>
+</ul>
+</div>
 </div>
 
 ---
 
-# The Most Important Question
+## The Most Important Question
 
-## When is AI not the answer?
+### When is AI not the answer?
 
 <div>
 <img class="comic" width="250px" src="{{ "/assets/guide/comics/notanswer_1_inverted.png" | relative_url }}" title='When the Question is, "What do you get if you multiply six by nine?"' alt="Is that a trick question?">
@@ -191,9 +254,22 @@ More generally, when discussing the pros and cons of adopting an AIS solution, a
 - Overconfidence in AIS-derived decisions. <tidbit content="While the well-known fallibility of humans remind us to double and triple check decisions, employing AIS might create a false sense of security."></tidbit>
 
 <div class="box-red">
-  <p class="emph">
-    System designers need to be acutely aware of such nuances and unintended consequences of using AIS in a larger sociotechnical context, as opposed to just thinking of AIS in isolation.
-  </p>
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        What is the single most important question when implementing AI solutions?  
+    </div>
+  </div>
+</div>
+<div class="emph">
+<p>
+  "Is using AI for this <em>really</em> a good idea?"
+</p>
+<p>
+  In other words, think hard about what using AI really means in the context of your problem. Like really hard.
+</p>
+</div>
 </div>
 
 <tofro prevtext="Intro" prevlink="../" nexttext="What's Up with Fairness?" nextlink="../fairness/"></tofro>

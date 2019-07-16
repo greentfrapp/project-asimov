@@ -17,7 +17,7 @@ let framework = new Vue({
 		$('.ui.sidebar').sidebar({
 		    onHidden: function() {
 		      d3.select("#nav").classed("shift-right", false)
-		      d3.select("#nav").classed("navbar-hidden", true)
+		      d3.select("#nav").classed("navbar-hidden", false)
 		    },
 		    onShow: function() {
 		      d3.select("#nav").classed("shift-right", true)

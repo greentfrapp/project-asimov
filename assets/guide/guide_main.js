@@ -174,8 +174,8 @@ let framework = new Vue({
 		    onHidden: function() {
 		      d3.select("#nav").classed("shift-right", false)
 		      // d3.select("#nav").classed("hidden", false)
-		      // d3.select("#nav").classed("navbar-hidden", false)
-		      d3.select("#nav").classed("navbar-hidden", true)
+		      d3.select("#nav").classed("navbar-hidden", false)
+		      // d3.select("#nav").classed("navbar-hidden", true)
 		    },
 		    onShow: function() {
 		      d3.select("#nav").classed("shift-right", true)

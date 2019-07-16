@@ -37,12 +37,15 @@ body#guide-body {
 	background-color: $guide-background-color;
 	height: auto;
 	width: 100%;
-	scroll-behavior: smooth;
+	// scroll-behavior: smooth;
 	color: $guide-text-color;
 	
 	h1, h2, h3, h4, h5, h6 {
 		color: $guide-text-color;
 		font-family: 'Roboto', serif;
+		code {
+			font-size: inherit;
+		}
 	}
 
 	h1 {
@@ -53,6 +56,17 @@ body#guide-body {
 	h2 {
 		font-size: 3.5rem;
 		color: $guide-text-secondary-c;
+		// padding-top: 100px;
+		// padding-bottom: 50px;
+	}
+
+	h2::before { 
+		display: block; 
+		content: " "; 
+		margin-top: -100px; 
+		height: 100px; 
+		visibility: hidden; 
+		pointer-events: none;
 	}
 
 	h3 {
@@ -220,6 +234,20 @@ body#guide-body {
 		margin-top: 70px;
 	}
 
+	.ui.list {
+		font-family: Lora, serif;
+		font-size: 1.25rem;
+		line-height: 2.5rem;
+		.item {
+			text-align: left;
+			.icon,
+			.content {
+				font-size: 1.25rem;
+				line-height: 2.5rem;
+			}
+		}
+	}
+
 	div.guide-content {
 		//border: 1px solid red;
 		margin-left: auto !important;
@@ -251,6 +279,10 @@ body#guide-body {
 		.emph {
 			font-family: 'Roboto', sans-serif;
 			font-weight: 600;
+			p, ol, ul {
+				font-family: 'Roboto', sans-serif;
+				font-weight: 600;
+			}
 		}
 
 		div.step {
@@ -314,7 +346,7 @@ body#guide-body {
 		.box-red,
 		.box-yellow {
 			background-color: lighten($guide-background-color, 3%);
-			padding: 15px;
+			padding: 35px;
 		}
 
 		div.box,

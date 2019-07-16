@@ -6,13 +6,50 @@ permalink: /guide/fairness/
 
 # Understanding Fairness
 
----
+<div class="box-red">
+<blockquote>
+  <p>
+    All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+  </p>
+  <p>
+    <em>Article I in the Universal Declaration of Human Rights</em>
+  </p>
+</blockquote>
+<p class="emph">
+  To lay the ground for algorithmic bias, we first ask, "What does fairness mean?" And boy is this a big one. With dozens of definitions, how do we know which one to pick? Why can't we all just agree on one?
+</p>
+<p>
+  This section acts as a primer to fairness, covering a few key concepts. It tries to answer the following questions:
+</p>
 
-> All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.  
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        What is a widely used definition of fairness?
+    </div>
+  </div>
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        How can we quantify fairness?
+    </div>
+  </div>
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        Can't we just combine <em>all</em> of the fairness definitions?
+    </div>
+  </div>
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        How do we design for fairness without context?
+    </div>
+  </div>
+</div>
 
-*Article I in the Universal Declaration of Human Rights*
-
-To lay the ground for algorithmic bias, we first ask, "What does fairness mean?"
+</div>
 
 ---
 
@@ -58,6 +95,22 @@ In addition, we have to review what we mean by "disproportionately disadvantaged
 
 The next section is a more detailed look at the different ways to look at fairness and the term "disproportionately disadvantaged".
 
+<div class="box-red">
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        What is a widely used definition of fairness?  
+    </div>
+  </div>
+</div>
+<div class="emph">
+<p>
+  The terms "disparate treatment" and "disparate impact" are used in US labor law, dividing discrimination into intentional and "oops I didn't mean it". But in reality, even these legalistic definitions are subject to a lot of contention. Fairness really really depends on context.
+</p>
+</div>
+</div>
+
 ---
 
 ## A Fair Fat Pet Predictor
@@ -92,10 +145,39 @@ The experiment above introduced five fairness metrics:
 - Overall Accuracy Equality <dt-cite cite="berk2018fairness"></dt-cite>
 - Treatment Equality <dt-cite cite="berk2018fairness"></dt-cite>
 
-In addition to these, there are plenty more fairness metrics enumerated by Verma and Rubin <dt-cite cite="verma2018fairness"></dt-cite> and Narayanan <dt-cite cite="narayanan2018translation"></dt-cite>. There are all sorts of ingenious ideas including calibration <dt-cite cite="kleinberg2016inherent,chouldechova2017fair"></dt-cite> and fairness through awareness <dt-cite cite="dwork2012fairness"></dt-cite>. <span class="emph">These metrics all have different priorities and justifications and they exemplify the importance of context when discussing fairness</span>.
+In addition to these, there are plenty more fairness metrics enumerated by Verma and Rubin <dt-cite cite="verma2018fairness"></dt-cite> and Narayanan <dt-cite cite="narayanan2018translation"></dt-cite>. There are all sorts of ingenious ideas including calibration <dt-cite cite="kleinberg2016inherent,chouldechova2017fair"></dt-cite> and fairness through awareness <dt-cite cite="dwork2012fairness"></dt-cite>. <span class="emph">These metrics all have different priorities and they exemplify the importance of context when discussing fairness</span>.
 
 <div>
 <img class="comic" width="450px" src="{{ "/assets/guide/comics/manymetrics_inverted.png" | relative_url }}" title="Is the temperature in Kelvin, Celsius or Farenheit? Yes." alt="There are a ton of metrics to measure fairness.">
+</div>
+
+### Is it Justified?
+
+The awesome thing about these metrics is that they can be put into a loss function. Then we can train a model to optimize the function and voilà we have a fair model. Except no it doesn't work like that.
+
+A major issue with these metrics (besides the question of how to pick one) is that they neglect the larger context. In the previous section, we explained:
+
+> The phrase “protected characteristics” refers to traits such as race, gender, age, physical or mental disabilities, where differences due to such traits cannot be **reasonably justified**.
+
+Measuring fairness using true-false-positive-negative rates neglects "reasonable justification". Suppose an Olympics selection trial requires applicants to run 10km in 40 minutes. The ability to run that fast is probably negatively correlated with age so we might see a bias against very elderly applicants. But this selection criterion is *reasonably justified*. In short, any notion of fairness that abstracts away the larger context is incomplete.
+
+<div class="box-red">
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        How can we quantify fairness?   
+    </div>
+  </div>
+</div>
+<div class="emph">
+<p>
+  Most of the fairness metrics focus on equality in the rates of true positives, true negatives, false positives, false negatives, or some combination of these. But really, these metrics are insufficient when they exclude the larger context of the AIS. 
+</p>
+<p>
+  For more comprehensive reviews of existing metrics, check out Narayanan <dt-cite cite="narayanan2018translation"></dt-cite> and Verma et al. <dt-cite cite="verma2018fairness"></dt-cite>.
+</p>
+</div>
 </div>
 
 ---
@@ -129,9 +211,23 @@ Turns out, it is impossible to satisfy both definitions of fairness, given popul
 
 The point of all these is not to show that fairness does not make sense. After all, notions of fairness are heavily based on context and culture. Different definitions that appear incompatible simply reflect this context-dependent nature.
 
-But this also means that it is super critical to have a deliberate discussion about what constitutes fairness. This deliberate discussion must be nested in the context of how and where the AIS will be used. For each AIS, the AI practitioners, their clients and users of the AIS need to base their conversations on the same definition of fairness. <span class="emph">We cannot assume that everyone has the same idea of fairness.</span> While it could be ideal for everyone to have a say in what definition of fairness to use, sometimes this can be difficult.
+But this also means that it is super critical to have a deliberate discussion about what constitutes fairness. This deliberate discussion must be nested in the context of how and where the AIS will be used. For each AIS, the AI practitioners, their clients and users of the AIS need to base their conversations on the same definition of fairness. <span class="emph">We cannot assume that everyone has the same idea of fairness.</span> While it could be ideal for everyone to have a say in what definition of fairness to use, sometimes this can be difficult. At the very least, AI practitioners should be upfront with their users about fairness considerations in the design of the AIS. This includes what fairness definition was used and why, as well as potential shortcomings.
 
-<p class="box-red emph">At the very least, AI practitioners should be upfront with their users about fairness considerations in the design of the AIS. This includes what fairness definition was used and why, as well as potential shortcomings.</p>
+<div class="box-red">
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        Can't we just combine all of the fairness definitions?   
+    </div>
+  </div>
+</div>
+<div class="emph">
+<p>
+  Nope, sorry. In some cases, certain fairness metrics are actually mutually exclusive. AI practitioners have to be careful about which one they use. There is no easy answer since it all depends on the context. Finally, because it is so important and subjective, be open about which metric was used and how it was chosen!
+</p>
+</div>
+</div>
 
 ---
 
@@ -147,11 +243,9 @@ On a similar note, in Peter Westen's The Empty Idea of Equality <dt-cite cite="w
 
 > For [equality] to have meaning, it must incorporate some external values that determine which persons and treatments are alike [...]
 
-<div class="box-red">
-  <p class="emph">
-    In other words, the treatment of fairness, justice and equality <em>cannot</em> be separated from the specific context of the problem at hand.
-  </p>
-</div>
+<p class="emph">
+  In other words, the treatment of fairness, justice and equality <em>cannot</em> be separated from the specific context of the problem at hand.
+</p>
 
 ### Five Failure Modes
 
@@ -185,19 +279,33 @@ This is related to the Framing Trap in that the AI practitioner fails to properl
 
 > Failure to recognize the possibility that the best solution to a problem may not involve technology
 
-Hence we crowned the most important question in this entire guide as, "When is AI not the answer?" (mentioned [here](../../the_question/)). AI practitioners are naturally biased towards AI-driven solutions, which would be an impedement when the ideal solution might be far from AI-driven.
+Hence we crowned the most important question in this entire guide as, "When is AI not the answer?" (mentioned [here](../basics/#the-most-important-question)). AI practitioners are naturally biased towards AI-driven solutions, which could be an impedement when the ideal solution might be far from AI-driven.
 
-### Technologies of Humility
+<!-- ### Technologies of Humility
 
-This piece by Selbst et al. is important because it highlights many obstacles to designing fair AIS, all of which are often deeply embedded in the psyche of an AI practitioner. Upon a close reading of the work, readers might realize that the five traps are essentially variants of each other and can be ultimately attributed to a lack of appreciation for the sociotechnical context.
+This piece by Selbst et al. is important because it highlights many obstacles to designing fair AIS, all of which are often deeply embedded in the psyche of an AI practitioner. Upon a close reading of the work, readers might realize that the five traps are essentially variants of each other and can be ultimately attributed to a lack of appreciation for the sociotechnical context. -->
 
 <div class="box-red">
-<p>
-  Perhaps the most important thing to pick up from this is that AI practitioners <em>have</em> to treat their application's subject matter with humility, rather than naively and arrogantly assuming that AIS can simply solve everything.
-</p>
-<p class="emph">
-  TL;DR - Nope, there is no context-free theory of fairness yet and maybe there shouldn't be one.
-</p>
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        How do we design for fairness without context?
+    </div>
+  </div>
+</div>
+<div class="emph">
+  <p>
+    Nope we can't, that was a trick question. The same decision can be both fair and unfair depending on the larger context, so context absolutely matters. Questions that can help us understand the context:
+  </p>
+  <ul>
+    <li>What are the relevant protected traits?</li>
+    <li>What does fairness mean in this domain? What does unfairness mean?</li>
+    <li>How is the AIS supposed to be used?</li>
+    <li>How might the AIS be misused?</li>
+    <li>How might the AIS change people's behaviors?</li>
+  </ul>
+</div>
 </div>
 
 <tofro prevtext="Basics" prevlink="../basics/" nexttext="What's up with Bias?" nextlink="../bias_i/"></tofro>
