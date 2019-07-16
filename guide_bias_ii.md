@@ -70,7 +70,7 @@ In some cases, the target variable is actually a subjective judgement. This incr
 
 Where possible, subjective labels should be replaced with clearly defined and well-justified criteria. Otherwise, datasets with subjective labels should be inspected for biases along the sensitive traits identified earlier.
 
-<tofro prevtext="Sources of Bias" prevlink="../sources/"></tofro>
+<tofro prevtext="Bias Part I" prevlink="../bias_i/" nexttext="Summary Checklist" nextlink="../checklist/"></tofro>
 
 ## References
 

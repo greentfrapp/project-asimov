@@ -154,7 +154,7 @@ Representations both embed and influence unwritten norms and values. Following t
 
 <p class="box-red emph">There is merit behind both an accurate representation and an ideal representation. But in an imperfect world, any representation cannot be both accurate and ideal. Decisions and compromises have to be made about what is important in the context of the application. And once again, these decisions and compromises should be shared with users of these systems.</p>
 
-<tofro prevtext="Algorithmic Bias" prevlink="../" nexttext="Sources of Bias" nextlink="../sources/"></tofro>
+<tofro prevtext="Understanding Fairness" prevlink="../fairness" nexttext="Bias Part II" nextlink="../bias_ii/"></tofro>
 
 ## References
 
