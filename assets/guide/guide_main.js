@@ -173,11 +173,21 @@ let framework = new Vue({
 		$('.ui.sidebar').sidebar({
 		    onHidden: function() {
 		      d3.select("#nav").classed("shift-right", false)
+		      // d3.select("#nav").classed("hidden", false)
+		      // d3.select("#nav").classed("navbar-hidden", false)
+		      d3.select("#nav").classed("navbar-hidden", true)
 		    },
 		    onShow: function() {
 		      d3.select("#nav").classed("shift-right", true)
+		      // d3.select("#nav").classed("hidden", true)
+		      d3.select("#nav").classed("navbar-hidden", true)
 		    }
 		});
+		d3.select(".ui.sidebar").selectAll(".item").on("click", function () {
+			$('.ui.sidebar')
+			  .sidebar('hide')
+			;
+		})
 		$('.ui.sidebar').sidebar('setting', 'dimPage', false);
 		d3.selectAll('.toggle').on('click', function () {
 			$('.ui.sidebar')
@@ -208,6 +218,9 @@ let framework = new Vue({
 				this.showNavbar = currentScrollPosition < this.lastScrollPosition
 				if (currentScrollPosition < this.lastScrollPosition) {
 					d3.select("#nav").classed("navbar-hidden", false)
+					// if (!this.sidebarHidden) {
+					// 	d3.select("#nav").classed("navbar-hidden", false)
+					// }
 				} else {
 					d3.select("#nav").classed("navbar-hidden", true)
 				}
