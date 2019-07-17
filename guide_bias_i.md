@@ -4,7 +4,7 @@ title: The Guide. \| Project Asimov
 permalink: /guide/bias_i/
 ---
 
-# Understanding Bias Part I `WIP`
+# Understanding Bias Part I
 
 <div class="box-red">
 <blockquote>
@@ -16,10 +16,10 @@ permalink: /guide/bias_i/
   </p>
 </blockquote>
 <p class="emph">
-  What is so bad about algorithmic bias anyway? Has it caused any real damage in the world? To figure out what algorithmic bias is, it is useful to consider some real-world examples.
+  What is so bad about algorithmic bias anyway? How has it affected the world? To figure out what algorithmic bias is, it can be useful to consider some real-world examples.
 </p>
 <p>
-  Here, we examine the tail-end of algorithmic bias and take a look at what the effects of algorithmic bias look like. We cover the following questions:
+  In this chapter, we take a look at what some consequences of algorithmic bias look like.
 </p>
 
 <div class="ui list">
@@ -49,30 +49,17 @@ permalink: /guide/bias_i/
 
 ## Two Types of Harms
 
-AIS are increasingly used to **allocate** resources, such as credit scoring algorithms that help in filtering loan applications, or hiring algorithms that help to "allocate" jobs. In these systems, we can think of fairness as a comparison between how much is allocated or denied. 
+AIS are increasingly used to help **allocate** resources. Credit scoring models that help banks filter loan applications "allocate" loans. Hiring models help companies to "allocate" jobs. Medical diagnosis models help to "allocate" appropriate treatment. The AIS in these examples help identify who to give what. We are affected by these systems because we are denied or given something as a result of an AIS decision.
 
-AIS are also increasingly affecting the way we perceive or **represent** the world. Examples include Google Search, Facebook's News Feed and YouTube's Recommended feed. This is also known as "filtering" <dt-cite cite="susskind2018future"></dt-cite>. In these systems, fairness tends to be more abstract and difficult to define. Intuitively, a system is unfair when it presents a skewed or harmful depiction of a certain group.
+On a more abstract level, AIS are also increasingly affecting the way we perceive or **represent** the world. Think Google Search, Facebook's News Feed and YouTube's Recommended feed. This is also known as "filtering" <dt-cite cite="susskind2018future"></dt-cite>. The modern person connected to the Internet has access to a vast amount of information but limited time and attention. These AIS prevent us from being overwhelmed and help us focus on the most relevant articles and news. We are affected by these systems because these filters shape our perceptions and thoughts about the world.
 
-In the same way, we can classify the harms of algorithmic bias into harms of allocation and representation. This was proposed by Kate Crawford in her NIPS 2017 keynote The Trouble with Bias <dt-cite cite="crawford2017trouble"></dt-cite>. Crawford first defined algorithmic bias as "a skew that produces a type of harm". She then further classifies algorithmic biases into the two types of harms that they cause - allocative and representative.
+We can classify the consequences of algorithmic bias in the same way. This was proposed by Kate Crawford in her NIPS 2017 keynote The Trouble with Bias <dt-cite cite="crawford2017trouble"></dt-cite>. Crawford first defined algorithmic bias as "a skew that produces a type of harm". She then further classifies algorithmic biases into harms of **allocation** and harms of **representation**. Over the next two sections, we will use the same framework to look at some real-world examples of algorithmic bias.
 
-<div class="box-red">
-<div class="ui list">
-  <div class="item">
-    <i class="check circle icon"></i>
-    <div class="content">
-        How might we analyze the harm caused by algorithmic bias? 
-    </div>
-  </div>
-</div>
-<div class="emph">
-  <p>
-    A framework proposed by Kate Crawford classifies algorithmic bias by the type of harm caused. Harms of allocation refers to unfairly assigned opportunities or resources due to algorithmic intervention. Harms of representation refers to algorithmically filtered depictions that are discriminatory.
-  </p>
 <table style="font-size: 1.25rem;">
   <thead>
     <tr>
-      <th>Allocation</th>
-      <th>Representation</th>
+      <th>Harms of Allocation</th>
+      <th>Harms of Representation</th>
     </tr>
   </thead>
   <tbody style="font-weight: 400;">
@@ -94,7 +81,22 @@ In the same way, we can classify the harms of algorithmic bias into harms of all
     </tr>
   </tbody>
 </table>
-<p><em>Comparison between the two types of harm, from Crawford's NIPS 2017 keynote <dt-cite cite="crawford2017trouble"></dt-cite></em></p>
+
+*Comparison between the two types of harm, from Crawford's NIPS 2017 keynote <dt-cite cite="crawford2017trouble"></dt-cite>*
+
+<div class="box-red">
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        How might we analyze the harm caused by algorithmic bias? 
+    </div>
+  </div>
+</div>
+<div class="emph">
+  <p>
+    A framework proposed by Kate Crawford classifies algorithmic bias by the type of harm caused. Harms of allocation refers to unfairly assigned opportunities or resources due to algorithmic intervention. Harms of representation refers to algorithmically filtered depictions that are discriminatory.
+  </p>
 </div>
 </div>
 
@@ -106,7 +108,19 @@ In the same way, we can classify the harms of algorithmic bias into harms of all
 
 *The Trouble with Bias, Kate Crawford at NIPS2017 <dt-cite cite="crawford2017trouble"></dt-cite>*
 
-Harms of allocation arise from the unjust distribution of opportunities and resources, such as jobs, loans, insurance or education. This can range from complete denial to preferential allocation to unjustified differential pricing. Examples include denying loans to people who live in predominantly black neighborhoods and disproportionately rejecting female job applicants. Frequently-cited examples of algorithmic bias often fall in this category, such as many of the examples observed by Cathy O'Neil in Weapons of Math Destruction <dt-cite cite="o2016weapons"></dt-cite>.
+> Automated eligibility systems, ranking algorithms, and predictive risk models control which neighborhoods get policed, which families attain needed resources, who is short-listed for employment, and who is investigated for fraud.
+
+*Automating Inequality - Virginia Eubanks <dt-cite cite="eubanks2018automating"></dt-cite>*
+
+Harms of allocation arise from the unjust distribution of opportunities and resources, such as jobs, loans, insurance and education. An allocative harm can range from a small but significant and systematic difference in treatment, all the way to complete denial of a particular service.
+
+### COMPAS
+
+"Allocation" of freedom
+
+### Example 2 - Redlining `WIP`
+
+For more examples of allocative harms, check out Cathy O'Neil's Weapons of Math Destruction <dt-cite cite="o2016weapons"></dt-cite> and Viriginia Eubanks's Automating Inequality <dt-cite cite="eubanks2018automating"></dt-cite>.
 
 ---
 
@@ -120,7 +134,9 @@ Harms of allocation arise from the unjust distribution of opportunities and reso
 
 *Future Politics - Jamie Susskind, 2018 <dt-cite cite="susskind2018future"></dt-cite>*
 
-Harms of representation arise from unjust perspectives of the world. Let's take the simple and vivid example of Google's Image Search for the term "CEO". Studies have found that Google's Image Search perpetuated and exacerbated gender and racial stereotypes <dt-cite cite="otterbacher2017competent,kay2015unequal"></dt-cite>. In April 2015, a Google Image search for the term "CEO" returned results dominated by white male figures. To Google's credit, current searches appear to be more diverse (see below).
+### Google Image Search
+
+Studies have found that Google's Image Search perpetuated and exacerbated gender and racial stereotypes <dt-cite cite="otterbacher2017competent,kay2015unequal"></dt-cite>. Let's take the simple and vivid example of Google's Image Search for the term "CEO".  In April 2015, a Google Image search for the term "CEO" returned results dominated by white male figures. Although to Google's credit, current searches appear to be more diverse (see below).
 
 <div>
 <img src="{{ "/assets/guide/images/ceo_old.jpg" | relative_url }}" alt="Google Image Search for CEO in April 2015.">
@@ -134,7 +150,9 @@ Harms of representation arise from unjust perspectives of the world. Let's take 
 
 *Results from Google Image Search for "CEO" in July 2019 show a more diverse distribution, in terms of race and gender.*
 
-Harms of representation are dangerous because they shape how we see the world. And in turn, how we see the world shapes the world. A generation raised solely on fairy tales of damsels in distress might not recognize the existence of heroines and men in need of saving. In that sense, harms of representation are like self-fulfilling prophecies. Other examples of representative harms include stereotypes learned in word embedding models <dt-cite cite="caliskan2017semantics,zhao2018gender,garg2018word"></dt-cite> and image captioning models <dt-cite cite="zhao2017men,hendricks2018women"></dt-cite>.
+Harms of representation are dangerous because they shape how we see the world. And in turn, how we see the world shapes the world. A generation raised solely on fairy tales of damsels in distress might not recognize the existence of heroines and men in need of saving. A generation raised solely on image search results of white male CEOs may find it difficult to entertain the possibility of a non-male non-white CEO. By limiting our cognitive vocabulary, these harmful representations become additional psychological obstacles that must be overcome.
+
+Furthermore, when these harmful representations manifest themselves as biased actions and decisions they become self-fulfilling prophecies. Fed on a diet of white male CEO images, non-male non-white individuals might never fight for that position. Fed on a diet of white male CEO images, we might never encourage non-male non-white individuals to take up the mantle. We might even discourage them from pursuing what seems like an unrealistic dream. This means fewer non-white non-male CEOs and the image search results turn out to be right after all.
 
 <div>
 <img class="comic" width="250px" src="{{ "/assets/guide/comics/harmsofrep_inverted.png" | relative_url }}" alt="The Reality-Representation Cycle.">
@@ -144,15 +162,19 @@ It is worth noting that there are two possible problems when looking at harms of
 
 #### Inaccurate Representations
 
-The Google Image results in April 2015 were entirely dominated by white males. Technically, in 2014, 4% of the 500 companies on the US S&P 1500 had female CEOs <dt-cite cite="ey2015women"></dt-cite>. Search results that do not observe this distribution would be **inaccurate representations**. For example, search results that have zero female images would be inaccurate and enforce false and exaggerated gender stereotypes. Subsequently, downstream applications that rely on these representations would perpetuate such errors.
+The Google Image results in April 2015 were entirely dominated by white males. Technically, in 2014, 4% of the 500 companies on the US S&P 1500 had female CEOs <dt-cite cite="ey2015women"></dt-cite>. Search results that do not observe this distribution would be **inaccurate representations**. For example, search results that have zero female images would be inaccurate and enforce false and exaggerated gender stereotypes. Subsequently, downstream applications that rely on these representations would perpetuate such errors. On the other hand, search results that follow the 4% female proportion would be an accurate representation.
 
 #### Unideal Representations
 
-In March 2015, the New York Times ran an article titled "Fewer Women Run Big Companies Than Men Named John" <dt-cite cite="wolfers2015fewer"></dt-cite>. This contributed to a growing literature on gender inequality, founded on the conviction that gender should not matter for most careers. Such literature describes an ideal world where the gender distribution of CEOs is similar to that of the general population. Search results that stray from this would be **unideal representations**.
+In March 2015, the New York Times ran an article titled "Fewer Women Run Big Companies Than Men Named John" <dt-cite cite="wolfers2015fewer"></dt-cite>. This contributed to a growing literature on gender inequality, founded on the conviction that gender should not matter for most careers. Such literature describes an ideal world where the gender distribution of CEOs is equal, or at least similar to the gender distribution of the general population. Search results that stray from this would be **unideal representations**.
 
-Representations both embed and influence unwritten norms and values. Following the cycle between representation and reality, we can make the world a better place by first *seeing* it as a better place. In our example, the presence of more gender- and race-diverse search results for "CEO" can encourage non-white-male candidates to go from minority to mainstream.
+Representations both embed and influence unwritten norms and values. Following the cycle between representation and reality, we can make the world a better place by first *seeing* it as a better place. In our example, the presence of more gender- and race-diverse search results for "CEO" can encourage non-white non-male candidates to go from minority to mainstream.
 
-<p class="box-red emph">There is merit behind both an accurate representation and an ideal representation. But in an imperfect world, any representation cannot be both accurate and ideal. Decisions and compromises have to be made about what is important in the context of the application. And once again, these decisions and compromises should be shared with users of these systems.</p>
+<p class="emph">There is merit behind both an accurate representation and an ideal representation. But in an imperfect world, any representation cannot be both accurate and ideal. Decisions and compromises have to be made about what is important in the context of the application. And once again, these decisions and compromises should be shared with users of these systems.</p>
+
+<!-- Since we are talking about Google, let's have a quick peek at another example of representative harm in Google Translate. Other examples of representative harms include stereotypes learned in word embedding models <dt-cite cite="caliskan2017semantics,zhao2018gender,garg2018word"></dt-cite> and image captioning models <dt-cite cite="zhao2017men,hendricks2018women"></dt-cite>. -->
+
+### Example 2 - Gender Shades `WIP`
 
 <tofro prevtext="Understanding Fairness" prevlink="../fairness" nexttext="Bias Part II" nextlink="../bias_ii/"></tofro>
 
@@ -282,5 +304,13 @@ Representations both embed and influence unwritten norms and values. Following t
   year={2018},
   organization={Springer}
 }
+
+@book{eubanks2018automating,
+  title={Automating inequality: How high-tech tools profile, police, and punish the poor},
+  author={Eubanks, Virginia},
+  year={2018},
+  publisher={St. Martin's Press}
+}
+
 
 </script>
