@@ -361,7 +361,7 @@ This piece by Selbst et al. is important because it highlights many obstacles to
 
 ---
 
-## Understanding Context - A Checklist
+## Learning about the Context
 
 By the time you read this, "context" should have been burned into your retina. Just in case you cheated and came straight here without reading any of the previous sections:
 
