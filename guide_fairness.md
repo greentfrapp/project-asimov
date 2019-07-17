@@ -47,6 +47,12 @@ permalink: /guide/fairness/
         How do we design for fairness without context?
     </div>
   </div>
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        How do we learn more about the context?
+    </div>
+  </div>
 </div>
 
 </div>
@@ -171,13 +177,33 @@ In the charts below, we can tune our AI system's accuracy for cats and dogs (if 
 
 The experiment above introduced five fairness metrics:
 
-- Group Fairness <dt-cite cite="dwork2012fairness"></dt-cite>
-- Equalised Odds <dt-cite cite="hardt2016equality"></dt-cite>
-- Conditional Use Accuracy Equality <dt-cite cite="berk2018fairness"></dt-cite>
-- Overall Accuracy Equality <dt-cite cite="berk2018fairness"></dt-cite>
-- Treatment Equality <dt-cite cite="berk2018fairness"></dt-cite>
+- Group Fairness <dt-cite cite="dwork2012fairness"></dt-cite> <tidbit content="Equal Positive Prediction Rates (TP + FP)"></tidbit>
+- Equalised Odds <dt-cite cite="hardt2016equality"></dt-cite> <tidbit content="Equal False Positive Rates (FP / (TN + FP)) and Equal False Negative Rates (FN / (TP + FN))"></tidbit>
+- Conditional Use Accuracy Equality <dt-cite cite="berk2018fairness"></dt-cite> <tidbit content="Equal Positive Predictive Values aka Precision (TP / (TP + FP)) and Equal Negative Predictive Values (TN / (TN + FN))"></tidbit>
+- Overall Accuracy Equality <dt-cite cite="berk2018fairness"></dt-cite> <tidbit content="Equal Accuracies (TP + TN)"></tidbit>
+- Treatment Equality <dt-cite cite="berk2018fairness"></dt-cite> <tidbit content="Equal ratios of wrong predictions (FP / FN)"></tidbit>
 
-In addition to these, there are plenty more fairness metrics enumerated by Verma and Rubin <dt-cite cite="verma2018fairness"></dt-cite> and Narayanan <dt-cite cite="narayanan2018translation"></dt-cite>. There are all sorts of ingenious ideas including calibration <dt-cite cite="kleinberg2016inherent,chouldechova2017fair"></dt-cite> and fairness through awareness <dt-cite cite="dwork2012fairness"></dt-cite>. <span class="emph">These metrics all have different priorities and they exemplify the importance of context when discussing fairness</span>.
+In addition to these, there are plenty more fairness metrics enumerated by Verma and Rubin <dt-cite cite="verma2018fairness"></dt-cite> and Narayanan <dt-cite cite="narayanan2018translation"></dt-cite>. Some notable metrics include:
+
+#### Calibration <dt-cite cite="chouldechova2017fair"></dt-cite>
+
+This goes beyond true or false predictions and considers the score assigned by the model. For any predicted score, all sensitive groups should have the same chance of actually being positive.
+
+<p class="box-blue">
+  Suppose our fat pet predictor predicts a fatness score from 0 to 1 where 1 is fat with high confidence. If a cat and a dog are both assigned the same score, they should have the same probability of being actually fat.
+</p>
+
+Well-calibration <dt-cite cite="kleinberg2016inherent"></dt-cite> is a stricter form of calibration, with the added condition where the chance of being actually positive is equal to the score.
+
+<p class="box-blue">
+  For our fat pet predictor to be well-calibrated, the predicted fatness score has to be equal to the probability of actually being fat. For example, if a cat and a dog are both assigned the a score of 0.8, they should both have an 80% chance of being actually fat..
+</p>
+
+#### Fairness Through Awareness <dt-cite cite="dwork2012fairness"></dt-cite>
+
+This fairness metric is based on an intuitive rule - "treating similar individuals similarly". Here, we first define distance metrics to measure the difference between individuals and difference between their predictions. An example of a distance metric could be the sum of absolute differences between normalized features. Then, this metric states that for a model to be fair, the distance between predictions should be no greater than the distance between the individuals.
+
+Unfortunately, this leaves the difficult question of how to define appropriate distance metrics for the specific problem and application.
 
 <div>
 <img class="comic" width="450px" src="{{ "/assets/guide/comics/manymetrics_inverted.png" | relative_url }}" title="Is the temperature in Kelvin, Celsius or Farenheit? Yes." alt="There are a ton of metrics to measure fairness.">
@@ -185,13 +211,13 @@ In addition to these, there are plenty more fairness metrics enumerated by Verma
 
 ### Is it Justified?
 
-The awesome thing about these metrics is that they can be put into a loss function. Then we can train a model to optimize the function and voilà we have a fair model. Except no it doesn't work like that.
+The awesome thing about these metrics is that they can be put into a loss function. Then we can train a model to optimize the function and voilà we have a fair model. Except, no it doesn't work like that.
 
 A major issue with these metrics (besides the question of how to pick one) is that they neglect the larger context. In the previous section, we explained:
 
 > The phrase “protected characteristics” refers to traits such as race, gender, age, physical or mental disabilities, where differences due to such traits cannot be **reasonably justified**.
 
-Measuring fairness using true-false-positive-negative rates neglects "reasonable justification". Suppose an Olympics selection trial requires applicants to run 10km in 40 minutes. The ability to run that fast is probably negatively correlated with age so we might see a bias against very elderly applicants. But this selection criterion is *reasonably justified*. In short, any notion of fairness that abstracts away the larger context is incomplete.
+Suppose an Olympics selection trial requires applicants to run 10km in 40 minutes. This selection criterion seems *reasonably justified*. Running speed tends to be an appropriate measure of athleticism. But the ability to run that fast is probably negatively correlated with age. Someone looking at the data alone might flag a bias against very elderly applicants. Without understanding the context, it is difficult to see how this bias might be reasonably justified. The fairness metrics can be a systematic way to check for bias, but they are only a piece of the puzzle. A complete assessment for fairness needs us to get down and dirty with the problem at hand.
 
 <div class="box-red">
 <div class="ui list">
@@ -328,15 +354,55 @@ This piece by Selbst et al. is important because it highlights many obstacles to
 </div>
 <div class="emph">
   <p>
-    Nope we can't. Gotcha that was a trick question. The same decision can be both fair and unfair depending on the larger context, so context absolutely matters. Some questions that can help us understand the context:
+    Nope we can't. Gotcha that was a trick question. The same decision can be both fair and unfair depending on the larger context, so context absolutely matters. As such, it is difficult to give advice on how to pick a fairness metric without knowing what is the context. Check out the next section for some questions to help with understanding the context.
   </p>
-  <ul>
-    <li>What are the relevant protected traits?</li>
-    <li>What does fairness mean in this domain? What does unfairness mean?</li>
-    <li>How is the AIS supposed to be used?</li>
-    <li>How might the AIS be misused?</li>
-    <li>How might the AIS change people's behaviors?</li>
-  </ul>
+</div>
+</div>
+
+---
+
+## Understanding Context - A Checklist
+
+By the time you read this, "context" should have been burned into your retina. Just in case you cheated and came straight here without reading any of the previous sections:
+
+<span class="emph">CONTEXT IS IMPORTANT WHEN DISCUSSING FAIRNESS!</span>
+
+Here is a list of questions and prompts to help you learn more about the sociotechnical context of your application. Try not to use this as a checklist! Instead, try to go beyond this to understand at much about the problem as you can. Also, these prompts should be discussed as a group rather than answered in isolation. Involve as many people as you can!
+
+#### General Context
+
+- What is the ultimate aim of the application?
+- How is the AIS supposed to be used?
+- What is the current system that the AIS will be replacing?
+- Create a few user personas - the technophobe, the newbie etc. - and think about how they might react to the AIS across the short-term and long-term.
+- Think of ways that the AIS can be misused by unknowning or malicious actors.
+
+#### About Fairness
+
+- What do false positives and false negatives mean for different users? Under what circumstances might one be worse than the other?
+- Try listing out some examples of fair and unfair predictions. Why are they fair/unfair?
+- What are the relevant protected traits in this problem?
+- If we detect some unfairness with our metrics - is the disparity justified?
+
+#### <i class="star icon"></i> Bonus Points!
+
+- Find a bunch of real potential users and ask them all the prompts above.
+- Post all of your answers online and iterate it with public feedback
+- Ship your answers with the AIS when it is deployed
+
+<div class="box-red">
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        How do we learn more about the context?
+    </div>
+  </div>
+</div>
+<div class="emph">
+  <p>
+    See above! Most of all, take a genuine interest in your application and its users!
+  </p>
 </div>
 </div>
 
