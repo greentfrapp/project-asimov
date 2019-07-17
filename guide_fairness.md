@@ -363,11 +363,11 @@ This piece by Selbst et al. is important because it highlights many obstacles to
 
 ## Learning about the Context
 
-By the time you read this, "context" should have been burned into your retina. Just in case you cheated and came straight here without reading any of the previous sections:
+By the time you read this, "context" should have been burned into your retina. But just in case you cheated and came straight here without reading any of the previous sections:
 
 <span class="emph">CONTEXT IS IMPORTANT WHEN DISCUSSING FAIRNESS!</span>
 
-Here is a list of questions and prompts to help you learn more about the sociotechnical context of your application. Try not to use this as a checklist! Instead, try to go beyond this to understand at much about the problem as you can. Also, these prompts should be discussed as a group rather than answered in isolation. Involve as many people as you can!
+So here is a list of questions and prompts to help you learn more about the sociotechnical context of your application. Try not to use this as a checklist! Instead, try to go beyond this to understand at much about the problem as you can. Also, these prompts should be discussed as a group rather than answered in isolation. Involve as many people as you can!
 
 #### General Context
 
