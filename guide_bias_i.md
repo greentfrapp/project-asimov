@@ -53,7 +53,7 @@ AIS are increasingly used to help **allocate** resources. Credit scoring models 
 
 On a more abstract level, AIS are also increasingly affecting the way we perceive or **represent** the world. Think Google Search, Facebook's News Feed and YouTube's Recommended feed. This is also known as "filtering" <dt-cite cite="susskind2018future"></dt-cite>. The modern person connected to the Internet has access to a vast amount of information but limited time and attention. These AIS prevent us from being overwhelmed and help us focus on the most relevant articles and news. We are affected by these systems because these filters shape our perceptions and thoughts about the world.
 
-We can classify the consequences of algorithmic bias in the same way. This was proposed by Kate Crawford in her NIPS 2017 keynote The Trouble with Bias <dt-cite cite="crawford2017trouble"></dt-cite>. Crawford first defined algorithmic bias as "a skew that produces a type of harm". She then further classifies algorithmic biases into harms of **allocation** and harms of **representation**. Over the next two sections, we will use the same framework to look at some real-world examples of algorithmic bias.
+We can classify the consequences of algorithmic bias in the same way. This was proposed by Kate Crawford in her NIPS 2017 keynote The Trouble with Bias <dt-cite cite="crawford2017trouble"></dt-cite>. Crawford first defined algorithmic bias as "a skew that produces a type of harm". She then further classifies algorithmic biases into harms of **allocation** and harms of **representation**. Over the next two sections, we will use the same framework to look at real-world examples of algorithmic bias.
 
 <table style="font-size: 1.25rem;">
   <thead>
@@ -116,9 +116,13 @@ Harms of allocation arise from the unjust distribution of opportunities and reso
 
 ### COMPAS
 
-"Allocation" of freedom
+The Correctional Offender Management Profiling for Alternative Sanctions, or COMPAS, algorithm is probably the most infamous case study in algorithmic bias. In areas where COMPAS was used, defendants typically answer a COMPAS questionnaire when they are first booked in jail. A past sample can be found [here](../../assets/guide/misc/Sample-Risk-Assessment-COMPAS-CORE.pdf). Using the responses, the COMPAS model outputs several scores related to recidivism. In particular, there are scores for Risk of Recidivism and Risk of Violent Recidivism, which go from 1 to 10, with 10 being highest risk. These scores were often given to judges during the sentencing and they often had a huge influence on the sentence:
 
-### Example 2 - Redlining `WIP`
+> After Brennan’s testimony, Judge Babler reduced Zilly’s sentence, from two years in prison to 18 months. "Had I not had the COMPAS, I believe it would likely be that I would have given one year, six months," the judge said at an appeals hearing on Nov. 14, 2013.
+
+*Machine Bias - Julia Angwin et al., 2016 <dt-cite cite="angwin2016machine"></dt-cite>*
+
+<!-- ### Example 2 - Redlining `WIP` -->
 
 For more examples of allocative harms, check out Cathy O'Neil's Weapons of Math Destruction <dt-cite cite="o2016weapons"></dt-cite> and Viriginia Eubanks's Automating Inequality <dt-cite cite="eubanks2018automating"></dt-cite>.
 
@@ -136,7 +140,11 @@ For more examples of allocative harms, check out Cathy O'Neil's Weapons of Math 
 
 ### Google Image Search
 
-Studies have found that Google's Image Search perpetuated and exacerbated gender and racial stereotypes <dt-cite cite="otterbacher2017competent,kay2015unequal"></dt-cite>. Let's take the simple and vivid example of Google's Image Search for the term "CEO".  In April 2015, a Google Image search for the term "CEO" returned results dominated by white male figures. Although to Google's credit, current searches appear to be more diverse (see below).
+Most of us have had experience with Google Image search. Maybe it was to find some stock photos. Or maybe it was to look up what some exotic animal looked like. One thing we might have noticed is that the search results often give us stereotypical images of our query. Searching "playground" would give us photos of the classic outdoor playground with small slides and steps. Searching "bedroom" would return photos of nicely made beds and tidy rooms that would seem perfectly natural in a furniture catalogue.
+
+Interestingly and unfortunately, such stereotypes go beyond objects and places, extending to queries of people as well. Studies have found that Google's Image Search perpetuated and exaggerated gender and racial stereotypes for certain keywords, such as "CEO", "doctor" and "nurse" <dt-cite cite="otterbacher2017competent,kay2015unequal"></dt-cite>. We know that these words are gender-neutral. But most of us might also know that these words tend to embody certain stereotypes, such as the male doctor and the female nurse. Let's consider the simple and vivid example of Google's Image Search for the term "CEO".
+
+In April 2015, a Google Image search for the term "CEO" surfaced results that were manifestations of both racial and gender biases. An overwhelming majority of the images were photos of white males in suits. Since these biases have been flagged by several researchers, they appear to have been mitigated somewhat and a recent search shows a far more diverse result (see below).
 
 <div>
 <img src="{{ "/assets/guide/images/ceo_old.jpg" | relative_url }}" alt="Google Image Search for CEO in April 2015.">
@@ -152,29 +160,35 @@ Studies have found that Google's Image Search perpetuated and exacerbated gender
 
 Harms of representation are dangerous because they shape how we see the world. And in turn, how we see the world shapes the world. A generation raised solely on fairy tales of damsels in distress might not recognize the existence of heroines and men in need of saving. A generation raised solely on image search results of white male CEOs may find it difficult to entertain the possibility of a non-male non-white CEO. By limiting our cognitive vocabulary, these harmful representations become additional psychological obstacles that must be overcome.
 
-Furthermore, when these harmful representations manifest themselves as biased actions and decisions they become self-fulfilling prophecies. Fed on a diet of white male CEO images, non-male non-white individuals might never fight for that position. Fed on a diet of white male CEO images, we might never encourage non-male non-white individuals to take up the mantle. We might even discourage them from pursuing what seems like an unrealistic dream. This means fewer non-white non-male CEOs and the image search results turn out to be right after all.
+Furthermore, when these harmful representations manifest themselves as biased actions and decisions they become self-fulfilling prophecies. Fed on a diet of white male CEO images, non-male non-white individuals might never fight for the position and we may never encourage them to go for it. We might even discourage them from pursuing what seems like an unrealistic ambition. Over time, there are fewer and fewer non-white non-male CEOs and the biases embodied by the search results turn out to be an accurate prophecy.
 
 <div>
 <img class="comic" width="250px" src="{{ "/assets/guide/comics/harmsofrep_inverted.png" | relative_url }}" alt="The Reality-Representation Cycle.">
 </div>
 
-It is worth noting that there are two possible problems when looking at harms of representation. Inaccurate representations and unideal representations.
+In that case, what does an unharmful representation look like? Two possible alternatives are accurate representations and ideal representations.
 
-#### Inaccurate Representations
+#### Accurate Representations
 
-The Google Image results in April 2015 were entirely dominated by white males. Technically, in 2014, 4% of the 500 companies on the US S&P 1500 had female CEOs <dt-cite cite="ey2015women"></dt-cite>. Search results that do not observe this distribution would be **inaccurate representations**. For example, search results that have zero female images would be inaccurate and enforce false and exaggerated gender stereotypes. Subsequently, downstream applications that rely on these representations would perpetuate such errors. On the other hand, search results that follow the 4% female proportion would be an accurate representation.
+Yes, the Google Image results in April 2015 were dominated by white males. But technically, in 2014, 4% of the 500 companies on the US S&P 1500 had female CEOs <dt-cite cite="ey2015women"></dt-cite>. This means that if the search results replicated this 4% proportion of females, we might consider this as an **accurate** representation.
 
-#### Unideal Representations
+On the other hand, search results that have zero female images would be obviously inaccurate. Such results would be perpetuating false and exaggerated gender stereotypes.
+
+#### Ideal Representations
 
 In March 2015, the New York Times ran an article titled "Fewer Women Run Big Companies Than Men Named John" <dt-cite cite="wolfers2015fewer"></dt-cite>. This contributed to a growing literature on gender inequality, founded on the conviction that gender should not matter for most careers. Such literature describes an ideal world where the gender distribution of CEOs is equal, or at least similar to the gender distribution of the general population. Search results that stray from this would be **unideal representations**.
 
 Representations both embed and influence unwritten norms and values. Following the cycle between representation and reality, we can make the world a better place by first *seeing* it as a better place. In our example, the presence of more gender- and race-diverse search results for "CEO" can encourage non-white non-male candidates to go from minority to mainstream.
 
-<p class="emph">There is merit behind both an accurate representation and an ideal representation. But in an imperfect world, any representation cannot be both accurate and ideal. Decisions and compromises have to be made about what is important in the context of the application. And once again, these decisions and compromises should be shared with users of these systems.</p>
+#### Accuracy versus Idealism
+
+There is merit behind both an accurate representation and an ideal representation. But in an imperfect world, any representation cannot be both accurate and ideal. Decisions and compromises have to be made about what is important for the given application.
+
+Imagine if a company's internal personnel directory tries to give an ideal and fair representation of a query for the company's regional managers. That would defeat the purpose of the directory. On the other hand, people often use Google to learn more about the world. Maybe presenting a fairer representation could eventually make the real world a fairer place. As always, making the right choice requires knowledge about the context.
 
 <!-- Since we are talking about Google, let's have a quick peek at another example of representative harm in Google Translate. Other examples of representative harms include stereotypes learned in word embedding models <dt-cite cite="caliskan2017semantics,zhao2018gender,garg2018word"></dt-cite> and image captioning models <dt-cite cite="zhao2017men,hendricks2018women"></dt-cite>. -->
 
-### Example 2 - Gender Shades `WIP`
+<!-- ### Example 2 - Gender Shades `WIP` -->
 
 <tofro prevtext="Understanding Fairness" prevlink="../fairness" nexttext="Bias Part II" nextlink="../bias_ii/"></tofro>
 
@@ -312,5 +326,13 @@ Representations both embed and influence unwritten norms and values. Following t
   publisher={St. Martin's Press}
 }
 
+@article{angwin2016machine,
+  title={Machine bias},
+  author={Angwin, Julia and Larson, Jeff and Mattu, Surya and Kirchner, Lauren},
+  journal={ProPublica, May},
+  volume={23},
+  pages={2016},
+  year={2016}
+}
 
 </script>
