@@ -32,13 +32,13 @@ permalink: /guide/bias_i/
   <div class="item">
     <i class="check circle icon"></i>
     <div class="content">
-        What are some examples of harms of allocation?
+        What is an example of allocative harm?
     </div>
   </div>
   <div class="item">
     <i class="check circle icon"></i>
     <div class="content">
-        What are some examples of harms of representation?
+        What is an example of representative harm?
     </div>
   </div>
 </div>
@@ -53,7 +53,7 @@ AIS are increasingly used to help **allocate** resources. Credit scoring models 
 
 On a more abstract level, AIS are also increasingly affecting the way we perceive or **represent** the world. Think Google Search, Facebook's News Feed and YouTube's Recommended feed. This is also known as "filtering" <dt-cite cite="susskind2018future"></dt-cite>. The modern person connected to the Internet has access to a vast amount of information but limited time and attention. These AIS prevent us from being overwhelmed and help us focus on the most relevant articles and news. We are affected by these systems because these filters shape our perceptions and thoughts about the world.
 
-We can classify the consequences of algorithmic bias in the same way. This was proposed by Kate Crawford in her NIPS 2017 keynote The Trouble with Bias <dt-cite cite="crawford2017trouble"></dt-cite>. Crawford first defined algorithmic bias as "a skew that produces a type of harm". She then further classifies algorithmic biases into harms of **allocation** and harms of **representation**. Over the next two sections, we will use the same framework to look at real-world examples of algorithmic bias.
+We can classify the consequences of algorithmic bias in the same way. This was proposed by Kate Crawford in her NIPS 2017 keynote The Trouble with Bias <dt-cite cite="crawford2017trouble"></dt-cite>. Crawford first defined algorithmic bias as "a skew that produces a type of harm". She then further classifies algorithmic biases into harms of **allocation** and harms of **representation**. Over the next two sections, we will use the same framework to look at real-world examples of algorithmic bias. Since context has often been emphasized in the previous sections, we will try to see how context can be explored in this section.
 
 <table style="font-size: 1.25rem;">
   <thead>
@@ -116,15 +116,109 @@ Harms of allocation arise from the unjust distribution of opportunities and reso
 
 ### COMPAS
 
-The Correctional Offender Management Profiling for Alternative Sanctions, or COMPAS, algorithm is probably the most infamous case study in algorithmic bias. In areas where COMPAS was used, defendants typically answer a COMPAS questionnaire when they are first booked in jail. A past sample can be found [here](../../assets/guide/misc/Sample-Risk-Assessment-COMPAS-CORE.pdf). Using the responses, the COMPAS model outputs several scores related to recidivism. In particular, there are scores for Risk of Recidivism and Risk of Violent Recidivism, which go from 1 to 10, with 10 being highest risk. These scores were often given to judges during the sentencing and they often had a huge influence on the sentence:
+The Correctional Offender Management Profiling for Alternative Sanctions, or COMPAS, algorithm is probably the most infamous case study in algorithmic bias. In areas where COMPAS was used, defendants typically answer a COMPAS questionnaire when they are first booked in jail. A past sample can be found [here](../../assets/guide/misc/Sample-Risk-Assessment-COMPAS-CORE.pdf). Using the responses, the COMPAS model outputs several scores related to recidivism. These include scores for Risk of Recidivism and Risk of Violent Recidivism, which go from 1 to 10, with 10 being highest risk. The scores were given to judges and they often had a huge influence on the sentence:
 
 > After Brennan’s testimony, Judge Babler reduced Zilly’s sentence, from two years in prison to 18 months. "Had I not had the COMPAS, I believe it would likely be that I would have given one year, six months," the judge said at an appeals hearing on Nov. 14, 2013.
 
 *Machine Bias - Julia Angwin et al., 2016 <dt-cite cite="angwin2016machine"></dt-cite>*
 
+If we think of COMPAS as a model for potentially "allocating" freedom, harms of allocation can become very severe. In ProPublica's exposé on COMPAS, the journalists argued that the algorithm was "biased against blacks".
+
+> In forecasting who would re-offend, the algorithm made mistakes with black and white defendants at roughly the same rate but in very different ways.
+- The formula was particularly likely to falsely flag black defendants as future criminals, wrongly labeling them this way at almost twice the rate as white defendants.
+- White defendants were mislabeled as low risk more often than black defendants.
+
+In short, black defendants were more likely to be wrongly accused of reoffending, while white defendants were more likely to "escape detection". We cited this example in an earlier section ([The Impossibility Theorem](../fairness/#the-impossibility-theorem)), where we also mentioned that Propublica and Northpointe employed different definitions of fairness. In addition to the debatable question of which definition of fairness to apply, there are also other problematic aspects.
+
+#### Proxy Labels
+
+The term "recidivism" refers to the likelihood of a criminal committing another crime, after they have been convicted. To train a recidivism prediction model, the training data should have labels denoting whether a convicted criminal has reoffended. But in reality, we don't know when someone has committed a crime. So, we use a proxy. Instead of labels denoting whether a convicted criminal has reoffended, the labels denote whether a convicted criminal has been convicted again. That might be the closest we can get, but is it close enough?
+
+Let's think about some of the differences between "reoffending" and "being convicted again".
+
+1. A criminal who has reoffended might not necessarily be caught. This means that we are missing out on the smart and lucky criminals who escape conviction.
+2. The system is imperfect. Unfortunately, innocent people sometimes get wrongly accused and wrongly convicted. This means that we could have people labeled "convicted again", who have not actually "reoffended".
+
+Okay, now let's go one step further and think about how a trait like race might affect these two differences. Racism in the police has been well-documented in literature <dt-cite cite="norris1992black,waddington2004proportion,warren2006driving"></dt-cite>. In recent years, institutional racism and the related problem of police brutality have also inspired social movements such as "Black Lives Matter". In light of these issues, how might the above differences play out?
+
+1. If racism has a major influence on police practices like strip and search, we might find that white offenders have a higher chance of reoffending and not getting caught, as compared to black offenders. This might cause our dataset to underestimate the number of white repeat offenders.
+2. And likewise, we might find that black individuals are subject to wrongful arrests more frequently than white individuals. In that case, our dataset might be overestimating the number of black repeat offenders.
+
+In other words, by using the proxy label of "being convicted again" rather than "reoffending", we could be exaggerating the presence of black individuals and systematically biasing the dataset along racial lines. Obviously all of this is hypothetical and requires more substantial evidence. Nevertheless, when faced with problems like these, it might be prudent to question if an algorithmic solution is really the answer.
+
+#### Public Disclosure
+
+Despite the important role that risk scores like COMPAS play in the criminal justice system, there is little public information about these systems.
+
+> [Researchers Sarah Desmarais and Jay Singh's] analysis of [19 risk methodologies] through 2012 found that the tools “were moderate at best in terms of predictive validity,” Desmarais said in an interview. And she could not find any substantial set of studies conducted in the United States that examined whether risk scores were racially biased. “The data do not exist,” she said.
+
+Important information that probably should be available include:
+
+- What is the accuracy of these scores?
+- How is this accuracy measured?
+- What definition of fairness was used to develop the scores?
+- Why this definition instead of other definitions?
+- What are potential fairness violations?
+- How are these scores calculated?
+
+Not having to disclose such information allows bias to remain undetected. Because this information is missing, alternative actors such as ProPublica take up the mantle to evaluate these systems. But this often happens only after the AIS have been in use for some time and the harm has been done. 
+
+A potential problem is that public disclosure might undermine the validity of the scores. For example, understanding how the scores are calculated might enable malicious individuals to game the scores. Nevertheless, considering what is at stake, we have to put some thought into how such appropriate disclosure can be made about these scores.
+
+#### The Greater Good
+
+> "'Greater good?' I am your wife! I'm the greatest good you are ever gonna get!"
+
+*Honey Best, Frozone's wife in The Incredibles*
+
+For the criminal justice system, we can think of its overarching aim as the greater good of promoting societal safety. The sentencing process can be seen as one of its major tools: 
+
+> Four major goals are usually attributed to the sentencing process: retribution, rehabilitation, deterrence, and incapacitation.
+
+*Sentencing and Corrections in the 21st Century: Setting the Stage for the Future - Doris Layton Mackenzie, 2001*
+
+When we use a tool like COMPAS to decide the length of a prison sentence, we seem to be focusing on the goals of retribution and incapacitation, and neglecting the importance of rehabilitation. Is that really serving the greater good of societal safety? We can see this as an instance of Selbst et al.'s Framing Trap, which we covered [previously](../fairness/#context-free-fairness). By reducing the issue of societal safety to recidivism prediction, we get an easily quantifiable problem that might be simpler to solve. But doing this neglects the greater objective and other alternative problems and solutions that might be just as important.
+
+But on deeper inspection, Northpointe might *not* have intended for COMPAS to be used for criminal sentencing, which brings us to our next section.
+
+#### Human-Algorithm Interaction
+
+In the earlier quote from the article, we see how Judge James Babler from Barron County, Wisonsin, had been influenced by COMPAS to give a more severe sentence than he would have otherwise given. The more severe sentence was only retracted after Tim Brennan, Northpointe's founder, had "testified that he didn’t design his software to be used in sentencing". This is reflected in Chapter 4 of the [Practitioner’s Guide to COMPAS Core](https://assets.documentcloud.org/documents/2840784/Practitioner-s-Guide-to-COMPAS-Core.pdf), which considers different interventions for specific aspects. Throughout the chapter, there are repeated references to non-incarceration interventions. For example, under the Financial Problems section, we see the following recommendation:
+
+> Education on money management and fulfilling court ordered financial commitments is part of the necessary approach when considering interventions. Assuming someone knows how to manage their finances is an erroneous starting place, vocational training may also play a role in creating a successful change plan.
+
+*Practitioner’s Guide to COMPAS Core - Northpointe, 2015*
+
+So what went wrong?
+
+Maybe Brennan had been too idealistic when thinking about how judges might be using COMPAS scores. Maybe Brennan didn't think that the scores could be interpreted as a measure for how long someone should be jailed. Whatever it is, the ones who deployed COMPAS had not appropriately considered how it might be used and how it might influence others. Recall Selbst et al.'s Ripple Effect Trap mentioned [earlier](../fairness/#context-free-fairness). Here we neglected the "ripple effects" that COMPAS had on judges and underestimated COMPAS's potential for allocative harm. When we take these into consideration, we might have changed aspects of the system. For example, instead of risk scores, COMPAS could have explicitly output the recommended intervention. That could remove the possibility of misinterpreting or misusing the risk scores.
+
 <!-- ### Example 2 - Redlining `WIP` -->
 
-For more examples of allocative harms, check out Cathy O'Neil's Weapons of Math Destruction <dt-cite cite="o2016weapons"></dt-cite> and Viriginia Eubanks's Automating Inequality <dt-cite cite="eubanks2018automating"></dt-cite>.
+<div class="box-red">
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        What is an example of allocative harm?
+    </div>
+  </div>
+</div>
+<div class="emph">
+  <p>
+    COMPAS is a classic case of allocative harm in algorithmic bias literature, concerning the "allocation" of freedom. By examining the larger sociotechnical context of the criminal justice system that COMPAS is employed in, we identified many potential problems relating to algorithmic bias, such as:
+  </p>
+  <ul>
+    <li>Differences between proxy labels and actual labels</li>
+    <li>Public disclosure of fairness considerations</li>
+    <li>Neglecting the larger objective</li>
+    <li>Failing to consider how the AIS changes the system</li>
+  </ul>
+  <p>
+    For more examples of allocative harms, check out Cathy O'Neil's Weapons of Math Destruction <dt-cite cite="o2016weapons"></dt-cite> and Viriginia Eubanks's Automating Inequality <dt-cite cite="eubanks2018automating"></dt-cite>.
+  </p>
+</div>
+</div>
 
 ---
 
@@ -189,6 +283,25 @@ Imagine if a company's internal personnel directory tries to give an ideal and f
 <!-- Since we are talking about Google, let's have a quick peek at another example of representative harm in Google Translate. Other examples of representative harms include stereotypes learned in word embedding models <dt-cite cite="caliskan2017semantics,zhao2018gender,garg2018word"></dt-cite> and image captioning models <dt-cite cite="zhao2017men,hendricks2018women"></dt-cite>. -->
 
 <!-- ### Example 2 - Gender Shades `WIP` -->
+
+<div class="box-red">
+<div class="ui list">
+  <div class="item">
+    <i class="check circle icon"></i>
+    <div class="content">
+        What is an example of representative harm?
+    </div>
+  </div>
+</div>
+<div class="emph">
+  <p>
+    Biased results in Google Image Search can be seen as an instance of representative harm. The harm caused is more subtle and indirect but no less dangerous than harms of allocation. A biased representation can influence people's behaviors and in turn, change the world for the worse.
+  </p>
+  <p>
+    Fixing harms of representation requires a conversation about the tradeoffs between an accurate representation and an ideal one. Once again, detecting such harms and fixing them requires thinking beyond the scope of mathematical algorithms and venturing into social implications.
+  </p>
+</div>
+</div>
 
 <tofro prevtext="Understanding Fairness" prevlink="../fairness" nexttext="Bias Part II" nextlink="../bias_ii/"></tofro>
 
@@ -333,6 +446,37 @@ Imagine if a company's internal personnel directory tries to give an ideal and f
   volume={23},
   pages={2016},
   year={2016}
+}
+
+@article{norris1992black,
+  title={Black and blue: An analysis of the influence of race on being stopped by the police},
+  author={Norris, Clive and Fielding, Nigel and Kemp, Charles and Fielding, Jane},
+  journal={British Journal of Sociology},
+  pages={207--224},
+  year={1992},
+  publisher={JSTOR}
+}
+
+@article{waddington2004proportion,
+  title={In Proportion: Race, and Police Stop and Search 1},
+  author={Waddington, Philip AJ and Stenson, Kevin and Don, David},
+  journal={British journal of criminology},
+  volume={44},
+  number={6},
+  pages={889--914},
+  year={2004},
+  publisher={Oxford University Press}
+}
+
+@article{warren2006driving,
+  title={Driving while black: Bias processes and racial disparity in police stops},
+  author={Warren, Patricia and Tomaskovic-Devey, Donald and Smith, William and Zingraff, Matthew and Mason, Marcinda},
+  journal={Criminology},
+  volume={44},
+  number={3},
+  pages={709--738},
+  year={2006},
+  publisher={Wiley Online Library}
 }
 
 </script>

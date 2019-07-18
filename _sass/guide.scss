@@ -291,7 +291,7 @@ body#guide-body {
 
 		blockquote {
 			border-left: 4px solid darken($guide-text-color, 15%);
-			p {
+			p, ul, ol {
 				// font-family: "Roboto", sans-serif;
 				color: darken($guide-text-color, 15%);
 			}

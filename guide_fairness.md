@@ -259,7 +259,7 @@ For our fictional fat pet predictor, we had complete control over the system's a
   </p>
 </blockquote>
 <p>
-  ProPublica's article documented the "significant racial disparities" found in COMPAS, a recidivism prediction model sold by NorthPointe. But in their response, Northpointe disputed ProPublica's claims. Later on, we would discover that NorthPointe and ProPublica had different ideas about what constituted <em>fairness</em>. Northpointe used Conditional Use Accuracy Equality, while ProPublica used Treatment Equality (see previous <a href="../fat_pet/">demo</a> for details).
+  ProPublica's article documented the "significant racial disparities" found in COMPAS, a recidivism prediction model sold by NorthPointe. But in their response, Northpointe disputed ProPublica's claims. Later on, we would discover that NorthPointe and ProPublica had different ideas about what constituted <em>fairness</em>. Northpointe used Conditional Use Accuracy Equality, while ProPublica used Treatment Equality (see previous <a href="../fat_pet/">demo</a> for details). Northpointe's response can be found [here](http://go.volarisgroup.com/rs/430-MBX-989/images/ProPublica_Commentary_Final_070616.pdf).
 </p>
 </div>
 
