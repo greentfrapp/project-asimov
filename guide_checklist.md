@@ -33,10 +33,9 @@ Here is a checklist of questions to answer when implementing an AIS. While there
 
 ### Section 3 - Training the Model
 
-1. What features are we using?
-2. How do the features relate to our sensitive traits?
-3. Do we use the same model or different models for different inputs?
-4. If we are importing a pre-trained model or external data, wWhat are possible conflicts between these imports and our current context?
+1. How do our input features relate to our sensitive traits?
+2. Do we use the same model or different models for different inputs?
+3. If we are importing a pre-trained model or external data, what are possible conflicts between these imports and our current context?
 
 ---
 
