@@ -337,7 +337,8 @@ body#guide-body {
 			transition: 0.1s all ease-out;
 		}
 
-		.tidbit-content {
+		.tidbit-content,
+		.bit {
 			color: $guide-tidbit-color;
 		}
 

@@ -206,7 +206,8 @@ let framework = new Vue({
 		isBurger: false,
 		coverHeight: 0,
 		lastScrollPosition: 0,
-		bibliography: bibliography
+		bibliography: bibliography,
+		showBit: false
 	},
 	computed: {
 	},
