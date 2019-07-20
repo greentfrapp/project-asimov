@@ -53,7 +53,9 @@ AIS are increasingly used to help **allocate** resources. Credit scoring models 
 
 On a more abstract level, AIS are also increasingly affecting the way we perceive or **represent** the world. Think Google Search, Facebook's News Feed and YouTube's Recommended feed. This is also known as "filtering" <dt-cite cite="susskind2018future"></dt-cite>. The modern person connected to the Internet has access to a vast amount of information but limited time and attention. These AIS prevent us from being overwhelmed and help us focus on the most relevant articles and news. We are affected by these systems because these filters shape our perceptions and thoughts about the world.
 
-<!-- TODO: drawing - scales and lenses -->
+<div>
+<img class="comic" width="400px" src="{{ "/assets/guide/comics/scales_lenses_inverted.png" | relative_url }}" title='' alt="Allocation and Representation">
+</div>
 
 We can classify the consequences of algorithmic bias in the same way. This was proposed by Kate Crawford in her NIPS 2017 keynote The Trouble with Bias <dt-cite cite="crawford2017trouble"></dt-cite>. Crawford first defined algorithmic bias as "a skew that produces a type of harm". She then further classifies algorithmic biases into harms of **allocation** and harms of **representation**. Over the next two sections, we will use the same framework to look at real-world examples of algorithmic bias. Since context has often been emphasized in the previous sections, we will try to see how context can be explored in these examples.
 
@@ -106,7 +108,9 @@ We can classify the consequences of algorithmic bias in the same way. This was p
 
 ## Harms of Allocation
 
-<!-- TODO: drawing scales -->
+<div>
+<img class="comic" width="200px" src="{{ "/assets/guide/comics/scales_inverted.png" | relative_url }}" title='' alt="Harms of Allocation">
+</div>
 
 > An allocative harm is when a system allocates or withholds certain groups an opportunity or a resource.
 
@@ -239,7 +243,9 @@ Maybe Brennan had been too idealistic when thinking about how judges might be us
 
 ## Harms of Representation
 
-<!-- TODO: drawing lenses -->
+<div>
+<img class="comic" width="200px" src="{{ "/assets/guide/comics/lenses_inverted.png" | relative_url }}" title='' alt="Harms of Representation">
+</div>
 
 > [Representative harms] occur when systems reinforce the subordination of some groups along the lines of identity.
 
@@ -252,8 +258,6 @@ Maybe Brennan had been too idealistic when thinking about how judges might be us
 ### Google Image Search
 
 Most of us have had experience with Google Image search. Maybe it was to find some stock photos or wallpapers. Or maybe it was to look up what some exotic animal looked like. One thing we might have noticed is that the search results often return stereotypical images of our query. Searching "playground" would give us photos of the classic outdoor playground with small slides and steps. Searching "bedroom" would return photos of nicely made beds and tidy rooms that would seem perfectly natural in a furniture catalogue.
-
-<!-- TODO: photos of playground and bedroom - or iframe of google search -->
 
 <iframe src="https://www.google.com/search?q=playground&igu=1&tbm=isch" width="100%" height="365" frameBorder="0" style="margin: 25px 0;"></iframe>
 

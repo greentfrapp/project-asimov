@@ -272,9 +272,11 @@ Turns out, it is impossible to satisfy both definitions of fairness, given popul
 
 ### So fairness is impossible?
 
-<!-- TODO: Comic - I give up or wait what's the point of what i just learnt, surrounded by scraps of paper -->
+<div>
+<img class="comic" width="450px" src="{{ "/assets/guide/comics/impossible_inverted.png" | relative_url }}" title="I told you we shouldn't have used Farenheit." alt="So fairness is impossible?">
+</div>
 
-The point of all these is not to show that fairness does not make sense. After all, notions of fairness are heavily based on context and culture. Different definitions that appear incompatible simply reflect this context-dependent nature.
+The point of all these is not to show that fairness does not make sense or that it is impossible. After all, notions of fairness are heavily based on context and culture. Different definitions that appear incompatible simply reflect this context-dependent nature.
 
 But this also means that it is super critical to have a deliberate discussion about what constitutes fairness. This deliberate discussion must be nested in the context of how and where the AIS will be used. For each AIS, the AI practitioners, their clients and users of the AIS need to base their conversations on the same definition of fairness. <span class="emph">We cannot assume that everyone has the same idea of fairness.</span> While it could be ideal for everyone to have a say in what definition of fairness to use, sometimes this can be difficult. At the very least, AI practitioners should be upfront with their users about fairness considerations in the design of the AIS. This includes what fairness definition was used and why, as well as potential shortcomings.
 
@@ -300,7 +302,9 @@ But this also means that it is super critical to have a deliberate discussion ab
 
 Computer scientists might often prefer general algorithms that is agnostic to context and application. The agnostic nature of unstructured deep learning is often cited as a huge advantage compared to labor-intensive feature engineering. So the importance of context in understanding fairness can be a bane to computer scientists, who might like to "[abstract] away the social context in which these systems will be deployed" <dt-cite cite="selbst2019fairness"></dt-cite>.
 
-<!-- TODO: Comic about abstraction -->
+<div>
+<img class="comic" width="200px" src="{{ "/assets/guide/comics/abstraction_inverted.png" | relative_url }}" title="Yes, the stick figures actually symbolize how we often neglect important details. Definitely not because I'm lazy or bad at drawing." alt='Abstraction" is when we make a complex thing simple by ignoring all the unnecessary details.'>
+</div>
 
 But as Selbst et al. write in their work on fairness in sociotechnical systems:
 
@@ -390,7 +394,9 @@ By the time you read this, "context" should have been burned into your retina. B
 
 So here is a list of questions and prompts to help you learn more about the sociotechnical context of your application. Try not to use this as a checklist! Instead, go beyond this to understand at much about the problem as you can. Also, these prompts should be discussed as a group rather than answered in isolation. Involve as many people as you can!
 
-<!-- TODO: Comic asking cat for opinion -->
+<div>
+<img class="comic" width="250px" src="{{ "/assets/guide/comics/context_1_inverted.png" | relative_url }}" title="*meow meow meow*" alt="Involve as many people as you can!">
+</div>
 
 #### General Context
 
@@ -417,7 +423,9 @@ So here is a list of questions and prompts to help you learn more about the soci
 - Post all of your answers online and iterate it with public feedback
 - Ship your answers with the AIS when it is deployed
 
-<!-- TODO: Comic part 2 asking cat for opinion -->
+<div>
+<img class="comic" width="250px" src="{{ "/assets/guide/comics/context_2_inverted.png" | relative_url }}" title="I wonder what are the fairness concerns if we try to do Google Translate for cats." alt="Involve as many people as you can!">
+</div>
 
 <div class="box-red">
 <div class="ui list">
