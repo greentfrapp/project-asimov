@@ -74,7 +74,7 @@ The difference between disparate treatment and disparate impact can be summarize
 ### What does this mean for AIS?
 
 <p class="box-blue">
-	Let's use Amazon's Prime Free Same-Day service as an example <dt-cite cite="ingold2016amazon"></dt-cite>. The Free Same Day service is a fantastic mind-blowing innovation that provides free same-day delivery. <tidbit content='Duh!'></tidbit> Since it's in its early stages, Amazon wants to trial the service before rolling it out to everyone. Suppose Amazon implements a model that decides which lucky neighborhoods should get first dibs on the Prime Free Same-Day service.
+	Let's use Amazon's Prime Free Same-Day service as an example <dt-cite cite="ingold2016amazon"></dt-cite>. The Free Same Day service is a fantastic mind-blowing innovation that provides free same-day delivery. Since it's in its early stages, Amazon wants to trial the service before rolling it out to everyone. Suppose Amazon implements a model that decides which lucky neighborhoods should get first dibs on the Prime Free Same-Day service.
 </p>
 
 #### Disparate Treatment
@@ -112,9 +112,9 @@ Disparate impact is more difficult to fix since it can come from multiple source
 
 - A non-representative dataset <tidbit content='<span>E.g. using a training set that contains only white male faces but applying the trained model to everyone regardless of race or gender.</span>'></tidbit>
 - A dataset that already encodes unfair decisions <tidbit content='<span>E.g. a credit scoring dataset with labels that underreports the credit score for black individuals.</span>'></tidbit>
-- Input features that are proxies for protected characteristics <tidbit content='<span>E.g. Postal code might be a proxy feature for race since the two are often correlated.</span>'></tidbit>
+- Input features that are proxies for protected characteristics <tidbit content='<span>E.g. Postal code might be a proxy feature for race since racial and ethnicity demographics often have spatial correlations.</span>'></tidbit>
 
-More details can be found in [Understanding Bias II](../bias_ii/).
+More on sources of bias in [Understanding Bias II](../bias_ii/).
 
 ### Okay, but how do we know how much disparity is unfair?
 
@@ -124,6 +124,7 @@ To answer that question, we have to review what we meant earlier by "disproporti
 	<p>
 		Let's say an insurance company uses an AIS that predicts whether an insuree will get into an accident within the next year. Insurees predicted as accident-prone could be charged higher premiums.
 	</p>
+  <!-- TODO: COMIC HERE -->
 	<ul>
 		<li>If the model excessively predicts males as accident-prone, are males disproportionately disadvantaged?</li>
 		<li>If the accuracies are different between age groups, are the age groups with worse accuracies disproportionately disadvantaged?</li>
@@ -217,7 +218,11 @@ A major issue with these metrics (besides the question of how to pick one) is th
 
 > The phrase “protected characteristics” refers to traits such as race, gender, age, physical or mental disabilities, where differences due to such traits cannot be **reasonably justified**.
 
-Suppose an Olympics selection trial requires applicants to run 10km in 40 minutes. This selection criterion seems *reasonably justified*. Running speed tends to be an appropriate measure of athleticism. But the ability to run that fast is probably negatively correlated with age. Someone looking at the data alone might flag a bias against very elderly applicants. Without understanding the context, it is difficult to see how this bias might be reasonably justified. The fairness metrics can be a systematic way to check for bias, but they are only a piece of the puzzle. A complete assessment for fairness needs us to get down and dirty with the problem at hand.
+<p class="box-blue">
+  Suppose an Olympics selection trial requires applicants to run 10km in 40 minutes. This selection criterion seems <em>reasonably justified</em>. Running speed tends to be an appropriate measure of athleticism. But the ability to run that fast is probably negatively correlated with age. Someone looking at the data alone might flag a bias against very elderly applicants. Without understanding the context, it is difficult to see how this bias might be reasonably justified.
+</p>
+
+The fairness metrics can be a systematic way to check for bias, but they are only a piece of the puzzle. A complete assessment for fairness needs us to get down and dirty with the problem at hand.
 
 <div class="box-red">
 <div class="ui list">
@@ -230,7 +235,7 @@ Suppose an Olympics selection trial requires applicants to run 10km in 40 minute
 </div>
 <div class="emph">
 <p>
-  Most of the fairness metrics focus on equality in the rates of true positives, true negatives, false positives, false negatives, or some combination of these. But really, these metrics are insufficient when they exclude the larger context of the AIS. 
+  Most of the fairness metrics focus on equality in the rates of true positives, true negatives, false positives, false negatives, or some combination of these. But remember that these metrics are insufficient when they exclude the larger context of the AIS and neglect contextual justifications. 
 </p>
 <p>
   For more comprehensive reviews of existing metrics, check out Narayanan <dt-cite cite="narayanan2018translation"></dt-cite> and Verma et al. <dt-cite cite="verma2018fairness"></dt-cite>.
@@ -246,7 +251,7 @@ Suppose an Olympics selection trial requires applicants to run 10km in 40 minute
 <img class="comic" width="450px" src="{{ "/assets/guide/comics/bongo_inverted.gif" | relative_url }}" title="" alt="Some fairness definitions are mutually exclusive.">
 </div>
 
-For our fictional fat pet predictor, we had complete control over the system's accuracy. Even so, you may have noticed that it was impossible to fulfill all five fairness metrics at the same time. This is sometimes known as the impossibility theorem of fairness.
+For our fictional fat pet predictor, we had complete control over the system's accuracy. Even so, you may have noticed that it was impossible to fulfill all five fairness metrics at the same time. This is sometimes known as the Impossibility Theorem of Fairness.
 
 <div class="box-blue">
 
@@ -259,13 +264,15 @@ For our fictional fat pet predictor, we had complete control over the system's a
   </p>
 </blockquote>
 <p>
-  ProPublica's article documented the "significant racial disparities" found in COMPAS, a recidivism prediction model sold by NorthPointe. But in their response, Northpointe disputed ProPublica's claims. Later on, we would discover that NorthPointe and ProPublica had different ideas about what constituted <em>fairness</em>. Northpointe used Conditional Use Accuracy Equality, while ProPublica used Treatment Equality (see previous <a href="../fat_pet/">demo</a> for details). Northpointe's response can be found [here](http://go.volarisgroup.com/rs/430-MBX-989/images/ProPublica_Commentary_Final_070616.pdf).
+  ProPublica's article documented the "significant racial disparities" found in COMPAS, a recidivism prediction model sold by NorthPointe. But in their response, Northpointe disputed ProPublica's claims. Later on, we would discover that NorthPointe and ProPublica had different ideas about what constituted <em>fairness</em>. Northpointe used Conditional Use Accuracy Equality, while ProPublica used Treatment Equality (see previous <a href="../fat_pet/">demo</a> for details). Northpointe's response can be found <a href="http://go.volarisgroup.com/rs/430-MBX-989/images/ProPublica_Commentary_Final_070616.pdf">here</a>.
 </p>
 </div>
 
 Turns out, it is impossible to satisfy both definitions of fairness, given populations with different base rates of recidivism <dt-cite cite="kleinberg2016inherent,chouldechova2017fair"></dt-cite>. This is similar to our previous example of fat pets. Now, different base rates of recidivism do not mean that certain individuals are more prone to re-offending by virtue of race. Instead of racial predisposition, such trends are more likely due to unequal treatment and circumstances from past and present biases. In our fat pets example, dogs might have a higher base rate for obesity not because dogs have fat genes but because dog owners tend to be overly enthusiastic about feeding their pets.
 
 ### So fairness is impossible?
+
+<!-- TODO: Comic - I give up or wait what's the point of what i just learnt, surrounded by scraps of paper -->
 
 The point of all these is not to show that fairness does not make sense. After all, notions of fairness are heavily based on context and culture. Different definitions that appear incompatible simply reflect this context-dependent nature.
 
@@ -293,6 +300,8 @@ But this also means that it is super critical to have a deliberate discussion ab
 
 Computer scientists might often prefer general algorithms that is agnostic to context and application. The agnostic nature of unstructured deep learning is often cited as a huge advantage compared to labor-intensive feature engineering. So the importance of context in understanding fairness can be a bane to computer scientists, who might like to "[abstract] away the social context in which these systems will be deployed" <dt-cite cite="selbst2019fairness"></dt-cite>.
 
+<!-- TODO: Comic about abstraction -->
+
 But as Selbst et al. write in their work on fairness in sociotechnical systems:
 
 > Fairness and justice are properties of social and legal systems like employment and criminal justice, not properties of the technical tools within. **To treat fairness and justice as terms that have meaningful application to technology separate from a social context is therefore to make a category error, or as we posit here, an abstraction error.** [emphasis mine]
@@ -313,9 +322,13 @@ In their work, Selbst et al. identify what they term "five failure modes" or "tr
 
 > Failure to model the entire system over which a social criterion, such as fairness, will be enforced
 
+<!-- TODO: comic -->
+
 A fair AIS must take into account the larger sociotechnical context in which the AIS might be used, otherwise it is meaningless. For example, an AIS to filter job applicants should also consider how its suggestions would be used by the hiring manager. The AIS might be "fair" in isolation but subsequent "post-processing" by the hiring manager might distort and undo the "fairness".
 
 #### Portability Trap
+
+<!-- TODO: comic -->
 
 > Failure to understand how repurposing algorithmic solutions designed for one social context may be misleading, inaccurate, or otherwise do harm when applied to a different context
 
@@ -323,17 +336,23 @@ This refers to our earlier observation that computer scientists often prefer gen
 
 #### Formalism Trap
 
+<!-- TODO: comic -->
+
 > Failure to account for the full meaning of social concepts such as fairness, which can be procedural, contextual, and contestable, and cannot be resolved through mathematical formalisms
 
 This trap stems from the computer science field's preference for mathematical definitions, such as the many definitions of fairness that we have seen earlier. The authors suggest that such mathematical formulations fail to capture the intrinsically complex and abstract nature of fairness, which is, again, nested deeply in the context of the application.
 
 #### Ripple Effect Trap
 
+<!-- TODO: comic -->
+
 > Failure to understand how the insertion of technology into an existing social system changes the behaviors and embedded values of the pre-existing system
 
 This is related to the Framing Trap in that the AI practitioner fails to properly account for "the entire system", which in this case includes how existing actors might be affected by the AIS. For instance, decision-makers might be biased towards agreeing with the AIS's suggestions (a phenomenon known as automation bias) or the opposite might be true and decision-makers might be prone to disagreeing with the AIS's suggestions. Again, this stems from designing an AIS in isolation without caring enough about the context.
 
 #### Solutionism Trap
+
+<!-- TODO: comic -->
 
 > Failure to recognize the possibility that the best solution to a problem may not involve technology
 
@@ -365,9 +384,13 @@ This piece by Selbst et al. is important because it highlights many obstacles to
 
 By the time you read this, "context" should have been burned into your retina. But just in case you cheated and came straight here without reading any of the previous sections:
 
-<span class="emph">CONTEXT IS IMPORTANT WHEN DISCUSSING FAIRNESS!</span>
+<p class="emph" style="text-align: center;">
+  CONTEXT IS IMPORTANT WHEN DISCUSSING FAIRNESS!
+</p>
 
-So here is a list of questions and prompts to help you learn more about the sociotechnical context of your application. Try not to use this as a checklist! Instead, try to go beyond this to understand at much about the problem as you can. Also, these prompts should be discussed as a group rather than answered in isolation. Involve as many people as you can!
+So here is a list of questions and prompts to help you learn more about the sociotechnical context of your application. Try not to use this as a checklist! Instead, go beyond this to understand at much about the problem as you can. Also, these prompts should be discussed as a group rather than answered in isolation. Involve as many people as you can!
+
+<!-- TODO: Comic asking cat for opinion -->
 
 #### General Context
 
@@ -377,6 +400,8 @@ So here is a list of questions and prompts to help you learn more about the soci
 - Create a few user personas - the technophobe, the newbie etc. - and think about how they might react to the AIS across the short-term and long-term.
 - Think of ways that the AIS can be misused by unknowning or malicious actors.
 
+<!-- TODO: Comic about dumb user personas -->
+
 #### About Fairness
 
 - What do false positives and false negatives mean for different users? Under what circumstances might one be worse than the other?
@@ -384,11 +409,15 @@ So here is a list of questions and prompts to help you learn more about the soci
 - What are the relevant protected traits in this problem?
 - If we detect some unfairness with our metrics - is the disparity justified?
 
+<!-- TODO: Comic -->
+
 #### <i class="star icon"></i> Bonus Points!
 
 - Find a bunch of real potential users and ask them all the prompts above.
 - Post all of your answers online and iterate it with public feedback
 - Ship your answers with the AIS when it is deployed
+
+<!-- TODO: Comic part 2 asking cat for opinion -->
 
 <div class="box-red">
 <div class="ui list">

@@ -27,7 +27,8 @@ Here is a checklist of questions to answer when implementing an AIS. While there
 
 1. What is our population?
 2. How does our sample distribution differ from our population distribution?
-3. How are our annotated labels different from the ideal labels?
+3. Are we measuring the features the same way for different groups?
+4. How are our annotated labels different from the ideal labels?
 
 ---
 

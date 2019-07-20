@@ -53,6 +53,8 @@ AIS are increasingly used to help **allocate** resources. Credit scoring models 
 
 On a more abstract level, AIS are also increasingly affecting the way we perceive or **represent** the world. Think Google Search, Facebook's News Feed and YouTube's Recommended feed. This is also known as "filtering" <dt-cite cite="susskind2018future"></dt-cite>. The modern person connected to the Internet has access to a vast amount of information but limited time and attention. These AIS prevent us from being overwhelmed and help us focus on the most relevant articles and news. We are affected by these systems because these filters shape our perceptions and thoughts about the world.
 
+<!-- TODO: drawing - scales and lenses -->
+
 We can classify the consequences of algorithmic bias in the same way. This was proposed by Kate Crawford in her NIPS 2017 keynote The Trouble with Bias <dt-cite cite="crawford2017trouble"></dt-cite>. Crawford first defined algorithmic bias as "a skew that produces a type of harm". She then further classifies algorithmic biases into harms of **allocation** and harms of **representation**. Over the next two sections, we will use the same framework to look at real-world examples of algorithmic bias. Since context has often been emphasized in the previous sections, we will try to see how context can be explored in these examples.
 
 <table style="font-size: 1.25rem;">
@@ -104,6 +106,8 @@ We can classify the consequences of algorithmic bias in the same way. This was p
 
 ## Harms of Allocation
 
+<!-- TODO: drawing scales -->
+
 > An allocative harm is when a system allocates or withholds certain groups an opportunity or a resource.
 
 *The Trouble with Bias, Kate Crawford at NIPS2017 <dt-cite cite="crawford2017trouble"></dt-cite>*
@@ -116,7 +120,13 @@ Harms of allocation arise from the unjust distribution of opportunities and reso
 
 ### COMPAS
 
-The Correctional Offender Management Profiling for Alternative Sanctions, or COMPAS, algorithm is probably the most infamous case study in algorithmic bias. In areas where COMPAS was used, defendants typically answer a COMPAS questionnaire when they are first booked in jail. A past sample can be found [here](../../assets/guide/misc/Sample-Risk-Assessment-COMPAS-CORE.pdf). Using the responses, the COMPAS model outputs several scores related to recidivism. These include scores for Risk of Recidivism and Risk of Violent Recidivism, which go from 1 to 10, with 10 being highest risk. The scores were given to judges and they often had a huge influence on the sentence:
+The Correctional Offender Management Profiling for Alternative Sanctions, or COMPAS, algorithm is probably the most infamous case study in algorithmic bias. In areas where COMPAS was used, defendants typically answer a COMPAS questionnaire when they are first booked in jail.
+
+<iframe src="../../assets/guide/misc/Sample-Risk-Assessment-COMPAS-CORE.pdf" width="100%" height="365" frameBorder="0" style="margin: 25px 0;"></iframe>
+
+*A past sample of a COMPAS questionnaire.*
+
+Using the responses, the COMPAS model outputs several scores related to recidivism. These include scores for Risk of Recidivism and Risk of Violent Recidivism, which go from 1 to 10, with 10 being highest risk. The scores were given to judges and they often had a huge influence on the sentence:
 
 > After Brennan’s testimony, Judge Babler reduced Zilly’s sentence, from two years in prison to 18 months. "Had I not had the COMPAS, I believe it would likely be that I would have given one year, six months," the judge said at an appeals hearing on Nov. 14, 2013.
 
@@ -128,11 +138,11 @@ If we think of COMPAS as a model for potentially "allocating" freedom, harms of 
 - The formula was particularly likely to falsely flag black defendants as future criminals, wrongly labeling them this way at almost twice the rate as white defendants.
 - White defendants were mislabeled as low risk more often than black defendants.
 
-In short, black defendants were more likely to be wrongly accused of reoffending, while white defendants were more likely to "escape detection". We cited this example in an earlier section ([The Impossibility Theorem](../fairness/#the-impossibility-theorem)), where we also mentioned that Propublica and Northpointe employed different definitions of fairness. In addition to the debatable question of which definition of fairness to apply, there are also other problematic aspects.
+In short, black defendants were more likely to be wrongly accused of reoffending, while white defendants were more likely to "escape detection". We cited this example in an earlier section ([The Impossibility Theorem](../fairness/#the-impossibility-theorem)), where we also mentioned that Propublica and Northpointe employed different definitions of fairness. Putting aside the debate of which definition of fairness to apply, there are also other considerations.
 
 #### Proxy Labels
 
-The term "recidivism" refers to the likelihood of a criminal committing another crime, after they have been convicted. To train a recidivism prediction model, the training data should have labels denoting whether a convicted criminal has reoffended. But in reality, we don't know when someone has committed a crime. So, we use a proxy. Instead of labels denoting whether a convicted criminal has reoffended, the labels denote whether a convicted criminal has been convicted again. That might be the closest we can get, but is it close enough?
+The term "recidivism" refers to the likelihood of a criminal committing another crime, after they have been convicted. To train a recidivism prediction model, the training data should ideally have labels denoting whether a convicted criminal has reoffended. But in reality, we don't know when someone has committed a crime. So, we use a proxy. Instead of labels denoting whether a convicted criminal has reoffended, the labels denote whether a convicted criminal has been convicted again. That might be the closest we can get, but is it close enough?
 
 Let's think about some of the differences between "reoffending" and "being convicted again".
 
@@ -141,7 +151,7 @@ Let's think about some of the differences between "reoffending" and "being convi
 
 Okay, now let's go one step further and think about how a trait like race might affect these two differences. Racism in the police has been well-documented in literature <dt-cite cite="norris1992black,waddington2004proportion,warren2006driving"></dt-cite>. In recent years, institutional racism and the related problem of police brutality have also inspired social movements such as "Black Lives Matter". In light of these issues, how might the above differences play out?
 
-1. If racism has a major influence on police practices like strip and search, we might find that white offenders have a higher chance of reoffending and not getting caught, as compared to black offenders. This might cause our dataset to underestimate the number of white repeat offenders.
+1. If racism has a major influence on police practices like stop-and-frisk, we might find that white re-offenders have a higher chance of not getting caught, as compared to black re-offenders. This might cause our dataset to underestimate the number of white re-offenders.
 2. And likewise, we might find that black individuals are subject to wrongful arrests more frequently than white individuals. In that case, our dataset might be overestimating the number of black repeat offenders.
 
 In other words, by using the proxy label of "being convicted again" rather than "reoffending", we could be exaggerating the presence of black individuals and systematically biasing the dataset along racial lines. Obviously all of this is hypothetical and requires more substantial evidence. Nevertheless, when faced with problems like these, it might be prudent to question if an algorithmic solution is really the answer.
@@ -154,20 +164,25 @@ Despite the important role that risk scores like COMPAS play in the criminal jus
 
 Important information that probably should be available include:
 
-- What is the accuracy of these scores?
+- What goes into the risk score?
+- How is it calculated?
+- What is the accuracy?
 - How is this accuracy measured?
 - What definition of fairness was used to develop the scores?
 - Why this definition instead of other definitions?
 - What are potential fairness violations?
-- How are these scores calculated?
 
-Not having to disclose such information allows bias to remain undetected. Because this information is missing, alternative actors such as ProPublica take up the mantle to evaluate these systems. But this often happens only after the AIS have been in use for some time and the harm has been done. 
+Not having to disclose such information allows bias to remain undetected. Because this information is missing, alternative actors such as ProPublica take up the mantle to evaluate these systems. But this often happens only after the AIS have been in use for some time and harm has been done. 
 
-A potential problem is that public disclosure might undermine the validity of the scores. For example, understanding how the scores are calculated might enable malicious individuals to game the scores. Nevertheless, considering what is at stake, we have to put some thought into how such appropriate disclosure can be made about these scores.
+Then again, a potential problem is that public disclosure might undermine the validity of the scores. Understanding how the risk scores are calculated might enable malicious individuals to game the scores. Nevertheless, considering what is at stake, we have to put some thought into how appropriate disclosure can be made about these scores.
 
 #### The Greater Good
 
-> "'Greater good?' I am your wife! I'm the greatest good you are ever gonna get!"
+<div>
+<img class="comic" src="https://media.giphy.com/media/pKscQnhGd2gDe/giphy.gif" width="350px" alt="'Greater good?' I am your wife! I'm the greatest good you are ever gonna get!"/>
+</div>
+
+> "'Greater good?' I am your wife! I'm the greatest *good* you're ever gonna get!"
 
 *Honey Best, Frozone's wife in The Incredibles*
 
@@ -177,13 +192,13 @@ For the criminal justice system, we can think of its overarching aim as the grea
 
 *Sentencing and Corrections in the 21st Century: Setting the Stage for the Future - Doris Layton Mackenzie, 2001*
 
-When we use a tool like COMPAS to decide the length of a prison sentence, we seem to be focusing on the goals of retribution and incapacitation, and neglecting the importance of rehabilitation. Is that really serving the greater good of societal safety? We can see this as an instance of Selbst et al.'s Framing Trap, which we covered [previously](../fairness/#context-free-fairness). By reducing the issue of societal safety to recidivism prediction, we get an easily quantifiable problem that might be simpler to solve. But doing this neglects the greater objective and other alternative problems and solutions that might be just as important.
+When we use a tool like COMPAS to decide the length of a prison sentence, we seem to focus on *retribution* and *incapacitation*, and neglecting *rehabilitation*. Is that really serving the greater good of societal safety? By reducing the issue of societal safety to recidivism prediction, we get a quantifiable problem that might be simpler to solve. But this neglects the greater objective and other alternative problems and solutions. We can see this as an instance of Selbst et al.'s Framing Trap, which we covered [previously](../fairness/#context-free-fairness).
 
-But on deeper inspection, Northpointe might *not* have intended for COMPAS to be used for criminal sentencing, which brings us to our next section.
+When we consider the greater objective of societal safety, alternative solutions might come to mind. Rather than using COMPAS for determining jailtimes, it can help design specific intervention and rehabilitation measures customized for each defendent. In fact, this might have been what COMPAS was *designed* for, which brings us to our next section.
 
 #### Human-Algorithm Interaction
 
-In the earlier quote from the article, we see how Judge James Babler from Barron County, Wisonsin, had been influenced by COMPAS to give a more severe sentence than he would have otherwise given. The more severe sentence was only retracted after Tim Brennan, Northpointe's founder, had "testified that he didn’t design his software to be used in sentencing". This is reflected in Chapter 4 of the [Practitioner’s Guide to COMPAS Core](https://assets.documentcloud.org/documents/2840784/Practitioner-s-Guide-to-COMPAS-Core.pdf), which considers different interventions for specific aspects. Throughout the chapter, there are repeated references to non-incarceration interventions. For example, under the Financial Problems section, we see the following recommendation:
+In the earlier quote from the article, we see how Judge James Babler from Barron County, Wisonsin, had been influenced by COMPAS to give a more severe sentence than he would have otherwise given. The more severe sentence was only retracted after Tim Brennan, Northpointe's founder, had "testified that he didn’t design his software to be used in sentencing". This is reflected in Chapter 4 of Northpointe's [Practitioner’s Guide to COMPAS Core](https://assets.documentcloud.org/documents/2840784/Practitioner-s-Guide-to-COMPAS-Core.pdf), which lists different interventions for specific aspects. Throughout the chapter, there are repeated references to non-incarceration interventions. For example, under the Financial Problems section, we see the following recommendation:
 
 > Education on money management and fulfilling court ordered financial commitments is part of the necessary approach when considering interventions. Assuming someone knows how to manage their finances is an erroneous starting place, vocational training may also play a role in creating a successful change plan.
 
@@ -191,7 +206,7 @@ In the earlier quote from the article, we see how Judge James Babler from Barron
 
 So what went wrong?
 
-Maybe Brennan had been too idealistic when thinking about how judges might be using COMPAS scores. Maybe Brennan didn't think that the scores could be interpreted as a measure for how long someone should be jailed. Whatever it is, the ones who deployed COMPAS had not appropriately considered how it might be used and how it might influence others. Recall Selbst et al.'s Ripple Effect Trap mentioned [earlier](../fairness/#context-free-fairness). Here we neglected the "ripple effects" that COMPAS had on judges and underestimated COMPAS's potential for allocative harm. When we take these into consideration, we might have changed aspects of the system. For example, instead of risk scores, COMPAS could have explicitly output the recommended intervention. That could remove the possibility of misinterpreting or misusing the risk scores.
+Maybe Brennan had been too idealistic when thinking about how judges might be using COMPAS scores. Maybe Brennan didn't think that the scores could be interpreted as a measure for how long someone should be jailed. Whatever it is, the ones who deployed COMPAS had not appropriately considered how it might be used and how it might influence others. Recall Selbst et al.'s Ripple Effect Trap mentioned [earlier](../fairness/#context-free-fairness). Here we neglected the "ripple effects" that COMPAS had on judges and underestimated COMPAS's potential for allocative harm. When we take these into consideration, we might have changed aspects of the system. For example, instead of risk scores, COMPAS could explicitly output the recommended intervention. That could reduce the chance of misunderstanding or misusing the risk scores.
 
 <!-- ### Example 2 - Redlining `WIP` -->
 
@@ -224,6 +239,8 @@ Maybe Brennan had been too idealistic when thinking about how judges might be us
 
 ## Harms of Representation
 
+<!-- TODO: drawing lenses -->
+
 > [Representative harms] occur when systems reinforce the subordination of some groups along the lines of identity.
 
 *The Trouble with Bias, Kate Crawford at NIPS2017 <dt-cite cite="crawford2017trouble"></dt-cite>*
@@ -234,9 +251,19 @@ Maybe Brennan had been too idealistic when thinking about how judges might be us
 
 ### Google Image Search
 
-Most of us have had experience with Google Image search. Maybe it was to find some stock photos. Or maybe it was to look up what some exotic animal looked like. One thing we might have noticed is that the search results often give us stereotypical images of our query. Searching "playground" would give us photos of the classic outdoor playground with small slides and steps. Searching "bedroom" would return photos of nicely made beds and tidy rooms that would seem perfectly natural in a furniture catalogue.
+Most of us have had experience with Google Image search. Maybe it was to find some stock photos or wallpapers. Or maybe it was to look up what some exotic animal looked like. One thing we might have noticed is that the search results often return stereotypical images of our query. Searching "playground" would give us photos of the classic outdoor playground with small slides and steps. Searching "bedroom" would return photos of nicely made beds and tidy rooms that would seem perfectly natural in a furniture catalogue.
 
-Interestingly and unfortunately, such stereotypes go beyond objects and places, extending to queries of people as well. Studies have found that Google's Image Search perpetuated and exaggerated gender and racial stereotypes for certain keywords, such as "CEO", "doctor" and "nurse" <dt-cite cite="otterbacher2017competent,kay2015unequal"></dt-cite>. We know that these words are gender-neutral. But most of us might also know that these words tend to embody certain stereotypes, such as the male doctor and the female nurse. Let's consider the simple and vivid example of Google's Image Search for the term "CEO".
+<!-- TODO: photos of playground and bedroom - or iframe of google search -->
+
+<iframe src="https://www.google.com/search?q=playground&igu=1&tbm=isch" width="100%" height="365" frameBorder="0" style="margin: 25px 0;"></iframe>
+
+*Google Image Search for "playground".*
+
+<iframe src="https://www.google.com/search?q=bedroom&igu=1&tbm=isch" width="100%" height="365" frameBorder="0" style="margin: 25px 0;"></iframe>
+
+*Google Image Search for "bedroom".*
+
+Such stereotypes go beyond objects and places, extending to queries of people as well. Studies have found that Google's Image Search perpetuated and exaggerated gender and racial stereotypes for certain keywords, such as "CEO", "doctor" and "nurse" <dt-cite cite="otterbacher2017competent,kay2015unequal"></dt-cite>. We know that these words are gender-neutral. But most of us might also know that these words tend to embody certain stereotypes, such as the male doctor and the female nurse. Let's consider the simple and vivid example of Google's Image Search for the term "CEO".
 
 In April 2015, a Google Image search for the term "CEO" surfaced results that were manifestations of both racial and gender biases. An overwhelming majority of the images were photos of white males in suits. Since these biases have been flagged by several researchers, they appear to have been mitigated somewhat and a recent search shows a far more diverse result (see below).
 
@@ -252,6 +279,10 @@ In April 2015, a Google Image search for the term "CEO" surfaced results that we
 
 *Results from Google Image Search for "CEO" in July 2019 show a more diverse distribution, in terms of race and gender.*
 
+<iframe src="https://www.google.com/search?q=CEO&igu=1&tbm=isch" width="100%" height="365" frameBorder="0" style="margin: 25px 0;"></iframe>
+
+*Current Google Image Search for "CEO".*
+
 Harms of representation are dangerous because they shape how we see the world. And in turn, how we see the world shapes the world. A generation raised solely on fairy tales of damsels in distress might not recognize the existence of heroines and men in need of saving. A generation raised solely on image search results of white male CEOs may find it difficult to entertain the possibility of a non-male non-white CEO. By limiting our cognitive vocabulary, these harmful representations become additional psychological obstacles that must be overcome.
 
 Furthermore, when these harmful representations manifest themselves as biased actions and decisions they become self-fulfilling prophecies. Fed on a diet of white male CEO images, non-male non-white individuals might never fight for the position and we may never encourage them to go for it. We might even discourage them from pursuing what seems like an unrealistic ambition. Over time, there are fewer and fewer non-white non-male CEOs and the biases embodied by the search results turn out to be an accurate prophecy.
@@ -260,25 +291,25 @@ Furthermore, when these harmful representations manifest themselves as biased ac
 <img class="comic" width="250px" src="{{ "/assets/guide/comics/harmsofrep_inverted.png" | relative_url }}" alt="The Reality-Representation Cycle.">
 </div>
 
-In that case, what does an unharmful representation look like? Two possible alternatives are accurate representations and ideal representations.
+In that case, what does an unharmful representation look like? Two possible alternatives to consider are accurate representations and ideal representations.
 
 #### Accurate Representations
 
-Yes, the Google Image results in April 2015 were dominated by white males. But technically, in 2014, 4% of the 500 companies on the US S&P 1500 had female CEOs <dt-cite cite="ey2015women"></dt-cite>. This means that if the search results replicated this 4% proportion of females, we might consider this as an **accurate** representation.
+Yes, the Google Image results in April 2015 were dominated by white males. But technically, in 2014, only 4% of the 500 companies on the US S&P 1500 had female CEOs <dt-cite cite="ey2015women"></dt-cite>. This means that if the search results replicated this 4% proportion of females, we might consider this as an **accurate** representation.
 
 On the other hand, search results that have zero female images would be obviously inaccurate. Such results would be perpetuating false and exaggerated gender stereotypes.
 
 #### Ideal Representations
 
-In March 2015, the New York Times ran an article titled "Fewer Women Run Big Companies Than Men Named John" <dt-cite cite="wolfers2015fewer"></dt-cite>. This contributed to a growing literature on gender inequality, founded on the conviction that gender should not matter for most careers. Such literature describes an ideal world where the gender distribution of CEOs is equal, or at least similar to the gender distribution of the general population. Search results that stray from this would be **unideal representations**.
+In March 2015, the New York Times ran an article titled "Fewer Women Run Big Companies Than Men Named John" <dt-cite cite="wolfers2015fewer"></dt-cite>. This contributed to a growing literature on gender inequality. Such literature describes an ideal world where the gender distribution of CEOs is equal, or at least similar to the gender distribution of the general population. Search results that reproduce this equality would be an **ideal** representation.
 
 Representations both embed and influence unwritten norms and values. Following the cycle between representation and reality, we can make the world a better place by first *seeing* it as a better place. In our example, the presence of more gender- and race-diverse search results for "CEO" can encourage non-white non-male candidates to go from minority to mainstream.
 
 #### Accuracy versus Idealism
 
-There is merit behind both an accurate representation and an ideal representation. But in an imperfect world, any representation cannot be both accurate and ideal. Decisions and compromises have to be made about what is important for the given application.
+There is merit behind both an accurate representation and an ideal representation. But in an imperfect world, representations cannot be both accurate and ideal. Decisions and compromises have to be made about which is more important for the given application.
 
-Imagine if a company's internal personnel directory tries to give an ideal and fair representation of a query for the company's regional managers. That would defeat the purpose of the directory. On the other hand, people often use Google to learn more about the world. Maybe presenting a fairer representation could eventually make the real world a fairer place. As always, making the right choice requires knowledge about the context.
+Imagine if a company's internal personnel directory tries to give an ideal and fair representation of a query for the company's regional managers. That would probably defeat the purpose of the directory. On the other hand, people often use Google to learn more about the world. Maybe presenting a more equal representation could eventually make the real world a more equal place. As always, making the right choice requires knowledge about the context.
 
 <!-- Since we are talking about Google, let's have a quick peek at another example of representative harm in Google Translate. Other examples of representative harms include stereotypes learned in word embedding models <dt-cite cite="caliskan2017semantics,zhao2018gender,garg2018word"></dt-cite> and image captioning models <dt-cite cite="zhao2017men,hendricks2018women"></dt-cite>. -->
 

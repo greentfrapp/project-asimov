@@ -98,7 +98,7 @@ const annotations = [
     className: "tooltip-tp tooltip-Cats",
     x: 84,
     y: 136,
-    dx: -34,
+    dx: -32,
     dy: -76,
     color: "#fccf35"
   },
@@ -143,7 +143,7 @@ const annotations = [
     className: "tooltip-fn tooltip-Cats",
     x: 85,
     y: 195,
-    dx: -35,
+    dx: -33,
     dy: 75,
     color: "#fccf35",
     type: d3.annotationCallout
@@ -491,7 +491,7 @@ function initChart(holder, self, c, name, percs) {
       d3.selectAll(`.tooltip-tp.tooltip-${name}`).each(d => {
         d.x = tpMidX
         d.y = tpMidY
-        d.dx = name == "Cats" ? 50-tpMidX : 50-tpMidX + 245
+        d.dx = name == "Cats" ? 52-tpMidX : 50-tpMidX + 245
         d.dy = 60-tpMidY
       })
       fnMidAngle = (self.pieScale(percs.fn.start) + t + Math.PI / 2) / 2 - Math.PI / 2
@@ -500,7 +500,7 @@ function initChart(holder, self, c, name, percs) {
       d3.selectAll(`.tooltip-fn.tooltip-${name}`).each(d => {
         d.x = fnMidX
         d.y = fnMidY
-        d.dx = name == "Cats" ? 50-fnMidX : 50-fnMidX + 245
+        d.dx = name == "Cats" ? 52-fnMidX : 50-fnMidX + 245
         d.dy = 270-fnMidY
       })
       makeAnnotations.update()
@@ -768,7 +768,7 @@ let fairnessExplorable = {
   data: function () {
     return {
       svgHeight: 475,
-      svgWidth: 515,
+      svgWidth: 520,
       arc: d3.arc(),
       pieScale: d3.scaleLinear()
                   .domain([0, 1])

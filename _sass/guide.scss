@@ -348,6 +348,7 @@ body#guide-body {
 		.box-yellow {
 			background-color: lighten($guide-background-color, 3%);
 			padding: 35px;
+			width: inherit;
 		}
 
 		div.box,
@@ -476,7 +477,7 @@ body#guide-body {
 	}
 	#fairness-explorable {
 		// border: 1px solid $guide-text-color;
-		min-width: 900px;
+		min-width: 907px;
 		margin-bottom: 50px;
 		// height: 1025px;
 		#charts-stats {
@@ -487,6 +488,7 @@ body#guide-body {
 			margin-left: auto;
 			margin-right: auto;
 			display: block;
+			// border: 1px solid #FFFFFF;
 		}
 		.ui.statistics .statistic .value,
 		.ui.statistics .statistic .label {
