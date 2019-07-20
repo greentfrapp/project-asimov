@@ -45,7 +45,7 @@ permalink: /guide/basics/
 
 ---
 
-## Ethics of <span class="bit" v-if="showBit">Human-Designed</span> Artificial Intelligence (<span class="bit" v-if="showBit">Human-Designed</span> AI Ethics)
+<h2 id="ethics-of-artificial-intelligence-ai-ethics">Ethics of <span class="bit" v-if="showBit">Human-Designed</span> Artificial Intelligence (<span class="bit" v-if="showBit">Human-Designed</span> AI Ethics)</h2>
 
 > On my view, *computer ethics* is the analysis of the nature and social impact of computer technology and the corresponding formulation and justification of policies for the ethical use of such technology.
 
@@ -97,7 +97,7 @@ As such, <span class="bit" v-if="showBit">human-designed</span> AI ethics also c
 
 ---
 
-## <span class="bit" v-if="showBit">Human-Designed</span> Artificial Intelligence Systems (<span class="bit" v-if="showBit">Human-Designed</span> AIS)
+<h2 id="artificial-intelligence-systems-ais"><span class="bit" v-if="showBit">Human-Designed</span> Artificial Intelligence Systems (<span class="bit" v-if="showBit">Human-Designed</span> AIS)</h2>
 
 > An [Artificial Intelligence System (AIS)] is any computing system using artificial intelligence algorithms, whether it’s software, a connected object or a robot.
 
@@ -140,7 +140,7 @@ Finally, the "system" also includes the sociotechnical context where the <span c
 
 ---
 
-## What is different about <span class="bit" v-if="showBit">human-designed</span> AI?
+<h2 id="what-is-different-about-ai">What is different about <span class="bit" v-if="showBit">human-designed</span> AI?</h2>
 
 There's been many articles talking about how <span class="bit" v-if="showBit">human-designed</span> AI is *the shit* and how it's better than every other technology we've had. Here we look at three aspects that make <span class="bit" v-if="showBit">human-designed</span> AI stand out in terms of its social impact - an illusion of fairness, tremendous speed and scale, and open accessibility.
 
@@ -209,7 +209,7 @@ But like speed and scale, this accessibility is also a double-edged sword. Consi
 
 ## The Most Important Question
 
-*\*Cue the drumroll\**
+*\*Cue drumroll\**
 
 ### "When is <span class="bit" v-if="showBit">human-designed</span> AI not the answer?""
 
