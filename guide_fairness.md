@@ -392,7 +392,7 @@ By the time you read this, "context" should have been burned into your retina. B
   CONTEXT IS IMPORTANT WHEN DISCUSSING FAIRNESS!
 </p>
 
-So here is a list of questions and prompts to help you learn more about the sociotechnical context of your application. Try not to use this as a checklist! Instead, go beyond this to understand at much about the problem as you can. Also, these prompts should be discussed as a group rather than answered in isolation. Involve as many people as you can!
+So here is a list of questions and prompts to help you learn more about the sociotechnical context of your application. Don't be limited to these though, go beyond this to understand at much about the problem as you can. Also, these prompts should be discussed as a group rather than answered in isolation. Involve as many people as you can!
 
 <div>
 <img class="comic" width="250px" src="{{ "/assets/guide/comics/context_1_inverted.png" | relative_url }}" title="*meow meow meow*" alt="Involve as many people as you can!">
@@ -438,7 +438,7 @@ So here is a list of questions and prompts to help you learn more about the soci
 </div>
 <div class="emph">
   <p>
-    See above! Most of all, take a genuine interest in your application and its users!
+    See above. Most of all, take a genuine interest in your application and its users!
   </p>
 </div>
 </div>
