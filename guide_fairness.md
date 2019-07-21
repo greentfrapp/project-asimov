@@ -110,9 +110,9 @@ In general, disparate impact occurs when protected characteristics are not used 
 
 Disparate impact is more difficult to fix since it can come from multiple sources, such as:
 
-- A non-representative dataset <tidbit content='<span>E.g. using a training set that contains only white male faces but applying the trained model to everyone regardless of race or gender.</span>'></tidbit>
-- A dataset that already encodes unfair decisions <tidbit content='<span>E.g. a credit scoring dataset with labels that underreports the credit score for black individuals.</span>'></tidbit>
-- Input features that are proxies for protected characteristics <tidbit content='<span>E.g. Postal code might be a proxy feature for race since racial and ethnicity demographics often have spatial correlations.</span>'></tidbit>
+- A non-representative dataset <tidbit content='<span>e.g. using a training set that contains only white male faces but applying the trained model to everyone regardless of race or gender.</span>'></tidbit>
+- A dataset that already encodes unfair decisions <tidbit content='<span>e.g. a credit scoring dataset with labels that underreports the credit score for black individuals.</span>'></tidbit>
+- Input features that are proxies for protected characteristics <tidbit content='<span>e.g. postal code might be a proxy feature for race since racial and ethnicity demographics often have spatial correlations.</span>'></tidbit>
 
 More on sources of bias in [Understanding Bias II](../bias_ii/).
 
@@ -197,7 +197,7 @@ This goes beyond true or false predictions and considers the score assigned by t
 Well-calibration <dt-cite cite="kleinberg2016inherent"></dt-cite> is a stricter form of calibration, with the added condition where the chance of being actually positive is equal to the score.
 
 <p class="box-blue">
-  For our fat pet predictor to be well-calibrated, the predicted fatness score has to be equal to the probability of actually being fat. For example, if a cat and a dog are both assigned the a score of 0.8, they should both have an 80% chance of being actually fat..
+  For our fat pet predictor to be well-calibrated, the predicted fatness score has to be equal to the probability of actually being fat. For example, if a cat and a dog are both assigned the a score of 0.8, they should both have an 80% chance of being actually fat.
 </p>
 
 #### Fairness Through Awareness <dt-cite cite="dwork2012fairness"></dt-cite>

@@ -20,6 +20,9 @@ Here is a checklist of questions to answer when implementing an AIS. While there
 4. What definitions of fairness are we using?
 5. Who will interact with the AIS?
 6. How will the AIS affect the current system?
+7. How can the AIS be misused?
+8. What do false positives and false negatives mean for different users? Under what circumstances might one be worse than the other?
+9. Try listing out some examples of fair and unfair predictions. Why are they fair/unfair?
 
 ---
 
@@ -40,11 +43,18 @@ Here is a checklist of questions to answer when implementing an AIS. While there
 
 ---
 
-### Section 4 - Deploying the Solution
+### Section 4 - Evaluation the Model
 
 1. How does our test distribution differ from our population distribution?
 2. What can we say about the fairness of our final model?
-3. How do we know the AIS has screwed up? 
-4. What are alternative solutions in case of failure?
+3. For any unfairness detected, is the disparity justified?
+
+---
+
+### Section 4 - Deploying the Solution
+
+1. How do we know the AIS has screwed up? 
+2. What are alternative solutions in case of failure?
+3. How can we allow users to gracefully opt out of the AIS?
 
 <tofro prevtext="Sources of Bias" prevlink="../bias/sources/" nexttext="Tools" nextlink="../tools/"></tofro>

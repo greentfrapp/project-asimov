@@ -211,7 +211,7 @@ But like speed and scale, this accessibility is also a double-edged sword. Consi
 
 *\*Cue drumroll\**
 
-### "When is <span class="bit" v-if="showBit">human-designed</span> AI not the answer?""
+### "When is <span class="bit" v-if="showBit">human-designed</span> AI not the answer?"
 
 <div>
 <img class="comic" width="250px" src="{{ "/assets/guide/comics/notanswer_1_inverted.png" | relative_url }}" title='When the Question is, "What do you get if you multiply six by nine?"' alt="Is that a trick question?">
