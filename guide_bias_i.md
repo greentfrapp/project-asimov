@@ -126,7 +126,7 @@ Harms of allocation arise from the unjust distribution of opportunities and reso
 
 The Correctional Offender Management Profiling for Alternative Sanctions, or COMPAS, algorithm is probably the most infamous case study in algorithmic bias. In areas where COMPAS was used, defendants typically answer a COMPAS questionnaire when they are first booked in jail.
 
-<iframe src="../../assets/guide/misc/Sample-Risk-Assessment-COMPAS-CORE.pdf" width="100%" height="365" frameBorder="0" style="margin: 25px 0;"></iframe>
+<iframe src="https://docs.google.com/viewer?url=https://greentfrapp.github.io/project-asimov/assets/guide/misc/Sample-Risk-Assessment-COMPAS-CORE.pdf&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
 
 *A past sample of a COMPAS questionnaire.*
 
