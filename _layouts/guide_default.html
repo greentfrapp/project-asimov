@@ -6,31 +6,25 @@
 	<body id="guide-body">
 		{%- include guide_navbar.html -%}
 		<div id="nav" class="fixed">
-					<div class="logo">
-						<i class="icon bars large toggle"></i>
-						<div style="width: 150px; display: inline-block; vertical-align: middle;" class="toggle">
-			  			<a> 
-								Machines Gone Wrong
-							</a>
-						</div>
-					</div>
-		  	</div>
-	  <div class="pusher">
-			<div id="app">
-				
-				<div class="content guide-content">
-					{{ content }}
+			<div class="logo">
+				<i class="icon bars large toggle"></i>
+				<div style="width: 150px; display: inline-block; vertical-align: middle;" class="toggle">
+	  			<a> 
+						Machines Gone Wrong
+					</a>
 				</div>
 			</div>
-
-			{%- include footer.html -%}
 		</div>
-		<script src="{{ "/assets/guide/bibtexParse.js" | relative_url }}"></script>
-		<!-- <script src="{{ "/assets/guide/bibtex.js" | relative_url }}"></script> -->
-		<script src="{{ "/assets/guide/guide_tidbit.js" | relative_url }}"></script>
-		<script src="{{ "/assets/guide/guide_tofro.js" | relative_url }}"></script>
-		<script src="{{ "/assets/guide/guide_main.js" | relative_url }}"></script>
+		<div class="pusher">
+		<div id="app">
+			<div class="content guide-content">
+				{{ content }}
+			</div>
+		</div>
 
+		{%- include footer.html -%}
+		</div>
+		{%- include scripts.html -%}
 	</body>
 
 </html>

@@ -1,5 +1,5 @@
 ---
-layout: guide_fairnessdemo
+layout: guide_default
 title: The Guide. \| Project Asimov
 permalink: /guide/fairness/
 ---
