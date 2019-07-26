@@ -412,7 +412,7 @@ function initChart(holder, self, c, name, percs) {
       d3.select(`.tooltip-tp.tooltip-${name}`).classed("hidden", true)
     })
   holder.g.selectAll(".sector")
-    .attr("stroke", "#222222")
+    // .attr("stroke", "#222222")
     .attr("stroke-width", 2)
 
   // Stats Printout
@@ -603,7 +603,8 @@ function initChart(holder, self, c, name, percs) {
       .attr('font-family', 'sans-serif')
       .attr('font-size', 18)
       .attr('text-anchor', 'middle')
-      .attr('fill', '#DDDDDD')
+      // .attr('fill', '#DDDDDD')
+      .attr('class', 'chart-title')
       .text(`${name}`)
 }
 
@@ -658,11 +659,11 @@ let accSegment = {
   template: 
   `
     <div>
-      <div class="title" :style="{color: color}">
+      <div class="title" :class="{pass: pass}">
         <i class="dropdown icon"></i>
-        {{ title }}
+        <span>{{ title }}</span>
         <br/>
-        <i class="icon"></i>{{ eqn }}
+        <i class="icon"></i><span>{{ eqn }}</span>
       </div>
       <div class="content" v-html="content">
       </div>
@@ -677,7 +678,7 @@ let fairnessExplorable = {
   },
   mounted: function() {
     let self = this
-    this.svg = d3.select("#fairness-explorable > #charts-stats > svg")
+    this.svg = d3.select("#charts-stats > svg")
       .attr("height", this.svgHeight)
       .attr("width", this.svgWidth)
 
@@ -1084,6 +1085,7 @@ let fairnessExplorable = {
       </p>
     </div>
     <br/>
+    <div id="explorable">
     <div id="charts-stats">
       <svg></svg>
       <div id="stats">
@@ -1166,10 +1168,11 @@ let fairnessExplorable = {
       </div>
     </div>
     <div id="fairness-types">
-      <h3>Some Fairness Metrics</h3>
+      <h3 style="margin-top:0;">Some Fairness Metrics</h3>
       <div class="ui inverted accordion fairness-types-segment">
         <acc-segment v-for="(el, idx) in fairnessTypes" :key="idx" :title="el.name" :eqn="el.eqn" :pass="el.value" :content="el.content"></acc-segment>
       </div>
+    </div>
     </div>
   </div>`
 }

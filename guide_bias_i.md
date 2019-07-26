@@ -1,6 +1,6 @@
 ---
 layout: guide_default
-title: The Guide. \| Project Asimov
+title: Understanding Bias I \| Machines Gone Wrong
 permalink: /guide/bias_i/
 ---
 
@@ -54,7 +54,7 @@ AIS are increasingly used to help **allocate** resources. Credit scoring models 
 On a more abstract level, AIS are also increasingly affecting the way we perceive or **represent** the world. Think Google Search, Facebook's News Feed and YouTube's Recommended feed. This is also known as "filtering" <dt-cite cite="susskind2018future"></dt-cite>. The modern person connected to the Internet has access to a vast amount of information but limited time and attention. These AIS prevent us from being overwhelmed and help us focus on the most relevant articles and news. We are affected by these systems because these filters shape our perceptions and thoughts about the world.
 
 <div>
-<img class="comic" width="400px" src="{{ "/assets/guide/comics/scales_lenses_inverted.png" | relative_url }}" title='' alt="Allocation and Representation">
+<img class="comic" width="400px" src="{{ "/assets/guide/comics/scales_lenses.png" | relative_url }}" title='' alt="Allocation and Representation">
 </div>
 
 We can classify the consequences of algorithmic bias in the same way. This was proposed by Kate Crawford in her NIPS 2017 keynote The Trouble with Bias <dt-cite cite="crawford2017trouble"></dt-cite>. Crawford first defined algorithmic bias as "a skew that produces a type of harm". She then further classifies algorithmic biases into harms of **allocation** and harms of **representation**. Over the next two sections, we will use the same framework to look at real-world examples of algorithmic bias. Since context has often been emphasized in the previous sections, we will try to see how context can be explored in these examples.
@@ -109,7 +109,7 @@ We can classify the consequences of algorithmic bias in the same way. This was p
 ## Harms of Allocation
 
 <div>
-<img class="comic" width="200px" src="{{ "/assets/guide/comics/scales_inverted.png" | relative_url }}" title='' alt="Harms of Allocation">
+<img class="comic" width="200px" src="{{ "/assets/guide/comics/scales.png" | relative_url }}" title='' alt="Harms of Allocation">
 </div>
 
 > An allocative harm is when a system allocates or withholds certain groups an opportunity or a resource.
@@ -244,7 +244,7 @@ Maybe Brennan had been too idealistic when thinking about how judges might be us
 ## Harms of Representation
 
 <div>
-<img class="comic" width="200px" src="{{ "/assets/guide/comics/lenses_inverted.png" | relative_url }}" title='' alt="Harms of Representation">
+<img class="comic" width="200px" src="{{ "/assets/guide/comics/lenses.png" | relative_url }}" title='' alt="Harms of Representation">
 </div>
 
 > [Representative harms] occur when systems reinforce the subordination of some groups along the lines of identity.
@@ -292,7 +292,7 @@ Harms of representation are dangerous because they shape how we see the world. A
 Furthermore, when these harmful representations manifest themselves as biased actions and decisions they become self-fulfilling prophecies. Fed on a diet of white male CEO images, non-male non-white individuals might never fight for the position and we may never encourage them to go for it. We might even discourage them from pursuing what seems like an unrealistic ambition. Over time, there are fewer and fewer non-white non-male CEOs and the biases embodied by the search results turn out to be an accurate prophecy.
 
 <div>
-<img class="comic" width="250px" src="{{ "/assets/guide/comics/harmsofrep_inverted.png" | relative_url }}" alt="The Reality-Representation Cycle.">
+<img class="comic" width="250px" src="{{ "/assets/guide/comics/harmsofrep.png" | relative_url }}" alt="The Reality-Representation Cycle.">
 </div>
 
 In that case, what does an unharmful representation look like? Two possible alternatives to consider are accurate representations and ideal representations.

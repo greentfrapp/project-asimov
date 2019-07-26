@@ -1,6 +1,6 @@
 ---
 layout: guide_default
-title: The Guide. \| Project Asimov
+title: Getting Started \| Machines Gone Wrong
 permalink: /guide/basics/
 ---
 
@@ -45,7 +45,7 @@ permalink: /guide/basics/
 
 ---
 
-<h2 id="ethics-of-artificial-intelligence-ai-ethics">Ethics of <span class="bit" v-if="showBit">Human-Designed</span> Artificial Intelligence (<span class="bit" v-if="showBit">Human-Designed</span> AI Ethics)</h2>
+<h2 id="ethics-of-artificial-intelligence-ai-ethics">Ethics of <span class="bit" v-if="showBit">Human-Designed</span> Artificial Intelligence<br/>(<span class="bit" v-if="showBit">Human-Designed</span> AI Ethics)</h2>
 
 > On my view, *computer ethics* is the analysis of the nature and social impact of computer technology and the corresponding formulation and justification of policies for the ethical use of such technology.
 
@@ -56,7 +56,7 @@ Discussions of <span class="bit" v-if="showBit">human-designed</span> AI ethics 
 ### Treatment of <span class="bit" v-if="showBit">human-designed</span> AI by Humans
 
 <div>
-<img class="comic" width="380px" src="{{ "/assets/guide/comics/andrew_inverted.png" | relative_url }}" title="I don’t know what he feels inside but I don’t know what you feel inside. When you talk to him you’ll find he reacts to the various abstractions as you and I do, and what else counts? If someone else’s reactions are like your own, what more can you ask for?" alt="Siri is not a tiny sprite living in an iPhone.">
+<img class="comic" width="380px" src="{{ "/assets/guide/comics/andrew.png" | relative_url }}" title="I don’t know what he feels inside but I don’t know what you feel inside. When you talk to him you’ll find he reacts to the various abstractions as you and I do, and what else counts? If someone else’s reactions are like your own, what more can you ask for?" alt="Siri is not a tiny sprite living in an iPhone.">
 </div>
 
 Anyone who has been touched by Robin Williams's portrayal of Andrew in Bicentennial Man might have thought about the idea of granting rights to robots and <span class="bit" v-if="showBit">human-designed</span> AI systems. In Life 3.0, Max Tegmark recounted a heated discussion between Larry Page and Elon Musk on robot rights <dt-cite cite="tegmark2017life"></dt-cite>.
@@ -97,7 +97,7 @@ As such, <span class="bit" v-if="showBit">human-designed</span> AI ethics also c
 
 ---
 
-<h2 id="artificial-intelligence-systems-ais"><span class="bit" v-if="showBit">Human-Designed</span> Artificial Intelligence Systems (<span class="bit" v-if="showBit">Human-Designed</span> AIS)</h2>
+<h2 id="artificial-intelligence-systems-ais"><span class="bit" v-if="showBit">Human-Designed</span> Artificial Intelligence Systems<br/>(<span class="bit" v-if="showBit">Human-Designed</span> AIS)</h2>
 
 > An [Artificial Intelligence System (AIS)] is any computing system using artificial intelligence algorithms, whether it’s software, a connected object or a robot.
 
@@ -106,7 +106,7 @@ As such, <span class="bit" v-if="showBit">human-designed</span> AI ethics also c
 The Montréal Declaration is a set of <span class="bit" v-if="showBit">human-designed</span> AI ethics guidelines initiated by Université de Montréal. In the Declaration, its 10 principles refers extensively to "AIS" instead of "AI". This guide will do the same because the term "system" serves as a nice reminder that we are looking at a complex network of parts that work together to make a prediction.
 
 <div>
-<img class="comic" width="815px" src="{{ "/assets/guide/comics/siri_inverted.png" | relative_url }}" title="Before working at Apple, Siri acted at Studio Ghibli." alt="Siri is not a tiny sprite living in an iPhone.">
+<img class="comic" width="815px" src="{{ "/assets/guide/comics/siri.png" | relative_url }}" title="Before working at Apple, Siri acted at Studio Ghibli." alt="Siri is not a tiny sprite living in an iPhone.">
 </div>
 
 <p class="box-blue">
@@ -153,7 +153,7 @@ This assumption is flawed. For one, guns too, have no capacity for prejudice or 
 Moreover, the data used to train machine learning models can be a tremendous source of bias. A hiring model trained with sexist employment records would obviously suggest similarly sexist decisions. A recidivism model trained on racist arrest histories would obviously give racist suggestions. Like produces like. Garbage in, garbage out.
 
 <div>
-<img class="comic" width="500px" src="{{ "/assets/guide/comics/illusion_inverted.png" | relative_url }}" title="Maybe you need to dress and walk more confidently." alt="Machine learning relies on datasets.">
+<img class="comic" width="500px" src="{{ "/assets/guide/comics/illusion.png" | relative_url }}" title="Maybe you need to dress and walk more confidently." alt="Machine learning relies on datasets.">
 </div>
 
 Unfortunately, <span class="bit" v-if="showBit">human-designed</span> AIS marketed as impartial and unbiased seem really appealing for all sorts of important decisions. This illusion of fairness provides unwarranted justification for widespread deployment of <span class="bit" v-if="showBit">human-designed</span> AIS without adequate control. But fairness is not inherent in <span class="bit" v-if="showBit">human-designed</span> AIS. It is a quality that has to be carefully designed for and maintained.
@@ -167,7 +167,7 @@ Many of today's <span class="bit" v-if="showBit">human-designed</span> AIS funct
 But just like the Black Death supercharged by rats on merchant ships, this crazy speed and scale also applies to any inherent problems. A biased translation system could serve over 500 million biased queries a day. An insecure facial recognition system can leak tens of millions of faces and related personal details. Speed and scale is a double-edged sword and it's surprising how people often forget that a double-edged sword is double-edged.
 
 <div>
-<img class="comic" width="500px" src="{{ "/assets/guide/comics/scale_inverted.png" | relative_url }}" title="It's a Rock Fact!" alt="Speed and scale applies to both benefits and problems.">
+<img class="comic" width="500px" src="{{ "/assets/guide/comics/scale.png" | relative_url }}" title="It's a Rock Fact!" alt="Speed and scale applies to both benefits and problems.">
 </div>
 
 ### Accessibility
@@ -181,7 +181,7 @@ The combination of accessible research, hardware, software and data means that m
 But like speed and scale, this accessibility is also a double-edged sword. Consider the examples of DeepFakes and DeepNude. These open-source programs use Generative Adversarial Networks and variants of the pix2pix algorithm to generate realistic pornographic media of unwitting individuals. Accessible and powerful technology can also be used by irresponsible or malicious actors.
 
 <div>
-<img class="comic" width="350px" src="{{ "/assets/guide/comics/accessibility_inverted.png" | relative_url }}" title="The axes are probably on logarithmic scales." alt="Accessibility versus Capacity for Harm.">
+<img class="comic" width="350px" src="{{ "/assets/guide/comics/accessibility.png" | relative_url }}" title="The axes are probably on logarithmic scales." alt="Accessibility versus Capacity for Harm.">
 </div>
 
 <div class="box-red">
@@ -214,7 +214,7 @@ But like speed and scale, this accessibility is also a double-edged sword. Consi
 ### "When is <span class="bit" v-if="showBit">human-designed</span> AI not the answer?"
 
 <div>
-<img class="comic" width="250px" src="{{ "/assets/guide/comics/notanswer_1_inverted.png" | relative_url }}" title='When the Question is, "What do you get if you multiply six by nine?"' alt="Is that a trick question?">
+<img class="comic" width="250px" src="{{ "/assets/guide/comics/notanswer_1.png" | relative_url }}" title='When the Question is, "What do you get if you multiply six by nine?"' alt="Is that a trick question?">
 </div>
 
 This is the most important question in this entire guide, and these days it can feel like the answer is, "Never."
@@ -226,7 +226,7 @@ This is the most important question in this entire guide, and these days it can 
 <span class="bit" v-if="showBit">Human-designed</span> AI technologies have been used for facial recognition, hiring, criminal sentencing, credit scoring. More unconventional applications include writing inspirational quotes ([link](http://inspirobot.me/)), coming up with Halloween costumes ([link](https://www.nytimes.com/interactive/2018/10/26/opinion/halloween-spooky-costumes-machine-learning-generator.html)), inventing new pizza recipes ([link](https://www.youtube.com/watch?v=WVvHCJls3yY)) and creating rap lyrics ([link](http://deepbeat.org/)).
 
 <div>
-<img class="comic" width="300px" src="{{ "/assets/guide/comics/notanswer_2_inverted.png" | relative_url }}" title="Linguine used Bind. It's super effective!" alt="Is that a trick question?">
+<img class="comic" width="300px" src="{{ "/assets/guide/comics/notanswer_2.png" | relative_url }}" title="Linguine used Bind. It's super effective!" alt="Is that a trick question?">
 </div>
 
 But the superiority of <span class="bit" v-if="showBit">human-designed</span> AIS should not be taken for granted despite all the hype. For example, human professionals are often far better at explaining their decisions, as compared to <span class="bit" v-if="showBit">human-designed</span> AIS. Most humans also tend to make better jokes.
@@ -260,7 +260,7 @@ It is immensely important to consider the trade-offs when deploying <span class=
 Such observations are hardly surprising, given the daily exhortations of the reliability of machines. In fact, the human tendency to defer to automated decisions has been termed "automation bias" <dt-cite cite="skitka2000automation,citron2007technological"></dt-cite>. Unfortunately, this over-deference to machines potentially undermines the mutually complementary aspect of <span class="bit" v-if="showBit">human-designed</span> AI+Human models.
 
 <div>
-<img class="comic" width="300px" src="{{ "/assets/guide/comics/notanswer_3_inverted.png" | relative_url }}" title="The teller said she would be happy to help me reinstate my account if I can prove I am alive." alt="Over-deference to machines.">
+<img class="comic" width="300px" src="{{ "/assets/guide/comics/notanswer_3.png" | relative_url }}" title="The teller said she would be happy to help me reinstate my account if I can prove I am alive." alt="Over-deference to machines.">
 </div>
 
 ### Neglected Ripples

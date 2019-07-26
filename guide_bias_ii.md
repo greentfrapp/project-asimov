@@ -1,6 +1,6 @@
 ---
 layout: guide_default
-title: The Guide. \| Project Asimov
+title: Understanding Bias I \| Machines Gone Wrong
 permalink: /guide/bias_ii/
 ---
 
@@ -55,7 +55,7 @@ Defining the population is critical because this has downstream effects on how w
 
 Historical bias <dt-cite cite="suresh2019framework"></dt-cite> can make it difficult to accurately define the population. Effort must be put into understanding the sociotechnical context of the problem. In the example above, it is intuitive to use past passenger records to characterize our population. But imagine if the records only document the purchaser's information. We might then miss out on young passengers who are unlikely to be buying their own tickets.
 
-<p class="box-red emph">
+<p class="emph">
   Bias can crop up when the <em>defined</em> population is not the <em>actual</em> population. Be wary of unintended historical bias when defining the population.
 </p>
 
@@ -73,7 +73,7 @@ An alternative is to check that the dataset has equal proportions of all the dif
 
 Another solution that we will touch on in the next section is to train separate models for subgroups. This can prevent a dominant group from overwhelming a model in cases of class imbalance.
 
-<p class="box-red emph">
+<p class="emph">
   Bias can crop up when the diversity in the population is not well-represented in the dataset. 
 </p>
 
@@ -238,7 +238,7 @@ On a more algorithmic note, lack of proper feedback can lead to scenarios where 
   <p>
     But let's consider what happens if a prediction model gets it wrong initially. Suppose we have two areas, Area A and Area B, with equal rates of crime. Suppose the model says that Area A is a hot-spot but neglects Area B. Area A gets more patrols and because there are more patrols, more crime is detected and more arrests are made. These arrests are logged into a dataset, which is fed back into the model. The model sees that Area A has more arrests than Area B and continues predicting it as a hot-spot. We never get the chance to find out that actually both areas have the same crime rate.
   </p>
-  <p><em>Add diagram here</em></p>
+  <!-- TODO: Add diagram here -->
   <p>
     In the words of O'Neil:
   </p>

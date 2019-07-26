@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Lora:400,700|Open+Sans|Roboto:400,600,700,900|Crimson+Text:400,600,700&display=swap');
 
-// @font-face {
-// 	font-family: "Computer Modern";
-// 	src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
-// }
-
 $guide-background-color: #222222 !default;
 $guide-antibackground-color: #DDDDDD !default;
 $guide-text-color: #DDDDDD !default;
@@ -17,6 +12,7 @@ $guide-positive-color: #036ecd !default;
 $guide-annotation-color: #fccf35 !default;
 $guide-tidbit-color: #FF8A8A !default;
 
+// Overwrite SemanticUI pushable
 body.pushable {
 	background: $guide-background-color !important;
 	height: auto;
@@ -35,16 +31,14 @@ body.pushable {
 
 body#guide-body {
 	background-color: $guide-background-color;
-	height: auto;
-	width: 100%;
-	// scroll-behavior: smooth;
+	// scroll-behavior: smooth; // for anchor-links
 	color: $guide-text-color;
 	
 	h1, h2, h3, h4, h5, h6 {
 		color: $guide-text-color;
-		font-family: 'Roboto', serif;
+		font-family: 'Roboto', sans-serif;
 		code {
-			font-size: inherit;
+			font-size: inherit; // for WIP
 		}
 	}
 
@@ -56,10 +50,9 @@ body#guide-body {
 	h2 {
 		font-size: 3.5rem;
 		color: $guide-text-secondary-c;
-		// padding-top: 100px;
-		// padding-bottom: 50px;
 	}
 
+	// For anchor-links
 	h2::before { 
 		display: block; 
 		content: " "; 
@@ -84,28 +77,20 @@ body#guide-body {
 
 	.ui.sidebar {
 
-		.spacer {
-			height: 150px;
-		}
-
 		.item {
 			font-size: 1.3em;
 		}
 
-		.item-blue {
+		.chapter {
 			font-weight: bold;
 			color: $guide-text-secondary-c;
 		}
 
-		.item.disabled {
-			color: darken($guide-text-color, 50%) !important;
-		}
-
-		.chapter {
+		.section {
 			padding-left: 35px;
 		}
 
-		.subitem {
+		.subsection {
 			padding-left: 50px;
 			font-size: 1.1em;
 			color: darken($guide-text-color, 10%) !important;
@@ -116,18 +101,15 @@ body#guide-body {
 			text-decoration: none;
 		}
 
+		.item.disabled {
+			color: darken($guide-text-color, 50%) !important;
+		}
 	}
 
 	div#nav {
 		position: fixed;
 		width: 100%;
-		
-		// background-color: $guide-background-color;
-		// color: $guide-text-color;
-		// transform: translate3d(0, 0, 0);
-		// transition: 0.2s ease;
 		z-index: 3;
-		//border-bottom: 1px solid $guide-antibackground-color;
 		
 		.logo {
 			width: 100%;
@@ -141,7 +123,6 @@ body#guide-body {
 			font-weight: 900;
 			text-decoration: none;
 			border-bottom: 1px solid $guide-text-color;
-			// z-index: 10;
 
 			.toggle {
 				cursor: pointer;
@@ -151,70 +132,6 @@ body#guide-body {
 				color: $guide-text-color;
 				text-decoration: none;
 			}
-		}
-
-		span#showBurger {
-			float: right;
-			margin-right: 100px;
-			cursor: pointer;
-		}
-		
-		ul {
-			display: inline-block;
-			margin-left: 0px;
-			transform: translate3d(0, 0, 0);
-			transition: 0.1s all ease-out;
-			border-right: 3px solid $guide-text-color;
-			padding: 25px;
-		}
-
-		ul.burger {
-			position: fixed;
-			// z-index: -1;
-			width: 250px;
-			height: 100vh;
-			top: 0px;
-			// padding-top: 100px;
-			left: 0px;
-			background-color: $guide-background-color;
-			overflow-y: scroll;
-			li {
-				display: block;
-				margin: 20px 5px;
-				border-bottom: 1px solid $guide-background-color;
-				color: $guide-text-color;
-				a {
-					color: $guide-text-color;
-					text-decoration: none;
-				}
-			}
-			li.disabled {
-				color: lighten($guide-antitext-color, 50%);
-			}
-		}
-
-		ul.hide {
-			transform: translate3d(-100%, 0, 0);
-		}
-		
-		li {
-			margin: 0px;
-			margin-left: 10px;
-			margin-right: 10px;
-			padding: 0;
-			display: inline-block;
-			font-size: 20px;
-			font-family: 'Roboto', sans-serif;
-			font-weight: 400;
-			color: $guide-text-color;
-
-			a {
-				color: $guide-text-color;
-			}
-		}
-
-		li.disabled {
-			color: darken($guide-text-color, 50%);
 		}
 	}
 
@@ -249,16 +166,10 @@ body#guide-body {
 	}
 
 	div.guide-content {
-		//border: 1px solid red;
 		margin-left: auto !important;
 		margin-right: auto;
 		width: 90%;
-		//margin-right: 550px;
-		// width: auto;
-		//width: 90%;
-		//max-width: 500px;
 		padding: 100px 0px;
-		// padding-right: 25px;
 		text-align: center;
 
 		@media(min-width: 1000px) {
@@ -272,8 +183,6 @@ body#guide-body {
 			line-height: 2.5rem;
 			width: 100%;
 			text-align: left;
-			//margin-left: auto;
-			//margin-right: auto;
 		}
 
 		.emph {
@@ -285,14 +194,9 @@ body#guide-body {
 			}
 		}
 
-		div.step {
-			// height: 0px;
-		}
-
 		blockquote {
 			border-left: 4px solid darken($guide-text-color, 15%);
 			p, ul, ol {
-				// font-family: "Roboto", sans-serif;
 				color: darken($guide-text-color, 15%);
 			}
 		}
@@ -319,14 +223,9 @@ body#guide-body {
 		}
 
 		i.tidbit-link {
-			// width: 20.65px;
-			// height: 20.65px;
-			// margin-right: 0;
 			margin-top: -0.2em;
 			cursor: pointer;
 			color: darken($guide-tidbit-color, 10%);
-			// transform: rotate(0deg);
-			// transform-origin: 40% 50%;
 			transition: 0.1s all ease-out;
 			font-size: 1.2em;
 		}
@@ -436,7 +335,6 @@ body#guide-body {
 	}
 
 	a {
-		// color: $guide-text-color;
 		color: darken($guide-text-secondary-c, 0%);
 		text-decoration: underline;
 	}
@@ -445,50 +343,16 @@ body#guide-body {
 		margin: 25px auto;
 	}
 
-	#fairness-vis {
-		//border: 1px solid blue;
-		display: inline-block;
-		position: fixed;
-		top: 0px;
-		z-index: 1;
-		right: 0px;
-		//margin-left: 0;
-		//margin-right: 25px;
-
-		//height: 100%;
-		width: 500px;
-		//background-color: #ddd;
-
-		.vis-textbox {
-			//border: 1px solid green;
-			height: 200px;
-			margin-top: -250px;
-			padding: 0px 50px;
-
-			p {
-				font-size: 18px;
-				font-family: "Roboto", sans-serif;
-			}
-		}
-
-		.hidden {
-			display: none;
-		}
-	}
 	#fairness-explorable {
-		// border: 1px solid $guide-text-color;
 		min-width: 907px;
 		margin-bottom: 50px;
-		// height: 1025px;
 		#charts-stats {
-			// width: 600px;
 			display: inline-block;
 		}
 		svg {
 			margin-left: auto;
 			margin-right: auto;
 			display: block;
-			// border: 1px solid #FFFFFF;
 		}
 		.ui.statistics .statistic .value,
 		.ui.statistics .statistic .label {
@@ -518,7 +382,6 @@ body#guide-body {
 			display: inline-block;
 		}
 		#fairness-types {
-			// margin-top: 25px;
 			margin-left: 25px;
 			text-align: left;
 			display: inline-block;
@@ -526,10 +389,7 @@ body#guide-body {
 			width: 355px;
 		}
 		.fairness-types-segment {
-			// border-right: 2px solid $guide-text-color;
-			// width: 40%;
 			text-align: left;
-			// display: inline-block;
 			vertical-align: top;
 			.title {
 				font-weight: bold;
@@ -546,7 +406,7 @@ body#guide-body {
 				}
 			}
 		}
-		circle.chart-control:hover {
+		circle.chart-control {
 			cursor: move;
 		}
 		.hidden {
@@ -554,9 +414,6 @@ body#guide-body {
 		}
 		g.annotation-group {
 			font-size: 1rem;
-		}
-		#tooltip-qns {
-			margin: 25px 0px;
 		}
 		.keyword {
 			color: $guide-annotation-color;

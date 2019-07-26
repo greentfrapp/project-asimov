@@ -3,26 +3,31 @@
 
 	{%- include guide_head.html -%}
 
-	<body id="guide-body">
+	<body id="guide-body" >
 		{%- include guide_navbar.html -%}
-		<div id="nav" class="fixed">
+		<div id="app" class="pusher light">
+		<div id="nav" class="fixed" :class="{light: !darkmode}">
 			<div class="logo">
-				<i class="icon bars large toggle"></i>
-				<div style="width: 150px; display: inline-block; vertical-align: middle;" class="toggle">
+				<i class="icon bars large toggle-menu"></i>
+				<div style="width: 140px; display: inline-block; vertical-align: middle;" class="toggle-menu">
 	  			<a> 
 					Machines Gone Wrong
 				</a>
 				</div>
+				<div class="ui toggle checkbox" id="dark-mode-switch">
+				  <input type="checkbox" name="darkmode" v-model="darkmode" @click="toggleDarkmode">
+				  <label>Dark Mode</label>
+				</div>
 			</div>
 		</div>
-		<div class="pusher">
-		<div id="app">
+		<div :class="{light: !darkmode}">
 			<div class="content guide-content">
 				{{ content }}
 			</div>
 		</div>
 
 		{%- include footer.html -%}
+		<div id="cookieconsent"></div>
 		</div>
 		{%- include scripts.html -%}
 	</body>

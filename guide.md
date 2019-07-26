@@ -1,5 +1,5 @@
 ---
 layout: guide
-title: The Guide. \| Project Asimov
+title: Machines Gone Wrong
 permalink: /guide/
 ---

@@ -1,6 +1,6 @@
 ---
 layout: guide_default
-title: The Guide. \| Project Asimov
+title: Understanding Fairness \| Machines Gone Wrong
 permalink: /guide/fairness/
 ---
 
@@ -68,7 +68,7 @@ Both terms refer to practices that cause a group of people sharing **protected c
 The difference between disparate treatment and disparate impact can be summarized as **explicit intent**. Disparate treatment is explicitly intentional, while disparate impact is implicit or unintentional.
 
 <div>
-<img class="comic" width="400px" src="{{ "/assets/guide/comics/disparate_inverted.png" | relative_url }}" title="I also heard animals that begin with 'C' need more food." alt="Disparate treatment vs disparate impact.">
+<img class="comic" width="400px" src="{{ "/assets/guide/comics/disparate.png" | relative_url }}" title="I also heard animals that begin with 'C' need more food." alt="Disparate treatment vs disparate impact.">
 </div>
 
 ### What does this mean for AIS?
@@ -155,13 +155,13 @@ On the other hand, there have been many attempts at trying to formalize and quan
 ## A Fair Fat Pet Predictor
 
 <div>
-<img class="comic" width="450px" src="{{ "/assets/guide/comics/cat_1_inverted.png" | relative_url }}" title="Or maybe he's pregnant." alt="Fat pet predictor.">
+<img class="comic" width="450px" src="{{ "/assets/guide/comics/cat_1.png" | relative_url }}" title="Or maybe he's pregnant." alt="Fat pet predictor.">
 </div>
 
 Suppose for a moment that our company organizes diet boot camps for overweight cats and dogs. We want to develop an AI system to help owners diagnose if a pet is overweight. Pets diagnosed as fat are then sent to our boot camps, which means less food and no treats boohoo. Furthermore, we know that dogs are more likely to be fat, as compared to cats. In fact, cats only have a 40% chance of being overweight, while dogs have a 60% chance of being overweight.
 
 <div>
-<img class="comic" width="200px" src="{{ "/assets/guide/comics/cat_2_inverted.png" | relative_url }}" title="That's what statistics means right?" alt="40% of cats are overweight.">
+<img class="comic" width="200px" src="{{ "/assets/guide/comics/cat_2.png" | relative_url }}" title="That's what statistics means right?" alt="40% of cats are overweight.">
 </div>
 
 ### Some Basics Before We Start
@@ -207,7 +207,7 @@ This fairness metric is based on an intuitive rule - "treating similar individua
 Unfortunately, this leaves the difficult question of how to define appropriate distance metrics for the specific problem and application.
 
 <div>
-<img class="comic" width="450px" src="{{ "/assets/guide/comics/manymetrics_inverted.png" | relative_url }}" title="Is the temperature in Kelvin, Celsius or Farenheit? Yes." alt="There are a ton of metrics to measure fairness.">
+<img class="comic" width="450px" src="{{ "/assets/guide/comics/manymetrics.png" | relative_url }}" title="Is the temperature in Kelvin, Celsius or Farenheit? Yes." alt="There are a ton of metrics to measure fairness.">
 </div>
 
 ### Is it Justified?
@@ -248,7 +248,7 @@ The fairness metrics can be a systematic way to check for bias, but they are onl
 ## The Impossibility Theorem
 
 <div>
-<img class="comic" width="450px" src="{{ "/assets/guide/comics/bongo_inverted.gif" | relative_url }}" title="" alt="Some fairness definitions are mutually exclusive.">
+<img class="comic" width="450px" src="{{ "/assets/guide/comics/bongo.gif" | relative_url }}" title="" alt="Some fairness definitions are mutually exclusive.">
 </div>
 
 For our fictional fat pet predictor, we had complete control over the system's accuracy. Even so, you may have noticed that it was impossible to fulfill all five fairness metrics at the same time. This is sometimes known as the Impossibility Theorem of Fairness.
@@ -273,7 +273,7 @@ Turns out, it is impossible to satisfy both definitions of fairness, given popul
 ### So fairness is impossible?
 
 <div>
-<img class="comic" width="450px" src="{{ "/assets/guide/comics/impossible_inverted.png" | relative_url }}" title="I told you we shouldn't have used Farenheit." alt="So fairness is impossible?">
+<img class="comic" width="450px" src="{{ "/assets/guide/comics/impossible.png" | relative_url }}" title="I told you we shouldn't have used Farenheit." alt="So fairness is impossible?">
 </div>
 
 The point of all these is not to show that fairness does not make sense or that it is impossible. After all, notions of fairness are heavily based on context and culture. Different definitions that appear incompatible simply reflect this context-dependent nature.
@@ -303,7 +303,7 @@ But this also means that it is super critical to have a deliberate discussion ab
 Computer scientists might often prefer general algorithms that is agnostic to context and application. The agnostic nature of unstructured deep learning is often cited as a huge advantage compared to labor-intensive feature engineering. So the importance of context in understanding fairness can be a bane to computer scientists, who might like to "[abstract] away the social context in which these systems will be deployed" <dt-cite cite="selbst2019fairness"></dt-cite>.
 
 <div>
-<img class="comic" width="200px" src="{{ "/assets/guide/comics/abstraction_inverted.png" | relative_url }}" title="Yes, the stick figures actually symbolize how we often neglect important details. Definitely not because I'm lazy or bad at drawing." alt='Abstraction" is when we make a complex thing simple by ignoring all the unnecessary details.'>
+<img class="comic" width="200px" src="{{ "/assets/guide/comics/abstraction.png" | relative_url }}" title="Yes, the stick figures actually symbolize how we often neglect important details. Definitely not because I'm lazy or bad at drawing." alt='Abstraction" is when we make a complex thing simple by ignoring all the unnecessary details.'>
 </div>
 
 But as Selbst et al. write in their work on fairness in sociotechnical systems:
@@ -395,12 +395,13 @@ By the time you read this, "context" should have been burned into your retina. B
 So here is a list of questions and prompts to help you learn more about the sociotechnical context of your application. Don't be limited to these though, go beyond this to understand at much about the problem as you can. Also, these prompts should be discussed as a group rather than answered in isolation. Involve as many people as you can!
 
 <div>
-<img class="comic" width="250px" src="{{ "/assets/guide/comics/context_1_inverted.png" | relative_url }}" title="*meow meow meow*" alt="Involve as many people as you can!">
+<img class="comic" width="250px" src="{{ "/assets/guide/comics/context_1.png" | relative_url }}" title="*meow meow meow*" alt="Involve as many people as you can!">
 </div>
 
 #### General Context
 
 - What is the ultimate aim of the application?
+- What are the pros and cons of an AIS versus other solutions?
 - How is the AIS supposed to be used?
 - What is the current system that the AIS will be replacing?
 - Create a few user personas - the technophobe, the newbie etc. - and think about how they might react to the AIS across the short-term and long-term.
@@ -413,7 +414,8 @@ So here is a list of questions and prompts to help you learn more about the soci
 - What do false positives and false negatives mean for different users? Under what circumstances might one be worse than the other?
 - Try listing out some examples of fair and unfair predictions. Why are they fair/unfair?
 - What are the relevant protected traits in this problem?
-- If we detect some unfairness with our metrics - is the disparity justified?
+- Which fairness metrics should we prioritize?
+- When we detect some unfairness with our metrics - is the disparity justified?
 
 <!-- TODO: Comic -->
 
@@ -424,7 +426,7 @@ So here is a list of questions and prompts to help you learn more about the soci
 - Ship your answers with the AIS when it is deployed
 
 <div>
-<img class="comic" width="250px" src="{{ "/assets/guide/comics/context_2_inverted.png" | relative_url }}" title="I wonder what are the fairness concerns if we try to do Google Translate for cats." alt="Involve as many people as you can!">
+<img class="comic" width="250px" src="{{ "/assets/guide/comics/context_2.png" | relative_url }}" title="I wonder what are the fairness concerns if we try to do Google Translate for cats." alt="Involve as many people as you can!">
 </div>
 
 <div class="box-red">
