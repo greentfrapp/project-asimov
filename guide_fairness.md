@@ -426,7 +426,7 @@ So here is a list of questions and prompts to help you learn more about the soci
 - Ship your answers with the AIS when it is deployed
 
 <div>
-<img class="comic" width="250px" src="{{ "/assets/guide/comics/context_2.png" | relative_url }}" title="I wonder what are the fairness concerns if we try to do Google Translate for cats." alt="Involve as many people as you can!">
+<img class="comic" width="250px" src="{{ "/assets/guide/comics/context_2.png" | relative_url }}" title="*meow meow meow*" alt="Involve as many people as you can!">
 </div>
 
 <div class="box-red">

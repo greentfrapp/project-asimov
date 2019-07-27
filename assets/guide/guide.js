@@ -52,7 +52,9 @@ let framework = new Vue({
 		      d3.select("#nav").classed("navbar-hidden", true)
 		    },
 		    onVisible: function() {
-		    	d3.select("div#start.guide-content").style("transform", "translate3d(-130px, 0, 0)")
+		    	if (document.documentElement.clientWidth > 1000) {
+		    		d3.select("div.guide-content").style("transform", "translate3d(-130px, 0, 0)")
+		    	}
 		    }
 		});
 		d3.select(".ui.sidebar").selectAll(".item").on("click", function () {

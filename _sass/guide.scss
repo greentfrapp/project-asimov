@@ -219,6 +219,7 @@ body#guide-body {
 		@media(min-width: 1000px) {
 			// width: 900px;
 			width: calc(100% - 520px);
+			max-width: 800px;
 			// margin-left: calc((100% - 1400px) / 2);
 		}
 		
@@ -505,8 +506,11 @@ body#guide-body {
 			text-decoration: none;
 			a {
 				color: #222222;
-				text-decoration: underline;
+				text-decoration: none;
 				border: none;
+			}
+			.cc-message {
+				padding: 5px;
 			}
 			.cc-compliance {
 				.cc-deny {
@@ -589,6 +593,17 @@ body#guide-body div#nav.light {
 		border-bottom: 1px solid darken($guide-text-secondary-c, 25%);
 	}
 
+	table {
+		color: $guide-antitext-color;
+		th {
+			background-color: rgba(0, 0, 0, 0.1);
+			border-color: lighten($guide-antitext-color, 30%);
+		}
+		td {
+			border-color: lighten($guide-antitext-color, 30%);
+		}
+	}
+
 	div.guide-content {
 		blockquote {
 			border-left: 4px solid lighten($guide-antitext-color, 20%);
@@ -602,9 +617,9 @@ body#guide-body div#nav.light {
 		}
 		.tidbit-content,
 		.bit {
-			// color: darken($guide-tidbit-color, 42%);
-			color: $guide-antitext-color;
-			background-color: lighten($guide-tidbit-color, 10%);
+			color: darken($guide-tidbit-color, 42%);
+			// color: $guide-antitext-color;
+			// background-color: lighten($guide-tidbit-color, 10%);
 		}
 		.box,
 		.box-blue,

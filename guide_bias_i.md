@@ -88,6 +88,10 @@ We can classify the consequences of algorithmic bias in the same way. This was p
 
 *Comparison between the two types of harm, from Crawford's NIPS 2017 keynote <dt-cite cite="crawford2017trouble"></dt-cite>*
 
+<div>
+<img class="comic" width="600px" src="{{ "/assets/guide/comics/allocative_representative.png" | relative_url }}" title="███ ████ ██ █ ████" alt="Harms of Allocation vs Harms of Representation">
+</div>
+
 <div class="box-red">
 <div class="ui list">
   <div class="item">
@@ -146,7 +150,7 @@ In short, black defendants were more likely to be wrongly accused of reoffending
 
 #### Proxy Labels
 
-The term "recidivism" refers to the likelihood of a criminal committing another crime, after they have been convicted. To train a recidivism prediction model, the training data should ideally have labels denoting whether a convicted criminal has reoffended. But in reality, we don't know when someone has committed a crime. So, we use a proxy. Instead of labels denoting whether a convicted criminal has reoffended, the labels denote whether a convicted criminal has been convicted again. That might be the closest we can get, but is it close enough?
+The term "recidivism" refers to the likelihood of a criminal committing another crime, after they have been convicted. To train a recidivism prediction model, the training data should ideally have labels denoting whether a convicted criminal has reoffended. But in reality, we don't know when someone has committed a crime, only when someone has been arrested. So, we use a proxy. Instead of labels denoting whether a convicted criminal has reoffended, the labels denote whether a convicted criminal has been convicted again. That might be the closest we can get, but is it close enough?
 
 Let's think about some of the differences between "reoffending" and "being convicted again".
 
@@ -158,9 +162,13 @@ Okay, now let's go one step further and think about how a trait like race might 
 1. If racism has a major influence on police practices like stop-and-frisk, we might find that white re-offenders have a higher chance of not getting caught, as compared to black re-offenders. This might cause our dataset to underestimate the number of white re-offenders.
 2. And likewise, we might find that black individuals are subject to wrongful arrests more frequently than white individuals. In that case, our dataset might be overestimating the number of black repeat offenders.
 
-In other words, by using the proxy label of "being convicted again" rather than "reoffending", we could be exaggerating the presence of black individuals and systematically biasing the dataset along racial lines. Obviously all of this is hypothetical and requires more substantial evidence. Nevertheless, when faced with problems like these, it might be prudent to question if an algorithmic solution is really the answer.
+In other words, by using the proxy label of "being convicted again" rather than "reoffending", we could be exaggerating the recidivism rate of black individuals and systematically biasing the dataset along racial lines. Obviously all of this is hypothetical and requires more substantial evidence. Nevertheless, when faced with problems like these, it might be prudent to ask if an algorithmic solution is really the answer.
 
 #### Public Disclosure
+
+<div>
+<img class="comic" width="450px" src="{{ "/assets/guide/comics/disclosure.png" | relative_url }}" title='Hi Box, what should I do today? %GO BUY 10 MORE BOXES%' alt="It's proprietary!">
+</div>
 
 Despite the important role that risk scores like COMPAS play in the criminal justice system, there is little public information about these systems.
 
@@ -261,11 +269,15 @@ Most of us have had experience with Google Image search. Maybe it was to find so
 
 <iframe src="https://www.google.com/search?q=playground&igu=1&tbm=isch" width="100%" height="365" frameBorder="0" style="margin: 25px 0;"></iframe>
 
-*Google Image Search for "playground".*
+*Latest Image Search for "playground".*
 
 <iframe src="https://www.google.com/search?q=bedroom&igu=1&tbm=isch" width="100%" height="365" frameBorder="0" style="margin: 25px 0;"></iframe>
 
-*Google Image Search for "bedroom".*
+*Latest Image Search for "bedroom".*
+
+<div>
+<img class="comic" width="700px" src="{{ "/assets/guide/comics/playground.png" | relative_url }}" title="So *that's* why smartphones all look the same." alt="All playgrounds look the same.">
+</div>
 
 Such stereotypes go beyond objects and places, extending to queries of people as well. Studies have found that Google's Image Search perpetuated and exaggerated gender and racial stereotypes for certain keywords, such as "CEO", "doctor" and "nurse" <dt-cite cite="otterbacher2017competent,kay2015unequal"></dt-cite>. We know that these words are gender-neutral. But most of us might also know that these words tend to embody certain stereotypes, such as the male doctor and the female nurse. Let's consider the simple and vivid example of Google's Image Search for the term "CEO".
 
@@ -285,7 +297,7 @@ In April 2015, a Google Image search for the term "CEO" surfaced results that we
 
 <iframe src="https://www.google.com/search?q=CEO&igu=1&tbm=isch" width="100%" height="365" frameBorder="0" style="margin: 25px 0;"></iframe>
 
-*Current Google Image Search for "CEO".*
+*Latest Google Image Search for "CEO".*
 
 Harms of representation are dangerous because they shape how we see the world. And in turn, how we see the world shapes the world. A generation raised solely on fairy tales of damsels in distress might not recognize the existence of heroines and men in need of saving. A generation raised solely on image search results of white male CEOs may find it difficult to entertain the possibility of a non-male non-white CEO. By limiting our cognitive vocabulary, these harmful representations become additional psychological obstacles that must be overcome.
 

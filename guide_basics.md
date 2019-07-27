@@ -152,10 +152,6 @@ This assumption is flawed. For one, guns too, have no capacity for prejudice or 
 
 Moreover, the data used to train machine learning models can be a tremendous source of bias. A hiring model trained with sexist employment records would obviously suggest similarly sexist decisions. A recidivism model trained on racist arrest histories would obviously give racist suggestions. Like produces like. Garbage in, garbage out.
 
-<div>
-<img class="comic" width="500px" src="{{ "/assets/guide/comics/illusion.png" | relative_url }}" title="Maybe you need to dress and walk more confidently." alt="Machine learning relies on datasets.">
-</div>
-
 Unfortunately, <span class="bit" v-if="showBit">human-designed</span> AIS marketed as impartial and unbiased seem really appealing for all sorts of important decisions. This illusion of fairness provides unwarranted justification for widespread deployment of <span class="bit" v-if="showBit">human-designed</span> AIS without adequate control. But fairness is not inherent in <span class="bit" v-if="showBit">human-designed</span> AIS. It is a quality that has to be carefully designed for and maintained.
 
 ### Speed and Scale
@@ -214,7 +210,7 @@ But like speed and scale, this accessibility is also a double-edged sword. Consi
 ### "When is <span class="bit" v-if="showBit">human-designed</span> AI not the answer?"
 
 <div>
-<img class="comic" width="250px" src="{{ "/assets/guide/comics/notanswer_1.png" | relative_url }}" title='When the Question is, "What do you get if you multiply six by nine?"' alt="Is that a trick question?">
+<img class="comic" width="250px" src="{{ "/assets/guide/comics/notanswer_1.png" | relative_url }}" title='' alt="Is that a trick question?">
 </div>
 
 This is the most important question in this entire guide, and these days it can feel like the answer is, "Never."
