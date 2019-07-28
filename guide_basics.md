@@ -303,7 +303,8 @@ More generally, when discussing the pros and cons of adopting <span class="bit" 
   booktitle={The Montréal Declaration for a Responsible Development of Artificial Intelligence},
   pages={1-308},
   year={2018},
-  organization={Université de Montréal}
+  organization={Université de Montréal},
+  url={https://www.montrealdeclaration-responsibleai.com/}
 }
 
 @article{moor1985computer,
@@ -312,9 +313,10 @@ More generally, when discussing the pros and cons of adopting <span class="bit" 
   journal={Metaphilosophy},
   volume={16},
   number={4},
-  pages={266--275},
+  pages={266-275},
   year={1985},
-  publisher={Wiley Online Library}
+  publisher={Wiley Online Library},
+  url={https://doi.org/10.1111/j.1467-9973.1985.tb00173.x}
 }
 
 @book{tegmark2017life,
@@ -338,7 +340,8 @@ More generally, when discussing the pros and cons of adopting <span class="bit" 
   volume={85},
   pages={1249},
   year={2007},
-  publisher={HeinOnline}
+  publisher={HeinOnline},
+  url={https://openscholarship.wustl.edu/cgi/viewcontent.cgi?article=1166&context=law_lawreview}
 }
 
 @article{skitka2000automation,
@@ -347,16 +350,18 @@ More generally, when discussing the pros and cons of adopting <span class="bit" 
   journal={The International journal of aviation psychology},
   volume={10},
   number={1},
-  pages={85--97},
+  pages={85-97},
   year={2000},
-  publisher={Taylor \& Francis}
+  publisher={Taylor & Francis},
+  url={https://doi.org/10.1207/S15327108IJAP1001_5}
 }
 
 @inproceedings{selbst2019fairness,
   title={Fairness and abstraction in sociotechnical systems},
   author={Selbst, Andrew D and Boyd, Danah and Friedler, Sorelle A and Venkatasubramanian, Suresh and Vertesi, Janet},
   booktitle={Proceedings of the Conference on Fairness, Accountability, and Transparency},
-  pages={59--68},
+  pages={59-68},
   year={2019},
-  organization={ACM}
+  organization={ACM},
+  url={http://sorelle.friedler.net/papers/sts_fat2019.pdf}
 }

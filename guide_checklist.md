@@ -30,7 +30,7 @@ Again, this checklist is best completed as a group exercise and with extensive i
 
 1. What do false positives and false negatives mean for different users? Under what circumstances might one be worse than the other? <tidbit content="<br/>In recidivism prediction models for instance, false positives mean innocent people were wrongly accused. When we step from theory to the real world, we need to see that these mathematical concepts have very real meanings."></tidbit>
 2. Try listing out some examples of fair and unfair predictions. Why are they fair/unfair? <tidbit content="<br/>This is the first step towards trying to understand what are the protected traits in this context and how we should define fairness."></tidbit>
-3. What are the relevant protected traits in this problem? <tidbit content="<br/>Common protected traits include gender, skin color, ethnicity, age and physical ability. But this really depends on the context and the culture that the application is situated in."></tidbit>
+3. What are the relevant protected traits in this problem? <tidbit content="<br/>Common protected traits include gender, skin color, ethnicity, age and physical ability. But remember that this really depends on the context and the culture that the application is situated in."></tidbit>
 4. Which fairness metrics should we prioritize? <tidbit content="<br/>Prioritizing means that some metrics are invariably compromised or violated. These decisions and their resultant shortcomings should be made known to users."></tidbit>
 
 ---

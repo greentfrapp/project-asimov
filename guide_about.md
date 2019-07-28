@@ -10,7 +10,7 @@ Hi there! I'm Lim Swee Kiat, a graduate student enrolled in the [MSc. Urban Scie
 
 **Machines Gone Wrong** is part of my final project, supervised by [Prof. Lim Sun Sun](https://www.sunsunlim.com/).
 
-This guide was meant to introduce AI practitioners to the concerns of AI ethics, specifically algorithmic bias. As an undergraduate engineer and subsequent AI researcher, I found the social and ethical aspects lacking in the curriculum. This is my response to the problem and served as a way to document my learning journey about the topic. 
+This guide is meant to introduce AI practitioners to the concerns of AI ethics, specifically algorithmic bias. As an undergraduate engineer and subsequent AI researcher, I found the social and ethical aspects lacking in the curriculum. This is my response to the problem and served as a way to document my learning journey about the topic. 
 
 ---
 

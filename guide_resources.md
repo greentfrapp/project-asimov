@@ -71,7 +71,7 @@ Academic publications related to algorithmic bias that I found useful.
   title={Gender shades: Intersectional accuracy disparities in commercial gender classification},
   author={Buolamwini, Joy and Gebru, Timnit},
   booktitle={Conference on fairness, accountability and transparency},
-  pages={77--91},
+  pages={77-91},
   year={2018},
   url={http://proceedings.mlr.press/v81/buolamwini18a.html}
 }
@@ -90,7 +90,7 @@ Academic publications related to algorithmic bias that I found useful.
   journal={ACM Transactions on Information Systems (TOIS)},
   volume={14},
   number={3},
-  pages={330--347},
+  pages={330-347},
   year={1996},
   publisher={ACM},
   url={https://dl.acm.org/citation.cfm?id=230561}
@@ -100,7 +100,7 @@ Academic publications related to algorithmic bias that I found useful.
   title={Do artifacts have politics?},
   author={Winner, Langdon},
   journal={Daedalus},
-  pages={121--136},
+  pages={121-136},
   year={1980},
   publisher={JSTOR},
   url={https://www.jstor.org/stable/pdf/20024652.pdf}
@@ -133,7 +133,8 @@ Academic publications related to algorithmic bias that I found useful.
   title={Inherent trade-offs in the fair determination of risk scores},
   author={Kleinberg, Jon and Mullainathan, Sendhil and Raghavan, Manish},
   journal={arXiv preprint arXiv:1609.05807},
-  year={2016}
+  year={2016},
+  url = {https://arxiv.org/abs/1609.05807}
 }
 
 @article{barabas2017interventions,
@@ -148,7 +149,7 @@ Academic publications related to algorithmic bias that I found useful.
   title={Fairness definitions explained},
   author={Verma, Sahil and Rubin, Julia},
   booktitle={2018 IEEE/ACM International Workshop on Software Fairness (FairWare)},
-  pages={1--7},
+  pages={1-7},
   year={2018},
   organization={IEEE},
   url={https://dl.acm.org/citation.cfm?id=3194776}
@@ -158,7 +159,7 @@ Academic publications related to algorithmic bias that I found useful.
   title={Fairness and abstraction in sociotechnical systems},
   author={Selbst, Andrew D and Boyd, Danah and Friedler, Sorelle A and Venkatasubramanian, Suresh and Vertesi, Janet},
   booktitle={Proceedings of the Conference on Fairness, Accountability, and Transparency},
-  pages={59--68},
+  pages={59-68},
   year={2019},
   organization={ACM},
   url={http://friedler.net/papers/sts_fat2019.pdf}

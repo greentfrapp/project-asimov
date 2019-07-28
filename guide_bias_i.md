@@ -86,7 +86,7 @@ We can classify the consequences of algorithmic bias in the same way. This was p
   </tbody>
 </table>
 
-*Comparison between the two types of harm, from Crawford's NIPS 2017 keynote <dt-cite cite="crawford2017trouble"></dt-cite>*
+*Comparison between the two types of harm, from Crawford's NIPS 2017 keynote <dt-cite cite="crawford2017trouble"></dt-cite>.*
 
 <div>
 <img class="comic" width="600px" src="{{ "/assets/guide/comics/allocative_representative.png" | relative_url }}" title="███ ████ ██ █ ████" alt="Harms of Allocation vs Harms of Representation">
@@ -174,6 +174,8 @@ Despite the important role that risk scores like COMPAS play in the criminal jus
 
 > [Researchers Sarah Desmarais and Jay Singh's] analysis of [19 risk methodologies] through 2012 found that the tools “were moderate at best in terms of predictive validity,” Desmarais said in an interview. And she could not find any substantial set of studies conducted in the United States that examined whether risk scores were racially biased. “The data do not exist,” she said.
 
+*Machine Bias - Julia Angwin et al., 2016 <dt-cite cite="angwin2016machine"></dt-cite>*
+
 Important information that probably should be available include:
 
 - What goes into the risk score?
@@ -239,7 +241,7 @@ Maybe Brennan had been too idealistic when thinking about how judges might be us
     <li>Differences between proxy labels and actual labels</li>
     <li>Public disclosure of fairness considerations</li>
     <li>Neglecting the larger objective</li>
-    <li>Failing to consider how the AIS changes the system</li>
+    <li>Failing to comprehensively consider how the AIS affects the system</li>
   </ul>
   <p>
     For more examples of allocative harms, check out Cathy O'Neil's Weapons of Math Destruction <dt-cite cite="o2016weapons"></dt-cite> and Viriginia Eubanks's Automating Inequality <dt-cite cite="eubanks2018automating"></dt-cite>.
@@ -347,6 +349,9 @@ Imagine if a company's internal personnel directory tries to give an ideal and f
   <p>
     Fixing harms of representation requires a conversation about the tradeoffs between an accurate representation and an ideal one. Once again, detecting such harms and fixing them requires thinking beyond the scope of mathematical algorithms and venturing into social implications.
   </p>
+  <p>
+    For more interesting examples, check out the problems of bias in word embeddings <dt-cite cite="caliskan2017semantics,garg2018word,zhao2018gender"></dt-cite> and image-captioning models <dt-cite cite="zhao2017men,hendricks2018women"></dt-cite>
+  </p>
 </div>
 </div>
 
@@ -377,18 +382,20 @@ Imagine if a company's internal personnel directory tries to give an ideal and f
   title={Competent men and warm women: Gender stereotypes and backlash in image search results},
   author={Otterbacher, Jahna and Bates, Jo and Clough, Paul},
   booktitle={Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems},
-  pages={6620--6631},
+  pages={6620-6631},
   year={2017},
-  organization={ACM}
+  organization={ACM},
+  url={https://doi.org/10.1145/3025453.3025727}
 }
 
 @inproceedings{kay2015unequal,
   title={Unequal representation and gender stereotypes in image search results for occupations},
   author={Kay, Matthew and Matuszek, Cynthia and Munson, Sean A},
   booktitle={Proceedings of the 33rd Annual ACM Conference on Human Factors in Computing Systems},
-  pages={3819--3828},
+  pages={3819-3828},
   year={2015},
-  organization={ACM}
+  organization={ACM},
+  url={https://mdsoar.org/bitstream/handle/11603/11254/KayMatuszekMunsonCHI2015GenderImageSearch.pdf?sequence=1}
 }
 
 @misc{langston2015who,
@@ -440,23 +447,26 @@ Imagine if a company's internal personnel directory tries to give an ideal and f
   journal={Science},
   volume={356},
   number={6334},
-  pages={183--186},
+  pages={183-186},
   year={2017},
-  publisher={American Association for the Advancement of Science}
+  publisher={American Association for the Advancement of Science},
+  url={https://arxiv.org/abs/1608.07187}
 }
 
 @article{zhao2017men,
   title={Men also like shopping: Reducing gender bias amplification using corpus-level constraints},
   author={Zhao, Jieyu and Wang, Tianlu and Yatskar, Mark and Ordonez, Vicente and Chang, Kai-Wei},
   journal={arXiv preprint arXiv:1707.09457},
-  year={2017}
+  year={2017},
+  url = {https://arxiv.org/abs/1707.09457}
 }
 
 @article{zhao2018gender,
   title={Gender bias in coreference resolution: Evaluation and debiasing methods},
   author={Zhao, Jieyu and Wang, Tianlu and Yatskar, Mark and Ordonez, Vicente and Chang, Kai-Wei},
   journal={arXiv preprint arXiv:1804.06876},
-  year={2018}
+  year={2018},
+  url = {https://arxiv.org/abs/1804.06876}
 }
 
 @article{garg2018word,
@@ -465,18 +475,20 @@ Imagine if a company's internal personnel directory tries to give an ideal and f
   journal={Proceedings of the National Academy of Sciences},
   volume={115},
   number={16},
-  pages={E3635--E3644},
+  pages={E3635-E3644},
   year={2018},
-  publisher={National Acad Sciences}
+  publisher={National Acad Sciences},
+  url={http://www.pnas.org/cgi/doi/10.1073/pnas.1720347115}
 }
 
 @inproceedings{hendricks2018women,
   title={Women also snowboard: Overcoming bias in captioning models},
   author={Hendricks, Lisa Anne and Burns, Kaylee and Saenko, Kate and Darrell, Trevor and Rohrbach, Anna},
   booktitle={European Conference on Computer Vision},
-  pages={793--811},
+  pages={793-811},
   year={2018},
-  organization={Springer}
+  organization={Springer},
+  url={https://arxiv.org/abs/1807.00517}
 }
 
 @book{eubanks2018automating,
@@ -490,29 +502,30 @@ Imagine if a company's internal personnel directory tries to give an ideal and f
   title={Machine bias},
   author={Angwin, Julia and Larson, Jeff and Mattu, Surya and Kirchner, Lauren},
   journal={ProPublica, May},
-  volume={23},
-  pages={2016},
-  year={2016}
+  year={2016},
+  url={https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing}
 }
 
 @article{norris1992black,
   title={Black and blue: An analysis of the influence of race on being stopped by the police},
   author={Norris, Clive and Fielding, Nigel and Kemp, Charles and Fielding, Jane},
   journal={British Journal of Sociology},
-  pages={207--224},
+  pages={207-224},
   year={1992},
-  publisher={JSTOR}
+  publisher={JSTOR},
+  url={https://www.jstor.org/stable/591465}
 }
 
 @article{waddington2004proportion,
-  title={In Proportion: Race, and Police Stop and Search 1},
+  title={In Proportion: Race, and Police Stop and Search},
   author={Waddington, Philip AJ and Stenson, Kevin and Don, David},
   journal={British journal of criminology},
   volume={44},
   number={6},
-  pages={889--914},
+  pages={889-914},
   year={2004},
-  publisher={Oxford University Press}
+  publisher={Oxford University Press},
+  url={https://doi.org/10.1093/bjc/azh042}
 }
 
 @article{warren2006driving,
@@ -521,9 +534,10 @@ Imagine if a company's internal personnel directory tries to give an ideal and f
   journal={Criminology},
   volume={44},
   number={3},
-  pages={709--738},
+  pages={709-738},
   year={2006},
-  publisher={Wiley Online Library}
+  publisher={Wiley Online Library},
+  url={https://doi.org/10.1111/j.1745-9125.2006.00061.x}
 }
 
 </script>

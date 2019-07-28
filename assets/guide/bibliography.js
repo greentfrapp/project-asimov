@@ -78,10 +78,11 @@ function author_string(ent, template, sep, finalSep){
 
       if (url.slice(-4) == ".pdf"){
         var label = "PDF";
-      } else if (url.slice(-5) == ".html") {
-        var label = "HTML";
       }
-      return (" &ensp;<a href=\"" + url + "\">[" + (label||"link") + "]</a>");
+      // else if (url.slice(-5) == ".html") {
+      //   var label = "HTML";
+      // }
+      return (" &ensp;[<a href=\"" + url + "\">" + (label||"link") + "</a>]");
     }/* else if ("doi" in ent){
       return ` &ensp;<a href="https://doi.org/${ent.doi}" >[DOI]</a>`;
     }*/ else {
@@ -106,7 +107,7 @@ let dtCite = {
 	computed: {
 		citationKey: function() {
 			let citationIds = []
-			this.cite.split(',').forEach(c => citationIds.push('<a href="#' + c + '">' + bibliography[c].idx + '</a>'))
+			this.cite.split(',').forEach(c => citationIds.push('<a class="citekey" href="#' + c + '">' + bibliography[c].idx + '</a>'))
 			return "[" + citationIds.join(",") + "]"
 		}
 	},
@@ -119,7 +120,7 @@ let dtCite = {
 			// console.log("TEST")
 		}
 	},
-	template: '<span class="dt-cite" @mouseover="showCitation" v-html="citationKey"></span>'
+	template: '<span class="dt-cite" v-html="citationKey"></span>'
 }
 
 let dtBibliography = {

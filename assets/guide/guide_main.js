@@ -76,6 +76,33 @@ let framework = new Vue({
 			  .sidebar('toggle')
 			;
 		})
+
+		let hoverTimer = d3.timeout(function() {
+			d3.select("#citation-hover").style("display", "none")
+		}, 0)
+
+		d3.selectAll(".citekey")
+			.on("mouseover", function() {
+				citation = d3.select(this).attr("href")
+				x = d3.select(this).node().getBoundingClientRect().left
+				y = d3.select(this).node().getBoundingClientRect().top
+				console.log(d3.select(this).node().getBoundingClientRect())
+				d3.select("div#citation-hover")
+					.html(d3.select(citation).html())
+					// .style("left", x + "px")
+					.style("top", (y + 25) + "px")
+					.style("display", "block")
+				hoverTimer.restart(function() {
+					d3.select("#citation-hover").style("display", "none")
+				}, 2000)
+			})
+		d3.select("#citation-hover")
+			.on("mouseover", function() {
+				hoverTimer.stop()
+			})
+			.on("mouseleave", function() {
+				d3.select(this).style("display", "none")
+			})
 	},
 	beforeDestroy () {
 		window.removeEventListener('scroll', this.onScroll)
@@ -97,6 +124,7 @@ let framework = new Vue({
 	},
 	methods: {
 		onScroll () {
+			d3.select("#citation-hover").style("display", "none")
 			this.showNavbarElements = false
 			const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
 			if (currentScrollPosition >= 0) {

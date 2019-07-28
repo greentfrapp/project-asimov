@@ -179,7 +179,7 @@ For example, many pre-trained image models, including the ones from Keras, are t
 <img width="600px" src="{{ "/assets/guide/images/dollar_street.png" | relative_url }}" alt="Comparing photographs of soap from different cultures in the Dollar Street dataset.">
 </div>
 
-*Comparing images of soap from different cultures in the Dollar Street dataset.*
+*Comparing images of soap from different cultures in the Dollar Street dataset, from DeVries et al. <dt-cite cite="de2019does"></dt-cite>.*
 
 This is not to say that we should never import any datasets and pre-trained models. We just have to be more conscious about what are the differences between the contexts of these resources, versus the context that we are actually designing for.
 
@@ -245,7 +245,7 @@ On a more algorithmic note, lack of proper feedback can lead to scenarios where 
 
 <div class="box-blue">
   <p>
-    Consider the case of hot-spot predictors for policing, which was mentioned by Cathy O'Neil in Chapter 5 of Weapons of Math Destruction. These models, such as PredPol, CompStat and HunchLab, predict crime hot-spots, which are then allocated more attention by the police via patrols. This sounds great since the police can utilize its limited resources more effectively.
+    Consider the case of hot-spot predictors for policing, which was mentioned by Cathy O'Neil in Chapter 5 of Weapons of Math Destruction <dt-cite cite="o2016weapons"></dt-cite>. These models, such as PredPol, CompStat and HunchLab, predict crime hot-spots, which are then allocated more attention by the police via patrols. This sounds great since the police can utilize its limited resources more effectively.
   </p>
   <p>
     But let's consider what happens if a prediction model gets it wrong initially. Suppose we have two areas, Area A and Area B, with equal rates of crime. Suppose the model says that Area A is a hot-spot and neglects Area B. Area A gets more patrols and because there are more patrols, more crime is detected and more arrests are made. These arrests are logged into a dataset, which is fed back into the model. The model sees that Area A has more arrests than Area B and continues predicting it as a hot-spot. We never get the chance to find out that both areas actually have the same crime rate!
@@ -311,7 +311,8 @@ Proper feedback is not just a way of appeasing customers. It is critical to the 
   title={A Framework for Understanding Unintended Consequences of Machine Learning},
   author={Suresh, Harini and Guttag, John V},
   journal={arXiv preprint arXiv:1901.10002},
-  year={2019}
+  year={2019},
+  url = {https://arxiv.org/abs/1901.10002}
 }
 
 @article{barocas2016big,
@@ -321,23 +322,32 @@ Proper feedback is not just a way of appeasing customers. It is critical to the 
   volume={104},
   pages={671},
   year={2016},
-  publisher={HeinOnline}
+  publisher={HeinOnline},
+  url={http://www.cs.yale.edu/homes/jf/BarocasSelbst.pdf}
 }
 
 @article{shankar2017no,
   title={No classification without representation: Assessing geodiversity issues in open data sets for the developing world},
   author={Shankar, Shreya and Halpern, Yoni and Breck, Eric and Atwood, James and Wilson, Jimbo and Sculley, D},
   journal={arXiv preprint arXiv:1711.08536},
-  year={2017}
+  year={2017},
+  url = {https://arxiv.org/abs/1711.08536}
 }
 
 @inproceedings{de2019does,
   title={Does Object Recognition Work for Everyone?},
   author={de Vries, Terrance and Misra, Ishan and Wang, Changhan and van der Maaten, Laurens},
   booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops},
-  pages={52--59},
-  year={2019}
+  pages={52-59},
+  year={2019},
+  url={https://arxiv.org/abs/1906.02659}
 }
 
+@book{o2016weapons,
+  title={Weapons of math destruction: How big data increases inequality and threatens democracy},
+  author={O'Neil, Cathy},
+  year={2016},
+  publisher={Broadway Books}
+}
 
 </script>

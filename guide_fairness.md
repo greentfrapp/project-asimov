@@ -392,7 +392,7 @@ By the time you read this, "context" should have been burned into your retina. B
   CONTEXT IS IMPORTANT WHEN DISCUSSING FAIRNESS!
 </p>
 
-So here is a list of questions and prompts to help you learn more about the sociotechnical context of your application. Don't be limited to these though, go beyond this to understand at much about the problem as you can. Also, these prompts should be discussed as a group rather than answered in isolation. Involve as many people as you can!
+So here is a list of questions and prompts to help you learn more about the sociotechnical context of your application. Don't be limited to these though, go beyond them to understand at much about the problem as you can. Also, these prompts should be discussed as a group rather than answered in isolation. Involve as many people as you can!
 
 <div>
 <img class="comic" width="250px" src="{{ "/assets/guide/comics/context_1.png" | relative_url }}" title="*meow meow meow*" alt="Involve as many people as you can!">
@@ -456,25 +456,28 @@ So here is a list of questions and prompts to help you learn more about the soci
   title={Fairness definitions explained},
   author={Verma, Sahil and Rubin, Julia},
   booktitle={2018 IEEE/ACM International Workshop on Software Fairness (FairWare)},
-  pages={1--7},
+  pages={1-7},
   year={2018},
-  organization={IEEE}
+  organization={IEEE},
+  url={https://dl.acm.org/citation.cfm?id=3194776}
 }
 
 @inproceedings{dwork2012fairness,
   title={Fairness through awareness},
   author={Dwork, Cynthia and Hardt, Moritz and Pitassi, Toniann and Reingold, Omer and Zemel, Richard},
   booktitle={Proceedings of the 3rd innovations in theoretical computer science conference},
-  pages={214--226},
+  pages={214-226},
   year={2012},
-  organization={ACM}
+  organization={ACM},
+  url={https://arxiv.org/abs/1104.3913}
 }
 
 @article{zliobaite2015relation,
   title={On the relation between accuracy and fairness in binary classification},
   author={Zliobaite, Indre},
   journal={arXiv preprint arXiv:1505.05723},
-  year={2015}
+  year={2015},
+  url={https://arxiv.org/abs/1505.05723}
 }
 
 @article{simoiu2017problem,
@@ -483,18 +486,20 @@ So here is a list of questions and prompts to help you learn more about the soci
   journal={The Annals of Applied Statistics},
   volume={11},
   number={3},
-  pages={1193--1216},
+  pages={1193-1216},
   year={2017},
-  publisher={Institute of Mathematical Statistics}
+  publisher={Institute of Mathematical Statistics},
+  url={https://projecteuclid.org/euclid.aoas/1507168827}
 }
 
 @inproceedings{corbett2017algorithmic,
   title={Algorithmic decision making and the cost of fairness},
   author={Corbett-Davies, Sam and Pierson, Emma and Feller, Avi and Goel, Sharad and Huq, Aziz},
   booktitle={Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
-  pages={797--806},
+  pages={797-806},
   year={2017},
-  organization={ACM}
+  organization={ACM},
+  url={https://arxiv.org/abs/1701.08230}
 }
 
 @article{chouldechova2017fair,
@@ -503,81 +508,91 @@ So here is a list of questions and prompts to help you learn more about the soci
   journal={Big data},
   volume={5},
   number={2},
-  pages={153--163},
+  pages={153-163},
   year={2017},
-  publisher={Mary Ann Liebert, Inc. 140 Huguenot Street, 3rd Floor New Rochelle, NY 10801 USA}
+  publisher={Mary Ann Liebert, Inc. 140 Huguenot Street, 3rd Floor New Rochelle, NY 10801 USA},
+  url={https://doi.org/10.1089/big.2016.0047}
 }
 
 @inproceedings{hardt2016equality,
   title={Equality of opportunity in supervised learning},
   author={Hardt, Moritz and Price, Eric and Srebro, Nati and others},
   booktitle={Advances in neural information processing systems},
-  pages={3315--3323},
-  year={2016}
+  pages={3315-3323},
+  year={2016},
+  url={https://arxiv.org/abs/1610.02413}
 }
 
 @inproceedings{kusner2017counterfactual,
   title={Counterfactual fairness},
   author={Kusner, Matt J and Loftus, Joshua and Russell, Chris and Silva, Ricardo},
   booktitle={Advances in Neural Information Processing Systems},
-  pages={4066--4076},
-  year={2017}
+  pages={4066-4076},
+  year={2017},
+  url={https://arxiv.org/abs/1703.06856}
 }
 
 @article{berk2018fairness,
   title={Fairness in criminal justice risk assessments: The state of the art},
   author={Berk, Richard and Heidari, Hoda and Jabbari, Shahin and Kearns, Michael and Roth, Aaron},
-  journal={Sociological Methods \& Research},
+  journal={Sociological Methods & Research},
   pages={0049124118782533},
   year={2018},
-  publisher={Sage Publications Sage CA: Los Angeles, CA}
+  publisher={Sage Publications Sage CA: Los Angeles, CA},
+  url={https://doi.org/10.1177%2F0049124118782533}
 }
 
 @inproceedings{zafar2017fairness,
-  title={Fairness beyond disparate treatment \& disparate impact: Learning classification without disparate mistreatment},
+  title={Fairness beyond disparate treatment & disparate impact: Learning classification without disparate mistreatment},
   author={Zafar, Muhammad Bilal and Valera, Isabel and Gomez Rodriguez, Manuel and Gummadi, Krishna P},
   booktitle={Proceedings of the 26th International Conference on World Wide Web},
-  pages={1171--1180},
+  pages={1171-1180},
   year={2017},
-  organization={International World Wide Web Conferences Steering Committee}
+  organization={International World Wide Web Conferences Steering Committee},
+  url={https://arxiv.org/abs/1610.08452}
 }
 
 @article{kleinberg2016inherent,
   title={Inherent trade-offs in the fair determination of risk scores},
   author={Kleinberg, Jon and Mullainathan, Sendhil and Raghavan, Manish},
   journal={arXiv preprint arXiv:1609.05807},
-  year={2016}
+  year={2016},
+  url={https://arxiv.org/abs/1609.05807}
 }
 
 @inproceedings{galhotra2017fairness,
   title={Fairness testing: testing software for discrimination},
   author={Galhotra, Sainyam and Brun, Yuriy and Meliou, Alexandra},
   booktitle={Proceedings of the 2017 11th Joint Meeting on Foundations of Software Engineering},
-  pages={498--510},
+  pages={498-510},
   year={2017},
-  organization={ACM}
+  organization={ACM},
+  url={https://arxiv.org/abs/1709.03221}
 }
 
 @inproceedings{kilbertus2017avoiding,
   title={Avoiding discrimination through causal reasoning},
   author={Kilbertus, Niki and Carulla, Mateo Rojas and Parascandolo, Giambattista and Hardt, Moritz and Janzing, Dominik and Sch{\"o}lkopf, Bernhard},
   booktitle={Advances in Neural Information Processing Systems},
-  pages={656--666},
-  year={2017}
+  pages={656-666},
+  year={2017},
+  url={https://arxiv.org/abs/1706.02744}
 }
 
 @inproceedings{nabi2018fair,
   title={Fair inference on outcomes},
   author={Nabi, Razieh and Shpitser, Ilya},
   booktitle={Thirty-Second AAAI Conference on Artificial Intelligence},
-  year={2018}
+  year={2018},
+  url={https://arxiv.org/abs/1705.10378}
 }
 
 @inproceedings{narayanan2018translation,
   title={Translation tutorial: 21 fairness definitions and their politics},
   author={Narayanan, Arvind},
   booktitle={Proc. Conf. Fairness Accountability Transp., New York, USA},
-  year={2018}
+  year={2018},
+  url={https://www.youtube.com/watch?v=jIXIuYdnyyk}
 }
 
 @article{brennan2009evaluating,
@@ -586,9 +601,10 @@ So here is a list of questions and prompts to help you learn more about the soci
   journal={Criminal Justice and Behavior},
   volume={36},
   number={1},
-  pages={21--40},
+  pages={21-40},
   year={2009},
-  publisher={Sage Publications Sage CA: Los Angeles, CA}
+  publisher={Sage Publications Sage CA: Los Angeles, CA},
+  url={https://doi.org/10.1177/0093854808326545}
 }
 
 @article{angwin2016machine,
@@ -596,32 +612,36 @@ So here is a list of questions and prompts to help you learn more about the soci
   author={Angwin, Julia and Larson, Jeff and Mattu, Surya and Kirchner, Lauren},
   journal={ProPublica, May},
   volume={23},
-  year={2016}
+  year={2016},
+  url={https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing}
 }
 
 @article{ingold2016amazon,
-  title={Amazon doesn’t consider the race of its customers. Should It},
+  title={Amazon doesn’t consider the race of its customers. Should It?},
   author={Ingold, David and Soper, Spencer},
   journal={Bloomberg News},
-  year={2016}
+  year={2016},
+  url={https://www.bloomberg.com/graphics/2016-amazon-same-day/} 
 }
 
 @inproceedings{selbst2019fairness,
   title={Fairness and abstraction in sociotechnical systems},
   author={Selbst, Andrew D and Boyd, Danah and Friedler, Sorelle A and Venkatasubramanian, Suresh and Vertesi, Janet},
   booktitle={Proceedings of the Conference on Fairness, Accountability, and Transparency},
-  pages={59--68},
+  pages={59-68},
   year={2019},
-  organization={ACM}
+  organization={ACM},
+  url={http://friedler.net/papers/sts_fat2019.pdf}
 }
 
 @article{westen1982empty,
   title={The empty idea of equality},
   author={Westen, Peter},
   journal={Harvard Law Review},
-  pages={537--596},
+  pages={537-596},
   year={1982},
-  publisher={JSTOR}
+  publisher={JSTOR},
+  url={https://www.jstor.org/stable/1340593}
 }
 
 </script>

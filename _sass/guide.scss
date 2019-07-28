@@ -216,10 +216,10 @@ body#guide-body {
 		text-align: center;
 		transition: 0.2s all ease-out;
 
-		@media(min-width: 1000px) {
-			// width: 900px;
-			width: calc(100% - 520px);
-			max-width: 800px;
+		@media(min-width: 890px) {
+			width: 800px;
+			// width: calc(100% - 520px);
+			// max-width: 800px;
 			// margin-left: calc((100% - 1400px) / 2);
 		}
 		
@@ -529,6 +529,23 @@ body#guide-body {
 			border: none;
 		}
 	}
+
+	div#citation-hover {
+		width: 75%;
+		position: fixed;
+		left: 50%;
+		margin-left: -37.5%;
+		// width: 200px;
+		display: none;
+		color: $guide-text-color;
+		background-color: $guide-background-color;
+		border: 1px solid $guide-text-color;
+		padding: 10px;
+		opacity: 0.95;
+		font-family: Lora, serif;
+		font-size: 1.25rem;
+		line-height: 2.5rem;
+	}
 }
 
 // Dark Mode 
@@ -709,6 +726,12 @@ body#guide-body div#nav.light {
 		a {
 			border: none;
 		}
+	}
+
+	div#citation-hover {
+		color: $guide-antitext-color;
+		background-color: $guide-antibackground-color;
+		border: 1px solid $guide-antitext-color;
 	}
 }
 
