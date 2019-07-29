@@ -163,6 +163,8 @@ As raised by Suresh and Guttag, adopting a one-size-fits-all model assumes that 
 
 Adopting multiple models to cater to different groups also come with certain conditions. This typically works well only if there is sufficient data, which is often true for dominant groups but less so for minorities. The disparity in amount of data can then lead to a disparity in model accuracies. A possible tweak might be to pretrain a model using a general dataset, before tuning the model for each group.
 
+Unfortunately, in some contexts, using different models for different groups can be contentious and seen as a form of discrimination. In the context of the US labor law, this practice is known as subgroup norming and is illegal under the Civil Rights Act of 1991 <dt-cite cite="gottfredson1994science"></dt-cite>.
+
 ### Transfering Models and Datasets
 
 Since larger datasets often mean better performance, a common trick is to import datasets and pre-trained models from other contexts. For example, the [Keras](https://keras.io) library contains pre-trained image models and [spaCy](https://spacy.io) has pre-trained "neural models for tagging, parsing and entity recognition".
@@ -348,6 +350,17 @@ Proper feedback is not just a way of appeasing customers. It is critical to the 
   author={O'Neil, Cathy},
   year={2016},
   publisher={Broadway Books}
+}
+
+@article{gottfredson1994science,
+  title={The science and politics of race-norming.},
+  author={Gottfredson, Linda S},
+  journal={American Psychologist},
+  volume={49},
+  number={11},
+  pages={955},
+  year={1994},
+  publisher={American Psychological Association}
 }
 
 </script>
