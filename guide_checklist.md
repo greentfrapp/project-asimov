@@ -66,4 +66,4 @@ Again, this checklist is best completed as a group exercise and with extensive i
 2. What are alternative solutions in case of failure? <tidbit content="<br/>Just like any other technology, the AIS can and will break down. How can we design for graceful degradation for all types of failures (e.g. wrong predictions, total failure)?"></tidbit>
 3. How can we allow users to gracefully opt out of the AIS? <tidbit content="<br/>Presently, there are people who are uncomfortable with certain AIS due to privacy and other concerns. How can we design for 'graceful degradation' that allows these users to opt out with minimal hassle? See <a href='../bias_ii#graceful-degradation'>Understanding Bias II</a> for details."></tidbit>
 
-<tofro prevtext="Sources of Bias" prevlink="../bias/sources/" nexttext="Resources" nextlink="../resources/"></tofro>
+<tofro prevtext="Sources of Bias" prevlink="../bias_ii/" nexttext="Resources" nextlink="../resources/"></tofro>
