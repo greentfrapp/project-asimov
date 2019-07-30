@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+	<script src="https://unpkg.com/vue"></script>
+	
+	<style type="text/css">
+		html {
+			font-size: 85%;
+		}
+		div#citation-hover {
+			width: 75%;
+			position: fixed;
+			left: 50%;
+			margin-left: -37.5%;
+			display: none;
+			background-color: #FFFFFF;
+			border: 1px solid #222222;
+			padding: 10px;
+			opacity: 0.95;
+			font-family: "Open Sans", sans-serif;
+			font-size: 1.25rem;
+			line-height: 2.5rem;
+		}
+	</style>
+
+  <body>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+        <div id="main">
+			<dt-article>
+				{{ content }}
+			</dt-article>
+		</div>
+    </main>
+
+    {%- include footer.html -%}
+    
+    <div id="citation-hover">
+	</div>
+
+    <script src="{{ "/assets/margin_notes.js" | relative_url }}"></script>
+    <script src="{{ "/assets/guide/bibtexParse.js" | relative_url }}"></script>
+    <script src="{{ "/assets/guide/bibliography.js" | relative_url }}"></script>
+    <script type="text/javascript">
+    let main = new Vue({
+		el: "#main",
+		components: {
+			'dt-cite': dtCite,
+			'dt-bibliography': dtBibliography
+		},
+		mounted: function() {
+			let hoverTimer = d3.timeout(function() {
+				d3.select("#citation-hover").style("display", "none")
+			}, 0)
+
+			d3.selectAll(".citekey")
+				.on("mouseover", function() {
+					citation = d3.select(this).attr("href")
+					x = d3.select(this).node().getBoundingClientRect().left
+					y = d3.select(this).node().getBoundingClientRect().top
+					console.log(d3.select(this).node().getBoundingClientRect())
+					d3.select("div#citation-hover")
+						.html(d3.select(citation).html())
+						// .style("left", x + "px")
+						.style("top", (y + 25) + "px")
+						.style("display", "block")
+					hoverTimer.restart(function() {
+						d3.select("#citation-hover").style("display", "none")
+					}, 2000)
+				})
+			d3.select("#citation-hover")
+				.on("mouseover", function() {
+					hoverTimer.stop()
+				})
+				.on("mouseleave", function() {
+					d3.select(this).style("display", "none")
+				})
+		}
+	})
+    </script>
+
+  </body>
+
+</html>
+
