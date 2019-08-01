@@ -12,6 +12,8 @@ Hi there! I'm Lim Swee Kiat, a graduate student enrolled in the [MSc. Urban Scie
 
 This guide is meant to introduce AI practitioners to the concerns of AI ethics, specifically algorithmic bias. As an undergraduate engineer and subsequent AI researcher, I found the social and ethical aspects lacking in the curriculum. This is my response to the problem and served as a way to document my learning journey about the topic. 
 
+I will soon be headed to Stanford University for the MSCS program in fall 2019. For any queries or collaborations, drop me a mail at sweekiat [at] stanford [dot] edu!
+
 ---
 
 ## Acknowledgements and Inspirations
