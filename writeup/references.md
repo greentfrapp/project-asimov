@@ -102,6 +102,15 @@
   url={https://mdsoar.org/bitstream/handle/11603/11254/KayMatuszekMunsonCHI2015GenderImageSearch.pdf?sequence=1}
 }
 
+@article{prates2018assessing,
+  title={Assessing gender bias in machine translation: a case study with Google Translate},
+  author={Prates, Marcelo OR and Avelar, Pedro H and Lamb, Lu{\'\i}s C},
+  journal={Neural Computing and Applications},
+  pages={1--19},
+  year={2018},
+  publisher={Springer}
+}
+
 @article{caliskan2017semantics,
   title={Semantics derived automatically from language corpora contain human-like biases},
   author={Caliskan, Aylin and Bryson, Joanna J and Narayanan, Arvind},
@@ -170,5 +179,24 @@
   url={https://www.youtube.com/watch?v=jIXIuYdnyyk}
 }
 
+@article{chouldechova2017fair,
+  title={Fair prediction with disparate impact: A study of bias in recidivism prediction instruments},
+  author={Chouldechova, Alexandra},
+  journal={Big data},
+  volume={5},
+  number={2},
+  pages={153-163},
+  year={2017},
+  publisher={Mary Ann Liebert, Inc. 140 Huguenot Street, 3rd Floor New Rochelle, NY 10801 USA},
+  url={https://doi.org/10.1089/big.2016.0047}
+}
+
+@article{kleinberg2016inherent,
+  title={Inherent trade-offs in the fair determination of risk scores},
+  author={Kleinberg, Jon and Mullainathan, Sendhil and Raghavan, Manish},
+  journal={arXiv preprint arXiv:1609.05807},
+  year={2016},
+  url={https://arxiv.org/abs/1609.05807}
+}
 
 </script>
