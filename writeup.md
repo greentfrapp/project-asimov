@@ -12,21 +12,26 @@ permalink: /writeup/
 
 ---
 
-{% include_relative writeup/introduction.md %}
+{% include_relative writeup/introduction.md %} 
+<!-- 250 words -->
+
+{% include_relative writeup/objective.md %} 
+<!-- 500 words -->
 
 {% include_relative writeup/litreview.md %}
+<!-- 1500 words -->
 
-{% include_relative writeup/litreview_principles.md %}
+{% include_relative writeup/target_audience.md %}
+<!-- 500 words -->
 
-{% include_relative writeup/litreview_academic.md %}
+{% include_relative writeup/design_process.md %}
+<!-- 1500 words -->
 
-{% include_relative writeup/litreview_books.md %}
-
-{% include_relative writeup/litreview_explorables.md %}
-
-{% include_relative writeup/takeaways.md %}
+{% include_relative writeup/reflections.md %}
+<!-- 1000 words -->
 
 {% include_relative writeup/conclusion.md %}
+<!-- 250 words -->
 
 ---
 

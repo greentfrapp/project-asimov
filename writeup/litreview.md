@@ -1,7 +1,6 @@
 ## Literature Review
 
-Artificial intelligence (AI) technologies have seen widespread use in recent years. These applications range from trivial to severe. Google Photos help to sort and label our photos automatically and Google Translate helps us communicate in foreign lands. On the other hand, AI systems are also used to provide advice for judges and juries in criminal sentencing and for doctors in diagnosing life-threatening diseases. What was once the fancy of science fiction authors has been made real enough to both save and endanger livelihoods and lives. In light of what is at stake, there is a growing need and a moral imperative for AI researchers, engineers and practitioners to understand the ethical issues associated with the technology. Amidst recent concerns about the ethics of AI systems (AIS), many articles and writings have been published in the interdisciplinary field of AI ethics. These range from official ethics guidelines to more mainstream non-fiction books, from academic publications and journal articles to online visualizations and "explorables".
-
-Under the larger umbrella of AI ethics, algorithmic bias has been repeatedly cited as a pressing problem afflicting currently deployed systems. The term "algorithmic bias" can be defined as systematic unequal treatment by automated systems or machines. In Verma and Rubin's work (Verma & Rubin, 2018), the authors collated a list of twenty different fairness definitions used to evaluate algorithmic bias. O'Neil's popular book Weapons of Math Destruction (O'Neil, 2016) discusses the hidden biases present in algorithmic systems, or what she terms "weapons of math destruction". Urgently, many of the systems that O'Neil describes had been widely deployed and still remain so. In the 208-page behemoth Montréal Declaration (Montréal Declaration, 2018), the sixth principle of Equity states, "AIS must be designed and trained so as not to create, reinforce, or reproduce discrimination based on — among other things — social, sexual, ethnic, cultural, or religious differences." 
-
-In this review, we look at four main types of literature in AI ethics and examine algorithmic bias in the context of these works.
+<!--
+- Structural Biases
+- Systematic Oversight
+ -->
