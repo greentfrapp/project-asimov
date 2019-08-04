@@ -6,12 +6,51 @@
 
 <!-- Introduction -->
 
-@misc{alcine_2015, title={Google Photos, y'all fucked up. My friend's not a gorilla. pic.twitter.com/SMkMCsNVX4}, url={https://twitter.com/jackyalcine/status/615329515909156865}, journal={Twitter}, publisher={Twitter}, author={Alciné, Jacky}, year={2015}, month={Jun}}
-  @misc{andrew_chien_papernot, title={TensorFlow Privacy}, url={https://github.com/tensorflow/privacy}, journal={TensorFlow Privacy}, publisher={Google}, author={Andrew, Galen and Chien, Steve and Papernot, Nicolas}}
-  @misc{angwin_larson_kirchner_mattu_2019, title={Machine Bias}, url={https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing}, journal={ProPublica}, author={Angwin, Julia and Larson, Jeff and Kirchner, Lauren and Mattu, Surya}, year={2019}, month={Mar}}
-  @misc{the_institute_for_ethical_machine_learning, title={Awesome machine learning operations}, url={https://github.com/EthicalML/awesome-machine-learning-operations}, journal={Awesome machine learning operations}, publisher={The Institute for Ethical Machine Learning}, author={The Institute for Ethical Machine Learning}}
-  @misc{caruana_nori_jenkins_koch_de_nicolas_2019, title={Creating AI glass boxes – Open sourcing a library to enable intelligibility in machine learning}, url={https://www.microsoft.com/en-us/research/blog/creating-ai-glass-boxes-open-sourcing-a-library-to-enable-intelligibility-in-machine-learning/}, journal={Microsoft Research Blog}, publisher={Microsoft}, author={Caruana, Rich and Nori, Harsha and Jenkins, Samuel and Koch, Paul and de Nicolas, Ester}, year={2019}, month={May}}
-  @article{de_montjoye_farzanehfar_hendrickx_rocher_2017, title={Solving Artificial Intelligence’s Privacy Problem}, volume={Special Issue 17}, url={https://journals.openedition.org/factsreports/4494}, journal={Field Actions Science Reports}, author={de Montjoye, Yves-Alexandre and Farzanehfar, Ali and Hendrickx, Julien and Rocher, Luc}, year={2017}, month={Dec}, pages={80–83}}
+@misc{alcine_2015,
+  title={Google Photos, y'all fucked up. My friend's not a gorilla. pic.twitter.com/SMkMCsNVX4}, 
+  url={https://twitter.com/jackyalcine/status/615329515909156865},
+  journal={Twitter},
+  publisher={Twitter},
+  author={Alciné, Jacky},
+  year={2015},
+  month={Jun}
+}
+
+@misc{andrew_chien_papernot,
+  title={TensorFlow Privacy},
+  url={https://github.com/tensorflow/privacy}, journal={TensorFlow Privacy},
+  publisher={Google},
+  author={Andrew, Galen and Chien, Steve and Papernot, Nicolas}
+}
+
+@misc{angwin_larson_kirchner_mattu_2019, 
+  title={Machine Bias},
+  url={https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing}, 
+  journal={ProPublica},
+  author={Angwin, Julia and Larson, Jeff and Kirchner, Lauren and Mattu, Surya},
+  year={2019},
+  month={Mar}
+}
+
+@misc{the_institute_for_ethical_machine_learning, 
+  title={Awesome machine learning operations},
+  url={https://github.com/EthicalML/awesome-machine-learning-operations}, 
+  journal={Awesome machine learning operations}, 
+  publisher={The Institute for Ethical Machine Learning},
+  author={The Institute for Ethical Machine Learning}
+}
+
+@misc{caruana_nori_jenkins_koch_de_nicolas_2019, 
+  title={Creating AI glass boxes – Open sourcing a library to enable intelligibility in machine learning},
+  url={https://www.microsoft.com/en-us/research/blog/creating-ai-glass-boxes-open-sourcing-a-library-to-enable-intelligibility-in-machine-learning/}, 
+  journal={Microsoft Research Blog}, 
+  publisher={Microsoft},
+  author={Caruana, Rich and Nori, Harsha and Jenkins, Samuel and Koch, Paul and de Nicolas, Ester}, 
+  year={2019},
+  month={May}
+}
+
+@article{de_montjoye_farzanehfar_hendrickx_rocher_2017, title={Solving Artificial Intelligence’s Privacy Problem}, volume={Special Issue 17}, url={https://journals.openedition.org/factsreports/4494}, journal={Field Actions Science Reports}, author={de Montjoye, Yves-Alexandre and Farzanehfar, Ali and Hendrickx, Julien and Rocher, Luc}, year={2017}, month={Dec}, pages={80–83}}
   @misc{doshi_2018, title={Introducing the Inclusive Images Competition}, url={https://ai.googleblog.com/2018/09/introducing-inclusive-images-competition.html}, journal={Google AI Blog}, publisher={Google}, author={Doshi, Tulsee}, year={2018}, month={Sep}}
   @misc{ito_2018, title={Why Westerners Fear Robots and the Japanese Do Not}, url={https://www.wired.com/story/ideas-joi-ito-robot-overlords/}, journal={Wired}, publisher={Conde Nast}, author={Ito, Joi}, year={2018}, month={Jul}}
   @misc{russian_federation_2017, title={Examination of various dimensions of emerging technologies in the area of lethal autonomous weapons systems, in the context of the objectives and purposes of the Convention}, url={https://admin.govexec.com/media/russia.pdf}, journal={Convention on Certain Conventional Weapons}, author={Russian Federation}, year={2017}, month={Nov}}
@@ -46,6 +85,47 @@
   year={2019}}
   @misc{ibm_2019, title={AI Fairness 360 Open Source Toolkit}, url={https://aif360.mybluemix.net/}, journal={IBM Research Trusted AI}, publisher={IBM}, author={IBM}}
   @misc{chowdhury_2018, title={Tackling the challenge of ethics in AI}, url={https://www.accenture.com/gb-en/blogs/blogs-cogx-tackling-challenge-ethics-ai}, journal={Accenture Blog}, publisher={Accenture}, author={Chowdhury, Rumman}, year={2018}, month={Jun}}
+
+<!-- Objectives -->
+
+@article{citron2007technological,
+  title={Technological due process},
+  author={Citron, Danielle Keats},
+  journal={Wash. UL Rev.},
+  volume={85},
+  pages={1249},
+  year={2007},
+  publisher={HeinOnline},
+  url={https://openscholarship.wustl.edu/cgi/viewcontent.cgi?article=1166&context=law_lawreview}
+}
+
+@article{skitka2000automation,
+  title={Automation bias and errors: are crews better than individuals?},
+  author={Skitka, Linda J and Mosier, Kathleen L and Burdick, Mark and Rosenblatt, Bonnie},
+  journal={The International journal of aviation psychology},
+  volume={10},
+  number={1},
+  pages={85-97},
+  year={2000},
+  publisher={Taylor & Francis},
+  url={https://doi.org/10.1207/S15327108IJAP1001_5}
+}
+
+@misc{turovsky2016ten,
+  title={Ten years of Google Translate},
+  author={Turovsky, Barak},
+  publisher={Google Blog},
+  year={2016},
+  url={https://www.blog.google/products/translate/ten-years-of-google-translate/}
+}
+
+@misc{amazon2019amazon,
+  title={Amazon Rekognition Video},
+  author={Amazon},
+  publisher={Amazon Web Services},
+  year={2019},
+  url={https://aws.amazon.com/rekognition/video-features/}
+}
 
 <!-- litreview_principles -->
 
