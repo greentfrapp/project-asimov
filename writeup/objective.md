@@ -26,9 +26,15 @@ The vast majority of researchers share their work freely on [arxiv.org](https://
 
 In light of what is at stake, there is a growing need and a moral imperative for AI practitioners - researchers, engineers and hobbyists - to understand the ethical issues associated with the technology.
 
+Specifically, this primer focuses on the issue of algorithmic bias, which is a pressing problem that already afflicts many of today's algorithmic systems. The study of algorithmic bias dates back to at least 1996 with Friedman and Nissenbaum's *Bias in Computer Systems* <dt-cite cite="friedman1996bias"></dt-cite>. This primer seeks to consolidate both past and present threads on algorithmic bias.
+
+<!--
+
 ### Why Algorithmic Bias?
 
 The study of algorithmic bias has a surprising long history, dating back at least to 1996 with Friedman and Nissenbaum's *Bias in Computer Systems* <dt-cite cite="friedman1996bias"></dt-cite>.
+
+-->
 
 
 

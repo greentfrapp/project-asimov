@@ -16,7 +16,7 @@ permalink: /writeup/
 <!-- 250 words -->
 
 {% include_relative writeup/objective.md %} 
-<!-- 500 words -->
+<!-- 641/500 words -->
 
 {% include_relative writeup/litreview.md %}
 <!-- 1500 words -->

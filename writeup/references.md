@@ -127,6 +127,146 @@
   url={https://aws.amazon.com/rekognition/video-features/}
 }
 
+<!-- literature review -->
+
+@inproceedings{way2016gender,
+  title={Gender, productivity, and prestige in computer science faculty hiring networks},
+  author={Way, Samuel F and Larremore, Daniel B and Clauset, Aaron},
+  booktitle={Proceedings of the 25th International Conference on World Wide Web},
+  pages={1169--1179},
+  year={2016},
+  organization={International World Wide Web Conferences Steering Committee}
+}
+
+@article{clauset2015systematic,
+  title={Systematic inequality and hierarchy in faculty hiring networks},
+  author={Clauset, Aaron and Arbesman, Samuel and Larremore, Daniel B},
+  journal={Science advances},
+  volume={1},
+  number={1},
+  pages={e1400005},
+  year={2015},
+  publisher={American Association for the Advancement of Science}
+}
+
+@misc{smith2016computer,
+  title={Copmuter Science for All},
+  author={Smith, Megan},
+  publisher={The White House},
+  year={2016},
+  url={https://obamawhitehouse.archives.gov/blog/2016/01/30/computer-science-all}
+}
+
+@misc{munoz2015as,
+  title={As Computer Science Education Week (“CS Ed Week”) Approaches: Calling all CS Learning Champions!},
+  author={Muñoz, Cecilia and Smith, Megan},
+  publisher={The White House},
+  year={2015},
+  url={https://obamawhitehouse.archives.gov/blog/2015/11/25/computer-science-education-week-cs-ed-week-approaches-calling-all-cs-learning-0}
+}
+
+@misc{imda2017annual,
+  title={Annual Survey on Infocomm Media Manpower For 2016},
+  author={IMDA},
+  publisher={IMDA},
+  year={2017},
+  url={https://www.imda.gov.sg/~/media/imda/files/industry%20development/fact%20and%20figures/infocomm%20survey%20reports/infocomm%20media%20manpower%20survey%202016_public%20report.pdf}
+}
+
+@misc{codeforge2014,
+  title={China Programmer Investigation Report 2014},
+  year={2014},
+  publisher={CodeForge},
+  url={http://www.codeforge.cn/article/247224}
+}
+
+@article{tang1997glass,
+  title={The glass ceiling in science and engineering},
+  author={Tang, Joyce},
+  journal={The Journal of Socio-Economics},
+  volume={26},
+  number={4},
+  pages={383--406},
+  year={1997},
+  publisher={Elsevier}
+}
+
+@article{sax2017anatomy,
+  title={Anatomy of an enduring gender gap: The evolution of women’s participation in computer science},
+  author={Sax, Linda J and Lehman, Kathleen J and Jacobs, Jerry A and Kanny, M Allison and Lim, Gloria and Monje-Paulson, Laura and Zimmerman, Hilary B},
+  journal={The Journal of Higher Education},
+  volume={88},
+  number={2},
+  pages={258--293},
+  year={2017},
+  publisher={Taylor \& Francis}
+}
+
+@article{catsambis1994path,
+  title={The path to math: Gender and racial-ethnic differences in mathematics participation from middle school to high school},
+  author={Catsambis, Sophia},
+  journal={Sociology of Education},
+  pages={199--215},
+  year={1994},
+  publisher={JSTOR}
+}
+
+@article{sosnowski2002women,
+  title={Women of color staking a claim for cyber domain: unpacking the racial/gender gap in Science, Mathematics, Engineering and Technology (SMET).},
+  author={Sosnowski, Nancy H},
+  year={2002}
+}
+
+@article{ong2011inside,
+  title={Inside the double bind: A synthesis of empirical research on undergraduate and graduate women of color in science, technology, engineering, and mathematics},
+  author={Ong, Maria and Wright, Carol and Espinosa, Lorelle and Orfield, Gary},
+  journal={Harvard Educational Review},
+  volume={81},
+  number={2},
+  pages={172--209},
+  year={2011},
+  publisher={Harvard Education Publishing Group}
+}
+
+@inproceedings{gousios2014lean,
+  title={Lean GHTorrent: GitHub data on demand},
+  author={Gousios, Georgios and Vasilescu, Bogdan and Serebrenik, Alexander and Zaidman, Andy},
+  booktitle={Proceedings of the 11th working conference on mining software repositories},
+  pages={384--387},
+  year={2014},
+  organization={ACM}
+}
+
+@article{kabat2014sex,
+  title={Sex-based harassment in employment: New insights into gender and context.},
+  author={Kabat-Farr, Dana and Cortina, Lilia M},
+  journal={Law and Human Behavior},
+  volume={38},
+  number={1},
+  pages={58},
+  year={2014},
+  publisher={Educational Publishing Foundation}
+}
+
+@article{terrell2017gender,
+  title={Gender differences and bias in open source: Pull request acceptance of women versus men},
+  author={Terrell, Josh and Kofink, Andrew and Middleton, Justin and Rainear, Clarissa and Murphy-Hill, Emerson and Parnin, Chris and Stallings, Jon},
+  journal={PeerJ Computer Science},
+  volume={3},
+  pages={e111},
+  year={2017},
+  publisher={PeerJ Inc.}
+}
+
+@article{ingold2016amazon,
+  title={Amazon doesn’t consider the race of its customers. Should It?},
+  author={Ingold, David and Soper, Spencer},
+  journal={Bloomberg News},
+  year={2016},
+  url={https://www.bloomberg.com/graphics/2016-amazon-same-day/} 
+}
+
+
 <!-- litreview_principles -->
 
 @misc{fjeld2019principled,
