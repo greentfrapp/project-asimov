@@ -266,6 +266,75 @@
   url={https://www.bloomberg.com/graphics/2016-amazon-same-day/} 
 }
 
+@article{harris2003suburban,
+  title={The suburban origins of redlining: A Canadian case study, 1935-54},
+  author={Harris, Richard and Forrester, Doris},
+  journal={Urban Studies},
+  volume={40},
+  number={13},
+  pages={2661--2686},
+  year={2003},
+  publisher={Sage Publications Sage UK: London, England}
+}
+
+@article{angwin2016facebook,
+  title={Facebook lets advertisers exclude users by race},
+  author={Angwin, Julia and Parris Jr, Terry},
+  journal={ProPublica blog},
+  volume={28},
+  year={2016},
+  url={https://www.propublica.org/article/facebook-lets-advertisers-exclude-users-by-race}
+}
+
+@article{streitfeld2000web,
+  title={On the web price tags blur: What you pay could depend on who you are},
+  author={Streitfeld, David},
+  journal={The Washington Post},
+  number={September 27},
+  year={2000},
+  url={https://www.washingtonpost.com/archive/politics/2000/09/27/on-the-web-price-tags-blur/14daea51-3a64-488f-8e6b-c1a3654773da/?utm_term=.60a070324fde}
+}
+
+@article{miller2014we,
+  title={What Do We Worry about When We Worry about Price Discrimination-The Law and Ethics of Using Personal Information for Pricing},
+  author={Miller, Akiva A},
+  journal={J. Tech. L. \& Pol'y},
+  volume={19},
+  pages={41},
+  year={2014},
+  publisher={HeinOnline}
+}
+
+@article{bar2018algorithmic,
+  title={Algorithmic Price Discrimination: When Demand Is a Function of Both Preferences and (Mis) Perceptions},
+  author={Bar-Gill, Oren},
+  journal={The Harvard John M. Olin Discussion Paper Series},
+  number={05},
+  pages={18--32},
+  year={2018}
+}
+
+@article{barocas2016big,
+  title={Big data's disparate impact},
+  author={Barocas, Solon and Selbst, Andrew D},
+  journal={Calif. L. Rev.},
+  volume={104},
+  pages={671},
+  year={2016},
+  publisher={HeinOnline}
+}
+
+@article{hernandez2009redlining,
+  title={Redlining revisited: mortgage lending patterns in Sacramento 1930--2004},
+  author={Hernandez, Jesus},
+  journal={International Journal of Urban and Regional Research},
+  volume={33},
+  number={2},
+  pages={291--313},
+  year={2009},
+  publisher={Wiley Online Library}
+}
+
 
 <!-- litreview_principles -->
 
