@@ -13,25 +13,27 @@ permalink: /writeup/
 ---
 
 {% include_relative writeup/introduction.md %} 
-<!-- 250 words -->
+<!-- 115/250 words -->
 
 {% include_relative writeup/objective.md %} 
-<!-- 641/500 words -->
+<!-- 601/500 words -->
 
 {% include_relative writeup/litreview.md %}
-<!-- 1500 words -->
+<!-- 1312/1500 words -->
 
 {% include_relative writeup/target_audience.md %}
-<!-- 500 words -->
+<!-- 435/500 words -->
 
 {% include_relative writeup/design_process.md %}
-<!-- 1500 words -->
+<!-- 1728/1500 words -->
 
 {% include_relative writeup/reflections.md %}
-<!-- 1000 words -->
+<!-- 929/1000 words -->
 
 {% include_relative writeup/conclusion.md %}
-<!-- 250 words -->
+<!-- 161/250 words -->
+
+<!-- TOTAL 5281 words -->
 
 ---
 

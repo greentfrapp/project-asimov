@@ -107,7 +107,11 @@ let dtCite = {
 	computed: {
 		citationKey: function() {
 			let citationIds = []
-			this.cite.split(',').forEach(c => citationIds.push('<a class="citekey" href="#' + c + '">' + bibliography[c].idx + '</a>'))
+      this.cite.split(',').forEach(c => {
+        // console.log(c)
+        // console.log(bibliography[c].idx)
+        citationIds.push('<a class="citekey" href="#' + c + '">' + bibliography[c].idx + '</a>')
+      })
 			return "[" + citationIds.join(",") + "]"
 		}
 	},
@@ -135,6 +139,7 @@ let dtBibliography = {
 	},
 	methods: {
 		bibliography_cite: function (ent, fancy){
+      console.log(ent)
 			if (ent){
 			  var cite =  "<b>" + ent.title + "</b> ";
 			  cite += link_string(ent) + "<br>";

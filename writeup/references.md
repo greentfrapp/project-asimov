@@ -174,6 +174,7 @@
 }
 
 @misc{codeforge2014,
+  author={CodeForge},
   title={China Programmer Investigation Report 2014},
   year={2014},
   publisher={CodeForge},
@@ -335,6 +336,187 @@
   publisher={Wiley Online Library}
 }
 
+@article{grosz2018embedded,
+  title={Embedded EthiCS: Integrating Ethics Broadly Across Computer Science Education},
+  author={Grosz, Barbara J and Grant, David Gray and Vredenburgh, Kate and Behrends, Jeff and Hu, Lily and Simmons, Alison and Waldo, Jim},
+  journal={arXiv preprint arXiv:1808.05686},
+  year={2018}
+}
+
+@article{norris2016uc,
+  title={UC Berkeley launches Center for Human-Compatible Artificial Intelligence},
+  author={Norris, Jeffrey},
+  year={2016},
+  publisher={University of California Berkeley},
+  url={https://news.berkeley.edu/2016/08/29/center-for-human-compatible-artificial-intelligence/}
+}
+
+@article{adams2019stanford,
+  title={Stanford University launches the Institute for Human-Centered Artificial Intelligence},
+  author={Adams, Amy},
+  year={2019},
+  publisher={Stanford University},
+  url={https://news.stanford.edu/2019/03/18/stanford_university_launches_human-centered_ai/}
+}
+
+@article{ma2019how,
+  title={How to Teach Kids about AI},
+  author={Ma, Michelle},
+  year={2019},
+  publisher={Wall Street Journal},
+  url={https://www.wsj.com/articles/how-to-teach-kids-about-ai-11557759541}
+}
+
+@article{brunia2019singapore,
+  author={Bhunia, Priyankar},
+  title={Singapore universities take steps to meet industry demand and prepare students for future economy},
+  year={2019},
+  publisher={OpenGov Asia},
+  url={https://www.opengovasia.com/singapore-universities-take-steps-to-meet-industry-demand-and-prepare-students-for-future-economy/}
+}
+
+@article{pease2009union,
+  title={Union College’s Rapaport Everyday Ethics Across the Curriculum Initiative},
+  author={Pease, Anastasia and Baker, Robert},
+  journal={Teaching Ethics},
+  volume={9},
+  number={2},
+  pages={5--24},
+  year={2009}
+}
+
+@article{butler2016tomorrow,
+  title={Tomorrow's world: technological change is accelerating today at an unprecedented speed and could create a world we can barely begin to imagine},
+  author={Butler, Declan},
+  journal={Nature},
+  volume={530},
+  number={7591},
+  pages={398--402},
+  year={2016},
+  publisher={Nature Publishing Group}
+}
+
+@article{rosa2003social,
+  title={Social acceleration: ethical and political consequences of a desynchronized high--speed society},
+  author={Rosa, Hartmut},
+  journal={Constellations},
+  volume={10},
+  number={1},
+  pages={3--33},
+  year={2003},
+  publisher={Wiley Online Library}
+}
+
+@article{conger2019san,
+  title={San Francisco Bans Facial Recognition Technology},
+  author={Conger, Kate and Fausset, Richard and Kovaleski, Serge F.},
+  publisher={The New York Times},
+  year={2019},
+  url={https://www.nytimes.com/2019/05/14/us/facial-recognition-ban-san-francisco.html}
+}
+
+@article{reidenberg2014privacy,
+  title={Privacy in public},
+  author={Reidenberg, Joel R},
+  journal={U. Miami L. Rev.},
+  volume={69},
+  pages={141},
+  year={2014},
+  publisher={HeinOnline}
+}
+
+@article{eisenstat2019real,
+  title={The Real Reason Tech Struggles With Algorithmic Bias},
+  author={Eisenstat, Yael},
+  year={2019},
+  publisher={Condé Nast},
+  url={https://www.wired.com/story/the-real-reason-tech-struggles-with-algorithmic-bias/}
+}
+
+@article{allcott2017social,
+  title={Social media and fake news in the 2016 election},
+  author={Allcott, Hunt and Gentzkow, Matthew},
+  journal={Journal of economic perspectives},
+  volume={31},
+  number={2},
+  pages={211--36},
+  year={2017}
+}
+
+@article{lazer2018science,
+  title={The science of fake news},
+  author={Lazer, David MJ and Baum, Matthew A and Benkler, Yochai and Berinsky, Adam J and Greenhill, Kelly M and Menczer, Filippo and Metzger, Miriam J and Nyhan, Brendan and Pennycook, Gordon and Rothschild, David and others},
+  journal={Science},
+  volume={359},
+  number={6380},
+  pages={1094--1096},
+  year={2018},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{cadwalladr2018revealed,
+  title={Revealed: 50 million Facebook profiles harvested for Cambridge Analytica in major data breach},
+  author={Cadwalladr, Carole and Graham-Harrison, Emma},
+  journal={The Guardian},
+  volume={17},
+  pages={2018},
+  year={2018}
+}
+
+@article{rosenberg2018trump,
+  title={How Trump consultants exploited the Facebook data of millions},
+  author={Rosenberg, Matthew and Confessore, Nicholas and Cadwalladr, Carole},
+  journal={The New York Times},
+  volume={17},
+  number={3},
+  pages={2018},
+  year={2018}
+}
+
+@article{friedman2009computer,
+  title={Computer-assisted medical diagnosis for rural Sub-Saharan Africa},
+  author={Friedman, Edward A},
+  journal={IEEE Technology and Society Magazine},
+  volume={28},
+  number={3},
+  pages={18--27},
+  year={2009},
+  publisher={IEEE}
+}
+
+@article{guo2018application,
+  title={The application of medical artificial intelligence technology in rural areas of developing countries},
+  author={Guo, Jonathan and Li, Bin},
+  journal={Health equity},
+  volume={2},
+  number={1},
+  pages={174--181},
+  year={2018},
+  publisher={Mary Ann Liebert, Inc. 140 Huguenot Street, 3rd Floor New Rochelle, NY 10801 USA}
+}
+
+@inproceedings{verma2018fairness,
+  title={Fairness definitions explained},
+  author={Verma, Sahil and Rubin, Julia},
+  booktitle={2018 IEEE/ACM International Workshop on Software Fairness (FairWare)},
+  pages={1--7},
+  year={2018},
+  organization={IEEE}
+}
+
+@article{wexler2019if,
+  title={The What-If Tool: Interactive Probing of Machine Learning Models},
+  author={Wexler, James and Pushkarna, Mahima and Bolukbasi, Tolga and Wattenberg, Martin and Viegas, Fernanda and Wilson, Jimbo},
+  journal={arXiv preprint arXiv:1907.04135},
+  year={2019}
+}
+
+@article{bellamy2018ai,
+  title={AI fairness 360: An extensible toolkit for detecting, understanding, and mitigating unwanted algorithmic bias},
+  author={Bellamy, Rachel KE and Dey, Kuntal and Hind, Michael and Hoffman, Samuel C and Houde, Stephanie and Kannan, Kalapriya and Lohia, Pranay and Martino, Jacquelyn and Mehta, Sameep and Mojsilovic, Aleksandra and others},
+  journal={arXiv preprint arXiv:1810.01943},
+  year={2018}
+}
 
 <!-- litreview_principles -->
 
@@ -486,6 +668,88 @@
   journal={arXiv preprint arXiv:1609.05807},
   year={2016},
   url={https://arxiv.org/abs/1609.05807}
+}
+
+<!-- Design Process -->
+
+@inproceedings{crawford2017trouble,
+  title={The trouble with bias},
+  author={Crawford, Kate},
+  booktitle={Conference on Neural Information Processing Systems, invited speaker},
+  url={https://www.youtube.com/watch?v=fMym_BKWQzk},
+  year={2017}
+}
+
+@article{suresh2019framework,
+  title={A Framework for Understanding Unintended Consequences of Machine Learning},
+  author={Suresh, Harini and Guttag, John V},
+  journal={arXiv preprint arXiv:1901.10002},
+  year={2019},
+  url = {https://arxiv.org/abs/1901.10002}
+}
+
+@article{barocas2016big,
+  title={Big data's disparate impact},
+  author={Barocas, Solon and Selbst, Andrew D},
+  journal={Calif. L. Rev.},
+  volume={104},
+  pages={671},
+  year={2016},
+  publisher={HeinOnline},
+  url={http://www.cs.yale.edu/homes/jf/BarocasSelbst.pdf}
+}
+
+@inproceedings{selbst2019fairness,
+  title={Fairness and abstraction in sociotechnical systems},
+  author={Selbst, Andrew D and Boyd, Danah and Friedler, Sorelle A and Venkatasubramanian, Suresh and Vertesi, Janet},
+  booktitle={Proceedings of the Conference on Fairness, Accountability, and Transparency},
+  pages={59-68},
+  year={2019},
+  organization={ACM},
+  url={http://friedler.net/papers/sts_fat2019.pdf}
+}
+
+@article{victor2011explorable,
+  title={Explorable explanations},
+  author={Victor, Bret},
+  journal={Bret Victor},
+  volume={10},
+  year={2011}
+}
+
+@article{litman2019we,
+  title={We Read 150 Privacy Policies. They Were an Incomprehensible Disaster.},
+  author={Litman-Navarro, Kevin},
+  journal={The New York Times},
+  publisher={The New York Times},
+  year={2019},
+  url={https://www.nytimes.com/interactive/2019/06/12/opinion/facebook-google-privacy-policies.html}
+}
+
+@article{caldwell2008web,
+  title={Web content accessibility guidelines (WCAG) 2.0},
+  author={Caldwell, Ben and Cooper, Michael and Reid, Loretta Guarino and Vanderheiden, Gregg},
+  journal={WWW Consortium (W3C)},
+  year={2008}
+}
+
+@inproceedings{jefferson2006accommodating,
+  title={Accommodating color blind computer users},
+  author={Jefferson, Luke and Harvey, Richard},
+  booktitle={Proceedings of the 8th international ACM SIGACCESS conference on Computers and accessibility},
+  pages={40--47},
+  year={2006},
+  organization={ACM}
+}
+
+<!-- Reflections -->
+
+@article{ding2019what,
+  title={What you may not understand about China’s AI scene},
+  author={Ding, Jeffrey},
+  publisher={MIT Technology Review},
+  year={2019},
+  url={https://www.technologyreview.com/f/613296/what-you-may-not-understand-about-chinas-ai-scene/}
 }
 
 </script>

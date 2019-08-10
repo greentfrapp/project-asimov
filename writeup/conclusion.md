@@ -1,1 +1,5 @@
 ## Conclusion
+
+Traditionally, analysis and evaluation of AI systems had focused on quantitative measures of accuracy and efficiency. AI practitioners are well-equipped to evaluate these metrics. But with the growing impact of AI systems on modern society, we need to look beynod these quantitative measures and start looking at the social and political impacts of these sytems. This primer serves to introduce AI practitioners to algorithmic bias, one out of many aspects of these social and political impacts.
+
+As an educational resource to algorithmic bias, our primer serves as an alternative to academic publications and published books. In contrast to academic publications, the primer is focused on being a straightforward and relatable introduction to algorithmic bias. As opposed to published books, the primer is easily updated and freely accessible. Finally, possible future work might introduce other topics under the AI ethics umbrella and cover more diverse examples and sources, which would enhance the relevance of the primer to a wider audience.
